@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>{% block tile %}{% endblock %}</title>
+	{% load staticfiles %}
+	<link href="{% static "css/reset.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "css/base.css" %}" rel="stylesheet" type="text/css" />
+	<link rel = "stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!--
+Made by Cypress 2018.05.15
+-->
+
+</head>
+<body>
+	<div id="all">
+		<div id="header">
+			<div id="main_log">
+				<a href="{% url 'home' %}"><img id="logo" src="{% static "photo/img_logo.png" %}"></a>
+			</div>	
+
+			<div id="aside">
+				<nav id="asideMenu" >
+					<ul> 
+						<li class="main_li">
+							<a class="menuLink" href="{% url 'home' %}">HOME</a>
+						</li>
+						<li class="main_li">
+							<a class="menuLink" href="#">About Us</a>
+						</li>
+						<li class="main_li">
+							<a class="menuLink" href="{% url 'home' %}">job</a>
+						</li>
+						
+
+						{% if user.is_active %}
+						<li class="" id="myname">
+							{{ user.name }}
+						</li>
+						<li class="" id="base_register">
+							<a class="menuLink" href="{% url 'logout_url' %}">logout</a>
+						</li>
+						{% else %}
+						<li class="" id="base_login">
+							<a class="menuLink" href="{% url 'login_url' %}">Login</a>
+						</li>
+						<li class="" id="base_register">
+							<a class="menuLink" href="{% url 'register' %}">Register</a>
+						</li>
+						{% endif %}
+					</ul> 
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	{% block sidebar %}{% endblock %}
+
+	{% block content %}{% endblock %}
+	
+	{% block footer %}
+	<div id="footer">
+		<div id ="set">
+			<div id = "foot_main">
+				<div id = "foot_content">				
+							<img id="email_logo" src="{% static "photo/envelope.png" %}"></a>
+							<p id = foot_title>thflatk2@naver.com</p>
+					
+							<img id="phone_logo" src="{% static "photo/phone.png" %}"></a>
+							<p id = foot_title>010-3158-7555</p>
+
+											
+							<img id="placeholder_logo" src="{% static "photo/placeholder.png" %}"></a>
+							<p id = foot_title>hello where am i?</p>
+				</div>
+				<p id =copy> Copyright &copy; 2018 - Swift. made by Cypress</p>
+			</div>
+		</div>
+		
+	</div>
+{% endblock %}
+	
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}register.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/register.css" %}{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript" src="{% static "js/register.js" %}"></script>
+
+<div id="content">
+
+    <h1 id=reg_title>회원가입</h1>
+
+    <form method="post" action="."> {% csrf_token %}
+
+    {% if form.errors %}
+    <p class="errornote">Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+    
+    <fieldset class="aligned" id="reg_field">
+    
+        <div class="form-row">
+		<input class="form-control" id="id_email" name="email" placeholder="이메일" required="True" type="email">
+        </div>
+
+        <div class="form-row">
+		<input class="form-control" id="id_name" name="name" placeholder="이름" required="True" type="text">
+        </div>
+
+        <div class="form-row">
+		<input class="form-control" id="id_password1" name="password1" placeholder="비밀번호" required="True" type="password">
+        </div>
+        
+        <div class="form-row">
+		<input class="form-control" id="id_password2" name="password2" placeholder="비밀번호 확인" required="True" type="password">
+        </div>
+        
+        <div class="form-row">
+		<input class="form-control" id="id_phone_number" name="phone_number" placeholder="핸드폰 번호" required="True" type="text">
+        </div>
+	<div class="form-row">
+		<input class="form-control" id="id_school" name="school" placeholder="학교" required="True" type="text">
+        </div>
+	<div class="form-row">
+		<p id="birth">생년월일</p>
+		<div class="styled-select">
+			<select id="id_birth_month" name="birth_month" class="custom-select sources" placeholder="Birth Month">
+				<option value="1">January</option>
+				<option value="2">February</option>
+				<option value="3">March</option>
+				<option value="4">April</option>
+				<option value="5">May</option>
+				<option value="6">June</option>
+				<option value="7">July</option>
+				<option value="8">August</option>
+				<option value="9">September</option>
+				<option value="10">October</option>
+				<option value="11">November</option>
+				<option value="12">December</option>
+			</select>
+  			<span class="fa fa-sort-desc"></span>
+		</div>
+
+		<div class="styled-select">
+			<select id="id_birth_day" name="birth_day" class="custom-select sources" placeholder="Birth Day">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+			</select>
+		  	<span class="fa fa-sort-desc"></span>
+		</div>
+
+		<div class="styled-select">
+			<select id="id_birth_year" name="birth_year" class="custom-select sources" placeholder="Birth Years">
+				<option value="2000">2000</option>
+				<option value="1999">1999</option>
+				<option value="1998">1998</option>
+				<option value="1997">1997</option>
+				<option value="1996">1996</option>
+				<option value="1995">1995</option>
+				<option value="1994">1994</option>
+				<option value="1993">1993</option>
+				<option value="1992">1992</option>
+				<option value="1991">1991</option>
+			</select>
+		  	<span class="fa fa-sort-desc"></span>
+		</div>	
+        </div>
+    </fieldset>
+    
+    <div class="submit-row">
+        <input id=register type="submit" value="가입하기"/>
+    </div>
+    
+    <script type="text/javascript">document.getElementById("id_email").focus();</script>
+    </form>
+
+</div>
+
+{% endblock %}
