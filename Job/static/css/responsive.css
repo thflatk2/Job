@@ -84,9 +84,15 @@ header {
     padding: 57px 60px;
 }
 .job-search-sec .job-search > h3 {
-    font-size: 30px;
-   
+    font-size: 50px;
 }
+
+.job-search > span{
+    width: 74%;
+    margin-left: 12%;
+}
+
+
 .how-to-sec > .how-to::before {
     display: none;
 }
@@ -235,7 +241,7 @@ header {
     float: left;
     width: 100%;
     padding: 0;
-    
+
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -258,13 +264,21 @@ header {
     width: 100%;
 }
 .job-search-sec .job-search > h3 {
-    font-size: 22px;
+    font-size: 35px;
+    position: relative;
+    top: -50px;
     margin: 0;
     line-height: 20px;
 }
 .job-search > span {
-    font-size: 14px;
+    font-size: 25px;
+    width: 80%;
+    margin-left: 9%;
+    position: relative;
+    top: -18px;
 }
+
+
 .job-search form {
     margin-top: 22px;
 }
@@ -473,6 +487,7 @@ select {
 
 
 @media (max-width:767px){
+
 .error-sec > p {
     display: none;
 }

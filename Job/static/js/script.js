@@ -1,7 +1,6 @@
 $(document).on('ready',function(){
     "use strict";
 
-    
     /* =============== Ajax Contact Form ===================== */
     $('#contactform').submit(function(){
         var action = $(this).attr('action');

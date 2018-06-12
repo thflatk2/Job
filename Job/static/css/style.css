@@ -178,6 +178,14 @@ header {
     width: 100%;
     z-index: 1;
 }
+
+.manual-block{
+    background-color: #FFFAFA;
+}
+
+.block-foot{
+    padding-bottom: 0px;
+}
 section{
     float:left;
     position:relative;
@@ -317,7 +325,7 @@ button{
     width: 14px;
     height: 14px;
     background: none;
-    border: 2px solid #ffffff;
+    border: 2px solid #F7B3B4;
     
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -334,7 +342,7 @@ button{
 .slick-dots li button {
     width: 6px;
     height: 6px;
-    background: #ffffff;
+    background: #F7B3B4;
     
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -350,7 +358,7 @@ button{
 }
 .slick-dots li.slick-active button {
     opacity: 1;
-    background: #ffffff;
+    background: #F7B3B4;
 }
 .slick-prev, .slick-next {
     background: none;
@@ -570,6 +578,7 @@ label::after {
 .main-slider-sec img {
     float: left;
     width: 100%;
+    height: 100%;
     opacity: 0.8;
 }
 .main-slider-sec::before {
@@ -834,7 +843,6 @@ label::after {
 
     left: 50%;
     margin-left: -230px;
-    margin-top: 140px;
     margin-bottom: 60px;
     text-align: center;
     padding: 40px 60px;
@@ -853,9 +861,9 @@ label::after {
 .account-popup > span {
     float: left;
     width: 100%;
-    font-size: 14px;
-    font-family: Open Sans;
-    font-size: 14px;
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: 700;
     color: #888888;
     margin-top: 20px;
 }
@@ -1076,7 +1084,7 @@ label::after {
     float: left;
     width: 100%;
     font-family: Lato;
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0px;
@@ -1086,14 +1094,14 @@ label::after {
 }
 .job-search > span {
     float: left;
-    width: 65%;
+    width: 103%;
     font-family: Lato;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 300;
     color: #ffffff;
     text-align: center;
     margin-top: 10px;
-    margin-left: 17%;
+    margin-left: -1%;
 }
 
 .job-field {
@@ -1220,15 +1228,14 @@ label::after {
     float: left;
     width: 100%;
     margin-top: 20px;
-    margin-left: 31%;
+    text-align: center;
 }
 
 .or-browser > a {
-    float: left;
     font-family: Lato;
-    font-size: 14px;
+    font-size: 17px;
     color: #ffffff;
-    margin-left: 15px; margin-right: 15px;
+    margin-right: 30px;
     text-align: center;
     
     -webkit-border-radius: 20px;
@@ -1288,30 +1295,46 @@ label::after {
 /* Heading */
 .heading {
     float: left;
-    width: 55%;
-    margin-left: 6%;
+    width: 100%;
     margin-top: 30px;
     margin-bottom: 40px;
+}
+
+.heading.light{
+    float: left;
+    width: 550px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 70px;
 }
 .heading > h2 {
     float: left;
     width: 100%;
     margin: 0;
     font-family: Lato;
-    font-weight: bold;
+    font-weight: 800;
     font-size: 48px;
-    color: #202020;
+    color: #6d6d6d;
     line-height: 57px;
+    text-align: center;
 }
 .heading span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
-    font-size: 16px;
+    font-family: Lato;
+    font-size: 17px;
     color: #888888;
-    margin-top: 8px;
     line-height: 29px;
+    margin-left: 18%;
+    top: 20px;
+    position: relative;
 }
+
+.manual{
+    float: left;
+    width: 100%;
+}
+
 .cat-sec {
     float: left;
     width: 100%;
@@ -1450,17 +1473,27 @@ label::after {
 /* Job Listing */
 .job-listings-sec {
     float: left;
-    width: 100%;
+    width: 35%;
+    margin-left: 15%;
+}
+
+.manual_des{
+    float: left;
+    width: 35%;
+    margin-left: 4%;
+}
+
+.manual_des > p{
+    font-size: 20px;
+    font-weight: 300;
+    font-family: Lato;
 }
 .job-listing {
     float: left;
     width: 100%;
     display: table;
-    border-bottom: 1px solid #e8ecec;
-    padding: 20px 0;
-    background: #ffffff;
-    border-left: 2px solid #ffffff;
     padding-right: 30px;
+    margin-bottom: 20px;
 }
 .job-title-sec {
     display: table-cell;
@@ -1469,7 +1502,7 @@ label::after {
 }
 .c-logo {
     float: left;
-    width: 130px;
+    width: 70px;
     text-align: center;
 }
 .c-logo img {
@@ -1479,13 +1512,13 @@ label::after {
 }
 .job-title-sec h3 {
     display: table;
-    font-size: 16px;
-    font-family: Open Sans;
+    font-size: 22px;
+    font-family: Lato;
+    font-weight: 300;
     color: #202020;
     margin: 0;
-        margin-bottom: 0px;
     margin-bottom: 7px;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 .job-title-sec span {
     float: left;
@@ -1583,19 +1616,20 @@ label::after {
     border-bottom-color: #ffffff;
 }
 .heading.light h2 {
-    color: #ffffff;
+    color: #515151;
+    text-align: unset;
 }
 .heading.light span {
     color: #ffffff;
 }
 .layer.color.light::before {
-    background: #8b91dd;
-    opacity: 0.9;
+    background: white;
+    opacity: 1;
 }
 .reviews {
     float: left;
     width: 100%;
-    background: #ffffff;
+    background: #ffcece;
     
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -1664,7 +1698,7 @@ label::after {
     transform: rotate(-180deg);
 
     line-height: 30px;
-    color: #8b91dd;
+    color: white;
 }
 .reviews-sec {
     float: left;
@@ -1852,10 +1886,10 @@ label::after {
 footer {
     float: left;
     width: 100%;
-    background: #24324a;
+    background: #F7B3B4;
 }
 .widget {
-    float: left;
+    float: right;
     width: 100%;
 }
 .about_widget {
@@ -1866,29 +1900,53 @@ footer {
     float: left;
     width: 100%;
     margin-bottom: 20px;
+
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    font-family: Lato;
+    color: #484848;
 }
 .about_widget > span {
     width: 100%;
     float: left;
-    font-family: Open Sans;
-    font-size: 13px;
-    color: #8a99b3;
-    line-height: 30px;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 20px;
+    color: #444444;
+    line-height: 36px;
 }
+
+.footer-info-title{
+    font-size: 20px;
+    color: #444444;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: Lato;
+}
+
+.footer-info-desc{
+    font-size: 20px;
+    color: #444444;
+    font-weight: 300;
+    margin-bottom: 15px;
+    font-family: Lato;
+}
+
+
 .social {
     float: left;
     width: 100%;
     margin-top: 20px;
 }
 .social a {
-    float: left;
     margin-right: 14px;
     font-size: 20px;
-    color: #8a99b3;
+    color: #666666;
 }
 
 .social i {
-    font-size: 16px;
+    font-size: 40px;
 }
 
 .link_widgets {
@@ -2054,12 +2112,12 @@ footer {
 
 
 .download_widget {
-    float: left;
-    width: 100%;
+    float: right;
+    width: 168px;
+    margin-top: 50px;
 }
 .download_widget a {
-    float: left;
-    width: 100%;
+    float: right;
     margin-bottom: 24px;
 }
 .link_widgets a:last-child {
@@ -2069,13 +2127,13 @@ footer {
     float: left;
     width: 100%;
     text-align: center;
-    background: #1d293e;
-    padding: 24px 0;
+    background: #F7B3B4;
+    padding-bottom: 24px;
 }
 .bottom-line span {
-    font-family: Open Sans;
-    font-size: 13px;
-    color: #6a7d9b;
+    font-family: Lato;
+    font-size: 16px;
+    color: #444444;
     line-height: 24px;
 }
 
@@ -10185,16 +10243,7 @@ header.white {
     background: no-repeat;
     z-index: 1;
 }
-.account-popup-area.static .account-popup {
-    margin-top: 0;
-    width: 430px;
-    padding: 0;
-}
-.account-popup-area.static .account-popup {
-    margin-top: 0;
-    width: 430px;
-    padding: 0;
-}
+
 .account-popup-area.static .account-popup > span {
     line-height: 24px;
     margin: 0;

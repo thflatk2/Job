@@ -1,130 +1,225 @@
-{% extends "base.html" %}
-
-{% block title %}register.html{% endblock %}
-
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Jobhunt</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
-{% block extrastyle %}{% static "css/register.css" %}{% endblock %}
 
-{% block content %}
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+	
+</head>
+<body>
 
-<script type="text/javascript" src="{% static "js/register.js" %}"></script>
+<div class="page-loading">
+	<img src="images/loader.gif" alt="" />
+	<span>Skip Loader</span>
+</div>
 
-<div id="content">
+<div class="theme-layout" id="scrollup">
+	
 
-    <h1 id=reg_title>회원가입</h1>
-
-    <form method="post" action="."> {% csrf_token %}
-
-    {% if form.errors %}
-    <p class="errornote">Wrong! Please correct the error(s) below.</p>
-    {% endif %}
-    
-    <fieldset class="aligned" id="reg_field">
-    
-        <div class="form-row">
-		<input class="form-control" id="id_email" name="email" placeholder="이메일" required="True" type="email">
-        </div>
-
-        <div class="form-row">
-		<input class="form-control" id="id_name" name="name" placeholder="이름" required="True" type="text">
-        </div>
-
-        <div class="form-row">
-		<input class="form-control" id="id_password1" name="password1" placeholder="비밀번호" required="True" type="password">
-        </div>
-        
-        <div class="form-row">
-		<input class="form-control" id="id_password2" name="password2" placeholder="비밀번호 확인" required="True" type="password">
-        </div>
-        
-        <div class="form-row">
-		<input class="form-control" id="id_phone_number" name="phone_number" placeholder="핸드폰 번호" required="True" type="text">
-        </div>
-	<div class="form-row">
-		<input class="form-control" id="id_school" name="school" placeholder="학교" required="True" type="text">
-        </div>
-	<div class="form-row">
-		<p id="birth">생년월일</p>
-		<div class="styled-select">
-			<select id="id_birth_month" name="birth_month" class="custom-select sources" placeholder="Birth Month">
-				<option value="1">January</option>
-				<option value="2">February</option>
-				<option value="3">March</option>
-				<option value="4">April</option>
-				<option value="5">May</option>
-				<option value="6">June</option>
-				<option value="7">July</option>
-				<option value="8">August</option>
-				<option value="9">September</option>
-				<option value="10">October</option>
-				<option value="11">November</option>
-				<option value="12">December</option>
-			</select>
-  			<span class="fa fa-sort-desc"></span>
+	<div class="responsive-header">
+		<div class="responsive-menubar">
+			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+			<div class="menu-resaction">
+				<div class="res-openmenu">
+					<img src="{% static "images/icon.png" %}" alt="" /> Menu
+				</div>
+				<div class="res-closemenu">
+					<img src="{% static "images/icon2.png" %}" alt="" /> Close
+				</div>
+			</div>
 		</div>
-
-		<div class="styled-select">
-			<select id="id_birth_day" name="birth_day" class="custom-select sources" placeholder="Birth Day">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-				<option value="13">13</option>
-				<option value="14">14</option>
-				<option value="15">15</option>
-				<option value="16">16</option>
-				<option value="17">17</option>
-				<option value="18">18</option>
-				<option value="19">19</option>
-				<option value="20">20</option>
-				<option value="21">21</option>
-				<option value="22">22</option>
-				<option value="23">23</option>
-				<option value="24">24</option>
-				<option value="25">25</option>
-				<option value="26">26</option>
-				<option value="27">27</option>
-				<option value="28">28</option>
-				<option value="29">29</option>
-				<option value="30">30</option>
-				<option value="31">31</option>
-			</select>
-		  	<span class="fa fa-sort-desc"></span>
+		<div class="responsive-opensec">
+			<div class="btn-extars">
+				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+				<ul class="account-btns">
+					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
+					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
+				</ul>
+			</div><!-- Btn Extras -->
+			<form class="res-search">
+				<input type="text" placeholder="Job title, keywords or company name" />
+				<button type="submit"><i class="la la-search"></i></button>
+			</form>
+			<div class="responsivemenu">
+				<ul>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Life in Korea</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Employers</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Candidates</a>
+						</li>
+					</ul>
+			</div>
 		</div>
+	</div>
 
-		<div class="styled-select">
-			<select id="id_birth_year" name="birth_year" class="custom-select sources" placeholder="Birth Years">
-				<option value="2000">2000</option>
-				<option value="1999">1999</option>
-				<option value="1998">1998</option>
-				<option value="1997">1997</option>
-				<option value="1996">1996</option>
-				<option value="1995">1995</option>
-				<option value="1994">1994</option>
-				<option value="1993">1993</option>
-				<option value="1992">1992</option>
-				<option value="1991">1991</option>
-			</select>
-		  	<span class="fa fa-sort-desc"></span>
-		</div>	
-        </div>
-    </fieldset>
-    
-    <div class="submit-row">
-        <input id=register type="submit" value="가입하기"/>
-    </div>
-    
-    <script type="text/javascript">document.getElementById("id_email").focus();</script>
-    </form>
+	<header class="gradient">
+		<div class="menu-sec">
+			<div class="container">
+				<div class="logo">
+					<a href="index.html" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
+				</div><!-- Logo -->
+				<div class="btn-extars">
+					<ul class="account-btns">
+						<li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
+					</ul>
+				</div><!-- Btn Extras -->
+				<nav>
+					<ul>
+						<li class="menu-item-has">
+							<a href="#" title="">Job</a>
+						</li>
+						<li class="menu-item-has">
+							<a href="#" title="">How it works</a>
+						</li>
+						<li class="menu-item-has">
+							<a href="#" title="">Life in Korea</a>
+						</li>
+					</ul>
+				</nav><!-- Menus -->
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<div class="block remove-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="account-popup-area signup-popup-box static">
+							<div class="account-popup">
+								<h3>Sign Up</h3>
+								<div class="select-user">
+									<span>Candidate</span>
+									<span>Employer</span>
+								</div>
+								<form>
+									<div class="cfield">
+										<input type="text" placeholder="Username" />
+										<i class="la la-user"></i>
+									</div>
+									<div class="cfield">
+										<input type="password" placeholder="********" />
+										<i class="la la-key"></i>
+									</div>
+									<div class="cfield">
+										<input type="text" placeholder="Email" />
+										<i class="la la-envelope-o"></i>
+									</div>
+									<div class="dropdown-field">
+										<select data-placeholder="Please Select Specialism" class="chosen">
+											<option>Web Development</option>
+											<option>Web Designing</option>
+											<option>Art & Culture</option>
+											<option>Reading & Writing</option>
+										</select>
+									</div>
+									<div class="cfield">
+										<input type="text" placeholder="Phone Number" />
+										<i class="la la-phone"></i>
+									</div>
+									<button type="submit">Signup</button>
+								</form>
+								<div class="extra-login">
+									<span>Or</span>
+									<div class="login-social">
+										<a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+										<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+									</div>
+								</div>
+							</div>
+						</div><!-- SIGNUP POPUP -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="block block-foot">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 column">
+						<div class="widget">
+							<div class="about_widget">
+								<div class="logo">
+                                    <span>LOKA 101</span>
+								</div>
+								<span>Life in Korea</span>
+								<span>Job Board</span>
+								<span>Job-landing Rewards</span>
+                                <span>SIM Service</span>
+                                <span>Blog</span>
+
+							</div><!-- About Widget -->
+						</div>
+					</div>
+
+					<div class="col-lg-6 column">
+						<div class="widget">
+							<div class="download_widget">
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Phone</p>
+                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                </div>
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Email</p>
+                                    <p class="footer-info-desc">info@loka101.com</p>
+                                </div>
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Kakao</p>
+                                    <p class="footer-info-desc">username</p>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-line">
+            <div class="social">
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
+                <a href="#" title=""><i class="fa fa-behance"></i></a>
+            </div>
+			<span>© 2018 Loka101 All rights reserved.</span>
+			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+		</div>
+	</footer>
 
 </div>
 
-{% endblock %}
+
+<script src="{% static "js/jquery.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/modernizr.js" %}" type="text/javascript"></script>
+<script src="{% static "js/script.js" %}" type="text/javascript"></script>
+<script src="{% static "js/wow.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/slick.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/parallax.js" %}" type="text/javascript"></script>
+<script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
+<script src="{% static "js/maps2.js" %}"  type="text/javascript"></script>
+<script src="{% static "js/jquery.scrollbar.min.js" %}"  type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
+
+</body>
+</html>
+
