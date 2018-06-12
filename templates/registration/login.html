@@ -23,7 +23,7 @@
 <body>
 
 <div class="page-loading">
-	<img src="images/loader.gif" alt="" />
+	<img src="{% static "images/loader.gif" %}"  alt="" />
 	<span>Skip Loader</span>
 </div>
 
@@ -83,7 +83,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="#" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Job</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="#" title="">How it works</a>

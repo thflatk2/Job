@@ -620,6 +620,7 @@ label::after {
     position: absolute;
     left: 0;
     top: 0;
+    background-color: #ffcece;
     width: 100%;
     z-index: 12;
 }
@@ -4380,41 +4381,11 @@ footer.style3 span, footer.style3 a {
     font-size: 30px;
 }
 
-.inner-header::before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    z-index: -1;
-    
-    background: rgb(139,145,221);
-    background: -moz-linear-gradient(45deg,  rgba(139,145,221,1) 0%, rgba(16,25,93,1) 71%, rgba(16,25,93,1) 100%);
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(139,145,221,1)), color-stop(71%,rgba(16,25,93,1)), color-stop(100%,rgba(16,25,93,1)));
-    background: -webkit-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    background: -o-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    background: -ms-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    background: linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );
-    opacity: 0.8;
-}
-.inner-header::after {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    background-image: url('../images/lines.png');
-    z-index: 0;
-    opacity: 0.14;
-}
 .inner-header {
     float: left;
     width: 100%;
     position: relative;
-    padding-top: 240px; padding-bottom: 15px;
+    padding-top: 120px; padding-bottom: 15px;
     z-index: 0;
 }
 .inner-header.wform .job-search-sec {
@@ -4601,14 +4572,13 @@ section.overlape {
 .inner-header > h3 {
     float: left;
     width: 100%;
+    font-family: Lato;
     position: relative;
     z-index: 1;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 30px;
+    color: #000000;
+    font-size: 22px;
     text-align: center;
     margin: 0;
-    margin-bottom: 50px;
 }
 .search_widget_job {
     float: left;
@@ -5845,8 +5815,8 @@ aside .widget.border:first-child {
     border-bottom: 1px solid #e8ecec;
 }
 .job-head-wide .apply-thisjob {
-    background: #9fa4e1;
-    border: 2px solid #9fa4e1;
+    background: #ED9FA0;
+    border: 2px solid #ED9FA0;
     
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -5955,12 +5925,13 @@ aside .widget.border:first-child {
     -o-border-radius: 30px;
     border-radius: 30px;
 
-    background: #424f95;
+    background: #ED9FA0;
     font-size: 18px;
-    font-family: Open Sans;
+    font-family: Lato;
+    font-weight: 700;
     padding: 16px 10px;
     margin-bottom: 15px;
-    border: 2px solid #424f95;
+    border: 2px solid #ED9FA0;
 }
 .quick-form-job form > span {
     float: left;
@@ -6015,12 +5986,12 @@ aside .widget.border:first-child {
     padding-left: 17px;
     position: relative;
 }
-.emply-pstn {
+.emply-pstn > i{
     position: absolute;
     right: 0;
     top: 0;
-    color: #8b91dd;
-    font-size: 13px;
+    color: #ffcece;
+    font-size: 22px;
 }
 .emply-list-info > h3 {
     float: left;
@@ -6136,7 +6107,7 @@ aside .widget.border:first-child {
     -o-box-shadow: none;
     box-shadow: none;
 
-    border-color: #e6e7ef;
+    border-color: #ffcece;
 }
 .emply-list-sec.style2 .emply-list-thumb > a img {
     -webkit-border-radius: 8px;
@@ -10748,8 +10719,8 @@ header.style5 .post-job-btn:hover {
 }
 .job-head-wide .apply-thisjob:hover {
     background: transparent;
-    border-color: #9fa4e1;
-    color: #9fa4e1;
+    border-color: #E16F91;
+    color: #E16F91;
 }
 
 .apply-thisjob:hover {
@@ -10770,9 +10741,10 @@ header.style5 .post-job-btn:hover {
 }
 .quick-form-job form button:hover {
     background: transparent;
-    border: 2px solid #424f95;
-    color: #424f95;
+    border: 2px solid #ED9FA0;
+    color: #ED9FA0;
 }
+
 .emply-text > ul > li:hover::before {
     background: #fb236a;
     width: 20px;

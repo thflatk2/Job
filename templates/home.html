@@ -23,7 +23,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 </head>
-<>
 
 <div class="page-loading">
 	<img src="{% static "images/loader.gif" %}"  alt="" />
@@ -86,7 +85,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="#" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Job</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="#" title="">How it works</a>
