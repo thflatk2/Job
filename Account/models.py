@@ -9,7 +9,7 @@ from hashlib import sha1, md5
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, name, country, birth, gender, password=None):
+    def create_user(self, email, name, phone, type,password=None):
         """
         주어진 이메일, 닉네임, 비밀번호 등 개인정보로 User 인스턴스 생성
         """
@@ -19,16 +19,15 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             name=name,
-            country= country,
-            birth= birth,
-            gender=gender,
+            phone=phone,
+            type=type,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, name, country, birth, gender, password):
+    def create_superuser(self, email, name, phone, type, password):
         """
         주어진 이메일, 폰넘버,네임, 비밀번호 등 개인정보로 User 인스턴스 생성
         단, 최상위 사용자이므로 권한을 부여한다. 
@@ -37,9 +36,8 @@ class UserManager(BaseUserManager):
             email=email,
             password=password,
             name=name,
-            country = country,
-            birth=birth,
-            gender=gender,
+            phone=phone,
+            type=type,
         )
 
         user.is_superuser = True
@@ -58,17 +56,19 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=30,
         unique=True,
     )
-    country = models.CharField(
-        verbose_name=_('Country'),
+    phone = models.CharField(
+        verbose_name=_('Phone'),
+        max_length=18,
+        unique=True,
+        default=0
+        #unique=True
+    )
+    type = models.CharField(
+        verbose_name=_('Type'),
         max_length=18,
         #unique=True
     )
-    birth = models.DateField(
-	verbose_name=_('Birthday'),
-    )
-    gender = models.BooleanField(
-	verbose_name=_('Gender'),
-    )
+
     is_active = models.BooleanField(
         verbose_name=_('Is active'),
         default=True,
@@ -86,7 +86,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name','country', 'birth', 'gender']
+    REQUIRED_FIELDS = ['name','phone','type']
 
     class Meta:
         verbose_name = _('user')
@@ -103,42 +103,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         # The user is identified by their email address
         return self.email
-
-    def set_password(self, raw_password):
-        # Opencart의 salt 값은 9자리의 alphanumeric 문자열
-        salt = md5(os.urandom(128)).hexdigest()[:9]
-
-        # Opencart PHP 프로그램의 비밀번호 암호화 알고리즘
-        hashed = sha1(
-            (salt + sha1(
-                (salt + sha1(
-                    raw_password.encode('utf8')
-                ).hexdigest()).encode('utf8')
-            ).hexdigest()).encode('utf8')
-        ).hexdigest()
-
-        self.salt = salt
-        self.password = hashed
-
-    def check_password(self, raw_password):
-        try:
-            user = User.objects.get(email=self.email)
-
-            hashed = sha1(
-                (user.salt + sha1(
-                    (user.salt + sha1(
-                        raw_password.encode('utf8')
-                    ).hexdigest()).encode('utf8')
-                ).hexdigest()).encode('utf8')
-            ).hexdigest()
-
-            if user.password == hashed:
-                return True
-            else:
-                return False
-
-        except User.DoesNotExist:
-            return False
 
     @property
     def is_staff(self):

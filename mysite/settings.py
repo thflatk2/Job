@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'Job',
 ]
 
-AUTHENTICATION_BACKENDS = ('Account.backends.OpencartBackend',)
+#AUTHENTICATION_BACKENDS = ('Account.backends.OpencartBackend',)
 
 #비밀번호 까먹었을 때 이메일 인증 처리
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -1,5 +1,4 @@
 from hashlib import sha1
-
 from .models import User
 
 

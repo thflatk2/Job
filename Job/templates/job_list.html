@@ -143,83 +143,21 @@
 
 				 	<div class="col-lg-9 column">
 				 		<div class="emply-list-sec style2">
-				 			<div class="emply-list" onclick="location.href='{% url 'Job:detail' %}'">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">King LLC</a></h3>
-				 					<span>Accountancy, Human Resources</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
-				 			<div class="emply-list">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">Telimed</a></h3>
-				 					<span>Accounting Assistant, Arts, Design, and Media</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
-				 			<div class="emply-list">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">Ucess</a></h3>
-				 					<span>Arts, Design, and Media, Web Developer</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
-				 			<div class="emply-list">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">Airbnb</a></h3>
-				 					<span>Arts, Design, and Media</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
-				 			<div class="emply-list">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">TeraPlaner</a></h3>
-				 					<span>Financial Services, Sales & Marketing</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
-				 			<div class="emply-list">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">King LLC</a></h3>
-				 					<span>Accountancy, Human Resources</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
-				 			<div class="emply-list">
-				 				<div class="emply-list-thumb">
-				 					<a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
-				 				</div>
-				 				<div class="emply-list-info">
-				 					<div class="emply-pstn"><i class="far fa-star"></i></div>
-				 					<h3><a href="#" title="">King LLC</a></h3>
-				 					<span>Accountancy, Human Resources</span>
-				 					<p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
-				 				</div>
-				 			</div><!-- Employe List -->
+
+                            {% for job in Jobs %}
+                                <div class="emply-list" onclick="location.href='{% url 'Job:detail' job.pk %}'">
+                                    <div class="emply-list-thumb">
+                                        <a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
+                                    </div>
+                                    <div class="emply-list-info">
+                                        <div class="emply-pstn"><i class="far fa-star"></i></div>
+                                        <h3><a href="#" title="">{{ job.school_name }}</a></h3>
+                                        <span>Accountancy, Human Resources</span>
+                                        <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
+                                    </div>
+                                </div><!-- Employe List -->
+                            {% endfor %}
+
 				 			<div class="pagination">
 								<ul>
 									<li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Prev</a></li>

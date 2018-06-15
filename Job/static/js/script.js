@@ -71,6 +71,10 @@ $(document).on('ready',function(){
         $(this).addClass('active');
     });
 
+    $('.Applicant').on('click',function () {
+        $('#id_type').val("Applicant")
+    })
+
     /* Tabs Sec */
     $('.tab-sec li a').on("click", function(){
         var tab_id = $(this).attr('data-tab');
@@ -258,7 +262,6 @@ $(document).on('ready',function(){
     $('.manage-jobs-sec > table').parent().addClass('addscroll')
 
 });
-
 
 
 $(window).on('load',function(){

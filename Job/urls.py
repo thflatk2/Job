@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.JobListView.as_view(), name='list'),
-    url(r'^detail/$', views.JobDetailView.as_view(), name='detail'),
-
+    url(r'^detail/(?P<pk>\d+)/$', views.JobDetailView.as_view(), name='detail'),
+    url(r'^upload/$', views.post_new, name='upload'),
+    url(r'^like/$', views.job_like, name='job_like'),
 ]
 

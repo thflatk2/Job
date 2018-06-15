@@ -2,6 +2,11 @@ import logging
 
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.utils.encoding import force_text
+from django.utils.http import urlsafe_base64_decode
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from .models import User
+
 
 # Create your views here.
 

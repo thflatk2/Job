@@ -3,7 +3,12 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.forms import AuthenticationForm, AdminPasswordChangeForm
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
-
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.mail import EmailMessage
 
 from .models import User, UserManager
 
@@ -32,13 +37,24 @@ class UserCreationForm(forms.ModelForm):
             }
         )
     )
-    country = forms.CharField(
-        label=_('Country'),
+    phone = forms.CharField(
+        label=_('Phone'),
         required=True,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': _('Country'),
+                'placeholder': _('Phone'),
+                'required': 'True',
+            }
+        )
+    )
+    type = forms.CharField(
+        label=_('Type'),
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': _('Type'),
                 'required': 'True',
             }
         )
@@ -54,7 +70,7 @@ class UserCreationForm(forms.ModelForm):
         )
     )
     password2 = forms.CharField(
-        label=_('Password confirmati '),
+        label=_('Password confirmation'),
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
@@ -63,25 +79,10 @@ class UserCreationForm(forms.ModelForm):
             }
         )
     )
-    birth = forms.DateField(
-	label=_('Birth'),
-	widget=forms.SelectDateWidget())
-
-    gender = forms.BooleanField(
-	label=_('Gender'),
-	widget=forms.CheckboxInput(
-		attrs={
-			'class': 'form-control',
-			'required' : 'True',
-		}
-	)
-    )
-
 
     class Meta:
         model = User
-        fields = ('email', 'name','country', 'birth', 'gender')
-        #fields = ('email',)
+        fields = ('email', 'name','phone','type')
 
     def clean_password2(self):
         # 두 비밀번호 입력 일치 확인
@@ -109,13 +110,14 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password','name','country', 'birth', 'gender','is_active', 'is_superuser')
+        fields = ('email', 'password','name','phone', 'type','is_active', 'is_superuser')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
         # This is done here, rather than on the field, because the
         # field does not have access to the initial value
         return self.initial["password"]
+
 
 class PasswordChangeForm(AdminPasswordChangeForm):
 
@@ -135,10 +137,38 @@ class PasswordChangeForm(AdminPasswordChangeForm):
             }
         )
     )
-    
+
 
 class WebUserCreationForm(UserCreationForm):
-    terms = forms.BooleanField(
+    def __init__(self, *args, **kwargs):
+        # important to "pop" added kwarg before call to parent's constructor
+#        self.request = kwargs.pop('request')
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        user = super(WebUserCreationForm, self).save(commit=False)
+
+        if commit:
+            user.is_active = False
+            user.save()
+
+            # Send user activation mail
+            #current_site = get_current_site(self.request)
+            #subject = (_('Welcome To %s! Confirm Your Email') % current_site.name)
+            subject = 'Welcome To Loka! Confirm Your Email'
+            message = render_to_string('registration/user_activate_email.html', {
+                'user': user,
+           #     'domain': current_site.domain,
+                'domain' : 'localhost:8000',
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': PasswordResetTokenGenerator().make_token(user),
+            })
+            email = EmailMessage(subject, message, to=[user.email])
+            email.send()
+        return user
+
+
+''' terms = forms.BooleanField(
         label=_('Terms of service'),
         widget=forms.CheckboxInput(
             attrs={
@@ -160,33 +190,7 @@ class WebUserCreationForm(UserCreationForm):
             'required': _('You must agree to the Privacy policy to sign up'),
         }
     )
-
-    def __init__(self, *args, **kwargs):
-        # important to "pop" added kwarg before call to parent's constructor
-        self.request = kwargs.pop('request')
-        super(UserCreationForm, self).__init__(*args, **kwargs)
-
-    def save(self, commit=True):
-        user = super(WebUserCreationForm, self).save(commit=False)
-
-        if commit:
-            user.is_active = False
-            user.save()
-
-            # Send user activation mail
-            current_site = get_current_site(self.request)
-            subject = (_('Welcome To %s! Confirm Your Email') % current_site.name)
-            message = render_to_string('registration/user_activate_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': PasswordResetTokenGenerator().make_token(user),
-            })
-            email = EmailMessage(subject, message, to=[user.email])
-            email.send()
-
-        return user
-
+'''
 
 #login 폼
 '''
