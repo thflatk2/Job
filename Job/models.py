@@ -8,10 +8,6 @@ from django.conf import settings
 
 # Create your models here.
 
-
-
-
-
 class Job_info(models.Model):
     school_name = models.CharField(max_length=30)
     start_date = models.DateField(default=timezone.now())
@@ -61,24 +57,49 @@ class Job_info(models.Model):
 class Job_Apply(models.Model):
     user = models.ForeignKey(User)
     job = models.ForeignKey(Job_info)
+    last_name = models.CharField(max_length=10)
+    first_name = models.CharField(max_length=20)
     email = models.CharField(max_length = 25)
-    country = models.CharField(max_length = 20)
+    skyid = models.CharField(max_length=25)
+
+    TOOL_CHOICES = (
+        ('USA', 'USA'),
+        ('Canada', 'Canada'),
+        ('UK', 'UK'),
+        ('Ireland', 'Ireland'),
+        ('South Africa', 'South Africa'),
+        ('New Zealand', 'New Zealand'),
+        ('Australia', 'Australia'),
+    )
+
+    country = models.CharField(max_length = 20, choices=TOOL_CHOICES)
+    gender = models.CharField(max_length=10)
+    cur_residence = models.CharField(max_length=30)
     birth = models.CharField(max_length = 20)
-    gender = models.BooleanField()
+    degree = models.CharField(max_length = 30)
+    start_date = models.DateTimeField(default=timezone.now)
+
+    CLAS_CHOICES = (
+        ('Kindergarten', 'Kindergarten'),
+        ('Elementary', 'Elementary'),
+        ('Middle', 'Middle'),
+    )
+    prefer_class = models.CharField(max_length = 15, choices=CLAS_CHOICES, default='A')
+
+    resume = models.FileField()
+
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.created_date = timezone.now()
+        self.save()
+'''
     address = models.CharField(max_length = 30)
     medical = models.BooleanField()
     family = models.IntegerField()
 
-    TOOL_CHOICES = (
-        ('BA', 'BA'),
-        ('history', 'History'),
-        ('change in capital', 'Change in Capital'),
-        ('share with voting right', 'Share with Voting Right'),
-        ('dividend', 'Dividend'),
-    )
 
-    education = models.CharField(max_length = 15, choices=TOOL_CHOICES, default='A')
-    degree = models.CharField(max_length = 20)
+    education = models.CharField(max_length = 15, default='A')
 
     QUAL_CHOICES = (
         ('aaa', 'Business Scope'),
@@ -104,19 +125,11 @@ class Job_Apply(models.Model):
     )
     office = models.CharField(max_length = 15, choices=OFFI_CHOICES, default='A')
 
-    start_date = models.DateTimeField(default=timezone.now)
     wanted_salary = models.IntegerField()
     prefer_location = models.CharField(max_length = 15)
     second_location = models.CharField(max_length = 15)
 
-    CLAS_CHOICES = (
-        ('aaa', 'Business Scope'),
-        ('history', 'History'),
-        ('change in capital', 'Change in Capital'),
-        ('share with voting right', 'Share with Voting Right'),
-        ('dividend', 'Dividend'),
-    )
-    prefer_class = models.CharField(max_length = 15, choices=CLAS_CHOICES, default='A')
+
     freind = models.BooleanField()
     freind_name = models.CharField(max_length=15)
 
@@ -150,12 +163,7 @@ class Job_Apply(models.Model):
         ('dividend', 'Dividend'),
     )
     korean_level = models.CharField(max_length=15, choices=KORE_CHOICES, default='A')
-
-    created_date = models.DateTimeField(default=timezone.now)
-
-    def publish(self):
-        self.created_date = timezone.now()
-        self.save()
+'''
 
 
 class Like(models.Model):

@@ -3,7 +3,6 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from Account.forms import UserCreationForm,WebUserCreationForm
 from django.core.urlresolvers import reverse_lazy
-from .mixins import AjaxFormMixin
 
 
 class HomeView(TemplateView):

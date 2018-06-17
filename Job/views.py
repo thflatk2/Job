@@ -1,12 +1,15 @@
 import json
 from django.views.generic.base import TemplateView
 from .forms import Job_InfoForm
-from .models import Job_info
+from .models import Job_info, Job_Apply
 from django.utils import timezone
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
+from django.views.generic.edit import CreateView
+from django.core.urlresolvers import reverse_lazy
+
 
 
 # Create your views here.
@@ -23,6 +26,12 @@ class JobListView(TemplateView):
 
 class JobDetailView(TemplateView):
     template_name = 'job_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(JobDetailView, self).get_context_data(**kwargs)
+        context['Jobs'] = Job_info.objects.get(pk=self.kwargs['pk'])
+
+        return context
 
 '''
 class JobUploadView(FormView):
@@ -51,6 +60,14 @@ def post_new(request):
     else:
         form = Job_InfoForm()
         return render(request, 'job_upload.html', {'form': form, })
+
+
+class JobApplyView(CreateView):
+    model = Job_Apply
+    fields = ['last_name','first_name', 'email', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree',
+              'start_date', 'prefer_class', 'resume', 'created_date', 'job', 'user']
+    template_name = 'job_apply.html'
+    success_url = reverse_lazy('Job:list')
 
 
 @login_required

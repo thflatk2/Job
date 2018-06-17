@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Jobhunt</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="CreativeLayers">
+{% load staticfiles %}
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+</head>
+<body>
+
+<div class="page-loading">
+	<img src="images/loader.gif" alt="" />
+	<span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+	<div class="responsive-header">
+		<div class="responsive-menubar">
+			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+			<div class="menu-resaction">
+				<div class="res-openmenu">
+					<img src="{% static "images/icon.png" %}" alt="" /> Menu
+				</div>
+				<div class="res-closemenu">
+					<img src="{% static "images/icon2.png" %}" alt="" /> Close
+				</div>
+			</div>
+		</div>
+		<div class="responsive-opensec">
+			<div class="btn-extars">
+				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+				<ul class="account-btns">
+					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
+					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
+				</ul>
+			</div><!-- Btn Extras -->
+			<form class="res-search">
+				<input type="text" placeholder="Job title, keywords or company name" />
+				<button type="submit"><i class="la la-search"></i></button>
+			</form>
+			<div class="responsivemenu">
+				<ul>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Life in Korea</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Employers</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Candidates</a>
+						</li>
+					</ul>
+			</div>
+		</div>
+	</div>
+
+	<header class="stick-top">
+		<div class="menu-sec">
+			<div class="container">
+				<div class="logo">
+					<a href="index.html" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
+				</div><!-- Logo -->
+				<div class="btn-extars">
+					<ul class="account-btns">
+						<li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
+					</ul>
+				</div><!-- Btn Extras -->
+				<nav>
+					<ul>
+						<li class="menu-item-has">
+							<a href="{% url 'Job:list' %}" title="">Job</a>
+						</li>
+						<li class="menu-item-has">
+							<a href="#" title="">How it works</a>
+						</li>
+						<li class="menu-item-has">
+							<a href="#" title="">Life in Korea</a>
+						</li>
+					</ul>
+				</nav><!-- Menus -->
+			</div>
+		</div>
+	</header>
+
+	<section class="overlape">
+		<div class="block no-padding">
+			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+			<div class="container fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="inner-header">
+							<h3>Welcome Tera Planer</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="block no-padding">
+			<div class="container">
+				 <div class="row no-gape">
+				 	<aside class="col-lg-3 column border-right">
+				 		<div class="widget">
+				 			<div class="tree_widget-sec">
+				 				<ul>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-file-text"></i>Company Profile</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-briefcase"></i>Manage Jobs</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-money"></i>Transactions</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-paper-plane"></i>Resumes</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-user"></i>Packages</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-file-text"></i>Post a New Job</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-flash"></i>Job Alerts</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li class="inner-child">
+				 						<a href="#" title=""><i class="la la-lock"></i>Change Password</a>
+				 						<ul>
+				 							<li><a href="#" title="">My Profile</a></li>
+				 							<li><a href="#" title="">Social Network</a></li>
+				 							<li><a href="#" title="">Contact Information</a></li>
+				 						</ul>
+				 					</li>
+				 					<li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
+				 				</ul>
+				 			</div>
+				 		</div>
+				 	</aside>
+				 	<div class="col-lg-9 column">
+				 		<div class="padding-left">
+					 		<div class="profile-title">
+					 			<h3>Post a New Job</h3>
+					 			<div class="steps-sec">
+					 				<div class="step active">
+					 					<p><i class="la la-info"></i></p>
+					 					<span>Information</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la la-cc-mastercard"></i></p>
+					 					<span>Package & Payments</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la  la-check-circle"></i></p>
+					 					<span>Done</span>
+					 				</div>
+					 			</div>
+					 		</div>
+					 		<div class="profile-form-edit">
+					 			<form>
+					 				<div class="row">
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Job Title</span>
+					 						<div class="pf-field">
+					 							<input type="text" placeholder="Designer" />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Description</span>
+					 						<div class="pf-field">
+					 							<textarea>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed severalnew methods for working with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer ollaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present</textarea>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Email</span>
+					 						<div class="pf-field">
+					 							<input type="text" />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Username</span>
+					 						<div class="pf-field">
+					 							<input type="text" />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Job Type</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Categories</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Offerd Salary</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Career Level</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Experience</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Gender</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Industry</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Qualification</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Application Deadline Date</span>
+					 						<div class="pf-field">
+					 							<input type="text" placeholder="01.11.207" />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Skill Requirments</span>
+					 						<div class="pf-field">
+						 						<ul class="tags">
+										           <li class="addedTag">Photoshop<span onclick="$(this).parent().remove();" class="tagRemove">x</span><input type="hidden" name="tags[]" value="Web Deisgn"></li>
+							            			<li class="tagAdd taglist">
+							              				 <input type="text" id="search-field">
+										            </li>
+												</ul>
+											</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Country</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">City</span>
+					 						<div class="pf-field">
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Web Development</option>
+													<option>Web Designing</option>
+													<option>Art & Culture</option>
+													<option>Reading & Writing</option>
+												</select>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Complete Address</span>
+					 						<div class="pf-field">
+					 							<textarea>Collins Street West, Victoria 8007, Australia.</textarea>
+					 						</div>
+					 					</div>
+
+					 				</div>
+					 			</form>
+					 		</div>
+					 		<div class="contact-edit">
+					 			<form>
+					 				<div class="row">
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Find On Map</span>
+					 						<div class="pf-field">
+					 							<input type="text" placeholder="Collins Street West, Victoria 8007, Australia." />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Latitude</span>
+					 						<div class="pf-field">
+					 							<input type="text" placeholder="41.1589654" />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Longitude</span>
+					 						<div class="pf-field">
+					 							<input type="text" placeholder="21.1589654" />
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<a href="#" title="" class="srch-lctn">Search Location</a>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Maps</span>
+					 						<div class="pf-map">
+					 							<div id="map_div"></div>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<button type="submit">Next</button>
+					 					</div>
+					 				</div>
+					 			</form>
+					 		</div>
+					 	</div>
+					</div>
+				 </div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="block">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 column">
+						<div class="widget">
+							<div class="about_widget">
+								<div class="logo">
+									<a href="#" title=""><img src="http://placehold.it/178x40" alt="" /></a>
+								</div>
+								<span>Collin Street West, Victor 8007, Australia.</span>
+								<span>+1 246-345-0695</span>
+								<span>info@jobhunt.com</span>
+								<div class="social">
+									<a href="#" title=""><i class="fa fa-facebook"></i></a>
+									<a href="#" title=""><i class="fa fa-twitter"></i></a>
+									<a href="#" title=""><i class="fa fa-linkedin"></i></a>
+									<a href="#" title=""><i class="fa fa-pinterest"></i></a>
+									<a href="#" title=""><i class="fa fa-behance"></i></a>
+								</div>
+							</div><!-- About Widget -->
+						</div>
+					</div>
+					<div class="col-lg-4 column">
+						<div class="widget">
+							<h3 class="footer-title">Frequently Asked Questions</h3>
+							<div class="link_widgets">
+								<div class="row">
+									<div class="col-lg-6">
+										<a href="#" title="">Privacy & Seurty </a>
+										<a href="#" title="">Terms of Serice</a>
+										<a href="#" title="">Communications </a>
+										<a href="#" title="">Referral Terms </a>
+										<a href="#" title="">Lending Licnses </a>
+										<a href="#" title="">Disclaimers </a>
+									</div>
+									<div class="col-lg-6">
+										<a href="#" title="">Support </a>
+										<a href="#" title="">How It Works </a>
+										<a href="#" title="">For Employers </a>
+										<a href="#" title="">Underwriting </a>
+										<a href="#" title="">Contact Us</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 column">
+						<div class="widget">
+							<h3 class="footer-title">Find Jobs</h3>
+							<div class="link_widgets">
+								<div class="row">
+									<div class="col-lg-12">
+										<a href="#" title="">US Jobs</a>
+										<a href="#" title="">Canada Jobs</a>
+										<a href="#" title="">UK Jobs</a>
+										<a href="#" title="">Emplois en Fnce</a>
+										<a href="#" title="">Jobs in Deuts</a>
+										<a href="#" title="">Vacatures China</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 column">
+						<div class="widget">
+							<div class="download_widget">
+								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
+								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-line">
+			<span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+		</div>
+	</footer>
+
+</div>
+
+
+
+<script src="{% static "js/jquery.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/modernizr.js" %}" type="text/javascript"></script>
+<script src="{% static "js/script.js" %}" type="text/javascript"></script>
+<script src="{% static "js/wow.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/slick.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/parallax.js" %}" type="text/javascript"></script>
+<script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
+<script src="{% static "js/jquery.scrollbar.min.js" %}"  type="text/javascript"></script>
+<script src="{% static "js/rslider.js" %}"  type="text/javascript"></script>
+
+
+
+</body>
+</html>
+
