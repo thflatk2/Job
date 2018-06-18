@@ -17,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	
 </head>
@@ -28,75 +29,6 @@
 </div>
 
 <div class="theme-layout" id="scrollup">
-	
-
-	<div class="responsive-header">
-		<div class="responsive-menubar">
-			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
-			<div class="menu-resaction">
-				<div class="res-openmenu">
-					<img src="{% static "images/icon.png" %}" alt="" /> Menu
-				</div>
-				<div class="res-closemenu">
-					<img src="{% static "images/icon2.png" %}" alt="" /> Close
-				</div>
-			</div>
-		</div>
-		<div class="responsive-opensec">
-			<div class="btn-extars">
-				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
-				<ul class="account-btns">
-					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
-					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
-				</ul>
-			</div><!-- Btn Extras -->
-			<form class="res-search">
-				<input type="text" placeholder="Job title, keywords or company name" />
-				<button type="submit"><i class="la la-search"></i></button>
-			</form>
-			<div class="responsivemenu">
-				<ul>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Life in Korea</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Employers</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Candidates</a>
-						</li>
-					</ul>
-			</div>
-		</div>
-	</div>
-
-	<header class="gradient">
-		<div class="menu-sec">
-			<div class="container">
-				<div class="logo">
-					<a href="index.html" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
-				</div><!-- Logo -->
-				<div class="btn-extars">
-					<ul class="account-btns">
-						<li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
-					</ul>
-				</div><!-- Btn Extras -->
-				<nav>
-					<ul>
-						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
-						</li>
-						<li class="menu-item-has">
-							<a href="#" title="">How it works</a>
-						</li>
-						<li class="menu-item-has">
-							<a href="#" title="">Life in Korea</a>
-						</li>
-					</ul>
-				</nav><!-- Menus -->
-			</div>
-		</div>
-	</header>
 
 	<section>
 		<div class="block remove-bottom">
@@ -104,7 +36,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="account-popup-area signup-popup-box static">
-							<div class="account-popup">
+							<div class="account-popup register">
 								<h3>Sign Up</h3>
 								<div class="select-user">
 									<span class="Applicant">Applicant</span>

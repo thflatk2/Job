@@ -103,7 +103,7 @@
 					<div class="col-lg-12">
 						<div class="inner-header">
 							<h3>Complete your profile now. Apply with one click and manage all your applications!</h3>
-
+                            <a href="{% url 'Job:upload' %}">12uhyhsf</a>
 						</div>
 					</div>
 				</div>
@@ -147,7 +147,7 @@
                             {% for job in Jobs %}
                                 <div class="emply-list" onclick="location.href='{% url 'Job:detail' job.pk %}'">
                                     <div class="emply-list-thumb">
-                                        <a href="#" title=""><img src="http://placehold.it/80x80" alt="" /></a>
+                                        <a href="#" title=""><img src="{{ job.house_pic.url }}" alt="" /></a>
                                     </div>
                                     <div class="emply-list-info">
                                         <div class="emply-pstn"><i class="far fa-star"></i></div>
