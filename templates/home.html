@@ -80,8 +80,12 @@
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<ul class="account-btns">
-						<li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
-					</ul>
+                        {% if user.is_active %}
+                            <li class="signup-popup"><a title="" href="{% url 'login_url' %}">My Page</a></li>
+		                {% else %}
+                            <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
+                        {% endif %}
+                    </ul>
 				</div><!-- Btn Extras -->
 				<nav>
 					<ul>

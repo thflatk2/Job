@@ -1,4 +1,4 @@
-import json
+import json, os
 from django.views.generic.base import TemplateView
 from .forms import Job_InfoForm
 from .models import Job_info, Job_Apply
@@ -7,8 +7,10 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, FormView
 from django.core.urlresolvers import reverse_lazy
+from Account.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -37,7 +39,7 @@ class JobDetailView(TemplateView):
 class JobUploadView(FormView):
     form_class = Job_InfoForm
     template_name = 'job_upload.html'
-
+ 
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
@@ -62,16 +64,17 @@ def post_new(request):
         return render(request, 'job_upload.html', {'form': form, })
 
 
-class JobApplyView(CreateView):
+class JobApplyView(LoginRequiredMixin, CreateView):
     model = Job_Apply
     fields = ['profile_image1', 'profile_image2', 'last_name','first_name', 'email', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree',
-              'start_date', 'prefer_class', 'resume', 'created_date', 'job', 'user']
+              'start_date', 'prefer_class', 'resume', 'created_date', 'job', 'user', 'letter' ,'introduction']
     template_name = 'job_apply.html'
     success_url = reverse_lazy('Job:list')
 
     def get_context_data(self, **kwargs):
         context = super(JobApplyView, self).get_context_data(**kwargs)
         context['Jobs'] = Job_info.objects.get(pk=self.kwargs['pk'])
+        context['user_name'] = User.objects.get(name=self.request.user.name)
 
         return context
 

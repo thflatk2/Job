@@ -8,4 +8,3 @@ urlpatterns = [
     url(r'^like/$', views.job_like, name='job_like'),
     url(r'^/(?P<pk>\d+)/add/$', views.JobApplyView.as_view(), name='apply')
 ]
-

@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^Job/', include('Job.urls', namespace='Job')),
 
     url(r'^accounts/login/$', auth_views.login,name = 'login_url'),
-    url(r'^accounts/login/done/$',HomeView.as_view(),name = 'login_done'),
+    url(r'^accounts/login/done/$', HomeView.as_view(),name = 'login_done'),
     url(r'^accounts/logout/$', auth_views.logout, {'next_page' :'/accounts/login/'},name = 'logout_url'),
     url(r'^accounts/password_change/$', auth_views.password_change,
         {'template_name': 'registration/password_change_form.html','post_change_redirect': '/accounts/password_change/done/'},

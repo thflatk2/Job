@@ -6606,6 +6606,14 @@ aside .widget.border:first-child {
     margin-bottom: 10px;
 }
 
+.row > h2{
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 65px;
+    margin-bottom: 20px;
+}
+
 .pf-field > p{
     margin-bottom: unset;
     margin-top: -40px;
@@ -6672,6 +6680,17 @@ aside .widget.border:first-child {
     padding: 10px 40px;
 }
 
+.upload-info > p{
+        top: 6px;
+    position: relative;
+    margin-left: 25px;
+    width: 500px;
+    float: left;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    height: 35px;
+}
+
 .upload-info > label{
         float: left;
     font-family: Lato;
@@ -6690,6 +6709,76 @@ aside .widget.border:first-child {
     line-height: unset;
 }
 
+.review-img{
+    width: 100%;
+}
+
+.right_arrow{
+    margin-left: 5px;
+}
+.left_arrow{
+    margin-right: 5px;
+}
+
+.photo{
+    width: 100%;
+}
+
+
+.photo1{
+    float: left;
+    margin-left: 29%;
+    margin-right: 50px;
+}
+
+.photo2{
+    float: left;
+}
+
+#apply-basic-back{
+    float: unset;
+    text-align: center;
+    margin-left: 30%;
+    background: #ffffff;
+    border: 2px solid #fb236a;
+    color: #fb236a;
+    font-family: Lato;
+    font-size: 15px;
+    padding: 11px 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    margin-top: 80px;
+}
+
+#apply-review-front{
+        float: unset;
+    text-align: center;
+    margin-left: 15%;
+    background: #ffffff;
+    border: 2px solid #fb236a;
+    color: #fb236a;
+    font-family: Lato;
+    font-size: 15px;
+    padding: 11px 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    margin-top: 80px;
+}
+
 .upload-info > span {
     float: left;
     width: 100%;
@@ -6697,6 +6786,28 @@ aside .widget.border:first-child {
     font-size: 14px;
     color: #888888;
     margin-top: 20px;
+}
+
+.introduction-div{
+    margin-top: 75px;
+}
+
+.introduction-title{
+    float: left;
+    width: 100%;
+    font-family: Lato;
+    font-size: 14px;
+    color: #202020;
+    margin-bottom: 13px;
+    margin-left: 55px;
+}
+
+.introduction-detail{
+    padding: 0 50px;
+}
+
+.button-div{
+    margin-top: 320px;
 }
 .profile-form-edit {
     float: left;
@@ -6706,13 +6817,13 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     padding-left: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
+
 .pf-title {
     float: left;
     width: 100%;
-    margin-top: 30px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
     margin-bottom: 13px;
@@ -6751,7 +6862,10 @@ o{
 }
 .fa{
     font-size: 30px;
-    margin-left: 5px;
+}
+
+#apply-basic-back > o{
+    margin-left: 0px;
 }
 .profile-form-edit > form button {
 
@@ -6777,7 +6891,33 @@ o{
     -o-border-radius: 8px;
     border-radius: 8px;
 
-    margin-top: 10px;
+    margin-top: 80px;
+}
+
+.resume{
+    font-size: 18px;
+    margin-bottom: unset;
+}
+
+.resume-title{
+    margin-top: 30px;
+}
+
+#user_job{
+    display: none;
+}
+#resume{
+    width: 300px;
+    border-bottom: unset;
+    height: unset;
+    margin-left: unset;
+}
+
+#letter{
+        width: 300px;
+    border-bottom: unset;
+    height: unset;
+    margin-left: unset;
 }
 .social-edit {
     float: left;
@@ -6870,6 +7010,8 @@ o{
     border-radius: 8px;
 
 }
+
+
 .contact-edit > form button {
     float: right;
     background: #ffffff;
@@ -7559,9 +7701,19 @@ o{
 .steps-sec {
     float: left;
     width: 100%;
-    padding: 0 90px;
+    padding: 0 250px;
     text-align: center;
+    margin-bottom: 50px;
 }
+
+.apply-detail{
+    display: none;
+}
+
+.apply-review{
+    display: none;
+}
+
 .step {
     display: inline-block;
     width: 33.334%;

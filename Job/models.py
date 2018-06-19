@@ -98,6 +98,9 @@ class Job_Apply(models.Model):
     prefer_class = models.CharField(max_length = 15, choices=CLAS_CHOICES, default='A')
 
     resume = models.FileField()
+    letter = models.FileField()
+
+    introduction = models.TextField()
 
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -124,7 +127,6 @@ class Job_Apply(models.Model):
     qual_time = models.CharField(max_length = 10)
 
     resume = models.FileField()
-    letter = models.FileField()
     photo = models.FileField()
 
     OFFI_CHOICES = (

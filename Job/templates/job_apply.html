@@ -106,7 +106,7 @@
 				 		<div class="padding-left">
 					 		<div class="profile-title">
                                 <h3>Applying for <strong>{{ Jobs.school_name }}</strong></h3>
-					 			<div class="steps-sec">
+					 			<div class="steps-sec apply-basic">
 					 				<div class="step active">
 					 					<p><i class="la la-info"></i></p>
 					 					<span>Basic Profile</span>
@@ -120,10 +120,41 @@
 					 					<span>Review</span>
 					 				</div>
 					 			</div>
+
+                                <div class="steps-sec apply-detail">
+					 				<div class="step">
+					 					<p><i class="la la-info"></i></p>
+					 					<span>Basic Profile</span>
+					 				</div>
+					 				<div class="step active">
+					 					<p><i class="la la-cc-mastercard"></i></p>
+					 					<span>Detail</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la  la-check-circle"></i></p>
+					 					<span>Review</span>
+					 				</div>
+					 			</div>
+
+                                <div class="steps-sec apply-review">
+					 				<div class="step">
+					 					<p><i class="la la-info"></i></p>
+					 					<span>Basic Profile</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la la-cc-mastercard"></i></p>
+					 					<span>Detail</span>
+					 				</div>
+					 				<div class="step active">
+					 					<p><i class="la  la-check-circle"></i></p>
+					 					<span>Review</span>
+					 				</div>
+					 			</div>
 					 		</div>
+
 					 		<div class="profile-form-edit">
 					 			<form method="post" action="" enctype="multipart/form-data">
-					 				<div class="row">
+					 				<div class="row apply-basic">
                                         <h3>Photo 1</h3>
                                         <div class="upload-img-bar">
                                             <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
@@ -234,7 +265,197 @@
 					 						</div>
 					 					</div>
                                         <div class="col-lg-12">
-					 						<button type="submit"><o>Details  </o><i class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+					 						<button type="button" id="apply-detail"><o>Details  </o><i class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+					 					</div>
+					 				</div>
+
+                                    <div class="row apply-detail">
+
+                                        <h2>Resume</h2>
+                                        <div class="upload-img-bar">
+                                            <div class="upload-info">
+                                                <label for="id_resume">Browse</label>
+                                                <input type="file" name="resume" required="" id="id_resume">
+                                                <p id="resume"></p>
+                                            </div>
+                                        </div>
+                                        <h2>Cover Letter</h2>
+                                        <div class="upload-img-bar">
+                                            <div class="upload-info">
+                                               <label for="id_letter">Browse</label>
+                                                <input type="file" name="letter" required="" id="id_letter">
+                                                <p id="letter"></p>
+                                            </div>
+                                        </div>
+
+					 					<div class="col-lg-12 introduction-div">
+					 						<span class="pf-title introduction-title">Personalized introduction for this position (Recommended)</span>
+					 						<div class="pf-field introduction-detail">
+                                                <textarea name="introduction" cols="30" rows="8" required="" id="id_introduction"></textarea>
+                                            </div>
+					 					</div>
+
+                                        <div class="col-lg-12 button-div">
+                                            <button type="button" id="apply-basic-back"><i class="fa fa-caret-left left_arrow" aria-hidden="true"></i><o>Profile  </o></button>
+					 						<button type="button" id="apply-review-front"><o>Review  </o><i class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+					 					</div>
+					 				</div>
+
+                                    <div class="row apply-review">
+                                        <div class="photo">
+                                             <div class="photo1">
+                                                <h3>Photo 1</h3>
+                                                <div class="upload-img-bar review-img">
+                                                    <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                                    <div class="upload-info">
+                                                    </div>
+                                                </div>
+                                             </div>
+                                            <div class="photo2">
+                                                <h3>Photo 2</h3>
+                                                <div class="upload-img-bar review-img">
+                                                    <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                                    <div class="upload-info">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">First Name</span>
+					 						<div class="pf-field">
+                                                <p id="first_name"></p>
+                                            </div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Last Name</span>
+					 						<div class="pf-field">
+                                                <p id="last_name"></p>
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-3">
+					 						<span class="pf-title">Email</span>
+					 						<div class="pf-field">
+                                                <p id="email"></p>
+                                            </div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Skype ID (for interviews)</span>
+					 						<div class="pf-field">
+                                                <p id="skyid"></p>
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Country of Citizenship</span>
+					 						<div class="pf-field">
+                                                <p id="country"></p>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Gender</span>
+					 						<div class="pf-field">
+                                                <p id="gender"></p>
+					 						</div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-3">
+					 						<span class="pf-title">Current city/country of residence</span>
+					 						<div class="pf-field">
+                                                <p id="residence"></p>
+                                            </div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Date of birth</span>
+					 						<div class="pf-field">
+                                                <p id="birth"></p>
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">University / Major</span>
+					 						<div class="pf-field">
+                                                <p id="degree"></p>
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Earliest available date</span>
+					 						<div class="pf-field">
+                                                <p id="start_date"></p>
+                                            </div>
+					 					</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">Preferred age group</span>
+					 						<div class="pf-field">
+                                                <p id="prefer_age"></p>
+					 						</div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-6">
+					 						<span class="resume pf-title resume-title">Resume</span>
+                                            <div class="upload-img-bar">
+                                                <div class="upload-info">
+                                                    <p id="resume"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-6">
+					 						<span class="resume pf-title">Cover Letter</span>
+                                            <div class="upload-img-bar">
+                                                <div class="upload-info">
+                                                    <p id="letter"></p>
+                                                </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                        </div>
+
+                                        <div id="user_job">
+                                            <label for="id_user">User:</label> <select name="user" required="" id="id_user">
+                                              <option value="{{ user_name.id }}" selected="selected"></option>
+                                            </select>
+
+                                            <label for="id_job">Job:</label> <select name="job" required="" id="id_job">
+                                              <option value="{{ Jobs.id }}" selected="selected"></option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <button type="button" id="apply-basic-back"><i class="fa fa-caret-left left_arrow" aria-hidden="true"></i><o>Details  </o></button>
+					 						<button type="submit" id="apply-review-front"><o>Submit</o></button>
 					 					</div>
 					 				</div>
 					 			</form>
@@ -332,8 +553,7 @@ $("#id_profile_image1").change(function(){
     readURL(this);
 });
 
-
-        function readURL2(input) {
+    function readURL2(input) {
 
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -347,8 +567,59 @@ $("#id_profile_image1").change(function(){
 }
 
 $("#id_profile_image2").change(function(){
-    readURL(this);
+    readURL2(this);
 });
+
+$('#apply-detail').click(function () {
+    if($(".apply-detail").css("display") == "none"){
+        $('.apply-detail').css("display", "block");
+        $('.apply-basic').css("display", "none");
+    } else {
+        $('.apply-detail').css("display", "none");
+    }
+});
+
+$('#apply-basic-back').click(function () {
+    if($(".apply-basic").css("display") == "none"){
+        $('.apply-basic').css("display", "flex");
+        $('.apply-detail').css("display", "none");
+    } else {
+        $('.apply-basic').css("display", "none");
+    }
+});
+
+$('#apply-review-front').click(function () {
+    if($(".apply-review").css("display") == "none"){
+        $('.apply-review').css("display", "flex");
+        $('.apply-detail').css("display", "none");
+    } else {
+        $('.apply-review').css("display", "none");
+    }
+});
+
+function findName1() {
+    var fileValue = $("#id_letter").val().split("\\");
+    var fileName = fileValue[fileValue.length-1];
+    $('#letter').text(fileName);
+}
+
+
+$("#id_letter").change(function () {
+    findName1();
+})
+
+function findName2() {
+    var fileValue = $("#id_resume").val().split("\\");
+    var fileName = fileValue[fileValue.length-1];
+    $('#resume').text(fileName);
+}
+
+
+$("#id_resume").change(function () {
+    findName2();
+})
+
+
 
 </script>
 
