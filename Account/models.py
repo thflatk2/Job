@@ -6,6 +6,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from hashlib import sha1, md5
+from django.template.defaultfilters import slugify
 
 
 class UserManager(BaseUserManager):
@@ -82,6 +83,46 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=10,
         blank=True
     )
+    slug = models.SlugField(blank=True)
+
+    user_pic1 = models.ImageField(null=True, blank=True)
+    user_pic2 = models.ImageField(null=True, blank=True)
+
+    last_name = models.CharField(max_length=10, null=True, blank=True)
+    first_name = models.CharField(max_length=20, null=True, blank=True)
+    skyid = models.CharField(max_length=25, null=True, blank=True)
+
+    TOOL_CHOICES = (
+        ('USA', 'USA'),
+        ('Canada', 'Canada'),
+        ('UK', 'UK'),
+        ('Ireland', 'Ireland'),
+        ('South Africa', 'South Africa'),
+        ('New Zealand', 'New Zealand'),
+        ('Australia', 'Australia'),
+    )
+
+    country = models.CharField(max_length=20, choices=TOOL_CHOICES, null=True, blank=True)
+
+    GEN_CHOICES = (
+        ('MAN', 'MAN'),
+        ('WOMAN', 'WOMAN'),
+    )
+    gender = models.CharField(max_length=10, choices=GEN_CHOICES, null=True, blank=True)
+    cur_residence = models.CharField(max_length=30, null=True, blank=True)
+    birth = models.CharField(max_length=20, null=True, blank=True)
+    degree = models.CharField(max_length=30, null=True, blank=True)
+    start_date = models.DateTimeField(default=timezone.now)
+
+    CLAS_CHOICES = (
+        ('Kindergarten', 'Kindergarten'),
+        ('Elementary', 'Elementary'),
+        ('Middle', 'Middle'),
+    )
+    prefer_class = models.CharField(max_length=15, choices=CLAS_CHOICES, default='A')
+
+    resume = models.FileField(null=True, blank=True)
+    letter = models.FileField(null=True, blank=True)
 
     objects = UserManager()
 
@@ -92,6 +133,15 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = _('user')
         verbose_name_plural = _('users')
         ordering = ('-date_joined',)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+        else:
+            self.slug = slugify(self.name)
+
+        super(User, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.email

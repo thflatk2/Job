@@ -491,7 +491,7 @@ label::after {
   height: 20px !important;
 }
 label::before {
-  content: " ";
+
   border: 2px solid #e6e7ef;
   
   -webkit-border-radius: 3px;
@@ -619,7 +619,7 @@ label::after {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #ffcece;
+    background-color: #f4b6ba;
     width: 100%;
     z-index: 12;
 }
@@ -6572,12 +6572,32 @@ aside .widget.border:first-child {
     width: 100%;
     
 }
-.profile-title {
+
+.profile-title{
+    float: left;
+    width: 100%;
+}
+
+.profile-title > h3{
+    float: left;
+    width: 100%;
+    margin-top: 40px;
+    border-bottom: 1px solid #edeff7;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin-top: 40px;
+}
+.apply-title {
     float: left;
     width: 100%;
     margin-top: 100px;
 }
-.profile-title > h3 {
+.apply-title > h3 {
     float: left;
     width: 100%;
     margin-top: 40px;
@@ -6604,6 +6624,7 @@ aside .widget.border:first-child {
     font-size: 18px;
     margin-left: 20px;
     margin-bottom: 10px;
+        margin-top: 35px;
 }
 
 .row > h2{
@@ -6612,6 +6633,21 @@ aside .widget.border:first-child {
     font-size: 18px;
     margin-left: 65px;
     margin-bottom: 20px;
+}
+
+.row > p{
+        font-family: Lato;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.update-info{
+        display: table-cell;
+    vertical-align: bottom;
+    padding-left: 5px;
 }
 
 .pf-field > p{
@@ -6709,6 +6745,42 @@ aside .widget.border:first-child {
     line-height: unset;
 }
 
+.update-info > label {
+            float: left;
+    font-family: Lato;
+    font-size: 15px;
+    color: #ffcece;
+    border: 2px solid #ffcece;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    padding: 10px 40px;
+    position: unset;
+    display: unset;
+    height: unset;
+    line-height: unset;
+}
+
+.profile-form-edit > div {
+    float: left;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.social-edit > div{
+    float: left;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.contact-edit > div{
+        float: left;
+    width: 100%;
+    padding-left: 30px;
+}
+
 .review-img{
     width: 100%;
 }
@@ -6788,6 +6860,30 @@ aside .widget.border:first-child {
     margin-top: 20px;
 }
 
+.profile-title > p {
+        font-size: 18px;
+    font-family: Lato;
+    font-weight: 700;
+    margin-left: 35px;
+    top: 20px;
+    position: relative;
+}
+
+.profile-form-edit > h3{
+        float: left;
+    width: 100%;
+    margin-top: 40px;
+    border-bottom: 1px solid #edeff7;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin-top: 40px;
+}
+
 .introduction-div{
     margin-top: 75px;
 }
@@ -6812,6 +6908,7 @@ aside .widget.border:first-child {
 .profile-form-edit {
     float: left;
     width: 100%;
+    border-top: 1px solid #edeff7;
 }
 .profile-form-edit > form {
     float: left;
@@ -6820,7 +6917,17 @@ aside .widget.border:first-child {
     padding-bottom: 70px;
 }
 
-.pf-title {
+.pf-title{
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    font-family: Open Sans;
+    font-size: 14px;
+    color: #202020;
+    margin-bottom: 13px;
+}
+
+.ap-title {
     float: left;
     width: 100%;
     font-family: Lato;
@@ -6922,6 +7029,7 @@ o{
 .social-edit {
     float: left;
     width: 100%;
+    border-top: 1px solid #edeff7;
 }
 .social-edit > h3 {
     float: left;
@@ -6971,6 +7079,7 @@ o{
     float: left;
     width: 100%;
     margin-bottom: 60px;
+    border-top: 1px solid #edeff7;
 }
 .contact-edit > form {
     float: left;
