@@ -79,7 +79,12 @@ class Job_Apply(models.Model):
     )
 
     country = models.CharField(max_length = 20, choices=TOOL_CHOICES)
-    gender = models.CharField(max_length=10)
+
+    GEN_CHOICES = (
+        ('MAN', 'MAN'),
+        ('WOMAN', 'WOMAN'),
+    )
+    gender = models.CharField(max_length=10, choices=GEN_CHOICES)
     cur_residence = models.CharField(max_length=30)
     birth = models.CharField(max_length = 20)
     degree = models.CharField(max_length = 30)

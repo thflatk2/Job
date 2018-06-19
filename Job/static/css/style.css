@@ -6583,9 +6583,8 @@ aside .widget.border:first-child {
     margin-top: 40px;
     font-size: 20px;
     color: #202020;
-    font-weight: bold;
     margin: 0;
-        margin-top: 0px;
+    margin-top: 0px;
     padding-bottom: 20px;
     padding-left: 30px;
     margin-top: 40px;
@@ -6745,14 +6744,32 @@ aside .widget.border:first-child {
     color: #888888;
     padding: 30px 30px;
 }
+o{
+        top: -5px;
+    position: relative;
+    margin-left: -5px;
+}
+.fa{
+    font-size: 30px;
+    margin-left: 5px;
+}
 .profile-form-edit > form button {
-    float: right;
+
+    float: unset;
+    text-align: center;
+    margin-left: 43%;
     background: #ffffff;
     border: 2px solid #fb236a;
-    color: #202020;
-    font-family: Open Sans;
+    color: #fb236a;
+    font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+
     
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;

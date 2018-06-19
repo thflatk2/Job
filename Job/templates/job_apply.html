@@ -13,11 +13,12 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}">
-	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+
 
 </head>
 <body>
@@ -101,11 +102,10 @@
 		<div class="block no-padding">
 			<div class="container">
 				 <div class="row no-gape">
-
 				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title">
-					 			<h3>Applying for {{ Jobs.school_name }}</h3>
+                                <h3>Applying for <strong>{{ Jobs.school_name }}</strong></h3>
 					 			<div class="steps-sec">
 					 				<div class="step active">
 					 					<p><i class="la la-info"></i></p>
@@ -170,7 +170,7 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Country of Citizenship</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
+					 							<select name="country" required id="id_country" data-placeholder="Please Select Specialism" class="chosen">
 													<option>USA</option>
 													<option>Canada</option>
 													<option>UK</option>
@@ -184,7 +184,7 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Gender</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
+					 							<select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
 													<option>Default</option>
 													<option>Man</option>
 													<option>Woman</option>
@@ -226,17 +226,19 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Preferred age group</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
+					 							<select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
 													<option>Kindergarten</option>
 													<option>Elementary</option>
 													<option>Middle</option>
 												</select>
 					 						</div>
 					 					</div>
+                                        <div class="col-lg-12">
+					 						<button type="submit"><o>Details  </o><i class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+					 					</div>
 					 				</div>
 					 			</form>
 					 		</div>
-
 					 	</div>
 					</div>
 				 </div>
