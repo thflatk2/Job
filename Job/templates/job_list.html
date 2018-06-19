@@ -126,15 +126,15 @@
 				 		</div>
 
 				 		<div class="widget border">
-				 			<h3 class="sb-title open">Team Size</h3>
+				 			<h3 class="sb-title open">Sort by</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
-                                    <p><a class="sort-date" href="/">1 - 10</a></p>
-                                    <p><a class="sort-likes" href="?sort=likes">100 - 200</a></p>
-                                    <p><a class="sort-date" href="/">1 - 10</a></p>
-                                    <p><a class="sort-likes" href="?sort=likes">100 - 200</a></p>
-                                    <p><a class="sort-date" href="/">1 - 10</a></p>
-                                    <p><a class="sort-likes" href="?sort=likes">100 - 200</a></p>
+                                    <p><a class="sort-date" href="/">Starting Date(Earliest)</a></p>
+                                    <p><a class="sort-likes" href="?sort=likes">Starting Date(Latest)</a></p>
+                                    <p><a class="sort-date" href="/">Contract Period(Longest)</a></p>
+                                    <p><a class="sort-likes" href="?sort=likes">Contract Period(Shortest)</a></p>
+                                    <p><a class="sort-date" href="/">Salary</a></p>
+                                    <p><a class="sort-likes" href="?sort=likes">Age Level</a></p>
 								</div>
 				 			</div>
 				 		</div>
@@ -147,12 +147,12 @@
                             {% for job in Jobs %}
                                 <div class="emply-list" onclick="location.href='{% url 'Job:detail' job.pk %}'">
                                     <div class="emply-list-thumb">
-                                        <a href="#" title=""><img src="{{ job.house_pic.url }}" alt="" /></a>
+                                        <a href="#" title=""><img src="{{ job.house_pic1.url }}" alt="" /></a>
                                     </div>
                                     <div class="emply-list-info">
                                         <div class="emply-pstn"><i class="far fa-star"></i></div>
                                         <h3><a href="#" title="">{{ job.school_name }}</a></h3>
-                                        <span>Accountancy, Human Resources</span>
+                                        <span><i class="far fa-calendar-alt list-icon"></i>{{ job.start_date }} <i class="fas fa-briefcase list-icon"></i>{{ job.contract_period }} <i class="fas fa-money-bill-alt list-icon"></i>{{ job.min_salary }} <i class="fas fa-location-arrow list-icon"></i>{{ job.location}}</span>
                                         <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
                                     </div>
                                 </div><!-- Employe List -->

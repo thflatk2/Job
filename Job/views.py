@@ -64,10 +64,16 @@ def post_new(request):
 
 class JobApplyView(CreateView):
     model = Job_Apply
-    fields = ['last_name','first_name', 'email', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree',
+    fields = ['profile_image1', 'profile_image2', 'last_name','first_name', 'email', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree',
               'start_date', 'prefer_class', 'resume', 'created_date', 'job', 'user']
     template_name = 'job_apply.html'
     success_url = reverse_lazy('Job:list')
+
+    def get_context_data(self, **kwargs):
+        context = super(JobApplyView, self).get_context_data(**kwargs)
+        context['Jobs'] = Job_info.objects.get(pk=self.kwargs['pk'])
+
+        return context
 
 
 @login_required

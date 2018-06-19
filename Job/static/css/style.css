@@ -579,7 +579,7 @@ label::after {
     float: left;
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+    opacity: 1;
 }
 .main-slider-sec::before {
     position: absolute;
@@ -610,7 +610,6 @@ label::after {
     width: 100%;
     height: 100%;
     content: "";
-    background-image: url('../images/lines.png');
     z-index: 3;
     opacity: 0.1;
 }
@@ -675,9 +674,9 @@ label::after {
     margin-left: 20px;
 }
 .account-btns > li a {
-    font-size: 14px;
-    font-family: Open Sans;
-    font-size: 14px;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 700;
     color: #ffffff;
     float: left;
     line-height: 22px;
@@ -694,6 +693,7 @@ label::after {
 .menu-sec nav {
     float: right;
     margin-right: 20px;
+    line-height: 15px;
 }
 .menu-sec nav > ul {
     float: left;
@@ -707,6 +707,7 @@ label::after {
 .menu-sec nav > ul > li > a {
     float: left;
     font-family: Lato;
+    font-weight: 700;
     font-size: 18px;
     color: #ffffff;
     position: relative;
@@ -1323,11 +1324,11 @@ label::after {
 .heading span {
     float: left;
     width: 100%;
+    text-align: center;
     font-family: Lato;
     font-size: 17px;
     color: #888888;
     line-height: 29px;
-    margin-left: 18%;
     top: 20px;
     position: relative;
 }
@@ -1413,7 +1414,6 @@ label::after {
     float: left;
     width: 100%;
     text-align: center;
-    margin-top: 60px;
 }
 .browse-all-cat a {
     float: none;
@@ -4389,6 +4389,14 @@ footer.style3 span, footer.style3 a {
     padding-top: 120px; padding-bottom: 15px;
     z-index: 0;
 }
+
+.detail{
+    padding-top: 200px;
+    padding-bottom: 150px;
+    background-image: url(../images/city.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 .inner-header.wform .job-search-sec {
     position: relative;
     float: left;
@@ -5188,7 +5196,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     font-size: 14px;
-    color: #888888;
+    color: #ED9FA0;
     line-height: 24px;
     margin: 0;
     margin-bottom: 19px;
@@ -6005,9 +6013,41 @@ aside .widget.border:first-child {
 .emply-list-info > span {
     float: left;
     width: 100%;
-    font-size: 14px;
-    color: #fb236a;
+    font-size: 16px;
 }
+
+.list-icon{
+    margin-right: 10px;
+}
+
+.house_picture{
+    width: 105%;
+    margin-left: -10px;
+}
+
+.house_picture > img{
+    width: 28%;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.job-detail{
+    margin-top: 20px;
+}
+
+.job-detail-left{
+    width: 50%;
+    float: left;
+}
+
+.job-detail-right{
+    width: 45%;
+    float: left;
+}
+
+
+
 .emply-list-info > h6 {
     float: left;
     width: 100%;
@@ -6099,7 +6139,7 @@ aside .widget.border:first-child {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     border-radius: 8px;
-
+    cursor: pointer;
 }
 .emply-list-sec.style2 .emply-list:hover {
     -webkit-box-shadow: none;
@@ -6535,12 +6575,12 @@ aside .widget.border:first-child {
 .profile-title {
     float: left;
     width: 100%;
+    margin-top: 100px;
 }
 .profile-title > h3 {
     float: left;
     width: 100%;
     margin-top: 40px;
-    border-bottom: 1px solid #edeff7;
     font-size: 20px;
     color: #202020;
     font-weight: bold;
@@ -6549,13 +6589,29 @@ aside .widget.border:first-child {
     padding-bottom: 20px;
     padding-left: 30px;
     margin-top: 40px;
+    text-align: center;
 }
 .upload-img-bar {
     float: left;
     width: 100%;
     display: table;
-    margin-top: 40px;
     padding-left: 30px;
+    margin-bottom: 35px;
+}
+
+.row > h3{
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.pf-field > p{
+    margin-bottom: unset;
+    margin-top: -40px;
+    line-height: 65px;
+    color: #4a4a4a;
 }
 .upload-img-bar > span {
     display: table-cell;
@@ -6603,7 +6659,7 @@ aside .widget.border:first-child {
 }
 .upload-info > a {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     color: #8b91dd;
     border: 2px solid #8b91dd;
@@ -6616,6 +6672,25 @@ aside .widget.border:first-child {
 
     padding: 10px 40px;
 }
+
+.upload-info > label{
+        float: left;
+    font-family: Lato;
+    font-size: 15px;
+    color: #ffcece;
+    border: 2px solid #ffcece;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    padding: 10px 40px;
+    position: unset;
+    display: unset;
+    height: unset;
+    line-height: unset;
+}
+
 .upload-info > span {
     float: left;
     width: 100%;
@@ -6632,6 +6707,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     padding-left: 30px;
+    padding-bottom: 50px;
 }
 .pf-title {
     float: left;
@@ -7498,7 +7574,8 @@ aside .widget.border:first-child {
 .step span {
     float: left;
     width: 100%;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
     color: #888888;
     margin-top: 9px;
 }
@@ -7537,7 +7614,7 @@ aside .widget.border:first-child {
     color: #ffffff;
 }
 .step.active span {
-    color: #8b91dd;
+    color: black;
 }
 .tags-bar.rt {
     margin: 0;
@@ -10783,7 +10860,7 @@ header.style5 .post-job-btn:hover {
 }
 
 .upload-info > a:hover {
-    background: #8b91dd;
+    background: #ffcece;
     color: #ffffff;
 }
 .pf-field .chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active a {

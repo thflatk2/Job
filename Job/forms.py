@@ -17,7 +17,7 @@ AGE_CHOICES = (
 class Job_InfoForm(forms.Form):
     school_name = forms.CharField()
     start_date = forms.DateField(
-        widget=forms.DateTimeInput()
+        widget=forms.SelectDateWidget()
     )
 
     age_level = forms.MultipleChoiceField(
@@ -34,17 +34,30 @@ class Job_InfoForm(forms.Form):
         widget=forms.CheckboxSelectMultiple,
         choices=FLIGHT_CHOICES,
     )
-    house = forms.BooleanField()
-    house_pic = forms.FileField(
-        widget=forms.ClearableFileInput(
-            attrs={
-                'multiple': True
-            }
-        )
+    house = forms.BooleanField(required=False)
+    house_pic1 = forms.FileField(
+        widget=forms.ClearableFileInput(),
+        required=False
     )
-    severance_payment = forms.BooleanField()
-    health_insurance = forms.BooleanField()
-    national_pension = forms.BooleanField()
+    house_pic2 = forms.FileField(
+        widget=forms.ClearableFileInput(),
+        required=False
+    )
+    house_pic3 = forms.FileField(
+        widget=forms.ClearableFileInput(),
+        required=False
+    )
+    house_pic4 = forms.FileField(
+        widget=forms.ClearableFileInput(),
+        required=False
+    )
+    house_pic5 = forms.FileField(
+        widget=forms.ClearableFileInput(),
+        required=False
+    )
+    severance_payment = forms.BooleanField(required=False)
+    health_insurance = forms.BooleanField(required=False)
+    national_pension = forms.BooleanField(required=False)
 
     # ModelForm.save 인터페이스를 흉내내어 구현
     def save(self, commit=True):

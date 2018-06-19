@@ -97,196 +97,87 @@
 		</div>
 	</header>
 
-	<section class="overlape">
-		<div class="block no-padding">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-			<div class="container fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="inner-header">
-							<h3>Welcome Tera Planer</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<section>
 		<div class="block no-padding">
 			<div class="container">
 				 <div class="row no-gape">
-				 	<aside class="col-lg-3 column border-right">
-				 		<div class="widget">
-				 			<div class="tree_widget-sec">
-				 				<ul>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-file-text"></i>Company Profile</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-briefcase"></i>Manage Jobs</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-money"></i>Transactions</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-paper-plane"></i>Resumes</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-user"></i>Packages</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-file-text"></i>Post a New Job</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-flash"></i>Job Alerts</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-lock"></i>Change Password</a>
-				 						<ul>
-				 							<li><a href="#" title="">My Profile</a></li>
-				 							<li><a href="#" title="">Social Network</a></li>
-				 							<li><a href="#" title="">Contact Information</a></li>
-				 						</ul>
-				 					</li>
-				 					<li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
-				 				</ul>
-				 			</div>
-				 		</div>
-				 	</aside>
-				 	<div class="col-lg-9 column">
+
+				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title">
-					 			<h3>Post a New Job</h3>
+					 			<h3>Applying for {{ Jobs.school_name }}</h3>
 					 			<div class="steps-sec">
 					 				<div class="step active">
 					 					<p><i class="la la-info"></i></p>
-					 					<span>Information</span>
+					 					<span>Basic Profile</span>
 					 				</div>
 					 				<div class="step">
 					 					<p><i class="la la-cc-mastercard"></i></p>
-					 					<span>Package & Payments</span>
+					 					<span>Detail</span>
 					 				</div>
 					 				<div class="step">
 					 					<p><i class="la  la-check-circle"></i></p>
-					 					<span>Done</span>
+					 					<span>Review</span>
 					 				</div>
 					 			</div>
 					 		</div>
 					 		<div class="profile-form-edit">
-					 			<form>
+					 			<form method="post" action="" enctype="multipart/form-data">
 					 				<div class="row">
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">Job Title</span>
+                                        <h3>Photo 1</h3>
+                                        <div class="upload-img-bar">
+                                            <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                            <div class="upload-info">
+                                                <label for="id_profile_image1">Browse</label>
+                                                <input type="file" name="profile_image1" required id="id_profile_image1" title="">
+                                                <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                            </div>
+                                        </div>
+                                        <h3>Photo 2</h3>
+                                        <div class="upload-img-bar">
+                                            <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                            <div class="upload-info">
+                                               <label for="id_profile_image2">Browse</label>
+                                                <input type="file" name="profile_image2" required id="id_profile_image2" title="">
+                                                <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                            </div>
+                                        </div>
+
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">First Name</span>
 					 						<div class="pf-field">
-					 							<input type="text" placeholder="Designer" />
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">Description</span>
-					 						<div class="pf-field">
-					 							<textarea>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed severalnew methods for working with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer ollaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present</textarea>
-					 						</div>
+                                                <input type="text" name="first_name" maxlength="20" required="" id="id_first_name">
+                                            </div>
 					 					</div>
 					 					<div class="col-lg-6">
+					 						<span class="pf-title">Last Name</span>
+					 						<div class="pf-field">
+                                                <input type="text" name="last_name" maxlength="10" required="" id="id_last_name">
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-6">
 					 						<span class="pf-title">Email</span>
 					 						<div class="pf-field">
-					 							<input type="text" />
-					 						</div>
+                                                <input type="text" name="email" maxlength="25" required="" id="id_email">
+                                            </div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Username</span>
+					 						<span class="pf-title">Skype ID (for interviews)</span>
 					 						<div class="pf-field">
-					 							<input type="text" />
-					 						</div>
+                                                <input type="text" name="skyid" maxlength="25" required="" id="id_skyid">
+                                            </div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Job Type</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Categories</span>
+					 						<span class="pf-title">Country of Citizenship</span>
 					 						<div class="pf-field">
 					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Offerd Salary</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Career Level</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Experience</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
+													<option>USA</option>
+													<option>Canada</option>
+													<option>UK</option>
+													<option>Ireland</option>
+                                                    <option>South Africa</option>
+                                                    <option>New Zealand</option>
+                                                    <option>Australia</option>
 												</select>
 					 						</div>
 					 					</div>
@@ -294,120 +185,58 @@
 					 						<span class="pf-title">Gender</span>
 					 						<div class="pf-field">
 					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
+													<option>Default</option>
+													<option>Man</option>
+													<option>Woman</option>
 												</select>
 					 						</div>
+					 					</div>
+                                        <div class="col-lg-6">
+					 						<span class="pf-title">Current city/country of residence</span>
+					 						<div class="pf-field">
+                                                <input type="text" name="cur_residence" maxlength="30" required="" id="id_cur_residence">
+                                            </div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Industry</span>
+					 						<span class="pf-title">Date of birth</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Qualification</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">Application Deadline Date</span>
-					 						<div class="pf-field">
-					 							<input type="text" placeholder="01.11.207" />
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">Skill Requirments</span>
-					 						<div class="pf-field">
-						 						<ul class="tags">
-										           <li class="addedTag">Photoshop<span onclick="$(this).parent().remove();" class="tagRemove">x</span><input type="hidden" name="tags[]" value="Web Deisgn"></li>
-							            			<li class="tagAdd taglist">
-							              				 <input type="text" id="search-field">
-										            </li>
-												</ul>
-											</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Country</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">City</span>
-					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen">
-													<option>Web Development</option>
-													<option>Web Designing</option>
-													<option>Art & Culture</option>
-													<option>Reading & Writing</option>
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">Complete Address</span>
-					 						<div class="pf-field">
-					 							<textarea>Collins Street West, Victoria 8007, Australia.</textarea>
-					 						</div>
+                                                <input type="text" name="birth" maxlength="20" required="" id="id_birth">
+                                            </div>
 					 					</div>
 
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit">
-					 			<form>
-					 				<div class="row">
+					 					<div class="col-lg-12">
+					 						<span class="pf-title"></span>
+					 						<div class="pf-field">
+                                                <p>"You must have a bachelor's degree from an accredited university in one of these 7 countries.</p>
+                                                <p>(USA/Canada/UK/Ireland/South Africa/New Zealand/Australia</p>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">University / Major</span>
+					 						<div class="pf-field">
+                                                <input type="text" name="degree" maxlength="30" required="" id="id_degree">
+                                            </div>
+					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Find On Map</span>
+					 						<span class="pf-title">Earliest available date</span>
 					 						<div class="pf-field">
-					 							<input type="text" placeholder="Collins Street West, Victoria 8007, Australia." />
-					 						</div>
+                                                <input type="text" name="start_date" required="" id="id_start_date">
+                                            </div>
 					 					</div>
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">Latitude</span>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Preferred age group</span>
 					 						<div class="pf-field">
-					 							<input type="text" placeholder="41.1589654" />
+					 							<select data-placeholder="Please Select Specialism" class="chosen">
+													<option>Kindergarten</option>
+													<option>Elementary</option>
+													<option>Middle</option>
+												</select>
 					 						</div>
-					 					</div>
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">Longitude</span>
-					 						<div class="pf-field">
-					 							<input type="text" placeholder="21.1589654" />
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<a href="#" title="" class="srch-lctn">Search Location</a>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">Maps</span>
-					 						<div class="pf-map">
-					 							<div id="map_div"></div>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<button type="submit">Next</button>
 					 					</div>
 					 				</div>
 					 			</form>
 					 		</div>
+
 					 	</div>
 					</div>
 				 </div>
@@ -416,82 +245,55 @@
 	</section>
 
 	<footer>
-		<div class="block">
+		<div class="block block-foot">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 column">
+					<div class="col-lg-6 column">
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-									<a href="#" title=""><img src="http://placehold.it/178x40" alt="" /></a>
+                                    <span>LOKA 101</span>
 								</div>
-								<span>Collin Street West, Victor 8007, Australia.</span>
-								<span>+1 246-345-0695</span>
-								<span>info@jobhunt.com</span>
-								<div class="social">
-									<a href="#" title=""><i class="fa fa-facebook"></i></a>
-									<a href="#" title=""><i class="fa fa-twitter"></i></a>
-									<a href="#" title=""><i class="fa fa-linkedin"></i></a>
-									<a href="#" title=""><i class="fa fa-pinterest"></i></a>
-									<a href="#" title=""><i class="fa fa-behance"></i></a>
-								</div>
+								<span>Life in Korea</span>
+								<span>Job Board</span>
+								<span>Job-landing Rewards</span>
+                                <span>SIM Service</span>
+                                <span>Blog</span>
+
 							</div><!-- About Widget -->
 						</div>
 					</div>
-					<div class="col-lg-4 column">
-						<div class="widget">
-							<h3 class="footer-title">Frequently Asked Questions</h3>
-							<div class="link_widgets">
-								<div class="row">
-									<div class="col-lg-6">
-										<a href="#" title="">Privacy & Seurty </a>
-										<a href="#" title="">Terms of Serice</a>
-										<a href="#" title="">Communications </a>
-										<a href="#" title="">Referral Terms </a>
-										<a href="#" title="">Lending Licnses </a>
-										<a href="#" title="">Disclaimers </a>
-									</div>
-									<div class="col-lg-6">
-										<a href="#" title="">Support </a>
-										<a href="#" title="">How It Works </a>
-										<a href="#" title="">For Employers </a>
-										<a href="#" title="">Underwriting </a>
-										<a href="#" title="">Contact Us</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-2 column">
-						<div class="widget">
-							<h3 class="footer-title">Find Jobs</h3>
-							<div class="link_widgets">
-								<div class="row">
-									<div class="col-lg-12">
-										<a href="#" title="">US Jobs</a>
-										<a href="#" title="">Canada Jobs</a>
-										<a href="#" title="">UK Jobs</a>
-										<a href="#" title="">Emplois en Fnce</a>
-										<a href="#" title="">Jobs in Deuts</a>
-										<a href="#" title="">Vacatures China</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 column">
+
+					<div class="col-lg-6 column">
 						<div class="widget">
 							<div class="download_widget">
-								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
-								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
-							</div>
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Phone</p>
+                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                </div>
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Email</p>
+                                    <p class="footer-info-desc">info@loka101.com</p>
+                                </div>
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Kakao</p>
+                                    <p class="footer-info-desc">username</p>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="bottom-line">
-			<span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+            <div class="social">
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
+                <a href="#" title=""><i class="fa fa-behance"></i></a>
+            </div>
+			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
 		</div>
 	</footer>
@@ -509,6 +311,45 @@
 <script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
 <script src="{% static "js/jquery.scrollbar.min.js" %}"  type="text/javascript"></script>
 <script src="{% static "js/rslider.js" %}"  type="text/javascript"></script>
+
+<script type="text/javascript">
+    function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_profile_image1").change(function(){
+    readURL(this);
+});
+
+
+        function readURL2(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section2').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_profile_image2").change(function(){
+    readURL(this);
+});
+
+</script>
+
 
 
 
