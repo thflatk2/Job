@@ -32,7 +32,7 @@
 
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+			<div class="res-logo"><a href="{% url 'home' %}" title=""><img src="{% static "images/logo.png" %}" alt="" /></a></div>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="{% static "images/icon.png" %}" alt="" /> Menu
@@ -74,7 +74,7 @@
 		<div class="menu-sec">
 			<div class="container">
 				<div class="logo">
-					<a href="index.html" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
+					<a href="{% url 'home' %}" title=""><img class="hidesticky" src="{% static "images/logo.png" %}" alt="" /><img class="showsticky" src="{% static "images/logo.png" %}" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<ul class="account-btns">
@@ -157,7 +157,7 @@
 					 				<div class="row apply-basic">
                                         <h3>Photo 1</h3>
                                         <div class="upload-img-bar">
-                                            <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                            <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
                                             <div class="upload-info">
                                                 <label for="id_profile_image1">Browse</label>
                                                 <input type="file" name="profile_image1" required id="id_profile_image1" title="">
@@ -166,7 +166,7 @@
                                         </div>
                                         <h3>Photo 2</h3>
                                         <div class="upload-img-bar">
-                                            <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                            <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
                                             <div class="upload-info">
                                                <label for="id_profile_image2">Browse</label>
                                                 <input type="file" name="profile_image2" required id="id_profile_image2" title="">

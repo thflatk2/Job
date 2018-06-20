@@ -13,7 +13,12 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['user_name'] = User.objects.get(name=self.request.user.name)
+
+
+class EmployerUpdateView(UpdateView):
+    model = User
+    fields = ['user_pic1', 'agency_name', 'cur_residence', 'name', 'phone', 'introduction']
+    template_name = "employer.html"
 
 
 class UserUpdateView(UpdateView):
@@ -37,4 +42,9 @@ class UserCreateDoneTV(TemplateView):
     template_name = 'registration/register_done.html'
 
 
+class WorkView(TemplateView):
+    template_name = 'how_it_works.html'
 
+
+class LifeView(TemplateView):
+    template_name = 'life_in_korea.html'

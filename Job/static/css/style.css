@@ -491,7 +491,7 @@ label::after {
   height: 20px !important;
 }
 label::before {
-
+content: " ";
   border: 2px solid #e6e7ef;
   
   -webkit-border-radius: 3px;
@@ -620,9 +620,17 @@ label::after {
     left: 0;
     top: 0;
     background-color: #f4b6ba;
+    box-shadow: 0px 4px 3px #aaaaaa;
     width: 100%;
     z-index: 12;
 }
+
+.hidesticky{
+        width: 150px;
+    position: relative;
+    top: -20px;
+}
+
 .menu-sec {
     float: left;
     width: 100%;
@@ -4597,7 +4605,7 @@ section.overlape {
     float: left;
     width: 100%;
     position: relative;
-    border: 2px solid #e8ecec;
+    border: 2px solid #F7B3B4;
     
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -5040,7 +5048,7 @@ aside .subscribe_widget form button {
     color: #ffffff;
 }
 .widget.border {
-    border: 2px solid #e6e7ef;
+    border: 2px solid #F7B3B4;
     padding: 18px 20px;
     
     -webkit-border-radius: 8px;
@@ -6087,6 +6095,21 @@ aside .widget.border:first-child {
 
     border-color: #ffffff;
 }
+
+.list_detail{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ffcece;
+    font-size: 18px;
+    padding: 8px 30px;
+    background-color: #a0a0a0;
+    border-radius: 5px;
+}
+
+.list_detail:hover{
+    background-color: #ffcece;
+}
 .margin_widget .widget, .margin_widget .widget.border {
     margin-bottom: 30px !important;
     margin-top: 0;
@@ -6287,6 +6310,15 @@ aside .widget.border:first-child {
     top: 2px;
     margin-right: 3px;
 }
+
+.emply-list-info > span > o{
+        position: relative;
+    top: -1px;
+    margin-left: 2px;
+    margin-right: 15px;
+    color: #fdaeae;
+}
+
 .emply-list.box:hover {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -6763,6 +6795,22 @@ aside .widget.border:first-child {
     line-height: unset;
 }
 
+.id_letter::before{
+    content: unset;
+}
+
+.id_resume::before{
+    content: unset;
+}
+
+.id_user_pic1::before {
+    content: unset;
+}
+
+.id_user_pic2::before {
+    content: unset;
+}
+
 .profile-form-edit > div {
     float: left;
     width: 100%;
@@ -7179,7 +7227,7 @@ o{
 .manage-jobs-sec > table {
     float: left;
     width: calc(100% - 30px);
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 60px;
     margin-left: 30px
 }

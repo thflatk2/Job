@@ -92,9 +92,6 @@ header {
     margin-left: 12%;
 }
 
-.or-browser{
-    margin-left: 29%;
-}
 
 .how-to-sec > .how-to::before {
     display: none;
@@ -244,7 +241,7 @@ header {
     float: left;
     width: 100%;
     padding: 0;
-    
+
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -281,9 +278,6 @@ header {
     top: -18px;
 }
 
-.or-browser{
-    margin-left: 25%;
-}
 
 .job-search form {
     margin-top: 22px;
@@ -493,6 +487,7 @@ select {
 
 
 @media (max-width:767px){
+
 .error-sec > p {
     display: none;
 }

@@ -1,3 +1,11 @@
 section{
-    background-image: url("../images/neon-sign.jpg");
+    background: url(../images/neon-sign.jpg) no-repeat center;
+    background-size: 100%;
+    height: 100%;
+    background-repeat-y: unset;
+}
+
+.register{
+    margin-top: 8%;
+    margin-bottom: 18%;
 }

@@ -97,3 +97,11 @@ def job_like(request):
                'nickname': request.user.profile.nickname}
 
     return HttpResponse(json.dumps(context), content_type="application/json")
+
+
+class UserHistoryView(TemplateView):
+    template_name = 'job_history.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserHistoryView, self).get_context_data(**kwargs)
+        context['Jobs'] = Job_Apply.objects.filter(user= self.request.user)

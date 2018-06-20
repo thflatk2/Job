@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from Account.forms import PasswordChangeForm
 from django.contrib.auth import views as auth_views
-from mysite.views import UserCreateView, UserCreateDoneTV ,LoginDoneView, HomeView, UserUpdateView
+from mysite.views import UserCreateView, UserCreateDoneTV ,LoginDoneView, HomeView, UserUpdateView, EmployerUpdateView, WorkView, LifeView
 from Account.views import UserActivateView
 
 
@@ -28,7 +28,9 @@ urlpatterns = [
 
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^Job/', include('Job.urls', namespace='Job')),
-
+    url(r'^how_it_works/$',WorkView.as_view(), name='how_it_works'),
+    url(r'^life_in_korea/$', LifeView.as_view(), name='life_in_korea'),
+    url(r'^employer/(?P<slug>[(.!*\w.*\s.!*)]+)/$', EmployerUpdateView.as_view(), name='employer_update'),
     url(r'^mypage/(?P<slug>[(.!*\w.*\s.!*)]+)/$', UserUpdateView.as_view(), name='user_update'),
     url(r'^accounts/login/$', auth_views.login,name = 'login_url'),
     url(r'^accounts/login/done/$', HomeView.as_view(),name = 'login_done'),

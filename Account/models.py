@@ -124,6 +124,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     resume = models.FileField(null=True, blank=True)
     letter = models.FileField(null=True, blank=True)
 
+    agency_name = models.CharField(max_length=30, null=True, blank=True)
+    introduction = models.TextField(null=True, blank=True)
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'

@@ -49,11 +49,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #이메일 백엔드 삭제하고 우리 정보 추가
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'jaydenpark1020@gmail.com'
-EMAIL_HOST_PASSWORD = 'jungil1020'
+EMAIL_HOST_USER = 'teachingholiday@gmail.com'
+EMAIL_HOST_PASSWORD = 'fkbs443@'
 EMAIL_USE_TLS = True
-SERVER_EMAIL = 'jaydenpark1020@gmail.com'
-DEFAULT_FROM_EMAIL = 'jaydenpark1020'
+SERVER_EMAIL = 'teachingholiday@gmail.com'
+DEFAULT_FROM_EMAIL = 'teachingholiday'
 
 
 MIDDLEWARE = [

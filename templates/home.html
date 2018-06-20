@@ -34,7 +34,7 @@
 	
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+			<div class="res-logo"><a href="{% url 'home' %}" title=""><img src="{% static "images/logo.png" %}" alt="" /></a></div>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="{% static "images/icon.png" %}" alt="" /> Menu
@@ -76,13 +76,18 @@
 		<div class="menu-sec">
 			<div class="container">
 				<div class="logo">
-					<a href="index.html" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
+					<a href="{% url 'home' %}" title=""><img class="hidesticky" src="{% static "images/logo.png" %}" alt="" /><img class="showsticky" src="{% static "images/logo.png" %}" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<ul class="account-btns">
                         {% if user.is_active %}
-                            <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                            <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                            {%  if user.type == "Employer" %}
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+                                {% else %}
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
                         {% endif %}
@@ -122,8 +127,8 @@
 									<span>Moving to a new place can be tough, let alone finding a job in a whole new country. Loka is here for you as a friend, to help you from finding a job, to settling in like a local.</span>
 
 									<div class="or-browser">
-										<a href="#" title="">See how it works</a>
-                                        <a href="#" title="">View all Jobs</a>
+										<a href="{% url 'how_it_works' %}" title="">See how it works</a>
+                                        <a href="{% url 'Job:list' %}" title="">View all Jobs</a>
 									</div>
 								</div>
 							</div>
@@ -180,7 +185,7 @@
                             </div>
 					<div class="col-lg-12">
 						<div class="browse-all-cat">
-							<a href="#" title="">View all Jobs</a>
+							<a href="{% url 'Job:list' %}" title="">View all Jobs</a>
 						</div>
 					</div>
 
@@ -240,7 +245,7 @@
 					</div>
 					<div class="col-lg-12">
 						<div class="browse-all-cat">
-							<a href="#" title="">Load more listings</a>
+							<a href="{% url 'Job:list' %}" title="">Load more listings</a>
 						</div>
 					</div>
 				</div>

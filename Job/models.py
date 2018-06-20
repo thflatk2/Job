@@ -11,6 +11,7 @@ from django.conf import settings
 class Job_info(models.Model):
     school_name = models.CharField(max_length=30)
     start_date = models.DateField(default=timezone.now())
+    summary = models.TextField(null=True, blank=True)
 
     AGE_CHOICES  = (
         ('Kidergarten', 'Kindergarten'),

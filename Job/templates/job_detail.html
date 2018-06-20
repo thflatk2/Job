@@ -31,7 +31,7 @@
 
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+			<div class="res-logo"><a href="{% url 'home' %}" title=""><img src="{% static "images/logo.png" %}" alt="" /></a></div>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="{% static "images/icon.png" %}" alt="" /> Menu
@@ -73,7 +73,7 @@
 		<div class="menu-sec">
 			<div class="container">
 				<div class="logo">
-					<a href="index.html" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
+					<a href="{% url 'home' %}" title=""><img class="hidesticky" src="{% static "images/logo.png" %}" alt="" /><img class="showsticky" src="{% static "images/logo.png" %}" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<ul class="account-btns">
@@ -127,7 +127,7 @@
 							 					<ul class="tags-jobs">
 								 					<li><i class="far fa-calendar-alt list-icon"></i>{{ Jobs.start_date }}</li>
 								 					<li><i class="fas fa-briefcase list-icon"></i>{{ Jobs.contract_period }}</li>
-								 					<li><i class="fas fa-money-bill-alt list-icon"></i>{{ Jobs.min_salary }}</li>
+								 					<li><i class="fas fa-money-bill-alt list-icon"></i>{{ Jobs.min_salary }} ~ {{ Jobs.max_salary }}</li>
                                                     <li><i class="fas fa-location-arrow list-icon"></i>{{ Jobs.location}}</li>
 								 				</ul>
 							 				</div>
@@ -158,7 +158,7 @@
                                                     <p>{{ Jobs.contract_period }}</p>
 
                                                     <h3>Salary</h3>
-                                                    <p>{{ Jobs.min_salary }}</p>
+                                                    <p>{{ Jobs.min_salary }} ~ {{ Jobs.max_salary }}</p>
 
                                                     <h3>Flight Support</h3>
                                                     <p>{{ Jobs.flight_support }}</p>
