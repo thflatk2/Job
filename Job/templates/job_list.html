@@ -128,12 +128,12 @@
 				 			<h3 class="sb-title open">Sort by</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
-                                    <p><a class="sort-date" href="/">Starting Date(Earliest)</a></p>
-                                    <p><a class="sort-likes" href="?sort=likes">Starting Date(Latest)</a></p>
-                                    <p><a class="sort-date" href="/">Contract Period(Longest)</a></p>
-                                    <p><a class="sort-likes" href="?sort=likes">Contract Period(Shortest)</a></p>
-                                    <p><a class="sort-date" href="/">Salary</a></p>
-                                    <p><a class="sort-likes" href="?sort=likes">Age Level</a></p>
+                                    <p><a class="sort-date" href="?sort=date_early">Starting Date(Earliest)</a></p>
+                                    <p><a class="sort-likes" href="?sort=date_late">Starting Date(Latest)</a></p>
+                                    <p><a class="sort-date" href="?sort=period_long">Contract Period(Longest)</a></p>
+                                    <p><a class="sort-likes" href="?sort=period_short">Contract Period(Shortest)</a></p>
+                                    <p><a class="sort-date" href="?sort=salary">Salary</a></p>
+                                    <p><a class="sort-likes" href="?sort=age">Age Level</a></p>
 								</div>
 				 			</div>
 				 		</div>
@@ -159,15 +159,18 @@
 
 				 			<div class="pagination">
 								<ul>
-									<li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Prev</a></li>
-									<li><a href="">1</a></li>
-									<li class="active"><a href="">2</a></li>
-									<li><a href="">3</a></li>
-									<li><span class="delimeter">...</span></li>
-									<li><a href="">14</a></li>
-									<li class="next"><a href="">Next <i class="la la-long-arrow-right"></i></a></li>
+                                    {% if Jobs.has_previous %}
+									<li class="prev"><a href="?page={{ Jobs.previous_page_number }}"><i class="la la-long-arrow-left"></i> Prev</a></li>
+									<li><a href="?page={{ Jobs.previous_page_number }}">{{ Jobs.previous_page_number }}</a></li>
+									{% endif %}
+                                    <li class="active current"><a href="">{{ Jobs.number }}</a></li>
+                                    {% if Jobs.has_next %}
+									<li><a href="?page={{ Jobs.next_page_number }}">{{ Jobs.next_page_number }}</a></li>
+									<li class="next"><a href="?page={{ Jobs.next_page_number }}">Next <i class="la la-long-arrow-right"></i></a></li>
+                                    {% endif %}
 								</ul>
 							</div><!-- Pagination -->
+
 				 		</div>
 					</div>
 				 </div>

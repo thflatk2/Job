@@ -853,7 +853,7 @@ label::after {
 
     left: 50%;
     margin-left: -230px;
-    margin-top: 20%;
+    margin-top: 11%;
     margin-bottom: 20%;
     text-align: center;
     padding: 40px 60px;
@@ -877,6 +877,43 @@ label::after {
     font-weight: 700;
     color: #888888;
     margin-top: 20px;
+}
+
+#make_account{
+    margin-right: 11%;
+}
+
+#resigter_title{
+    margin-bottom: 20px;
+        color: black;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.account-popup > p{
+    color: #fd477d;
+    margin-bottom: unset;
+    line-height: unset;
+    font-size: 18px;
+    font-family: Lato;
+}
+
+.register_login{
+    margin-top: 30px;
+}
+
+.register_login > a{
+    padding: 10px 30px;
+    background-color: rgb(202, 129, 151);
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+    font-family: Lato;
+}
+
+#register_done{
+    margin-top: 25%;
+    margin-bottom: 28%;
 }
 .select-user {
     float: left;
@@ -2071,6 +2108,27 @@ footer {
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
 
+}
+
+#works_section{
+    padding-top: 12%;
+    padding-bottom: 10%;
+    text-align: center;
+    background-color: pink;
+}
+
+.inner2 > h3{
+        font-family: Lato;
+    font-weight: 800;
+    font-size: 52px;
+}
+
+.inner2 > h1 {
+        text-align: center;
+    font-family: Lato;
+    font-weight: 800;
+    font-size: 52px;
+        margin-top: 30px;
 }
 .link_widgets2 a::before {
     position: absolute;
@@ -6001,6 +6059,7 @@ aside .widget.border:first-child {
     display: table-cell;
     vertical-align: top;
     width: 80px;
+    height: 80px;
 }
 .emply-list-thumb > a {
     float: left;
@@ -6009,7 +6068,7 @@ aside .widget.border:first-child {
 .emply-list-thumb > a img {
     float: left;
     width: 100%;
-    
+    height: 100%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
