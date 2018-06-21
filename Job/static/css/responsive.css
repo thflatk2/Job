@@ -264,11 +264,12 @@ header {
     width: 100%;
 }
 .job-search-sec .job-search > h3 {
-    font-size: 35px;
+    font-size: 7vw;
     position: relative;
     top: -50px;
     margin: 0;
     line-height: 20px;
+    margin-top: 10vh;
 }
 .job-search > span {
     font-size: 25px;
@@ -513,7 +514,36 @@ select {
     display: none;
 }
 .heading > h2 {
-    font-size: 23px;
+    font-size: 7vw;
+}
+
+#service_summary{
+    font-size: 7vw;
+    line-height: 5vw;
+}
+
+.heading span{
+    font-size: 4vw;
+}
+
+.manual_des{
+    float: unset;
+    width: unset;
+}
+
+.job-listings-sec{
+    float: unset;
+    width: unset;
+    margin-left: unset;
+}
+
+.heading.light{
+        width: 400px;
+    margin-left: 35px;
+}
+#testimonial_title{
+    font-size: 48px;
+
 }
 .comp-sec {
     text-align: center;
@@ -1146,6 +1176,11 @@ select {
     font-size: 11px;
     color: #888888;
 }
+
+.heading.light{
+    width: 100%;
+    padding: 0 20px;
+}
 .emply-list {
     float: left;
     width: 100%;
@@ -1234,16 +1269,38 @@ select {
     background: -o-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
     background: -ms-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
     background: linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
+       background-image: url(../images/PIC1.png);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );
     opacity: 0.9;
 
     margin: 0;
 }
 .job-search-sec .job-search > h3 {
-    line-height: 30px;
+    line-height: 60px;
+    margin-top: 5vh;
+    font-size: 11vw;
 }
 .job-search > span {
-    line-height: 23px;
+    line-height: 1.2;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: unset;
+}
+
+.or-browser > a {
+    position: relative;
+    top: 50px;
+    left: 10px;
+}
+
+.or-browser > .works-but{
+    top: 10px;
+}
+
+.or-browser{
+    width: 67%;
+    float: unset;
+        margin: 0 auto;
 }
 
 .top-compnay img {
@@ -1273,7 +1330,7 @@ select {
 }
 .res-logo > a img {
     float: left;
-    width: 150px;
+    width: 115px;
 }
 
 .five .res-logo > a img {

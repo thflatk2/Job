@@ -628,7 +628,7 @@ label::after {
 .hidesticky{
         width: 150px;
     position: relative;
-    top: -20px;
+    top: -10px;
 }
 
 .menu-sec {
@@ -1095,24 +1095,26 @@ label::after {
     float: left;
     width: 100%;
     font-family: Lato;
-    font-size: 60px;
+    font-size: 4.1vw;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0px;
     text-align: center;
     line-height: 39px;
-    margin-bottom: 13px;
+    margin-bottom: 4vh;
 }
 .job-search > span {
     float: left;
     width: 103%;
     font-family: Lato;
     font-size: 26px;
-    font-weight: 300;
+    font-weight: 400;
     color: #ffffff;
     text-align: center;
     margin-top: 10px;
     margin-left: -1%;
+    margin-bottom: 50px;
+    text-shadow: 0px 2px 3px rgba(54,51,51,0.5);
 }
 
 .job-field {
@@ -1257,6 +1259,15 @@ label::after {
     background-color: #CA8197;
     font-weight: 300;
     padding: 10px 30px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+
+.or-browser > .works-but{
+    background-color: #555555;
+}
+
+#service_summary{
+    font-size: 60px;
 }
 .scroll-to {
     float: left;
@@ -1613,11 +1624,11 @@ label::after {
 .job-listing:hover {
     border-left-color: #8b91dd;
     
-    -webkit-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-    -ms-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-    -o-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,20);
+    -moz-box-shadow: 0px 1px 2px rgba(0,0,0,20);
+    -ms-box-shadow: 0px 1px 2px rgba(0,0,0,20);
+    -o-box-shadow: 0px 1px 2px rgba(0,0,0,20);
+    box-shadow: 0px 1px 2px rgba(0,0,0,20);
 
     z-index: 1;
     position: relative;
@@ -3515,7 +3526,7 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
     opacity: 0.5;
 }
 .job-search-sec .job-search > h3 {
-    font-weight: normal;
+    font-weight: bold;
 }
 .search-job2.style2 {
     background: #ffffff;
@@ -11396,11 +11407,23 @@ footer.ft .scrollup {
     top: 0;
 }
 .forsticky.sticky .menu-sec nav > ul > li > a {
-    color: #232323;
+    color: #ffffff;
     line-height: 10px;
 }
+
+.forsticky.sticky .menu-sec nav {
+margin-top: 15px;
+}
 .forsticky.sticky .account-btns > li a {
-    color: #222222;
+    color: #ffffff;
+}
+
+.main-header {
+    box-shadow: unset;
+}
+
+.forsticky.sticky .account-btns{
+margin-top: 13px
 }
 .forsticky.sticky .menu-sec {
     margin-top: 23px;
@@ -11420,12 +11443,14 @@ footer.ft .scrollup {
     -ms-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     -o-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+    background-color: rgba(247,180,180,80);
 }
 .showsticky {
     display: none;
     position: absolute;
     left: 0;
     top: 0;
+    width: 150px;
 }
 .forsticky.sticky .logo a img.showsticky {
     display: block;
@@ -11670,10 +11695,14 @@ footer.ft .scrollup {
 .responsive-menubar {
     float: left;
     width: 100%;
-    padding: 30px 0;
+    padding: 15px 0;
 }
 .res-logo {
     float: left;
+}
+
+.res-logo img{
+    width: 150px;
 }
 .menu-resaction {
     float: right;
