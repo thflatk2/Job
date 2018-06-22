@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Jobhunt</title>
@@ -21,16 +21,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	
 </head>
-<body>
+<body style="height: 100%;">
 
 <div class="page-loading">
 	<img src="{% static "images/loader.gif" %}"  alt="" />
 	<span>Skip Loader</span>
 </div>
 
-<div class="theme-layout" id="scrollup">
+<div class="theme-layout" id="scrollup" style="height: 100%;">
 
 	<section>
+        <a id="login_logo" href="{% url 'home' %}"><img src="{% static "images/logo.png" %}"/></a>
 		<div class="block remove-bottom">
 			<div class="container">
 				<div class="row">
@@ -68,60 +69,6 @@
 			</div>
 		</div>
 	</section>
-
-	<footer>
-		<div class="block block-foot">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 column">
-						<div class="widget">
-							<div class="about_widget">
-								<div class="logo">
-                                    <span>LOKA 101</span>
-								</div>
-								<span>Life in Korea</span>
-								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
-                                <span>SIM Service</span>
-                                <span>Blog</span>
-
-							</div><!-- About Widget -->
-						</div>
-					</div>
-
-					<div class="col-lg-6 column">
-						<div class="widget">
-							<div class="download_widget">
-                                <div class="footer-info">
-                                    <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
-                                </div>
-                                <div class="footer-info">
-                                    <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
-                                </div>
-                                <div class="footer-info">
-                                    <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
-                                </div>
-                            </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="bottom-line">
-            <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
-            </div>
-			<span>© 2018 Loka101 All rights reserved.</span>
-			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
-		</div>
-	</footer>
 
 </div>
 

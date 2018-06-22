@@ -61,7 +61,7 @@ Author:         Creative Layer
 -------------------------------------------------------------------*/
 
 /*=============== Fonts ===================*/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700,700i,800,800i|Quicksand:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700,700i,800,800i|Lato:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 /*=============== General Styling ===================*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -106,7 +106,7 @@ html{overflow-x:hidden}
 body{
     color:#555555;
     letter-spacing:0;
-    font-family:'Open Sans', sans-serif;;
+    font-family:'Lato', sans-serif;;
     overflow-x:hidden;
     position:relative;
     
@@ -117,7 +117,7 @@ button,a,input[type="submit"], input[type="button"]{
 w{outline:none!important}
 h1, h2, h3, h4, h5, h6{
     margin-bottom:20px;
-    font-family:'Quicksand', serif;
+    font-family:Lato;
 }
 h1{font-size:36px}
 h2{font-size:32px}
@@ -650,7 +650,7 @@ label::after {
 }
 .post-job-btn {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #ffffff;
     padding: 13px 27px;
@@ -769,7 +769,7 @@ label::after {
 .menu-sec nav > ul > li > ul li a {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #202020;
     padding: 9px 25px;
@@ -861,7 +861,7 @@ label::after {
 .account-popup > h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     color: #222222;
     font-weight: bold;
     margin: 0;
@@ -924,7 +924,7 @@ label::after {
 .select-user > span {
     float: none;
     display: inline-block;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
     border: 2px solid;
@@ -965,7 +965,7 @@ label::after {
     width: 100%;
     background: no-repeat;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #474747;
     padding: 16px 45px 16px 15px;
@@ -980,13 +980,13 @@ label::after {
 .remember-label {
     float: left;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
 }
 .account-popup > form > a {
     float: right;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     text-decoration: underline;
     line-height: 30px;
@@ -1031,7 +1031,7 @@ label::after {
     padding: 1px 20px;
     z-index: 1;
     position: relative;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #afafaf;
     text-transform: capitalize;
@@ -1422,7 +1422,7 @@ label::after {
 .p-category > a span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin-top: 18px;
@@ -1483,7 +1483,7 @@ label::after {
     border-radius: 8px;
 
     padding: 13px 30px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
 }
 
@@ -1496,7 +1496,7 @@ label::after {
 .simple-text-block > h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 40px;
     color: #ffffff;
     font-weight: bold;
@@ -1506,7 +1506,7 @@ label::after {
 .simple-text-block span {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 18px;
     color: #ffffff;
 }
@@ -1522,7 +1522,7 @@ label::after {
     border-radius: 8px;
 
     padding: 13px 30px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     margin-top: 40px;
     color: #ffffff;
@@ -1580,14 +1580,14 @@ label::after {
 }
 .job-title-sec span {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     margin-top: 1px;
 }
 .job-lctn {
     display: table-cell;
     vertical-align: middle;
-    font-family: open Sans;
+    font-family: Lato;
     font-size: 15px;
     color: #888888;
     line-height: 23px;
@@ -1610,7 +1610,7 @@ label::after {
 .job-is {
     display: table-cell;
     vertical-align: middle;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 12px;
     border: 1px solid;
     float: right;
@@ -1713,7 +1713,7 @@ label::after {
 .reviews h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 18px;
     color: #202020;
     margin: 0;
@@ -1723,7 +1723,7 @@ label::after {
     margin-bottom: 20px;
 }
 .reviews h3 span {
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     margin-left: 10px;
@@ -1733,7 +1733,7 @@ label::after {
     width: 100%;
     margin: 0;
         margin-bottom: 0px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     letter-spacing: 0px;
@@ -1745,7 +1745,7 @@ label::after {
     right: 40px;
     top: 20px;
     content: '“';
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 100px;
     font-weight: bolder;
     
@@ -1839,7 +1839,7 @@ label::after {
 .blog-metas a {
     float: none;
     display: inline-block;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     padding: 0 10px;
     position: relative;
@@ -1872,7 +1872,7 @@ label::after {
 .blog-details h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #232323;
     margin: 0;
@@ -1884,7 +1884,7 @@ label::after {
 .blog-details p {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 24px;
@@ -1895,7 +1895,7 @@ label::after {
     width: 100%;
     text-align: center;
     border-top: 1px solid #e8ecec;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     padding: 17px 0;
 }
@@ -1930,7 +1930,7 @@ label::after {
 .simple-text h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-weight: bold;
     color: #ffffff;
 }
@@ -1964,6 +1964,15 @@ footer {
     font-weight: 800;
     font-family: Lato;
     color: #484848;
+}
+#login_logo{
+        position: absolute;
+    left: 50px;
+    top: 50px;
+    z-index: 100;
+}
+#login_logo img{
+       width: 150px;
 }
 .about_widget > span {
     width: 100%;
@@ -2015,7 +2024,7 @@ footer {
     float: left;
     width: 100%;
     position: relative;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #8a99b3;
     margin-bottom: 12px;
@@ -2049,7 +2058,7 @@ footer {
     float: left;
     width: 100%;
     position: relative;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #8a99b3;
     margin-bottom: 12px;
@@ -2096,7 +2105,7 @@ footer {
     float: left;
     width: 100%;
     position: relative;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #8a99b3;
     margin-bottom: 12px;
@@ -2165,7 +2174,7 @@ footer {
     float: left;
     width: 100%;
     position: relative;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #8a99b3;
     margin-bottom: 12px;
@@ -2278,7 +2287,7 @@ header.style2 nav {
     background: #d42525;
     padding: 20px 0px;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
 }
 .search-job2 .job-field::before {
     position: absolute;
@@ -2417,7 +2426,7 @@ header.style2 nav {
 }
 .job-grid > a {
     float: right;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #fb236a;
     border: 1px solid #fb236a;
@@ -2484,7 +2493,7 @@ header.style2 nav {
 .how-to h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 18px;
     color: #121212;
     margin: 0;
@@ -2494,7 +2503,7 @@ header.style2 nav {
     float: left;
     width: 100%;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 24px;
@@ -2566,7 +2575,7 @@ header.style2 nav {
 .top-compnay h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #111111;
     margin-top: 10px;
@@ -2575,13 +2584,13 @@ header.style2 nav {
 .top-compnay span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #fb236a;
 }
 .top-compnay > a {
     float: none;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #fb236a;
     border: 1px solid #fb236a;
@@ -2639,7 +2648,7 @@ header.style2 nav {
 .stats span {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 60px;
     font-weight: bold;
     color: #ffffff;
@@ -2651,7 +2660,7 @@ header.style2 nav {
     width: 100%;
     margin: 0;
         margin-top: 0px;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 18px;
     color: #ffffff;
     margin-top: 10px;
@@ -2700,7 +2709,7 @@ header.style2 nav {
     top: 30px;
     content: '“';
     bottom: 110px;
-    font-family: Quicksand;
+    font-family: Lato;
     font-weight: bold;
     left: 0;
     right: auto;
@@ -2731,7 +2740,7 @@ header.style2 nav {
 .blog-date a {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 18px;
     color: #202020;
     font-weight: bold;
@@ -2789,7 +2798,7 @@ header.style2 nav {
 .pricetable-head h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
     color: #202020;
     margin: 0;
@@ -2797,7 +2806,7 @@ header.style2 nav {
 .pricetable-head h2 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 60px;
     font-weight: bold;
     margin: 0;
@@ -2817,7 +2826,7 @@ header.style2 nav {
 .pricetable-head span {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 16px;
     color: #888888;
     margin-top: 2px;
@@ -2831,7 +2840,7 @@ header.style2 nav {
 .pricetable ul li {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 40px;
@@ -2839,7 +2848,7 @@ header.style2 nav {
 .pricetable > a {
     float: none;
     display: inline-block;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #ffffff;
     padding: 15px 55px;
@@ -2880,7 +2889,7 @@ header.style2 nav {
 .subscription-sec h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-weight: bold;
     font-size: 30px;
     color: #202020;
@@ -2890,7 +2899,7 @@ header.style2 nav {
 .subscription-sec span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     margin: 0;
@@ -2922,7 +2931,7 @@ header.style2 nav {
     background: no-repeat;
     margin: 0;
     font-size: 14px;
-    font-family: Open Sans;
+    font-family: Lato;
     padding: 0px 50px;
     height: 50px;
 }
@@ -3008,7 +3017,7 @@ header.style2 nav {
 }
 .links a {
     display: inline-block;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     margin: 6px 17px;
@@ -3016,7 +3025,7 @@ header.style2 nav {
 .mega-widget span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     margin-top: 15px;
@@ -3054,7 +3063,7 @@ header.style3 .menu-sec nav {
 .find-cand h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 50px;
     font-weight: bold;
     color: #7dc246;
@@ -3249,7 +3258,7 @@ header.style3 .menu-sec nav {
     float: left;
     width: 100%;
     color: #ffffff;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 40px;
     font-weight: bold;
     margin: 0;
@@ -3390,14 +3399,14 @@ header.style3 .menu-sec nav {
     float: left;
     width: 100%;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
 }
 .team-detail > span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     margin-top: 11px;
@@ -3618,7 +3627,7 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
     display: none;
 }
 .search-job2.style2 form .job-field label {
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
     margin: 0;
@@ -3658,7 +3667,7 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
     border-radius: 6px !important;
 
     background: #1e83f0;
-    font-family: Open Sans;
+    font-family: Lato;
     padding: 16px 10px;
     margin: 21px 0;
 }
@@ -3757,7 +3766,7 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
 }
 .nav.nav-tabs > li a {
     float: left;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 0px;
@@ -3889,7 +3898,7 @@ footer.style2 span {
 .subscribe_widget > p {
     width: 100%;
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #7a8493;
     line-height: 20px;
@@ -3910,7 +3919,7 @@ footer.style2 span {
 
     background: none;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #dae4f3;
     padding: 15px 30px;
@@ -3944,7 +3953,7 @@ footer.style2 {
 }
 .back-top {
     float: right;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #7a8493;
     line-height: 33px;
@@ -4098,7 +4107,7 @@ header.style5 .logo {
     position: relative;
     top: 10px;
     font-size: 13px;
-    font-family: Open Sans;
+    font-family: Lato;
 }
 .form-location-sec form a {
     text-align: right;
@@ -4106,7 +4115,7 @@ header.style5 .logo {
     color: #B3B3B3;
     position: relative;
     font-size: 13px;
-    font-family: Open Sans;
+    font-family: Lato;
     height: 20px;
     position: absolute;
     width: auto;
@@ -4278,14 +4287,14 @@ header.style5 .logo {
     float: left;
     width: 100%;
     color: #ffffff;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 40px;
     margin: 0;
 }
 .who-am p {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     line-height: 26px;
     color: #ffffff;
@@ -4294,7 +4303,7 @@ header.style5 .logo {
 .who-am a {
     float: left;
     border: 2px solid #ffffff;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 16px;
     color: #ffffff;
     padding: 13px 50px;
@@ -4348,7 +4357,7 @@ header.style5 .logo {
     color: #222222;
     background: #f4f5fa;
     padding: 21px 40px;
-    font-family: Open Sans;
+    font-family: Lato;
     cursor: pointer;
     margin-bottom: 1px;
     position: relative;
@@ -4419,7 +4428,7 @@ header.style5 .logo {
     width: 100%;
     float: left;
     color: #ffffff;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 30px;
     font-weight: bold;
 }
@@ -4532,7 +4541,7 @@ section.overlape {
 }
 .filterbar > h5 {
     float: left;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 20px;
     color: #222222;
     font-weight: bold;
@@ -4641,7 +4650,7 @@ section.overlape {
     box-shadow: none;
 
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     padding: 3px 13px;
     text-decoration: none;
     border: 3px solid #edeff7;
@@ -4726,7 +4735,7 @@ aside .widget:first-child {
 .sb-title {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #111111;
     margin: 0;
@@ -4823,7 +4832,7 @@ aside .widget:first-child {
     width: 100%;
     margin: 0;
         margin-bottom: 0px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     margin-bottom: 4px;
 }
@@ -4853,7 +4862,7 @@ aside .widget > div {
 .subscribe_widget > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #111111;
     margin: 0;
@@ -4903,7 +4912,7 @@ aside .subscribe_widget form button {
     -o-border-radius: 8px;
     border-radius: 8px;
 
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     padding: 7px 17px;
     margin-right: 15px;
@@ -4928,7 +4937,7 @@ aside .subscribe_widget form button {
     text-align: center;
     line-height: 13px;
     font-size: 10px;
-    font-family: Open Sans;
+    font-family: Lato;
     cursor: pointer;
 }
 .action-tags {
@@ -5075,7 +5084,7 @@ aside .subscribe_widget form button {
     border: 2px solid #e8ecec;
     padding: 9px 25px;
     font-size: 13px;
-    font-family: Open Sans;
+    font-family: Lato;
     
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -5233,7 +5242,7 @@ aside .widget.border:first-child {
 .job-head-info h4 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin: 0;
@@ -5271,7 +5280,7 @@ aside .widget.border:first-child {
 .job-details h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin-bottom: 15px;
@@ -5282,7 +5291,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     font-size: 14px;
-    color: #ED9FA0;
+    color: #CA8197;
     line-height: 24px;
     margin: 0;
     margin-bottom: 19px;
@@ -5392,7 +5401,7 @@ aside .widget.border:first-child {
 .recent-jobs > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
 }
@@ -5411,7 +5420,7 @@ aside .widget.border:first-child {
 
     padding: 20px 20px;
     font-size: 15px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-weight: bold;
 }
 .apply-thisjob i {
@@ -5493,7 +5502,7 @@ aside .widget.border:first-child {
 .job-overview > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
 }
 .job-overview ul {
@@ -5529,7 +5538,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     font-size: 14px;
-    font-family: Open Sans;
+    font-family: Lato;
     margin: 0;
 }
 .job-overview ul > li span {
@@ -5547,7 +5556,7 @@ aside .widget.border:first-child {
 .job-location > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
 }
@@ -5586,7 +5595,7 @@ aside .widget.border:first-child {
 
     padding: 17px 20px;
     margin-bottom: 20px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
 }
@@ -5598,7 +5607,7 @@ aside .widget.border:first-child {
     margin-right: 12px;
 }
 .extra-job-info > span strong {
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     font-weight: normal;
     color: #202020;
@@ -5646,7 +5655,7 @@ aside .widget.border:first-child {
     float: left;
     margin: 0;
         margin-right: 0px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     margin-right: 30px;
@@ -5657,7 +5666,7 @@ aside .widget.border:first-child {
     float: left;
     line-height: 15px;
     margin-right: 8px;
-    color: #8b91dd;
+    color: #fb236a;
 }
 .tags-jobs > li span {
     color: #8b91dd;
@@ -5751,7 +5760,7 @@ aside .widget.border:first-child {
 }
 .apply-job-btn {
     background: #fb236a;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     font-weight: bold;
     color: #ffffff;
@@ -5793,7 +5802,7 @@ aside .widget.border:first-child {
     -o-border-radius: 40px;
     border-radius: 40px;
 
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #fb236a;
     width: 250px;
@@ -5814,7 +5823,7 @@ aside .widget.border:first-child {
     height: 60px;
     line-height: 60px;
     color: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     
     -webkit-border-radius: 40px;
@@ -5838,12 +5847,11 @@ aside .widget.border:first-child {
 .job-single-info3 {
     display: table-cell;
     vertical-align: top;
-    padding-left: 25px;
 }
 .job-single-info3 > h3 {
     float: left;
     width: 100%;
-    font-size: 20px;
+    font-size: 22px;
     color: #202020;
     font-weight: bold;
     margin-bottom: 4px;
@@ -5910,8 +5918,8 @@ aside .widget.border:first-child {
     border-bottom: 1px solid #e8ecec;
 }
 .job-head-wide .apply-thisjob {
-    background: #ED9FA0;
-    border: 2px solid #ED9FA0;
+    background: #E16F91;
+    border: 2px solid #E16F91;
     
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -5961,7 +5969,7 @@ aside .widget.border:first-child {
     width: 100%;
     font-size: 16px;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
 }
 .quick-form-job form {
     float: left;
@@ -6007,7 +6015,7 @@ aside .widget.border:first-child {
     font-size: 13px;
     color: #888888;
     padding: 15px 25px;
-    font-family: Open Sans;
+    font-family: Lato;
     margin-bottom: 15px;
 }
 .quick-form-job form button {
@@ -6031,7 +6039,7 @@ aside .widget.border:first-child {
 .quick-form-job form > span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     text-align: center;
@@ -6093,7 +6101,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     font-size: 16px;
-    font-family: Open Sans;
+    font-family: Lato;
     color: #202020;
     margin-bottom: 7px;
 }
@@ -6105,6 +6113,7 @@ aside .widget.border:first-child {
 
 .list-icon{
     margin-right: 10px;
+    color: #fb236a;
 }
 
 .house_picture{
@@ -6141,13 +6150,13 @@ aside .widget.border:first-child {
     margin: 0;
         margin-top: 0px;
     font-size: 13px;
-    font-family: Open Sans;
+    font-family: Lato;
     margin-top: 13px;
 }
 .emply-list-info > p {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 24px;
@@ -6179,11 +6188,14 @@ aside .widget.border:first-child {
     position: absolute;
     right: 0;
     top: 0;
-    color: #ffcece;
+    color: #fb236a;
     font-size: 18px;
     padding: 8px 30px;
-    background-color: #a0a0a0;
+    border-color: #fb236a;
+    border-style: solid;
+    border-width: 1px;
     border-radius: 5px;
+    display: none;
 }
 
 .list_detail:hover{
@@ -6196,7 +6208,7 @@ aside .widget.border:first-child {
 .filterbar > p {
     float: left;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     line-height: 36px;
@@ -6323,7 +6335,7 @@ aside .widget.border:first-child {
     width: 100%;
 }
 .range_slider .leftLabel, .range_slider .rightLabel {
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     margin-top: 9px;
@@ -6395,8 +6407,10 @@ aside .widget.border:first-child {
     top: -1px;
     margin-left: 2px;
     margin-right: 15px;
-    color: #fdaeae;
+    color: #888888;
 }
+
+
 
 .emply-list.box:hover {
     -webkit-box-shadow: none;
@@ -6470,7 +6484,7 @@ aside .widget.border:first-child {
     margin: 5px 0;
     padding-left: 34px;
     position: relative;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
 }
 .emply-text > ul > li::before {
@@ -6490,7 +6504,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     background: #fb236a;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #ffffff;
     text-align: center;
@@ -6604,7 +6618,7 @@ aside .widget.border:first-child {
 .tree_widget-sec > ul > li > a {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 41px;
@@ -6641,7 +6655,7 @@ aside .widget.border:first-child {
 .tree_widget-sec > ul > li > ul > li a {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     padding: 3px 0;
@@ -6981,7 +6995,7 @@ aside .widget.border:first-child {
 .upload-info > span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     margin-top: 20px;
@@ -7048,7 +7062,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     margin-top: 30px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
     margin-bottom: 13px;
@@ -7080,7 +7094,7 @@ aside .widget.border:first-child {
 
     padding: 12px 45px 12px 15px;
     background: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #101010;
     line-height: 24px;
@@ -7215,7 +7229,7 @@ o{
 }
 .contact-edit .srch-lctn {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     color: #8b91dd;
     border: 2px solid #8b91dd;
@@ -7253,7 +7267,7 @@ o{
     background: #ffffff;
     border: 2px solid #fb236a;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
     
@@ -7320,7 +7334,7 @@ o{
     border-bottom: 1px solid #e8ecec;
 }
 .table-list-title > h3 {
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
     margin: 0;
@@ -7438,7 +7452,7 @@ o{
 .btns-profiles-sec > span {
     float: right;
     color: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     line-height: 50px;
     cursor: pointer;
@@ -7446,7 +7460,7 @@ o{
 .btns-profiles-sec > span {
     float: right;
     color: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     line-height: 50px;
 }
@@ -7501,7 +7515,7 @@ o{
 .btns-profiles-sec > ul > li > a {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #202020;
     line-height: 30px;
@@ -7603,7 +7617,7 @@ o{
 .emply-resume-info > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin: 0;
@@ -7626,7 +7640,7 @@ o{
         margin-top: 0px;
     margin-top: 0px;
     font-size: 13px;
-    font-family: Open Sans;
+    font-family: Lato;
     margin-top: 0;
     line-height: 28px;
 }
@@ -7645,7 +7659,7 @@ o{
 }
 .action-center > span {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #8b91dd;
     border: 2px solid #8b91dd;
@@ -7724,7 +7738,7 @@ o{
 }
 .action-center > ul > li a {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     padding: 5px 20px;
@@ -7865,7 +7879,7 @@ o{
     float: left;
     background: no-repeat;
     padding: 16px 15px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     margin: 0;
 
@@ -7880,7 +7894,7 @@ o{
 }
 .contact-popup form > .popup-field textarea {
     background: none;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     min-height: 135px;
 }
@@ -7925,7 +7939,7 @@ o{
     padding: 19px 24px !important;
         padding-right: 24px;
     color: #ffffff !important;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     font-weight: normal !important;
     padding-right: 14px !important;
@@ -8055,7 +8069,7 @@ table.alrt-table tbody td > span {
     background: #ffffff;
     border: 2px solid #fb236a;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
     
@@ -8082,7 +8096,7 @@ table.alrt-table tbody td > span {
 }
 .shortlists > a {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #8b91dd;
     border: 2px solid #8b91dd;
@@ -8320,7 +8334,7 @@ header.gradient{
 }
 .skills-btn a {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #ffffff;
     border: 2px solid #ffffff;
@@ -8341,7 +8355,7 @@ header.gradient{
 }
 .action-inner a {
     float: right;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #ffffff;
     margin-left: 30px;
@@ -8415,7 +8429,7 @@ header.gradient{
 .can-detail-s > h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 22px;
     color: #202020;
     font-weight: bold;
@@ -8424,7 +8438,7 @@ header.gradient{
 .can-detail-s span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #202020;
     margin-top: 14px;
@@ -8455,7 +8469,7 @@ header.gradient{
     background: #ffffff;
     border: 2px solid #8b91dd;
     color: #8b91dd;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     padding: 14px 30px;
     
@@ -8499,7 +8513,7 @@ header.gradient{
 }
 .cand-extralink > li a {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     color: #888888;
     padding: 20px 10px;
@@ -8522,7 +8536,7 @@ header.gradient{
 .cand-details h2 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 20px;
     font-weight: bold;
     color: #202020;
@@ -8569,7 +8583,7 @@ header.gradient{
 .edu-hisinfo > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #8b91dd;
     margin: 0;
@@ -8587,7 +8601,7 @@ header.gradient{
 .edu-hisinfo > span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin-top: 8px;
@@ -8735,7 +8749,7 @@ header.gradient{
 .progress-sec > span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin-bottom: 9px;
@@ -8858,7 +8872,7 @@ header.gradient{
     margin: 0;
     background: #edeff7;
     color: #888888;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     margin: 0 6px;
         margin-top: 0px;
@@ -9022,7 +9036,7 @@ header.gradient{
 .skill-perc > h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 20px;
     color: #202020;
     font-weight: bold;
@@ -9062,7 +9076,7 @@ header.gradient{
     right: 28px;
     top: 53px;
     font-size: 17px;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 20px;
     font-weight: bold;
     letter-spacing: -1px;
@@ -9080,7 +9094,7 @@ header.gradient{
     float: left;
     font-size: 14px;
     color: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     line-height: 50px;
     cursor: pointer;
 }
@@ -9460,7 +9474,7 @@ header.gradient{
 .follow-companies > ul li .job-listing.wtabs .go-unfollow {
     float: right;
     background: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #8b91dd;
     border: 2px solid #8b91dd;
@@ -9519,7 +9533,7 @@ header.gradient{
 }
 .border-title > h3 {
     float: left;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 20px;
     font-weight: bold;
     color: #202020;
@@ -9529,7 +9543,7 @@ header.gradient{
 .border-title > a {
     float: right;
     line-height: 27px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #fb236a;
 }
@@ -9598,7 +9612,7 @@ header.gradient{
     float: right;
     border: 2px solid #fb236a;
     color: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     padding: 12px 41px;
     
@@ -9670,7 +9684,7 @@ input[type="file"] {
 .custom-file-upload span {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #8b91dd;
     line-height: 25px;
@@ -9711,7 +9725,7 @@ input[type="file"] {
     background: #f8f9fc;
 }
 .table-list-title > i {
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #8b91dd;
     font-style: normal;
@@ -9732,7 +9746,7 @@ input[type="file"] {
     background: #ffffff;
     border: 2px solid #fb236a;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
     
@@ -9812,7 +9826,7 @@ input[type="file"] {
 }
 .post-metas > li a {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     color: #a7a7a7;
 }
@@ -9832,7 +9846,7 @@ input[type="file"] {
     float: left;
     width: 100%;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
     color: #202020;
     margin: 0;
@@ -9852,7 +9866,7 @@ input[type="file"] {
 }
 .bbutton {
     float: left;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 15px;
     color: #fb236a;
     border: 2px solid #fb236a;
@@ -9873,7 +9887,7 @@ input[type="file"] {
     float: left;
     width: 100%;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
 }
@@ -9934,7 +9948,7 @@ input[type="file"] {
 .mb-info > h3 {
     float: left;
     width: 100%;
-    font-family: Open sans;
+    font-family: Lato;
     font-size: 13px;
     color: #202020;
     line-height: 20px;
@@ -9953,7 +9967,7 @@ input[type="file"] {
 }
 .tags_widget > a {
     float: left;
-    font-family: Open sans;
+    font-family: Lato;
     font-size: 13px;
     color: #888888;
     border: 1px solid #e8ecec;
@@ -10002,7 +10016,7 @@ footer .footer-title {
     float: left;
     width: 100%;
     color: #ffffff;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #ffffff;
     margin: 0;
@@ -10044,7 +10058,7 @@ footer .footer-title {
 .blog-single > h2 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
     margin: 20px 0;
     color: #202020;
@@ -10060,7 +10074,7 @@ footer .footer-title {
 .blog-single > h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
 }
@@ -10075,7 +10089,7 @@ blockquote > p {
     float: left;
     width: 100%;
     margin: 0;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     font-style: italic;
     color: #888888;
@@ -10192,7 +10206,7 @@ blockquote > strong {
     display: table-cell;
     vertical-align: middle;
     padding-left: 20px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
 }
@@ -10221,7 +10235,7 @@ blockquote > strong {
     float: left;
     width: 100%;
     font-size: 20px;
-    font-family: Open Sans;
+    font-family: Lato;
     color: #202020;
 }
 .comment-sec > ul {
@@ -10266,7 +10280,7 @@ blockquote > strong {
 .comment-detail > h3 {
     float: left;
     width: 50%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 16px;
     color: #202020;
     margin: 0;
@@ -10329,7 +10343,7 @@ blockquote > strong {
     float: left;
     width: 100%;
     font-size: 20px;
-    font-family: Open Sans;
+    font-family: Lato;
     color: #202020;  
 }
 .commentform-sec > form {
@@ -10409,7 +10423,7 @@ header.white .menu-sec nav > ul > li > ul {
 .inner-title2 > h3 {
     float: left;
     width: 100%;
-    font-family: Quicksand;
+    font-family: Lato;
     font-size: 30px;
     color: #202020;
     font-weight: bold;
@@ -10478,14 +10492,14 @@ header.white {
 .about-us  h3 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
     color: #202020;
 }
 .about-us p {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 24px;
@@ -10543,7 +10557,7 @@ header.white {
     float: left;
     width: 100%;
     font-size: 16px;
-    font-family: Open Sans;
+    font-family: Lato;
     margin: 0;
 }
 .service-info > p {
@@ -10558,7 +10572,7 @@ header.white {
 .our-services h2 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
     color: #202020;
     margin-bottom: 40px;
@@ -10568,7 +10582,7 @@ header.white {
     width: 100%;
     font-size: 20px;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
 }
 .contact-form > form {
     float: left;
@@ -10584,7 +10598,7 @@ header.white {
 .contact-form > form button {
     float: left;
     margin-top: 5px;
-    font-family: open sans;
+    font-family: Lato;
     font-size: 15px;
     color: #ffffff;
     background: #fb236a;
@@ -10608,7 +10622,7 @@ header.white {
     width: 100%;
     font-size: 20px;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
 }
 .contact-textinfo > ul {
     float: left;
@@ -10635,7 +10649,7 @@ header.white {
 .contact-textinfo > ul > li > span {
     display: table-cell;
     vertical-align: middle;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 24px;
@@ -10643,7 +10657,7 @@ header.white {
 .contact-textinfo > a {
     float: left;
     margin-top: 5px;
-    font-family: open sans;
+    font-family: Lato;
     font-size: 15px;
     color: #0f36a5;
     padding: 15px 40px;
@@ -10721,7 +10735,7 @@ header.white {
     width: 100%;
     position: relative;
     cursor: pointer;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
 }
 .faq-box > h2 > i {
@@ -10767,7 +10781,7 @@ terms {
 .terms > h2 {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 20px;
     color: #202020;
     margin-bottom: 15px;
@@ -10775,7 +10789,7 @@ terms {
 .terms > p {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 24px;
@@ -10901,12 +10915,12 @@ terms {
     width: 100%;
     font-size: 22px;
     color: #202020;
-    font-family: Open Sans;
+    font-family: Lato;
 }
 .how-work-box > p {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     color: #888888;
     line-height: 30px;
@@ -11010,7 +11024,7 @@ terms {
 .error-sec h6 a {
     float: none;
     display: inline-block;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 14px;
     background: #0f36a5;
     color: #ffffff;
@@ -11617,7 +11631,7 @@ margin-top: 13px
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     border-radius: 8px;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 13px;
     padding: 7px 17px;
     margin-right: 10px;
@@ -11640,7 +11654,7 @@ margin-top: 13px
     text-align: center;
     line-height: 13px;
     font-size: 10px;
-    font-family: Open Sans;
+    font-family: Lato;
     cursor: pointer;
 }
 .tagAdd.taglist input {
@@ -11777,7 +11791,7 @@ margin-top: 13px
     float: left;
     color: #fff;
     font-size: 15px;
-    font-family: Open Sans;
+    font-family: Lato;
     padding: 12px 27px;
     
     -webkit-border-radius: 26px;
@@ -11798,7 +11812,7 @@ margin-top: 13px
     top: 0;
     color: #fff;
     font-size: 15px;
-    font-family: Open Sans;
+    font-family: Lato;
     padding: 13px 27px;
     
     -webkit-border-radius: 26px;
@@ -11877,7 +11891,7 @@ margin-top: 13px
 .responsivemenu > ul > li > a {
     float: left;
     width: 100%;
-    font-family: Open Sans;
+    font-family: Lato;
     font-size: 22px;
     color: #96a0bd;
     padding-right: 30px;

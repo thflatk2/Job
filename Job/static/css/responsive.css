@@ -628,6 +628,12 @@ select {
     text-align: center;
     margin-top: 10px;
 }
+
+.widget{
+    float: unset;
+    text-align: center;
+}
+
 .date-comment a {
     float: none;
     display: inline-block;
@@ -1015,6 +1021,11 @@ select {
     width: 100%;
     text-align: center;
     padding: 30px 0;
+}
+.demo{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .page-breacrumbs {
     display: inline-block;

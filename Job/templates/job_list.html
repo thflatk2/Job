@@ -144,14 +144,14 @@
 				 		<div class="emply-list-sec style2">
 
                             {% for job in Jobs %}
-                                <div class="emply-list" onmouseover="detailon()" onmouseout="detailout()" onclick="location.href='{% url 'Job:detail' job.pk %}'">
+                                <div class="emply-list" onmouseover="detailon({{ job.pk }})" onmouseout="detailout({{ job.pk }})" onclick="location.href='{% url 'Job:detail' job.pk %}'">
                                     <div class="emply-list-thumb">
                                         <a href="#" title=""><img src="{{ job.house_pic1.url }}" alt="" /></a>
                                     </div>
                                     <div class="emply-list-info">
-                                        <div class="emply-pstn"><a class="list_detail" href="{% url 'Job:detail' job.pk %}">Details</a></div>
+                                        <div class="emply-pstn"><a class="list_detail detail{{ job.pk }}" href="{% url 'Job:detail' job.pk %}">Details</a></div>
                                         <h3><a href="#" title="">{{ job.school_name }}</a></h3>
-                                        <span><i class="far fa-calendar-alt list-icon"></i><o>{{ job.start_date }} </o><i class="fas fa-briefcase list-icon"></i><o>{{ job.contract_period }} </o><i class="fas fa-money-bill-alt list-icon"></i><o>{{ job.min_salary }} ~ {{ job.max_salary }}</o><i class="fas fa-location-arrow list-icon"></i><o>{{ job.location}}</o></span>
+                                        <span><i class="far fa-calendar-alt list-icon"></i><o>{{ job.start_date }} </o><i class="fas fa-briefcase list-icon"></i><o>{{ job.contract_period }} Month +</o><i class="fas fa-money-bill-alt list-icon"></i><o>{{ job.min_salary }}M ~ {{ job.max_salary }}M KRW</o><i class="fas fa-location-arrow list-icon"></i><o>{{ job.location}}</o></span>
                                         <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
                                     </div>
                                 </div><!-- Employe List -->
@@ -245,12 +245,12 @@
 <script src="{% static "js/rslider.js" %}"  type="text/javascript"></script>
 
 <script>
-    function detailon() {
-        $('.list_detail').css("display", "block");
+    function detailon(x) {
+        $('.detail' + x).css("display", "block");
     }
 
-    function detailout() {
-        $('.list_detail').css("display", "none");
+    function detailout(x) {
+        $('.detail' + x).css("display", "none");
     }
 
 </script>

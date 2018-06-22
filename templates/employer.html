@@ -142,13 +142,14 @@
 				 	</aside>
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
+                            <form method="post" enctype="multipart/form-data" action=""> {% csrf_token %}
 					 		<div class="profile-title" id="mp">
 					 			<h3>Profile Photo</h3>
                                     <p>Thumbnail</p>
                                     <div class="upload-img-bar">
                                         <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
                                         <div class="upload-info">
-                                            <label for="id_user_pic1">Browse</label>
+                                            <label class="id_user_pic1" for="id_user_pic1">Browse</label>
                                             <input type="file" name="user_pic1" required id="id_user_pic1" title="">
                                             <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                         </div>
@@ -185,7 +186,7 @@
 					 				</div>
                                 </div>
 					 		</div>
-					 		<div class="social-edit"  id="sn">
+					 		<div class="contact-edit"  id="sn">
 					 			<h3>Introduction</h3>
 					 			<div>
 					 				<div class="row">
@@ -202,6 +203,7 @@
 					 				</div>
 					 			</div>
 					 		</div>
+                            </form>
 					 	</div>
 					</div>
 				 </div>
