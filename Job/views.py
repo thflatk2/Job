@@ -30,7 +30,7 @@ class JobListView(TemplateView):
         sort = request.GET.get('sort', '')
         page = request.GET.get('page')
         Job = Job_info.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
-        paginator = Paginator(Job, 2)  # Show 25 contacts per page
+        paginator = Paginator(Job, 10)  # Show 25 contacts per page
 
         if sort == 'date_early':
             Jobs = Job_info.objects.all().order_by('start_date')
