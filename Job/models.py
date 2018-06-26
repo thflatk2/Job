@@ -14,7 +14,7 @@ class Job_info(models.Model):
     summary = models.TextField(null=True, blank=True)
 
     AGE_CHOICES  = (
-        ('Kidergarten', 'Kindergarten'),
+        ('Kindergarten', 'Kindergarten'),
         ('Elementary', 'Elementary'),
         ('Middle','Middle'),
     )
@@ -31,16 +31,18 @@ class Job_info(models.Model):
         ('one-way','one-way'),
         ('round-trip','round-trip'),
     )
-    flight_support = models.CharField(max_length=15, choices=FLIGHT_CHOICES, default='A')
-    house = models.BooleanField()
+    flight_support = models.CharField(max_length=15, choices=FLIGHT_CHOICES, default='A' )
+    house = models.CharField(max_length=50, blank=True, null=True)
     house_pic1 = models.FileField()
     house_pic2 = models.FileField()
     house_pic3 = models.FileField()
     house_pic4 = models.FileField()
     house_pic5 = models.FileField()
-    severance_payment = models.BooleanField()
-    health_insurance = models.BooleanField()
-    national_pension = models.BooleanField()
+    severance_payment = models.CharField(max_length=50, blank=True, null=True)
+    health_insurance = models.CharField(max_length=50, blank=True, null=True)
+    national_pension = models.CharField(max_length=50, blank=True, null=True)
+    description = models.TextField(null=True, blank=True)
+    qualification = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                            blank=True,

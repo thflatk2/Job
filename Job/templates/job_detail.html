@@ -43,29 +43,31 @@
 		</div>
 		<div class="responsive-opensec">
 			<div class="btn-extars">
-				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
-				<ul class="account-btns">
-					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
-					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
-				</ul>
+                {% if user.is_active %}
+                    {% if user.type == 'Employer' %}
+                        <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% else %}
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% endif %}
+                    {% else %}
+                    <ul class="account-btns">
+					    <li class="signup-popup"><a href="{% url 'register' %}" title=""><i class="la la-key"></i> Sign Up</a></li>
+					    <li class="signin-popup"><a href="{% url 'login_url' %}" title=""><i class="la la-external-link-square"></i> Login</a></li>
+				    </ul>
+                {% endif %}
+
 			</div><!-- Btn Extras -->
-			<form class="res-search">
-				<input type="text" placeholder="Job title, keywords or company name" />
-				<button type="submit"><i class="la la-search"></i></button>
-			</form>
-			<div class="responsivemenu">
-				<ul>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Life in Korea</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Employers</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Candidates</a>
-						</li>
-					</ul>
-			</div>
+
+            <a href="{% url 'Job:list' %}" title="">Jobs</a>
+            <a href="{% url 'how_it_works' %}" title="">How it works</a>
+            <a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
 		</div>
 	</div>
 
@@ -77,8 +79,18 @@
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<ul class="account-btns">
-						<li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
-					</ul>
+                        {% if user.is_active %}
+                            {%  if user.type == "Employer" %}
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+                                {% else %}
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                {% endif %}
+		                {% else %}
+                            <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
+                        {% endif %}
+                    </ul>
 				</div><!-- Btn Extras -->
 				<nav>
 					<ul>
@@ -104,7 +116,6 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="inner-header detail">
-							<h3>Application Developer For Android</h3>
 						</div>
 					</div>
 				</div>
@@ -113,7 +124,7 @@
 	</section>
 
 	<section>
-		<div class="block">
+		<div class="block detail-section">
 			<div class="container">
 				<div class="row">
 				 	<div class="col-lg-12 column">
@@ -122,7 +133,7 @@
 				 				<div class="row">
 				 					<div class="col-lg-8">
 				 						<div class="job-single-head3">
-							 				<div class="job-single-info3">
+							 				<div class="job-single-info3 job-title-div">
 							 					<h3>{{ Jobs.school_name }}</h3>
 							 					<ul class="tags-jobs">
 								 					<li><i class="far fa-calendar-alt list-icon"></i>{{ Jobs.start_date }}</li>
@@ -130,6 +141,9 @@
 								 					<li><i class="fas fa-money-bill-alt list-icon"></i>{{ Jobs.min_salary }}M ~ {{ Jobs.max_salary }}M KRW</li>
                                                     <li><i class="fas fa-location-arrow list-icon"></i>{{ Jobs.location}}</li>
 								 				</ul>
+                                                {% if Jobs.summary %}
+                                                    <p class="summary_detail" >{{ Jobs.summary }}</p>
+                                                {% endif %}
 							 				</div>
 							 			</div><!-- Job Head -->
 				 					</div>
@@ -142,12 +156,6 @@
 							 	<div class="row">
 							 		<div class="col-lg-8 column">
 							 			<div class="job-details">
-							 				<h3>Photos</h3>
-                                            <div class="house_picture">
-                                                <img src="{{ Jobs.house_pic1.url }}" alt="" />
-                                                <img src="{{ Jobs.house_pic2.url }}" alt="" />
-                                                <img src="{{ Jobs.house_pic3.url }}" alt="" />
-                                            </div>
 
                                             <div class="job-detail">
                                                 <div class="job-detail-left">
@@ -155,14 +163,55 @@
                                                     <p>{{ Jobs.start_date }}</p>
 
                                                     <h3>Contract Period</h3>
-                                                    <p>{{ Jobs.contract_period }}</p>
+                                                    <p>{{ Jobs.contract_period }} Month +</p>
 
                                                     <h3>Salary</h3>
-                                                    <p>{{ Jobs.min_salary }} ~ {{ Jobs.max_salary }}</p>
+                                                    <p>{{ Jobs.min_salary }}M ~ {{ Jobs.max_salary }}M KRW</p>
 
                                                     <h3>Flight Support</h3>
-                                                    <p>{{ Jobs.flight_support }}</p>
+                                                    {% if Jobs.flight_support|length == 9 %}
+                                                        <p>{{ Jobs.flight_support | slice:"2:6"}}</p>
+                                                    {% elif Jobs.flight_support|length == 11 %}
+                                                        <p>{{ Jobs.flight_support | slice:"2:9"}}</p>
+                                                    {% elif Jobs.flight_support|length == 14 %}
+                                                        <p>{{ Jobs.flight_support | slice:"2:12"}}</p>
+                                                    {% else %}
+                                                        <p>{{ Jobs.flight_support | length }}</p>
+                                                    {% endif %}
 
+                                                </div>
+                                                <div class="job-detail-right">
+                                                    <h3>Age Level</h3>
+                                                    {% if Jobs.age_level|length == 30 %}
+                                                        <p>{{ Jobs.age_level | slice:"2:28" | cut:"'"}}</p>
+                                                    {% elif Jobs.age_level|length == 16 %}
+                                                        <p>{{ Jobs.age_level | slice:"2:14" | cut:"'"}}</p>
+                                                    {% elif Jobs.age_level|length == 40 %}
+                                                        <p>{{ Jobs.age_level | slice:"2:38" | cut:"'"}}</p>
+                                                    {% elif Jobs.age_level|length == 24 %}
+                                                        <p>{{ Jobs.age_level | slice:"2:22" | cut:"'"}}</p>
+                                                    {% elif Jobs.age_level|length == 25 %}
+                                                        <p>{{ Jobs.age_level | slice:"2:33" | cut:"'"}}</p>
+                                                    {% elif Jobs.age_level|length == 14 %}
+							                            <p>{{ Jobs.age_level | slice:"2:12" | cut:"'"}}</p>
+              					                    {% elif Jobs.age_level|length == 10 %}
+                                                        <p>{{ Jobs.age_level | slice:"2:8" | cut:"'"}}</p>
+						                            {% else %}
+							                            <p>{{ Jobs.age_level | length }}</p>
+                                                    {% endif %}
+
+                                                    <h3>Working days and hours</h3>
+                                                    <p>{{ Jobs.day_hour }}</p>
+
+                                                    <h3>Location</h3>
+                                                    <p>{{ Jobs.location }}</p>
+                                                </div>
+                                            </div>
+							 			</div>
+                                        <div class="col-lg-12 column des_detail">
+                                            <div class="job-single-info3">
+                                                <h3 class="des_detail_div">Additonal Benefit</h3>
+                                                <div class="job-detail-left">
                                                     <h3>Housing</h3>
                                                     <p>{{ Jobs.house }}</p>
 
@@ -170,15 +219,6 @@
                                                     <p>{{ Jobs.health_insurance }}</p>
                                                 </div>
                                                 <div class="job-detail-right">
-                                                    <h3>Age Level</h3>
-                                                    <p>{{ Jobs.age_level }}</p>
-
-                                                    <h3>Working days and hours</h3>
-                                                    <p>{{ Jobs.day_hour }}</p>
-
-                                                    <h3>Location</h3>
-                                                    <p>{{ Jobs.location }}</p>
-
                                                     <h3>Severance Payment</h3>
                                                     <p>{{ Jobs.severance_payment }}</p>
 
@@ -186,20 +226,36 @@
                                                     <p>{{ Jobs.national_pension }}</p>
                                                 </div>
                                             </div>
-							 			</div>
-
+                                        </div>
+                                    {% if Jobs.description %}
+                                        <div class="col-lg-12 column des_detail">
+                                            <div class="job-single-info3">
+                                                <h3 class="des_detail_div">Description</h3>
+                                                <p>{{ Jobs.description }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if Jobs.qualification %}
+                                        <div class="col-lg-12 column des_detail">
+                                            <div class="job-single-info3">
+                                                <h3 class="des_detail_div">Qualification</h3>
+                                                <p>{{ Jobs.qualification }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
 							 		</div>
 							 		<div class="col-lg-4 column">
 								 		<div class="quick-form-job">
-								 			<h3>Contact</h3>
-								 			<form>
-								 				<input type="text" placeholder="Enter your Name *" />
-								 				<input type="text" placeholder="Email Address*" />
-								 				<input type="text" placeholder="Phone Number" />
-								 				<textarea placeholder="Message should have more than 50 characters"></textarea>
-								 				<button class="submit">Send Email</button>
-								 				<span>You accepts our <a href="#" title="">Terms and Conditions</a></span>
-								 			</form>
+								 			<h3>Photos</h3>
+                                            <div class="house_picture">
+                                                <img src="{{ Jobs.house_pic1.url }}" alt="" />
+                                                {% if Jobs.house_pic2 %}
+                                                <img src="{{ Jobs.house_pic2.url }}" alt="" />
+                                                {% endif %}
+                                                {% if Jobs.house_pic3 %}
+                                                <img src="{{ Jobs.house_pic3.url }}" alt="" />
+                                                {% endif %}
+                                            </div>
 								 		</div>
 							 		</div>
 							 	</div>

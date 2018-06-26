@@ -47,6 +47,7 @@ header {
 }
 .responsive-header {
     display: block;
+        background-color: rgba(247,180,180,80);
 }
 .blogpost.style2 .blog-postdetail {
     padding-left: 30px;
@@ -1027,6 +1028,56 @@ select {
     left: 50%;
     transform: translateX(-50%);
 }
+
+.download_widget{
+    float: unset;
+    width: unset;
+    margin-top: unset;
+}
+
+.employer_introduction{
+    padding-left: unset;
+}
+
+#employer_introduction{
+    padding-left: unset;
+}
+
+.widget > h3{
+    margin-top: -10px;
+}
+
+.margin_widget .widget, .margin_widget .widget.border{
+    margin-top: 80px;
+}
+
+.inner-header{
+    padding-top: 50px;
+    width: 75%;
+    margin-left: 12.5%;
+}
+
+.emply-list-thumb > a {
+    height: 100%;
+}
+.upload-info > label {
+    float: unset;
+    text-align: center;
+}
+
+.pf-field > p {
+    margin-top: unset;
+    line-height: unset;
+}
+
+.profile-form-edit > div {
+    padding: unset;
+}
+
+.pf-title{
+    margin-top: unset;
+}
+
 .page-breacrumbs {
     display: inline-block;
     float: left;
@@ -1080,6 +1131,14 @@ select {
 }
 .job-listing.wtabs {
     text-align: center;
+}
+
+.detail{
+    display: none;
+}
+
+.detail-section{
+    padding-top: 5px;
 }
 .job-listing.wtabs .c-logo {
     float: none;
@@ -1187,15 +1246,27 @@ select {
     font-size: 11px;
     color: #888888;
 }
+.simple-checkbox{
+    text-align: left;
+}
+.remove-top{
+    padding-top: 15px;
+}
+
+#login_logo{
+    display: none;
+ }
 
 .heading.light{
     width: 100%;
     padding: 0 20px;
 }
-.emply-list {
+.emply-list-sec.style2 .emply-list {
     float: left;
     width: 100%;
     text-align: center;
+        border: 2px solid #ffcece;
+    margin-bottom: 15px;
 }
 .emply-list-thumb {
     float: none;
@@ -1209,7 +1280,7 @@ select {
     margin-top: 10px;
 }
 .emply-pstn {
-    display: inline-block;
+    display: none;
     position: static;
     float: left;
     width: 100%;
@@ -1220,6 +1291,7 @@ select {
 }
 .job-single-head3 {
     display: inline-block;
+    padding-bottom: 0;
 }
 .job-single-head3.emplye .job-thumb {
     float: none;
@@ -1234,11 +1306,105 @@ select {
 }
 .job-single-info3 {
     padding: 0;
+    padding: 10px 20px;
 }
 .job-listing.wtabs.noimg {
     padding: 20px 10px;
         padding-bottom: 20px;
     padding-bottom: 40px;
+}
+.job-details{
+    padding: 20px 20px;
+}
+
+.column{
+    margin-top: 0;
+}
+.quick-form-job{
+    margin-top: 0;
+    padding: 25px 20px;
+}
+
+.apply-title{
+    margin-top: unset;
+}
+
+.ap-title{
+    padding-left: 3%;
+    margin-bottom: 10px;
+}
+
+.ap-title6{
+    padding-left: 10%;
+}
+
+.block.remove-top{
+    padding-top: 35px;
+}
+.introduction-title{
+        margin-left: unset;
+    padding: 0 50px;
+    word-break: break-all;
+}
+
+.upload-info > p {
+        margin-left: -20px;
+    width: 200px;
+}
+.life{
+        padding-top: 0px;
+    padding-bottom: 0;
+}
+.profile-form-edit > form button{
+        position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: unset;
+}
+
+#apply-basic-back{
+    width: 65%;
+    margin-left: unset;
+    margin-top: 15px;
+}
+
+#apply-review-front, #apply-detail-back, #apply-submit{
+    width: 65%;
+    margin-left: unset;
+    margin-top: 15px;
+}
+
+.photo1, .photo2{
+    float: unset;
+    margin: unset;
+    margin: 0 auto;
+}
+
+.photo1 > h3, .photo2 > h3{
+    text-align: center;
+}
+
+.apply-thisjob{
+    width: 55%;
+    font-size: 14px;
+    padding: 10px 4px;
+    margin-left: 22%;
+    margin-bottom: 15px;
+}
+
+.apply-field > p{
+    word-break: break-all;
+    padding: 0 20px;
+    text-indent: unset;
+}
+
+.pf-field > input{
+    padding: 6px 15px;
+}
+
+select{
+    height: 40px;
+    margin-bottom: 20px;
 }
 .job-list-modern .job-listing.wtabs .job-style-bx {
     float: left;
@@ -1283,7 +1449,8 @@ select {
        background-image: url(../images/PIC1.png);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );
     opacity: 0.9;
-
+    background-position: bottom center;
+    background-size: cover;
     margin: 0;
 }
 .job-search-sec .job-search > h3 {
@@ -1309,7 +1476,6 @@ select {
 }
 
 .or-browser{
-    width: 67%;
     float: unset;
         margin: 0 auto;
 }
@@ -1373,4 +1539,22 @@ select {
 
 
 
+}
+
+@media (max-width:520px){
+    .or-browser {
+    width: 60%;
+}
+}
+
+@media (max-width:410px){
+    .or-browser {
+    width: 75%;
+}
+}
+
+@media (max-width:340px){
+    .or-browser {
+    width: 100%;
+}
 }

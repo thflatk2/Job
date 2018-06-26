@@ -28,11 +28,11 @@
 	<span>Skip Loader</span>
 </div>
 
-<div class="theme-layout" id="scrollup" style="height: 100%;">
+<div class="theme-layout" id="scrollup">
 
 	<section>
         <a id="login_logo" href="{% url 'home' %}"><img src="{% static "images/logo.png" %}"/></a>
-		<div class="block remove-bottom">
+		<div class="block remove-bottom remove-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -40,7 +40,7 @@
 							<div class="account-popup register">
 								<h3>Sign Up</h3>
 								<div class="select-user">
-									<span class="Applicant">Applicant</span>
+									<span onclick="bb();" class="Applicant">Applicant</span>
 									<span onclick="aa();">Employer</span>
 								</div>
 
@@ -97,6 +97,10 @@
 <script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
 
 <script>
+    function bb() {
+        document.getElementById("id_type").value="Applicant"
+    }
+
     function aa(){
         document.getElementById("id_type").value="Employer"
 }

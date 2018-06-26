@@ -44,29 +44,31 @@
 		</div>
 		<div class="responsive-opensec">
 			<div class="btn-extars">
-				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
-				<ul class="account-btns">
-					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
-					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
-				</ul>
+                {% if user.is_active %}
+                    {% if user.type == 'Employer' %}
+                        <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% else %}
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% endif %}
+                    {% else %}
+                    <ul class="account-btns">
+					    <li class="signup-popup"><a href="{% url 'register' %}" title=""><i class="la la-key"></i> Sign Up</a></li>
+					    <li class="signin-popup"><a href="{% url 'login_url' %}" title=""><i class="la la-external-link-square"></i> Login</a></li>
+				    </ul>
+                {% endif %}
+
 			</div><!-- Btn Extras -->
-			<form class="res-search">
-				<input type="text" placeholder="Job title, keywords or company name" />
-				<button type="submit"><i class="la la-search"></i></button>
-			</form>
-			<div class="responsivemenu">
-				<ul>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Life in Korea</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Employers</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Candidates</a>
-						</li>
-					</ul>
-			</div>
+
+            <a href="{% url 'Job:list' %}" title="">Jobs</a>
+            <a href="{% url 'how_it_works' %}" title="">How it works</a>
+            <a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
 		</div>
 	</div>
 
@@ -80,10 +82,10 @@
 					<ul class="account-btns">
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
                             {% else %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
@@ -114,7 +116,7 @@
 			<div class="container fluid">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="inner-header">
+						<div class="inner-header my-page">
 							<h3>Welcome {{ user.name }}</h3>
 						</div>
 					</div>
@@ -239,10 +241,9 @@
                                             </div>
 					 					</div>
 					 					<div class="col-lg-12">
-					 						<span class="pf-title"></span>
 					 						<div class="pf-field">
                                                 <p>"You must have a bachelor's degree from an accredited university in one of these 7 countries.</p>
-                                                <p>(USA/Canada/UK/Ireland/South Africa/New Zealand/Australia</p>
+                                                <p>(USA/Canada/UK/Ireland/South Africa/New Zealand/Australia)</p>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
@@ -375,6 +376,46 @@
 <script src="{% static "js/slick.min.js" %}" type="text/javascript"></script>
 <script src="{% static "js/parallax.js" %}" type="text/javascript"></script>
 <script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
+
+<script>
+        function readURL2(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section2').attr('src', e.target.result);
+            $('#image_section2_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_profile_image2").change(function(){
+    readURL2(this);
+});
+
+        function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section').attr('src', e.target.result);
+            $('#image_section_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_profile_image1").change(function(){
+    readURL(this);
+});
+
+</script>
+
 
 </body>
 </html>

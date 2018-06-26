@@ -8,7 +8,7 @@ FLIGHT_CHOICES = (
 )
 
 AGE_CHOICES = (
-    ('Kidergarten', 'Kindergarten'),
+    ('Kindergarten', 'Kindergarten'),
     ('Elementary', 'Elementary'),
     ('Middle', 'Middle'),
 )
@@ -34,7 +34,7 @@ class Job_InfoForm(forms.Form):
         widget=forms.CheckboxSelectMultiple,
         choices=FLIGHT_CHOICES,
     )
-    house = forms.BooleanField(required=False)
+    house = forms.CharField(required=False)
     house_pic1 = forms.FileField(
         widget=forms.ClearableFileInput(),
         required=False
@@ -55,9 +55,9 @@ class Job_InfoForm(forms.Form):
         widget=forms.ClearableFileInput(),
         required=False
     )
-    severance_payment = forms.BooleanField(required=False)
-    health_insurance = forms.BooleanField(required=False)
-    national_pension = forms.BooleanField(required=False)
+    severance_payment = forms.CharField(required=False)
+    health_insurance = forms.CharField(required=False)
+    national_pension = forms.CharField(required=False)
 
     # ModelForm.save 인터페이스를 흉내내어 구현
     def save(self, commit=True):

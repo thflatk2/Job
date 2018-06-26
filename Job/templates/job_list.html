@@ -42,29 +42,31 @@
 		</div>
 		<div class="responsive-opensec">
 			<div class="btn-extars">
-				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
-				<ul class="account-btns">
-					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
-					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
-				</ul>
+                {% if user.is_active %}
+                    {% if user.type == 'Employer' %}
+                        <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% else %}
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% endif %}
+                    {% else %}
+                    <ul class="account-btns">
+					    <li class="signup-popup"><a href="{% url 'register' %}" title=""><i class="la la-key"></i> Sign Up</a></li>
+					    <li class="signin-popup"><a href="{% url 'login_url' %}" title=""><i class="la la-external-link-square"></i> Login</a></li>
+				    </ul>
+                {% endif %}
+
 			</div><!-- Btn Extras -->
-			<form class="res-search">
-				<input type="text" placeholder="Job title, keywords or company name" />
-				<button type="submit"><i class="la la-search"></i></button>
-			</form>
-			<div class="responsivemenu">
-				<ul>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Life in Korea</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Employers</a>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Candidates</a>
-						</li>
-					</ul>
-			</div>
+
+            <a href="{% url 'Job:list' %}" title="">Jobs</a>
+            <a href="{% url 'how_it_works' %}" title="">How it works</a>
+            <a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
 		</div>
 	</div>
 
@@ -76,8 +78,18 @@
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<ul class="account-btns">
-						<li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
-					</ul>
+                        {% if user.is_active %}
+                            {%  if user.type == "Employer" %}
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+                                {% else %}
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                {% endif %}
+		                {% else %}
+                            <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
+                        {% endif %}
+                    </ul>
 				</div><!-- Btn Extras -->
 				<nav>
 					<ul>
@@ -102,7 +114,6 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="inner-header">
-							<h3>Complete your profile now. Apply with one click and manage all your applications!</h3>
 						</div>
 					</div>
 				</div>
@@ -124,16 +135,16 @@
 				 			</div>
 				 		</div>
 
-				 		<div class="widget border">
+				 		<div class="widget border sorting">
 				 			<h3 class="sb-title open">Sort by</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
-                                    <p><a class="sort-date" href="?sort=date_early">Starting Date(Earliest)</a></p>
-                                    <p><a class="sort-likes" href="?sort=date_late">Starting Date(Latest)</a></p>
-                                    <p><a class="sort-date" href="?sort=period_long">Contract Period(Longest)</a></p>
-                                    <p><a class="sort-likes" href="?sort=period_short">Contract Period(Shortest)</a></p>
-                                    <p><a class="sort-date" href="?sort=salary">Salary</a></p>
-                                    <p><a class="sort-likes" href="?sort=age">Age Level</a></p>
+                                    <p><a class="sort-date" href="?sort=date_early"><i class="far fa-calendar-alt list-icon"></i>Starting Date(Earliest)</a></p>
+                                    <p><a class="sort-likes" href="?sort=date_late"><i class="far fa-calendar-alt list-icon"></i>Starting Date(Latest)</a></p>
+                                    <p><a class="sort-date" href="?sort=period_long"><i class="fas fa-briefcase list-icon"></i>Contract Period(Longest)</a></p>
+                                    <p><a class="sort-likes" href="?sort=period_short"><i class="fas fa-briefcase list-icon"></i>Contract Period(Shortest)</a></p>
+                                    <p><a class="sort-date" href="?sort=salary"><i class="fas fa-money-bill-alt list-icon"></i>Salary</a></p>
+                                    <p><a class="sort-likes" href="?sort=age"><i class="fas fa-child list-icon"></i>Age Level</a></p>
 								</div>
 				 			</div>
 				 		</div>

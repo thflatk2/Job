@@ -5,6 +5,7 @@ from Account.forms import UserCreationForm,WebUserCreationForm
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import UpdateView
 from Account.models import User
+from Job.models import Job_info
 
 
 
@@ -13,6 +14,9 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
+        context['Jobs'] = Job_info.objects.all()
+
+        return context
 
 
 class EmployerUpdateView(UpdateView):
