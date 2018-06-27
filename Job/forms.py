@@ -31,7 +31,7 @@ class Job_InfoForm(forms.Form):
     max_salary = forms.FloatField()
 
     flight_support = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.CheckboxInput,
         choices=FLIGHT_CHOICES,
     )
     house = forms.CharField(required=False)
@@ -58,6 +58,21 @@ class Job_InfoForm(forms.Form):
     severance_payment = forms.CharField(required=False)
     health_insurance = forms.CharField(required=False)
     national_pension = forms.CharField(required=False)
+
+    summary = forms.CharField(
+        widget=forms.TextInput(),
+        required=True
+    )
+
+    description = forms.CharField(
+        widget=forms.Textarea(),
+        required=False
+    )
+
+    qualification = forms.CharField(
+        widget=forms.Textarea(),
+        required=False
+    )
 
     # ModelForm.save 인터페이스를 흉내내어 구현
     def save(self, commit=True):

@@ -155,6 +155,7 @@ header {
     overflow:hidden;
     position:relative;
     width:100%;
+        height: 100%;
 }
 .theme-layout.boxed{
     background:none repeat scroll 0 0 #FFFFFF;
@@ -9950,6 +9951,10 @@ input[type="file"] {
     overflow: hidden;
     border-radius: 6px;
 }
+
+.blog-posthumb > img{
+    width: 100%;
+}
 .blog-posthumb > a img {
     float: left;
     width: 100%;
@@ -11000,13 +11005,9 @@ terms {
 
 }
 .how-workimg:before{
-    background: rgb(251,35,106);
-    background: -moz-linear-gradient(45deg,  rgba(251,35,106,1) 0%, rgba(251,35,106,1) 44%, rgba(20,31,114,1) 100%);
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(251,35,106,1)), color-stop(44%,rgba(251,35,106,1)), color-stop(100%,rgba(20,31,114,1)));
-    background: -webkit-linear-gradient(45deg,  rgba(251,35,106,1) 0%,rgba(251,35,106,1) 44%,rgba(20,31,114,1) 100%);
-    background: -o-linear-gradient(45deg,  rgba(251,35,106,1) 0%,rgba(251,35,106,1) 44%,rgba(20,31,114,1) 100%);
-    background: -ms-linear-gradient(45deg,  rgba(251,35,106,1) 0%,rgba(251,35,106,1) 44%,rgba(20,31,114,1) 100%);
-    background: linear-gradient(45deg,  rgba(251,35,106,1) 0%,rgba(251,35,106,1) 44%,rgba(20,31,114,1) 100%);
+
+    border-style: solid;
+    border-width: 2px;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb236a', endColorstr='#141f72',GradientType=1 );
     content: "";
 

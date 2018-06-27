@@ -990,17 +990,46 @@ select {
     transform: none;
 
     margin: 0;
-        margin-bottom: 0px;
     margin-bottom: 60px;
 }
 
+.signup-popup-box{
+    margin-bottom: 0;
+}
 
 
 
 
 }
 
-@media (max-width:520px){	
+@media (max-width:520px){
+
+    .register > h3 {
+        font-size: 22px;
+    }
+
+ #register{
+     background: unset;
+ }
+
+ .account-popup > form .register_field i{
+     top: 7px;
+ }
+ .select-user > span{
+     font-size: 12px;
+     padding: 7px 25px;
+ }
+
+.account-popup > form .register_field input{
+    font-size: 12px;
+    padding: 10px 45px 10px 15px;
+}
+
+#register_submit{
+    font-size: 14px;
+    margin-top: 8px;
+    height: 36px;
+}
  .error-sec form > input {
     float: left;
     width: 100%;
@@ -1249,9 +1278,6 @@ select {
 .simple-checkbox{
     text-align: left;
 }
-.remove-top{
-    padding-top: 15px;
-}
 
 #login_logo{
     display: none;
@@ -1338,9 +1364,6 @@ select {
     padding-left: 10%;
 }
 
-.block.remove-top{
-    padding-top: 35px;
-}
 .introduction-title{
         margin-left: unset;
     padding: 0 50px;
@@ -1360,6 +1383,10 @@ select {
     left: 50%;
     transform: translateX(-50%);
     margin-left: unset;
+}
+
+.blog-posthumb > img {
+    width: 100%;
 }
 
 #apply-basic-back{
