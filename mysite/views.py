@@ -29,6 +29,7 @@ class UserUpdateView(UpdateView):
     model = User
     fields = ['user_pic1', 'user_pic2', 'first_name', 'last_name', 'name', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree', 'start_date', 'prefer_class', 'resume', 'letter']
     template_name = "mypage.html"
+    success_url = reverse_lazy('home')
 
 
 class LoginDoneView(TemplateView):

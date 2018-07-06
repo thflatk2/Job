@@ -489,7 +489,9 @@ select {
 
 
 @media (max-width:767px){
-
+.overlape{
+    display: none;
+}
 .error-sec > p {
     display: none;
 }
@@ -1425,7 +1427,6 @@ select {
     width: 100%;
     font-size: 14px;
     padding: 10px 4px;
-    margin-left: 22%;
     margin-bottom: 15px;
 }
 

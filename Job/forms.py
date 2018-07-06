@@ -30,8 +30,8 @@ class Job_InfoForm(forms.Form):
     min_salary = forms.FloatField()
     max_salary = forms.FloatField()
 
-    flight_support = forms.MultipleChoiceField(
-        widget=forms.CheckboxInput,
+    flight_support = forms.ChoiceField(
+        widget=forms.Select,
         choices=FLIGHT_CHOICES,
     )
     house = forms.CharField(required=False)

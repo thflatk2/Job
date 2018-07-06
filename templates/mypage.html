@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KK2X9NL');</script>
+    <!-- End Google Tag Manager -->
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-	<meta name="author" content="CreativeLayers">
+	<meta name="author" content="Cypress">
+
 {% load staticfiles %}
     <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
@@ -39,6 +49,10 @@
 
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK2X9NL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="page-loading">
 	<img src="{% static "images/loader.gif" %}"  alt="" />
@@ -179,7 +193,7 @@
                                         <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
                                         <div class="upload-info">
                                             <label class="id_user_pic1" for="id_user_pic1">Browse</label>
-                                            <input type="file" name="user_pic1" required id="id_user_pic1" title="">
+                                            <input type="file" name="user_pic1" id="id_user_pic1" title="">
                                             <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                         </div>
                                     </div>
@@ -188,7 +202,7 @@
                                         <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
                                         <div class="upload-info">
                                             <label class="id_user_pic2" for="id_user_pic2">Browse</label>
-                                            <input type="file" name="user_pic2" required id="id_user_pic2" title="">
+                                            <input type="file" name="user_pic2" id="id_user_pic2" title="">
                                             <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                         </div>
                                     </div>
@@ -200,13 +214,13 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">First Name</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="first_name" maxlength="20" id="id_first_name">
+                                                <input type="text" name="first_name" maxlength="30" id="id_first_name">
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">Last Name</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="last_name" maxlength="10" id="id_last_name">
+                                                <input type="text" name="last_name" maxlength="25" id="id_last_name">
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
@@ -218,20 +232,20 @@
                                         <div class="col-lg-6">
 					 						<span class="pf-title">Skype ID (for interviews)</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="skyid" maxlength="25" id="id_skyid">
+                                                <input type="text" name="skyid" maxlength="35" id="id_skyid">
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Country of Citizenship</span>
 					 						<div class="pf-field">
 					 							<select id="id_country" name="country" data-placeholder="Please Select Specialism" class="chosen">
-													<option>USA</option>
-													<option>Canada</option>
-													<option>UK</option>
-													<option>Ireland</option>
-                                                    <option>South Africa</option>
-                                                    <option>New Zealand</option>
-                                                    <option>Australia</option>
+                                                    <option value="USA">USA</option>
+													<option value="Canada">Canada</option>
+													<option value="UK">UK</option>
+													<option value="Ireland">Ireland</option>
+                                                    <option value="South Africa">South Africa</option>
+                                                    <option value="New Zealand">New Zealand</option>
+                                                    <option value="Australia">Australia</option>
 												</select>
 					 						</div>
 					 					</div>
@@ -240,21 +254,21 @@
 					 						<div class="pf-field">
 					 							<select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
 													<option>Default</option>
-													<option>Man</option>
-													<option>Woman</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
 												</select>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Current city/country of residence</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="cur_residence" maxlength="30" id="id_cur_residence">
+                                                <input type="text" name="cur_residence" maxlength="50" id="id_cur_residence">
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Date of birth</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="birth" maxlength="20" id="id_birth">
+                                                <input type="text" name="birth" maxlength="50" id="id_birth">
                                             </div>
 					 					</div>
 					 					<div class="col-lg-12">
@@ -266,13 +280,13 @@
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">University / Major</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="degree" maxlength="30" required="" id="id_degree">
+                                                <input type="text" name="degree" maxlength="100"  id="id_degree">
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Earliest available date</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="start_date" required="" id="id_start_date">
+                                                <input type="text" name="start_date" id="id_start_date">
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
@@ -280,9 +294,9 @@
 					 						<div class="pf-field">
 					 							<select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
 													<option>Default</option>
-													<option>Kindergarten</option>
-													<option>Elementary</option>
-                                                    <option>Middle</option>
+													<option value="Kindergarten">Kindergarten</option>
+													<option value="Elementary">Elementary</option>
+													<option value="Middle">Middle</option>
 												</select>
 					 						</div>
 					 					</div>
@@ -297,7 +311,7 @@
                                         <div class="upload-img-bar">
                                             <div class="update-info">
                                                 <label class="id_resume" for="id_resume">Browse</label>
-                                                <input type="file" name="resume" required="" id="id_resume">
+                                                <input type="file" name="resume" id="id_resume">
                                                 <p id="resume"></p>
                                             </div>
                                         </div>
@@ -312,7 +326,7 @@
                                         <div class="upload-img-bar">
                                             <div class="update-info">
                                                <label class="id_letter" for="id_letter">Browse</label>
-                                                <input type="file" name="letter" required="" id="id_letter">
+                                                <input type="file" name="letter" id="id_letter">
                                                 <p id="letter"></p>
                                             </div>
                                         </div>
@@ -404,7 +418,7 @@
     }
 }
 
-$("#id_profile_image2").change(function(){
+$("#id_user_pic2").change(function(){
     readURL2(this);
 });
 
@@ -422,7 +436,7 @@ $("#id_profile_image2").change(function(){
     }
 }
 
-$("#id_profile_image1").change(function(){
+$("#id_user_pic1").change(function(){
     readURL(this);
 });
 

@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KK2X9NL');</script>
+    <!-- End Google Tag Manager -->
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-	<meta name="author" content="CreativeLayers">
+	<meta name="author" content="Cypress">
+
 {% load staticfiles %}
     <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
@@ -37,7 +47,10 @@
 
 </head>
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK2X9NL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div class="page-loading">
 	<img src="images/loader.gif" alt="" />
 	<span>Skip Loader</span>
@@ -232,9 +245,9 @@
 					 						<span class="ap-title">Email</span>
 					 						<div class="pf-field">
                                                 {% if user_name.email %}
-                                                <input type="text" name="email" maxlength="25" value="{{ user_name.email }}" required="" id="id_email">
+                                                <input type="text" name="email" maxlength="50" value="{{ user_name.email }}" required="" id="id_email">
                                                 {% else %}
-                                                <input type="text" name="email" maxlength="25" required="" id="id_email">
+                                                <input type="text" name="email" maxlength="50" required="" id="id_email">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -242,9 +255,9 @@
 					 						<span class="ap-title">Skype ID (for interviews)</span>
 					 						<div class="pf-field">
                                                 {% if user_name.skyid %}
-                                                <input type="text" name="skyid" maxlength="25" value="{{ user_name.skyid }}" required="" id="id_skyid">
+                                                <input type="text" name="skyid" maxlength="50" value="{{ user_name.skyid }}" required="" id="id_skyid">
                                                     {% else %}
-                                                    <input type="text" name="skyid" value="kdi" maxlength="25" required="" id="id_skyid">
+                                                    <input type="text" name="skyid"  maxlength="50" required="" id="id_skyid">
                                                 {% endif %}
                                                 </div>
 					 					</div>
@@ -297,9 +310,9 @@
 					 						<span class="ap-title">Current city/country of residence</span>
 					 						<div class="pf-field">
                                                 {% if user_name.cur_residence %}
-                                                <input type="text" name="cur_residence" maxlength="30" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
+                                                <input type="text" name="cur_residence" maxlength="100" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
                                                 {% else %}
-                                                <input type="text" name="cur_residence" maxlength="30" required="" id="id_cur_residence">
+                                                <input type="text" name="cur_residence" maxlength="100" required="" id="id_cur_residence">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -307,9 +320,9 @@
 					 						<span class="ap-title">Date of birth</span>
 					 						<div class="pf-field">
                                                 {% if user_name.birth %}
-                                                <input type="text" name="birth" maxlength="20" value="{{ user_name.birth }}" required="" id="id_birth">
+                                                <input type="text" name="birth" maxlength="50" value="{{ user_name.birth }}" required="" id="id_birth">
                                                 {% else %}
-                                                <input type="text" name="birth" maxlength="20" required="" id="id_birth">
+                                                <input type="text" name="birth" maxlength="50" required="" id="id_birth">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -325,16 +338,16 @@
 					 						<span class="ap-title">University / Major</span>
 					 						<div class="pf-field">
                                                 {% if user_name.degree %}
-                                                <input type="text" name="degree" maxlength="30" value="{{ user_name.degree }}" required="" id="id_degree">
+                                                <input type="text" name="degree" maxlength="100" value="{{ user_name.degree }}" required="" id="id_degree">
                                                 {% else %}
-                                                <input type="text" name="degree" maxlength="30" required="" id="id_degree">
+                                                <input type="text" name="degree" maxlength="100" required="" id="id_degree">
                                                 {% endif %}
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">Earliest available date</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="start_date" maxlength="40" required="" id="id_start_date">
+                                                <input type="text" name="start_date" maxlength="50" required="" id="id_start_date">
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
@@ -799,15 +812,6 @@ $("#id_resume").change(function () {
         if(!userprefer){
             alert('Choose your prefer class');
             doc.getElementById('id_prefer_class').focus();
-            return;
-        }
-
-        var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
-
-        if(!regExp.test(userid)){
-            alert("This is not an email");
-            doc.getElementById('id_email').value=''
-            doc.getElementById('id_email').focus();
             return;
         }
 

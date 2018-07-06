@@ -105,14 +105,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     country = models.CharField(max_length=20, choices=TOOL_CHOICES, null=True, blank=True)
 
     GEN_CHOICES = (
-        ('MAN', 'MAN'),
-        ('WOMAN', 'WOMAN'),
+        ('Male', 'Male'),
+        ('Female', 'Female'),
     )
     gender = models.CharField(max_length=10, choices=GEN_CHOICES, null=True, blank=True)
     cur_residence = models.CharField(max_length=50, null=True, blank=True)
     birth = models.CharField(max_length=30, null=True, blank=True)
     degree = models.CharField(max_length=100, null=True, blank=True)
-    start_date = models.DateTimeField(default=timezone.now)
+    start_date = models.CharField(max_length=50, null=True, blank=True)
 
     CLAS_CHOICES = (
         ('Kindergarten', 'Kindergarten'),

@@ -881,7 +881,7 @@ label::after {
 }
 
 #make_account{
-    margin-right: 11%;
+    margin-right: 13%;
 }
 
 #resigter_title{
@@ -1756,6 +1756,8 @@ label::after {
 .comp-sec {
     float: left;
     width: 100%;
+    margin-top: 50px;
+    margin-bottom: 60px;
 }
 .company-img {
     float: left;
@@ -1770,6 +1772,7 @@ label::after {
     float: none;
     display: inline-block;
     max-width: 100%;
+    width: 180px;
 }
 
 /* Blog Sec */
@@ -4878,7 +4881,6 @@ aside .widget:first-child {
     width: 17px;
 }
 aside .widget > div {
-    margin-top: 15px;
 }
 .subscribe_widget > h3 {
     float: left;
@@ -6160,7 +6162,6 @@ aside .widget.border:first-child {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
-    object-fit: contain;
 }
 .emply-list-info {
     display: table-cell;
@@ -11717,7 +11718,7 @@ margin-top: 13px
     -ms-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     -o-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-    background-color: rgba(247,180,180,80);
+    background-color: rgba(253,140,140,1);
 }
 .showsticky {
     display: none;
