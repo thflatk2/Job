@@ -2,13 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
-
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
@@ -94,7 +110,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'how_it_works' %}" title="">How it works</a>
@@ -163,7 +179,7 @@
 					 		</div>
 
 					 		<div class="profile-form-edit">
-					 			<form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
+					 			<form method="post" enctype="multipart/form-data"> {% csrf_token %}
 					 				<div class="row apply-basic">
                                         <h3>Photo 1</h3>
                                         <div class="upload-img-bar">
@@ -171,9 +187,9 @@
                                             <div class="upload-info">
                                                 <label class="id_profile_image1" for="id_profile_image1">Browse</label>
                                                 {% if user_name.user_pic1 %}
-                                                <input type="file" name="profile_image1" value="{{ user_name.user_pic1 }}" required id="id_profile_image1" title="">
+                                                <input type="file" name="profile_image1" value="{{ user_name.user_pic1 }}" id="id_profile_image1" title="">
                                                 {% else %}
-                                                <input type="file" name="profile_image1" required id="id_profile_image1" title="">
+                                                <input type="file" name="profile_image1" required="" id="id_profile_image1">
                                                 {% endif %}
                                                 <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                             </div>
@@ -184,9 +200,9 @@
                                             <div class="upload-info">
                                                <label class="id_profile_image2" for="id_profile_image2">Browse</label>
                                                 {% if user_name.user_pic2 %}
-                                                <input type="file" name="profile_image2" value="{{ user_name.user_pic2 }}" required id="id_profile_image2" title="">
+                                                <input type="file" name="profile_image2" value="{{ user_name.user_pic2 }}" id="id_profile_image2" title="">
                                                 {% else %}
-                                                <input type="file" name="profile_image2" required id="id_profile_image2" title="">
+                                                <input type="file" name="profile_image2" required="" id="id_profile_image2">
                                                 {% endif %}
                                                 <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                             </div>
@@ -228,7 +244,7 @@
                                                 {% if user_name.skyid %}
                                                 <input type="text" name="skyid" maxlength="25" value="{{ user_name.skyid }}" required="" id="id_skyid">
                                                     {% else %}
-                                                    <input type="text" name="skyid" maxlength="25" required="" id="id_skyid">
+                                                    <input type="text" name="skyid" value="kdi" maxlength="25" required="" id="id_skyid">
                                                 {% endif %}
                                                 </div>
 					 					</div>
@@ -236,25 +252,25 @@
 					 						<span class="ap-title">Country of Citizenship</span>
 					 						<div class="pf-field">
                                                 {% if user_name.country %}
-                                                <select name="country" required id="id_country" data-placeholder="Please Select Specialism" class="chosen">
+                                                <select name="country" required="" id="id_country" data-placeholder="Please Select Specialism" class="chosen">
                                                     <option value="{{ user_name.country }}" selected="selected">{{ user_name.country }}</option>
-                                                    <option>USA</option>
-													<option>Canada</option>
-													<option>UK</option>
-													<option>Ireland</option>
-                                                    <option>South Africa</option>
-                                                    <option>New Zealand</option>
-                                                    <option>Australia</option>
+                                                    <option value="USA">USA</option>
+													<option value="Canada">Canada</option>
+													<option value="UK">UK</option>
+													<option value="Ireland">Ireland</option>
+                                                    <option value="South Africa">South Africa</option>
+                                                    <option value="New Zealand">New Zealand</option>
+                                                    <option value="Australia">Australia</option>
                                                 </select>
                                                 {%  else %}
-					 							<select name="country" required id="id_country" data-placeholder="Please Select Specialism" class="chosen">
-													<option>USA</option>
-													<option>Canada</option>
-													<option>UK</option>
-													<option>Ireland</option>
-                                                    <option>South Africa</option>
-                                                    <option>New Zealand</option>
-                                                    <option>Australia</option>
+					 							<select name="country" required="" id="id_country" data-placeholder="Please Select Specialism" class="chosen">
+                                                    <option value="USA">USA</option>
+													<option value="Canada">Canada</option>
+													<option value="UK">UK</option>
+													<option value="Ireland">Ireland</option>
+                                                    <option value="South Africa">South Africa</option>
+                                                    <option value="New Zealand">New Zealand</option>
+                                                    <option value="Australia">Australia</option>
 												</select>
                                                 {% endif %}
 					 						</div>
@@ -265,14 +281,14 @@
                                                 {% if user_name.gender %}
                                                 <select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
 													<option value="{{ user_name.gender }}" selected="selected">{{ user_name.gender}}</option>
-													<option>Male</option>
-													<option>Female</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
 												</select>
                                                 {% else %}
 					 							<select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
 													<option>Default</option>
-													<option>Male</option>
-													<option>Female</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
 												</select>
                                                 {% endif %}
 					 						</div>
@@ -318,11 +334,7 @@
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">Earliest available date</span>
 					 						<div class="pf-field">
-                                                {% if user_name.start_date %}
-                                                <input type="text" name="start_date" value="{{ user_name.start_date }}" required="" id="id_start_date">
-                                                {% else %}
-                                                <input type="text" name="start_date" required="" id="id_start_date">
-                                                {% endif %}
+                                                <input type="text" name="start_date" maxlength="40" required="" id="id_start_date">
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
@@ -331,19 +343,20 @@
                                                 {% if user_name.prefer_class %}
 					 							<select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
                                                     <option value="{{ user_name.prefer_class }}" selected="selected">{{ user_name.prefer_class }}</option>
-													<option>Kindergarten</option>
-													<option>Elementary</option>
-													<option>Middle</option>
+													<option value="Kindergarten">Kindergarten</option>
+													<option value="Elementary">Elementary</option>
+													<option value="Middle">Middle</option>
 												</select>
                                                 {% else %}
                                                 <select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
-													<option>Kindergarten</option>
-													<option>Elementary</option>
-													<option>Middle</option>
+													<option value="Kindergarten">Kindergarten</option>
+													<option value="Elementary">Elementary</option>
+													<option value="Middle">Middle</option>
 												</select>
                                                 {% endif %}
 					 						</div>
 					 					</div>
+
                                         <div class="col-lg-12">
 					 						<button type="button" onclick="location.href='#scrollup'" id="apply-detail"><o>Details  </o><i id="right_arrow" class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
 					 					</div>
@@ -356,7 +369,7 @@
                                             <div id="detail2" class="upload-info">
                                                 <label class="id_resume" for="id_resume">Browse</label>
                                                 {% if user_name.resume %}
-                                                <input type="file" name="resume" value="{{ user_name.resume }}" required="" id="id_resume">
+                                                <input type="file" name="resume" value="{{ user_name.resume }}" id="id_resume">
                                                 {% else %}
                                                 <input type="file" name="resume" required="" id="id_resume">
                                                 {% endif %}
@@ -368,7 +381,7 @@
                                             <div class="upload-info">
                                                <label class="id_letter" for="id_letter">Browse</label>
                                                 {% if user_name.letter %}
-                                                <input type="file" name="letter" value="{{ user_name.letter }}" required="" id="id_letter">
+                                                <input type="file" name="letter" value="{{ user_name.letter }}" id="id_letter">
                                                 {% else %}
                                                 <input type="file" name="letter" required="" id="id_letter">
                                                 {% endif %}
@@ -559,15 +572,14 @@
 		<div class="block block-foot">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-                                    <span>LOKA 101</span>
+                                    <span>Teaching Holiday</span>
 								</div>
 								<span>Life in Korea</span>
 								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
                                 <span>SIM Service</span>
                                 <span>Blog</span>
 
@@ -575,20 +587,20 @@
 						</div>
 					</div>
 
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                    <p class="footer-info-desc">+82-10-3133-1020</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
+                                    <p class="footer-info-desc">loka101</p>
                                 </div>
                             </div>
 						</div>
@@ -599,10 +611,7 @@
 		<div class="bottom-line">
             <div class="social">
                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
@@ -661,25 +670,7 @@ $("#id_profile_image2").change(function(){
 });
 
 $('#apply-detail').click(function () {
-    if($(".apply-detail").css("display") == "none"){
-        $('.apply-detail').css("display", "block");
-        $('.apply-basic').css("display", "none");
 
-        $('#first_name_review').text($("#id_first_name").val());
-        $('#last_name_review').text($("#id_last_name").val());
-        $('#email_review').text($("#id_email").val());
-        $('#skyid_review').text($("#id_skyid").val());
-        $('#country_review').text($("#id_country").val());
-        $('#gender-review').text($("#id_gender").val());
-        $('#degree-review').text($("#id_degree").val());
-        $('#residence_review').text($("#id_cur_residence").val());
-        $('#birth_review').text($("#id_birth").val());
-        $('#start_date_review').text($("#id_start_date").val());
-        $('#prefer_age_review').text($("#id_prefer_class").val());
-
-    } else {
-        $('.apply-detail').css("display", "none");
-    }
 });
 
 $('#apply-basic-back').click(function () {
@@ -736,6 +727,113 @@ $("#id_resume").change(function () {
 
 
 
+    var doc = document;
+    var detail = doc.getElementById('apply-detail');
+
+    var func = function () {
+        var userimage1 = doc.getElementById('id_profile_image1').value;
+        var userimage2 = doc.getElementById('id_profile_image2').value;
+        var userfirst = doc.getElementById('id_first_name').value;
+        var userlast = doc.getElementById('id_last_name').value;
+        var usersky = doc.getElementById('id_skyid').value;
+        var usercountry = doc.getElementById('id_country').value;
+        var usergender = doc.getElementById('id_gender').value;
+        var userresidence = doc.getElementById('id_cur_residence').value;
+        var userbirth = doc.getElementById('id_birth').value;
+        var userstart = doc.getElementById('id_start_date').value;
+        var userprefer = doc.getElementById('id_prefer_class').value;
+
+        //1. 입력이 다 됐나 확인
+
+        if(!userimage1){
+            alert('Put your first profile image');
+            doc.getElementById('id_profile_image1').focus();
+            return;
+            //다시 원상태로 돌아가는것.
+        }
+        if(!userimage2){
+            alert('Put your second profile image');
+            doc.getElementById('id_profile_image2').focus();
+            return;
+        }
+        if(!userfirst){
+            alert('Put your first name');
+            doc.getElementById('id_first_name').focus();
+            return;
+        }
+        if(!userlast){
+            alert('Put your last name');
+            doc.getElementById('id_last_name').focus();
+            return;
+        }
+        if(!usersky){
+            alert('Put your sky ID');
+            doc.getElementById('id_skyid').focus();
+            return;
+        }
+        if(!usercountry){
+            alert('Choose your country');
+            doc.getElementById('id_country').focus();
+            return;
+        }
+        if(!usergender){
+            alert('Choose your gender');
+            doc.getElementById('id_gender').focus();
+            return;
+        }
+        if(!userresidence){
+            alert('Put your residence');
+            doc.getElementById('id_cur_residence').focus();
+            return;
+        }
+        if(!userbirth){
+            alert('Put your birthday');
+            doc.getElementById('id_birth').focus();
+            return;
+        }
+        if(!userstart){
+            alert('Put your earliest available date');
+            doc.getElementById('id_start_date').focus();
+            return;
+        }
+        if(!userprefer){
+            alert('Choose your prefer class');
+            doc.getElementById('id_prefer_class').focus();
+            return;
+        }
+
+        var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+
+        if(!regExp.test(userid)){
+            alert("This is not an email");
+            doc.getElementById('id_email').value=''
+            doc.getElementById('id_email').focus();
+            return;
+        }
+
+        if($(".apply-detail").css("display") == "none"){
+        $('.apply-detail').css("display", "block");
+        $('.apply-basic').css("display", "none");
+
+        $('#first_name_review').text($("#id_first_name").val());
+        $('#last_name_review').text($("#id_last_name").val());
+        $('#email_review').text($("#id_email").val());
+        $('#skyid_review').text($("#id_skyid").val());
+        $('#country_review').text($("#id_country").val());
+        $('#gender-review').text($("#id_gender").val());
+        $('#degree-review').text($("#id_degree").val());
+        $('#residence_review').text($("#id_cur_residence").val());
+        $('#birth_review').text($("#id_birth").val());
+        $('#start_date_review').text($("#id_start_date").val());
+        $('#prefer_age_review').text($("#id_prefer_class").val());
+
+    } else {
+        $('.apply-detail').css("display", "none");
+    }
+
+    }
+
+    detail.addEventListener('click',func);
 
 </script>
 

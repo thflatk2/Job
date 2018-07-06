@@ -620,7 +620,7 @@ label::after {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #f4b6ba;
+    background-color: rgba(253,140,140,1);
     box-shadow: 0px 4px 3px #aaaaaa;
     width: 100%;
     z-index: 12;
@@ -636,7 +636,7 @@ label::after {
     float: left;
     width: 100%;
     margin: 30px 0;
-    margin-bottom: 0;
+    margin-bottom:3px;
 }
 .logo {
     float: left;
@@ -1978,7 +1978,7 @@ footer {
     font-size: 20px;
     color: #444444;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: -5px;
     font-family: Lato;
 }
 
@@ -1986,7 +1986,7 @@ footer {
     font-size: 20px;
     color: #444444;
     font-weight: 300;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-family: Lato;
 }
 
@@ -1994,7 +1994,7 @@ footer {
 .social {
     float: left;
     width: 100%;
-    margin-top: 20px;
+    margin-top: -10px;
 }
 .social a {
     margin-right: 14px;
@@ -2113,11 +2113,22 @@ footer {
     padding-top: 12%;
     padding-bottom: 10%;
     text-align: center;
-    background-image: url('../images/how_it_works.jpeg');
+    background-image: url('../images/how_it_works.jpg');
     background-position: center;
     background-size: 100%;
     color: white;
 }
+
+#works_section:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background-color: rgba(174,111,111,50);
+    opacity: 0.5;
+  }
 
 .inner2 > h3{
         font-family: Lato;
@@ -2194,7 +2205,7 @@ footer {
 
 .download_widget {
     float: right;
-    width: 168px;
+    width: 175px;
     margin-top: 50px;
 }
 .download_widget a {
@@ -4490,6 +4501,18 @@ footer.style3 span, footer.style3 a {
     background-position: center;
     font-size: 45px;
 }
+
+#my-page:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background-color: rgba(174,111,111,30);
+    opacity: 0.3;
+  }
+
 .inner-header.wform .job-search-sec {
     position: relative;
     float: left;
@@ -5970,8 +5993,8 @@ aside .widget.border:first-child {
     border-bottom: 1px solid #e8ecec;
 }
 .job-head-wide .apply-thisjob {
-    background: #E16F91;
-    border: 2px solid #E16F91;
+    background: #fb2369;
+    border: 2px solid #fb2369;
     
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -5980,6 +6003,7 @@ aside .widget.border:first-child {
     border-radius: 50px;
 
     color: #ffffff;
+    width: 90%; padding: 10px 10px; font-size: 20px;
 }
 .job-head-wide .apply-alternative a, .job-head-wide .apply-alternative span {
     
@@ -6154,10 +6178,11 @@ aside .widget.border:first-child {
 .emply-list-info > h3 {
     float: left;
     width: 100%;
-    font-size: 16px;
+    font-size: 18px;
     font-family: Lato;
     color: #202020;
     margin-bottom: 7px;
+    font-weight: 700;
 }
 .emply-list-info > span {
     float: left;
@@ -6223,8 +6248,8 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     font-family: Lato;
-    font-size: 14px;
-    color: #888888;
+    font-size: 16px;
+    color: #161616;
     line-height: 24px;
     margin: 0;
         margin-top: 0px;
@@ -6477,8 +6502,8 @@ aside .widget.border:first-child {
 
 .emply-list-info > span > o{
         position: relative;
-    top: -1px;
-    margin-left: 2px;
+    top: 0.5px;
+    margin-left: -4px;
     margin-right: 15px;
     color: #888888;
 }
@@ -11004,10 +11029,13 @@ terms {
     border-radius: 8px;
 
 }
+
+.works{
+        background-color: rgba(174,111,111,50);
+}
 .how-workimg:before{
 
-    border-style: solid;
-    border-width: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb236a', endColorstr='#141f72',GradientType=1 );
     content: "";
 
@@ -11094,7 +11122,7 @@ terms {
     float: left;
     width: 100%;
     font-family: Lato;
-    font-size: 14px;
+    font-size: 16px;
     color: #888888;
     line-height: 30px;
     margin: 0;
@@ -11389,8 +11417,8 @@ header.style5 .post-job-btn:hover {
 }
 .job-head-wide .apply-thisjob:hover {
     background: transparent;
-    border-color: #E16F91;
-    color: #E16F91;
+    border-color: #fb2369;
+    color: #fb2369;
 }
 
 .apply-thisjob:hover {
@@ -11941,7 +11969,7 @@ margin-top: 13px
 .responsive-menubar {
     float: left;
     width: 100%;
-    padding: 15px 0;
+    padding: 5px 0;
 }
 .res-logo {
     float: left;

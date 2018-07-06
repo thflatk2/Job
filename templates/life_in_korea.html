@@ -2,13 +2,30 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
 
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
@@ -96,7 +113,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'how_it_works' %}" title="">How it works</a>
@@ -135,31 +152,31 @@
                                 <iframe width="854" height="480" src="https://www.youtube.com/embed/WOJ6dWxPiLs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				 			</div><!-- Blog Post -->
 				 			<div class="blogpost style2">
-				 				<div class="blog-posthumb"> <img src="{% static 'images/how_it_works.jpeg' %}" alt=""> </div>
+				 				<div class="blog-posthumb"> <img src="{% static 'images/culture.jpg' %}" alt=""> </div>
 				 				<div class="blog-postdetail">
-				 					<h3><a href="#" title="">Cultural Experience</a></h3>
+				 					<h3><a href="#" title="">Cultural fusion of oriental tradition and urban-modern</a></h3>
 				 					<p>Over 5,000 years of history, Korea has developed quite a unique culture. From the ancient palaces from old dynasty, to the most hipster area like Hongdae, you can all meet in the same city. There are a lot of tour programs organized by Korean government, which helps you understand more about Korea and its culture. Korean culture with old and new is now blooming in the same area with such a fantastic fusion.</p>
 				 				</div>
 				 			</div><!-- Blog Post -->
 				 			<div class="blogpost style2">
-				 				<div class="blog-posthumb"><img src="http://placehold.it/322x280" alt=""> </div>
+				 				<div class="blog-posthumb"><img src="{% static 'images/nature.jpg' %}" alt=""> </div>
 				 				<div class="blog-postdetail">
-				 					<h3><a href="#" title="">Nature</a></h3>
+				 					<h3><a href="#" title="">Mountains and beaches (feat. Hiking, skiing, swimming and surfing)</a></h3>
 				 					<p>About 70% of the land is consisted of mountains and you can easily get to the beach since Korea is a peninsula. This means, you can go to hiking on mountains, swimming on beaches and skiing on slopes within subway distance! You should definitely visit Hallasan Mountain (1,947m) in Jeju island, which is the highest mountain in South Korea. Hidden temples and four very distinguishable seasons will show you another level of beauty. If you are looking for some peace in life, temples would be your best choice to escape from the busy city.</p>
 				 				</div>
 				 			</div><!-- Blog Post -->
 				 			<div class="blogpost style2">
-				 				<div class="blog-posthumb"><img src="http://placehold.it/322x280" alt=""></div>
+				 				<div class="blog-posthumb"><img src="{% static 'images/nightlife.jpg' %}" alt=""></div>
 				 				<div class="blog-postdetail">
-				 					<h3><a href="#" title="">Nightlife</a></h3>
+				 					<h3><a href="#" title="">The true cities that never sleep</a></h3>
 				 					<p>South Korea is well-known for flashing streets at night. A lot of cafes, convenient stores, bars, pubs and clubs are opened till dawn. Especially, there are a lot of cool clubs and bars around Itaewon and Gangnam area. Club Octagon, located in Gangnam, was ranked 7th on the DJ Mag Top 100 World Clubs chart. Also, hold your worries about streets of night, the country is known for its best public safety in the world. The true ‘City that never sleeps’ await you!</p>
 				 				</div>
 				 			</div><!-- Blog Post -->
 				 			<div class="blogpost style2">
-				 				<div class="blog-posthumb"><img src="http://placehold.it/322x280" alt=""></div>
+				 				<div class="blog-posthumb"><img src="{% static 'images/food.jpg' %}" alt=""></div>
 				 				<div class="blog-postdetail">
-				 					<h3><a href="#" title="">Food</a></h3>
-				 					<p>Not many do know, but Koreans are a bunch of foodies. From traditional to international cuisines, you will find everything that you want. Traditional Korean food is getting attention from all over the world. Korean BBQ, Korean style fried chicken, traditional course meal ‘Han-sik’, Dakgalbi, Bibimbap and so much more! For an adventurous soul, Korea will be heaven with variety of food.</p>
+				 					<h3><a href="#" title="">Treasure of Asia: The cuisine</a></h3>
+				 					<p>From traditional to international cuisines, you will find everything that you want. Traditional Korean food is getting attention from all over the world. Korean BBQ, Korean style fried chicken, traditional course meal ‘Han-sik’, Dakgalbi, Bibimbap and so much more! For an adventurous soul, Korea will be heaven with variety of food.</p>
 				 				</div>
 				 			</div><!-- Blog Post -->
 				 		</div>
@@ -173,15 +190,14 @@
 		<div class="block block-foot">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-                                    <span>LOKA 101</span>
+                                    <span>Teaching Holiday</span>
 								</div>
 								<span>Life in Korea</span>
 								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
                                 <span>SIM Service</span>
                                 <span>Blog</span>
 
@@ -189,20 +205,20 @@
 						</div>
 					</div>
 
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                    <p class="footer-info-desc">+82-10-3133-1020</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
+                                    <p class="footer-info-desc">loka101</p>
                                 </div>
                             </div>
 						</div>
@@ -213,10 +229,7 @@
 		<div class="bottom-line">
             <div class="social">
                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

@@ -88,9 +88,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     user_pic1 = models.ImageField(null=True, blank=True)
     user_pic2 = models.ImageField(null=True, blank=True)
 
-    last_name = models.CharField(max_length=10, null=True, blank=True)
-    first_name = models.CharField(max_length=20, null=True, blank=True)
-    skyid = models.CharField(max_length=25, null=True, blank=True)
+    last_name = models.CharField(max_length=25, null=True, blank=True)
+    first_name = models.CharField(max_length=30, null=True, blank=True)
+    skyid = models.CharField(max_length=35, null=True, blank=True)
 
     TOOL_CHOICES = (
         ('USA', 'USA'),
@@ -109,9 +109,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         ('WOMAN', 'WOMAN'),
     )
     gender = models.CharField(max_length=10, choices=GEN_CHOICES, null=True, blank=True)
-    cur_residence = models.CharField(max_length=30, null=True, blank=True)
-    birth = models.CharField(max_length=20, null=True, blank=True)
-    degree = models.CharField(max_length=30, null=True, blank=True)
+    cur_residence = models.CharField(max_length=50, null=True, blank=True)
+    birth = models.CharField(max_length=30, null=True, blank=True)
+    degree = models.CharField(max_length=100, null=True, blank=True)
     start_date = models.DateTimeField(default=timezone.now)
 
     CLAS_CHOICES = (

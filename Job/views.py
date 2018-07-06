@@ -171,7 +171,7 @@ def post_new(request):
 class JobApplyView(LoginRequiredMixin, CreateView):
     model = Job_Apply
     fields = ['profile_image1', 'profile_image2', 'last_name','first_name', 'email', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree',
-              'start_date', 'prefer_class', 'resume', 'created_date', 'job', 'user', 'letter' ,'introduction']
+              'start_date', 'prefer_class', 'resume', 'job', 'user', 'letter' ,'introduction']
     template_name = 'job_apply.html'
     success_url = reverse_lazy('Job:list')
 
@@ -208,4 +208,7 @@ class UserHistoryView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserHistoryView, self).get_context_data(**kwargs)
-        context['Jobs'] = Job_Apply.objects.filter(user= self.request.user)
+        context['Jobs'] = Job_Apply.objects.filter(user=self.request.user)
+        context['Job_all'] = Job_info.objects.all()
+
+        return context

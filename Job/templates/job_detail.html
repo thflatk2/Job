@@ -2,13 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
-
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
@@ -95,7 +111,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'how_it_works' %}" title="">How it works</a>
@@ -162,25 +178,21 @@
                                                     <h3>Starting Date</h3>
                                                     <p>{{ Jobs.start_date }}</p>
 
+                                                    <h3>Working days and hours</h3>
+                                                    <p>{{ Jobs.day_hour }}</p>
+
                                                     <h3>Contract Period</h3>
                                                     <p>{{ Jobs.contract_period }} Month +</p>
+
+                                                </div>
+                                                <div class="job-detail-right">
+
+                                                    <h3>Location</h3>
+                                                    <p>{{ Jobs.location }}</p>
 
                                                     <h3>Salary</h3>
                                                     <p>{{ Jobs.min_salary }}M ~ {{ Jobs.max_salary }}M KRW</p>
 
-                                                    <h3>Flight Support</h3>
-                                                    {% if Jobs.flight_support|length == 9 %}
-                                                        <p>{{ Jobs.flight_support | slice:"2:6"}}</p>
-                                                    {% elif Jobs.flight_support|length == 11 %}
-                                                        <p>{{ Jobs.flight_support | slice:"2:9"}}</p>
-                                                    {% elif Jobs.flight_support|length == 14 %}
-                                                        <p>{{ Jobs.flight_support | slice:"2:12"}}</p>
-                                                    {% else %}
-                                                        <p>{{ Jobs.flight_support | length }}</p>
-                                                    {% endif %}
-
-                                                </div>
-                                                <div class="job-detail-right">
                                                     <h3>Age Level</h3>
                                                     {% if Jobs.age_level|length == 30 %}
                                                         <p>{{ Jobs.age_level | slice:"2:28" | cut:"'"}}</p>
@@ -200,11 +212,6 @@
 							                            <p>{{ Jobs.age_level | length }}</p>
                                                     {% endif %}
 
-                                                    <h3>Working days and hours</h3>
-                                                    <p>{{ Jobs.day_hour }}</p>
-
-                                                    <h3>Location</h3>
-                                                    <p>{{ Jobs.location }}</p>
                                                 </div>
                                             </div>
 							 			</div>
@@ -217,13 +224,26 @@
 
                                                     <h3>Health Insurance</h3>
                                                     <p>{{ Jobs.health_insurance }}</p>
-                                                </div>
-                                                <div class="job-detail-right">
+
                                                     <h3>Severance Payment</h3>
                                                     <p>{{ Jobs.severance_payment }}</p>
+                                                </div>
+                                                <div class="job-detail-right">
+
+                                                    <h3>Flight Support</h3>
+                                                    {% if Jobs.flight_support|length == 9 %}
+                                                        <p>{{ Jobs.flight_support | slice:"2:6"}}</p>
+                                                    {% elif Jobs.flight_support|length == 11 %}
+                                                        <p>{{ Jobs.flight_support | slice:"2:9"}}</p>
+                                                    {% elif Jobs.flight_support|length == 14 %}
+                                                        <p>{{ Jobs.flight_support | slice:"2:12"}}</p>
+                                                    {% else %}
+                                                        <p>{{ Jobs.flight_support | length }}</p>
+                                                    {% endif %}
 
                                                     <h3>National Pension </h3>
                                                     <p>{{ Jobs.national_pension }}</p>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -271,15 +291,14 @@
 		<div class="block block-foot">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-                                    <span>LOKA 101</span>
+                                    <span>Teaching Holiday</span>
 								</div>
 								<span>Life in Korea</span>
 								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
                                 <span>SIM Service</span>
                                 <span>Blog</span>
 
@@ -287,20 +306,20 @@
 						</div>
 					</div>
 
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                    <p class="footer-info-desc">+82-10-3133-1020</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
+                                    <p class="footer-info-desc">loka101</p>
                                 </div>
                             </div>
 						</div>
@@ -311,10 +330,7 @@
 		<div class="bottom-line">
             <div class="social">
                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

@@ -2,9 +2,9 @@ from django import forms
 from .models import Job_info
 
 FLIGHT_CHOICES = (
-    ('none', 'none'),
-    ('one-way', 'one-way'),
-    ('round-trip', 'round-trip'),
+    ('None', 'None'),
+    ('One-way', 'One-way'),
+    ('Round-trip', 'Round-trip'),
 )
 
 AGE_CHOICES = (

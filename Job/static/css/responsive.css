@@ -82,7 +82,7 @@ header {
     border: none;
 }
 .how-work-box {
-    padding: 57px 60px;
+    padding: 57px 30px;
 }
 .job-search-sec .job-search > h3 {
     font-size: 50px;
@@ -692,6 +692,10 @@ select {
     float: left;
     width: 50%;
 }
+
+.inner2 > h3{
+    font-size: 7vw;
+}
 .manage-jobs-sec .extra-job-info > span {
     float: left;
     width: 100%;
@@ -1061,7 +1065,7 @@ select {
 .download_widget{
     float: unset;
     width: unset;
-    margin-top: unset;
+    margin-top: 10px;
 }
 
 .employer_introduction{
@@ -1293,6 +1297,12 @@ select {
     text-align: center;
         border: 2px solid #ffcece;
     margin-bottom: 15px;
+    margin-top: 10px;
+    padding: 20px 20px;
+}
+
+.overlape{
+    display: none;
 }
 .emply-list-thumb {
     float: none;
@@ -1411,8 +1421,8 @@ select {
     text-align: center;
 }
 
-.apply-thisjob{
-    width: 55%;
+.job-head-wide .apply-thisjob{
+    width: 100%;
     font-size: 14px;
     padding: 10px 4px;
     margin-left: 22%;
@@ -1473,7 +1483,7 @@ select{
     background: -o-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
     background: -ms-linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
     background: linear-gradient(45deg,  rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
-       background-image: url(../images/PIC1.png);
+       background-image: url(../images/Landing.jpg);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );
     opacity: 0.9;
     background-position: bottom center;

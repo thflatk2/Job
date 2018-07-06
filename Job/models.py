@@ -20,16 +20,16 @@ class Job_info(models.Model):
     )
     age_level = models.CharField(max_length=15, choices=AGE_CHOICES, default='A')
 
-    location = models.CharField(max_length=20)
+    location = models.CharField(max_length=30)
     contract_period = models.CharField(max_length=20)
-    day_hour = models.CharField(max_length=50)
+    day_hour = models.CharField(max_length=100)
     min_salary = models.FloatField()
     max_salary = models.FloatField()
 
     FLIGHT_CHOICES = (
-        ('none','none'),
-        ('one-way','one-way'),
-        ('round-trip','round-trip'),
+        ('None','None'),
+        ('One-way','One-way'),
+        ('Round-trip','Round-trip'),
     )
     flight_support = models.CharField(max_length=15, choices=FLIGHT_CHOICES, default='A' )
     house = models.CharField(max_length=50, blank=True, null=True)
@@ -49,6 +49,9 @@ class Job_info(models.Model):
                                            related_name='like_user_set',
                                            through='Like')  # post.like_set 으로 접근 가능
 
+    def __unicode__(self):
+        return self.school_name
+
     def publish(self):
         self.created_date = timezone.now()
         self.save()
@@ -66,10 +69,10 @@ class Job_Apply(models.Model):
     job = models.ForeignKey(Job_info)
     profile_image1 = models.ImageField()
     profile_image2 = models.ImageField()
-    last_name = models.CharField(max_length=10)
-    first_name = models.CharField(max_length=20)
-    email = models.CharField(max_length = 25)
-    skyid = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+    first_name = models.CharField(max_length=30)
+    email = models.CharField(max_length = 35)
+    skyid = models.CharField(max_length= 35)
 
     TOOL_CHOICES = (
         ('USA', 'USA'),
@@ -89,9 +92,9 @@ class Job_Apply(models.Model):
     )
     gender = models.CharField(max_length=10, choices=GEN_CHOICES)
     cur_residence = models.CharField(max_length=30)
-    birth = models.CharField(max_length = 20)
-    degree = models.CharField(max_length = 30)
-    start_date = models.DateTimeField(default=timezone.now)
+    birth = models.CharField(max_length = 30)
+    degree = models.CharField(max_length = 100)
+    start_date = models.CharField(max_length=40)
 
     CLAS_CHOICES = (
         ('Kindergarten', 'Kindergarten'),

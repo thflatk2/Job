@@ -2,12 +2,30 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
@@ -98,7 +116,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'how_it_works' %}" title="">How it works</a>
@@ -119,12 +137,12 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec">
 							<ul class="main-slider-sec text-arrows">
-								<li class="slideHome"><img src="{% static "images/PIC1.png" %}" alt="" /></li>
+								<li class="slideHome"><img src="{% static "images/Landing.jpg" %}" alt="" /></li>
 							</ul>
 							<div class="job-search-sec">
 								<div class="job-search">
 									<h3>Teaching Abroad Made Easy</h3>
-									<span>Moving to a new place can be tough, let alone finding a job in a whole new country. Loka is here for you as a friend, to help you from finding a job, to settling in like a local.</span>
+									<span>"Teaching Holiday revolutionizes the way you find teaching jobs in Korea. With our safe, simple, and speedy matching process, get your premium job offers with just few clicks."</span>
 
 									<div class="or-browser">
                                         <a class="works-but" href="{% url 'how_it_works' %}" title="">See how it works</a>
@@ -142,6 +160,110 @@
 		</div>
 	</section>
 
+	<section>
+		<div class="block manual-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="heading">
+							<h2 id="service_summary">So quick, So easy, So good</h2>
+							<span>Teaching Holidays Guarantees</span>
+						</div><!-- Heading -->
+
+                        <div class="manual">
+                            <div class="job-listings-sec">
+						    	<div class="job-listing">
+                                    <div class="job-title-sec">
+                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
+                                        <h3><a href="#" title="">Job Matching</a></h3>
+                                    </div>
+							    </div><!-- Job -->
+                                <div class="job-listing">
+                                    <div class="job-title-sec">
+                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
+                                        <h3><a href="#" title="">Visa Provided</a></h3>
+                                    </div>
+							    </div><!-- Job -->
+                                <div class="job-listing">
+                                    <div class="job-title-sec">
+                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
+                                        <h3><a href="#" title="">Flight Tickets Provided</a></h3>
+                                    </div>
+							    </div><!-- Job -->
+                                <div class="job-listing">
+                                    <div class="job-title-sec">
+                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
+                                        <h3><a href="#" title="">Mock Interviews</a></h3>
+                                    </div>
+							    </div><!-- Job -->
+                                <div class="job-listing">
+                                    <div class="job-title-sec">
+                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
+                                        <h3><a href="#" title="">Private Housing provided</a></h3>
+                                    </div>
+							    </div><!-- Job -->
+                            </div>
+                            <div class="manual_des">
+                                <p>Quick Summary-Description on now it works, and why LOKA is better than all the competitors. (Quick process, intuitive job board, transparent service etc.) How it can meet the needs of everyone, whether someone's planning to stay for just a year, or much longer, want to live in the city, or in the skirts of the suburbs and yadee yadhadhd, Some more descriptions that hive a general insight on LOKA service in general</p>
+                            </div>
+                        </div>
+
+					</div>
+					<div class="col-lg-12">
+						<div class="browse-all-cat">
+							<a href="{% url 'Job:list' %}" title="">See job offers</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="block">
+			<div data-velocity="-.1" style="background: url(http://placehold.it/1920x1000) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color light"></div><!-- PARALLAX BACKGROUND IMAGE -->
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="heading light">
+							<h2 id="testimonial_title">What Our Teachers Say</h2>
+						</div><!-- Heading -->
+						<div class="reviews-sec" id="reviews-carousel">
+							<div class="col-lg-6">
+								<div class="reviews">
+									<img src="http://placehold.it/101x101" alt="" />
+									<h3>Augusta Silva <span>Web designer</span></h3>
+									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
+								</div><!-- Reviews -->
+							</div>
+							<div class="col-lg-6">
+								<div class="reviews">
+									<img src="http://placehold.it/101x101" alt="" />
+									<h3>Ali Tufan <span>Web designer</span></h3>
+									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
+								</div><!-- Reviews -->
+							</div>
+							<div class="col-lg-6">
+								<div class="reviews">
+									<img src="http://placehold.it/101x101" alt="" />
+									<h3>Augusta Silva <span>Web designer</span></h3>
+									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
+								</div><!-- Reviews -->
+							</div>
+							<div class="col-lg-6">
+								<div class="reviews">
+									<img src="http://placehold.it/101x101" alt="" />
+									<h3>Ali Tufan <span>Web designer</span></h3>
+									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
+								</div><!-- Reviews -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</section>
+
 	<section id="scroll-here">
 		<div class="block">
 			<div class="container">
@@ -151,7 +273,7 @@
 
 						<div class="heading">
 
-							<h2>Find one of {{ Jobs | length }} jobs in Korea</h2>
+							<h2>Proudly sponsored by</h2>
 							<span>Apply now and work in these beautiful cities</span>
 
 						</div><!-- Heading -->
@@ -194,110 +316,6 @@
 		</div>
 	</section>
 
-	<section>
-		<div class="block manual-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading">
-							<h2 id="service_summary">So quick, So easy, So good</h2>
-							<span>Teaching Holidays Guarantees</span>
-						</div><!-- Heading -->
-
-                        <div class="manual">
-                            <div class="job-listings-sec">
-						    	<div class="job-listing">
-                                    <div class="job-title-sec">
-                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
-                                        <h3><a href="#" title="">Job Matching</a></h3>
-                                    </div>
-							    </div><!-- Job -->
-                                <div class="job-listing">
-                                    <div class="job-title-sec">
-                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
-                                        <h3><a href="#" title="">Visas</a></h3>
-                                    </div>
-							    </div><!-- Job -->
-                                <div class="job-listing">
-                                    <div class="job-title-sec">
-                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
-                                        <h3><a href="#" title="">Flights</a></h3>
-                                    </div>
-							    </div><!-- Job -->
-                                <div class="job-listing">
-                                    <div class="job-title-sec">
-                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
-                                        <h3><a href="#" title="">Convenience service</a></h3>
-                                    </div>
-							    </div><!-- Job -->
-                                <div class="job-listing">
-                                    <div class="job-title-sec">
-                                        <div class="c-logo"> <img src="{% static "images/tickmark.svg" %}" alt="" /> </div>
-                                        <h3><a href="#" title="">Job landing bonus</a></h3>
-                                    </div>
-							    </div><!-- Job -->
-                            </div>
-                            <div class="manual_des">
-                                <p>Quick Summary-Description on now it works, and why LOKA is better than all the competitors. (Quick process, intuitive job board, transparent service etc.) How it can meet the needs of everyone, whether someone's planning to stay for just a year, or much longer, want to live in the city, or in the skirts of the suburbs and yadee yadhadhd, Some more descriptions that hive a general insight on LOKA service in general</p>
-                            </div>
-                        </div>
-
-					</div>
-					<div class="col-lg-12">
-						<div class="browse-all-cat">
-							<a href="{% url 'Job:list' %}" title="">Load more listings</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section>
-		<div class="block">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1920x1000) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color light"></div><!-- PARALLAX BACKGROUND IMAGE -->
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading light">
-							<h2 id="testimonial_title">What our customers say define what we do</h2>
-						</div><!-- Heading -->
-						<div class="reviews-sec" id="reviews-carousel">
-							<div class="col-lg-6">
-								<div class="reviews">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Augusta Silva <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
-								</div><!-- Reviews -->
-							</div>
-							<div class="col-lg-6">
-								<div class="reviews">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Ali Tufan <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
-								</div><!-- Reviews -->
-							</div>
-							<div class="col-lg-6">
-								<div class="reviews">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Augusta Silva <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
-								</div><!-- Reviews -->
-							</div>
-							<div class="col-lg-6">
-								<div class="reviews">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Ali Tufan <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service</p>
-								</div><!-- Reviews -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-		</div>
-	</section>
-
 	<footer>
 		<div class="block block-foot">
 			<div class="container">
@@ -306,11 +324,10 @@
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-                                    <span>LOKA 101</span>
+                                    <span>Teaching Holiday</span>
 								</div>
 								<span>Life in Korea</span>
 								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
                                 <span>SIM Service</span>
                                 <span>Blog</span>
 
@@ -323,15 +340,15 @@
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                    <p class="footer-info-desc">+82-10-3133-1020</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
+                                    <p class="footer-info-desc">loka101</p>
                                 </div>
                             </div>
 						</div>
@@ -342,10 +359,7 @@
 		<div class="bottom-line">
             <div class="social">
                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

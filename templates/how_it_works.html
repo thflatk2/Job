@@ -2,13 +2,30 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
 
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
@@ -98,7 +115,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'how_it_works' %}" title="">How it works</a>
@@ -112,7 +129,7 @@
 		</div>
 	</header>
 
-	<section id="works_section">
+	<section class="works" id="works_section">
 		<div class="block no-padding">
 			<div class="container">
 				<div class="row">
@@ -146,12 +163,11 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="how-works">
-							<div class="how-workimg"><img src="{% static 'images/browse.png' %}" alt="" /></div>
+							<div class="how-workimg"><img src="{% static 'images/browse.jpg' %}" alt="" /></div>
 							<div class="how-work-detail">
 								<div class="how-work-box">
 									<span>1</span>
-									<i class="la la-user"></i>
-									<h3>Explore and find your perfect match</h3>
+									<h3>Find a perfect match with just a few clicks.</h3>
 									<p>We paired up with the best recruiters in the industry that offer reliable and satisfactory jobs. Our jobs cover housing, visas, flights, and many other benefits in all over Korea. explore different options and choose the best match.</p>
 								</div>
 							</div>
@@ -161,9 +177,8 @@
 							<div class="how-work-detail">
 								<div class="how-work-box">
 									<span>2</span>
-									<i class="la la-file-text"></i>
 									<h3>Simplest application yet</h3>
-									<p>Loka uses common application. With Loka, you only need to fill out your basic profile once, which you can use it for every position you apply for. Say goodbye to nightmares of repeating your application every time.</p>
+									<p>Just fill out a single profile application once,  which you can use it for every position you apply for. Say goodbye to nightmares of repeating your application every time.</p>
 								</div>
 							</div>
 						</div>
@@ -172,9 +187,8 @@
 							<div class="how-work-detail">
 								<div class="how-work-box">
 									<span>3</span>
-									<i class="la la-pencil"></i>
 									<h3>Get connected with the recruiter</h3>
-									<p>Once recruiters accept your application, you will be connected via the contact information you provided in the application. The recruiters will conduct further interviews if they see a potential match.</p>
+									<p>Once a recruiter accepts your application, you will be contacted by appointed recruiter. They will provide consulting for perfect match, interview rehearsal and get you a good interview. </p>
 								</div>
 							</div>
 						</div>
@@ -183,9 +197,8 @@
 							<div class="how-work-detail">
 								<div class="how-work-box">
 									<span>4</span>
-									<i class="la la-file-text"></i>
-									<h3>Prepare the documents</h3>
-                                    <p>Congratulations on the offer! Loka is here to smooth out the process. Check out our <strong>documents</strong> checklist and details to sail your way to Korea</p>
+									<h3>Prepare your documents</h3>
+                                    <p>At this stage, you already got an offer. For your smooth process, check out our <strong>document checklist</strong> </p>
 								</div>
 							</div>
 						</div>
@@ -194,9 +207,8 @@
 							<div class="how-work-detail">
 								<div class="how-work-box">
 									<span>5</span>
-									<i class="la la-pencil"></i>
-									<h3>Accept the offer and move in!</h3>
-									<p>You're all set. All you need to do is pack your stuffs and move in to your new home. I know moving to a whole new country can be very overwhelming, so Loka is here to help.</p>
+									<h3>Time for adventure!</h3>
+									<p>You are all set. Now pack your stuff and check in to your flight! Welcome to your new home and we hope the best for you.</p>
 								</div>
 							</div>
 						</div>
@@ -206,35 +218,18 @@
 		</div>
 	</section>
 
-        <section>
-        <div class="block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="inner2">
-                            <h1>Document</h1>
-                            <p>Please see our <strong>Blog Post</strong> on how to prepare your Visa and Immigration documents</p>
-                        </div>
-                        <img src="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 	<footer>
 		<div class="block block-foot">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-                                    <span>LOKA 101</span>
+                                    <span>Teaching Holiday</span>
 								</div>
 								<span>Life in Korea</span>
 								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
                                 <span>SIM Service</span>
                                 <span>Blog</span>
 
@@ -242,20 +237,20 @@
 						</div>
 					</div>
 
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                    <p class="footer-info-desc">+82-10-3133-1020</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
+                                    <p class="footer-info-desc">loka101</p>
                                 </div>
                             </div>
 						</div>
@@ -266,10 +261,7 @@
 		<div class="bottom-line">
             <div class="social">
                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

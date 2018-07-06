@@ -2,13 +2,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 {% load staticfiles %}
-
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
@@ -94,7 +110,7 @@
 				<nav>
 					<ul>
 						<li class="menu-item-has">
-							<a href="{% url 'Job:list' %}" title="">Job</a>
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'how_it_works' %}" title="">How it works</a>
@@ -140,10 +156,8 @@
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
                                     <p><a class="sort-date" href="?sort=date_early"><i class="far fa-calendar-alt list-icon"></i>Starting Date(Earliest)</a></p>
-                                    <p><a class="sort-likes" href="?sort=date_late"><i class="far fa-calendar-alt list-icon"></i>Starting Date(Latest)</a></p>
-                                    <p><a class="sort-date" href="?sort=period_long"><i class="fas fa-briefcase list-icon"></i>Contract Period(Longest)</a></p>
                                     <p><a class="sort-likes" href="?sort=period_short"><i class="fas fa-briefcase list-icon"></i>Contract Period(Shortest)</a></p>
-                                    <p><a class="sort-date" href="?sort=salary"><i class="fas fa-money-bill-alt list-icon"></i>Salary</a></p>
+                                    <p><a class="sort-date" href="?sort=salary"><i class="fas fa-money-bill-alt list-icon"></i>Minimum Salary</a></p>
                                     <p><a class="sort-likes" href="?sort=age"><i class="fas fa-child list-icon"></i>Age Level</a></p>
 								</div>
 				 			</div>
@@ -193,15 +207,14 @@
 		<div class="block block-foot">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-                                    <span>LOKA 101</span>
+                                    <span>Teaching Holiday</span>
 								</div>
 								<span>Life in Korea</span>
 								<span>Job Board</span>
-								<span>Job-landing Rewards</span>
                                 <span>SIM Service</span>
                                 <span>Blog</span>
 
@@ -209,20 +222,20 @@
 						</div>
 					</div>
 
-					<div class="col-lg-6 column">
+					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">*82-10-1234-5678</p>
+                                    <p class="footer-info-desc">+82-10-3133-1020</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">info@loka101.com</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
-                                    <p class="footer-info-desc">username</p>
+                                    <p class="footer-info-desc">loka101</p>
                                 </div>
                             </div>
 						</div>
@@ -232,11 +245,8 @@
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                <a href="#" title=""><i class="fa fa-behance"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
