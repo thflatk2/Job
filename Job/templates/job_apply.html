@@ -196,7 +196,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 				<div class="row apply-basic">
                                         <h3>Photo 1</h3>
                                         <div class="upload-img-bar">
+                                            {% if user_name.user_pic1 %}
+                                            <span class="round"><img id="image_section" src="{{ user_name.user_pic1.url }}" alt="" /></span>
+                                            {% else %}
                                             <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
+                                            {% endif %}
                                             <div class="upload-info">
                                                 <label class="id_profile_image1" for="id_profile_image1">Browse</label>
                                                 {% if user_name.user_pic1 %}
@@ -209,7 +213,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                         <h3>Photo 2</h3>
                                         <div class="upload-img-bar">
+                                            {% if user_name.user_pic2 %}
+                                            <span class="round"><img id="image_section2" src="{{ user_name.user_pic2.url }}" alt="" /></span>
+                                            {% else %}
                                             <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
+                                            {% endif %}
                                             <div class="upload-info">
                                                <label class="id_profile_image2" for="id_profile_image2">Browse</label>
                                                 {% if user_name.user_pic2 %}

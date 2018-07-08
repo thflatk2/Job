@@ -1289,9 +1289,20 @@ select {
     display: none;
  }
 
+.social{
+    margin-top: 20px;
+}
+
+.social a{
+    margin-right: 0;
+    padding-right: 10px;
+    margin-left: 15px;
+}
+
 .heading.light{
     width: 100%;
     padding: 0 20px;
+    margin-left: 0;
 }
 .emply-list-sec.style2 .emply-list {
     float: left;
@@ -1307,8 +1318,11 @@ select {
     display: none;
 }
 .emply-list-thumb {
-    float: none;
+    float: left;
     display: inline-block;
+    top: 25px;
+    left: 10px;
+    position: relative;
 }
 .emply-list-info {
     float: left;
@@ -1316,13 +1330,84 @@ select {
     text-align: center;
     padding: 0;
     margin-top: 10px;
+    height: 105px;
 }
+
+.emply-list-info > h3{
+    position: relative;
+    top: -90px;
+    text-align: left;
+    left: 15px;
+}
+
+.emply-list-info > span{
+    width: 60%;
+    position: relative;
+    top: -95px;
+    left: 110px;
+}
+
+.first-icon{
+    margin-right: 10px;
+        float: left;
+}
+
+.job-date{
+        width: 175px;
+    float: left;
+}
+
+.emply-list-info > span > div > o{
+        position: relative;
+    margin-left: 0;
+    top: -1.5px;
+    color: #888888;
+}
+
+#job-date{
+    float: left;
+}
+
+.not-first-icon{
+    margin-top: 7px;
+}
+
+.third-first-icon{
+    margin-top: 7px;
+    float: left;
+}
+
+#job-contract{
+    margin-right: 55px;
+}
+
+#job-salary{
+    margin-right: -30px;
+    top: 4px;
+}
+
+#job-location{
+    margin-right: 97px;
+    float: unset;
+}
+
+.job-icon-location{
+    float: left;
+
+}
+
 .emply-pstn {
     display: none;
     position: static;
     float: left;
     width: 100%;
     margin: 10px 0;
+}
+
+.emply-list-info > p{
+    top: -95px;
+    position: relative;
+    -webkit-line-clamp: 3;
 }
 .emply-list.box .emply-pstn {
     position: static;

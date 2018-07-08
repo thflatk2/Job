@@ -177,7 +177,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <p><a class="sort-date" href="?sort=date_early"><i class="far fa-calendar-alt list-icon"></i>Starting Date(Earliest)</a></p>
                                     <p><a class="sort-likes" href="?sort=period_short"><i class="fas fa-briefcase list-icon"></i>Contract Period(Shortest)</a></p>
                                     <p><a class="sort-date" href="?sort=salary"><i class="fas fa-money-bill-alt list-icon"></i>Minimum Salary</a></p>
-                                    <p><a class="sort-likes" href="?sort=age"><i class="fas fa-child list-icon"></i>Age Level</a></p>
+                                    <p><a class="sort-likes" href="?sort=kindergarten"><i class="fas fa-child list-icon"></i>Age Level (Kindergarten)</a></p>
+                                    <p><a class="sort-likes" href="?sort=elementary"><i class="fas fa-child list-icon"></i>Age Level (Elementary)</a></p>
+                                    <p><a class="sort-likes" href="?sort=middle"><i class="fas fa-child list-icon"></i>Age Level (Middle)</a></p>
 								</div>
 				 			</div>
 				 		</div>
@@ -195,7 +197,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <div class="emply-list-info">
                                         <div class="emply-pstn"><a class="list_detail detail{{ job.pk }}" href="{% url 'Job:detail' job.pk %}">Details</a></div>
                                         <h3><a href="#" title="">{{ job.school_name }}</a></h3>
-                                        <span><i class="far fa-calendar-alt list-icon"></i><o>{{ job.start_date }} </o><i class="fas fa-briefcase list-icon"></i><o>{{ job.contract_period }} Month +</o><i class="fas fa-money-bill-alt list-icon"></i><o>{{ job.min_salary }}M ~ {{ job.max_salary }}M KRW</o><i class="fas fa-location-arrow list-icon"></i><o>{{ job.location}}</o></span>
+                                        <span>
+                                            <div class="job-date"><i class="far fa-calendar-alt list-icon first-icon"></i><o id="job-date">{{ job.start_date }} </o></div>
+                                            <div class="job-contract"><i class="fas fa-briefcase list-icon not-first-icon"></i><o id="job-contract">{{ job.contract_period }} Month +</o></div>
+                                            <div class="job-salary"><i class="fas fa-money-bill-alt list-icon third-first-icon"></i><o id="job-salary">{{ job.min_salary }}M ~ {{ job.max_salary }}M KRW</o></div>
+                                            <div class="job-icon-location"><i class="fas fa-location-arrow list-icon not-first-icon"></i><o id="job-location">{{ job.location}}</o></div>
+                                        </span>
+
                                         <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
                                     </div>
                                 </div><!-- Employe List -->
@@ -264,8 +272,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

@@ -4850,6 +4850,7 @@ aside .widget:first-child {
 .specialism_widget {
     float: left;
     width: 100%;
+        margin-top: 15px;
 }
 .simple-checkbox p {
     float: left;
@@ -4860,6 +4861,16 @@ aside .widget:first-child {
     font-size: 13px;
     margin-bottom: 4px;
 }
+
+
+.emply-list-info > span > div > o{
+        position: relative;
+    margin-left: 0;
+    margin-right: 15px;
+    top: 0.5px;
+    color: #888888;
+}
+
 .simple-checkbox p label {
     padding-left: 31px;
 }
@@ -5618,6 +5629,23 @@ aside .widget.border:first-child {
     color: #888888;
     margin-top: 7px;
 }
+
+.job-date{
+    float: left;
+}
+
+.job-contract{
+    float: left;
+}
+
+.job-salary{
+    float: left;
+}
+
+.job-icon-location{
+    float: left;
+}
+
 .job-location {
     float: left;
     width: 100%;
