@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
     <!-- Google Tag Manager -->
@@ -10,10 +10,14 @@
     })(window,document,'script','dataLayer','GTM-KK2X9NL');</script>
     <!-- End Google Tag Manager -->
 
-    <meta charset="UTF-8">
-    <title>TeachingHoliday</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>TeachingHoliday</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Cypress">
 
-    {% load staticfiles %}
+{% load staticfiles %}
     <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
@@ -31,18 +35,795 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK2X9NL"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<form action="" method="post" enctype="multipart/form-data">
-	{% csrf_token %}
-	<table>
-		{{ form.as_p }}
-	</table>
-	<input type="submit">
-</form>
+
+<div class="theme-layout" id="scrollup">
+
+	<div class="responsive-header">
+		<div class="responsive-menubar">
+			<div class="res-logo"><a href="{% url 'home' %}" title=""><img src="{% static "images/logo.png" %}" alt="" /></a></div>
+			<div class="menu-resaction">
+				<div class="res-openmenu">
+					<img src="{% static "images/icon.png" %}" alt="" /> Menu
+				</div>
+				<div class="res-closemenu">
+					<img src="{% static "images/icon2.png" %}" alt="" /> Close
+				</div>
+			</div>
+		</div>
+		<div class="responsive-opensec">
+			<div class="btn-extars">
+                {% if user.is_active %}
+                    {% if user.type == 'Employer' %}
+                        <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% else %}
+                        <ul class="account-btns">
+					        <li class="signup-popup"><a href="{% url 'user_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
+				        </ul>
+                    {% endif %}
+                    {% else %}
+                    <ul class="account-btns">
+					    <li class="signup-popup"><a href="{% url 'register' %}" title=""><i class="la la-key"></i> Sign Up</a></li>
+					    <li class="signin-popup"><a href="{% url 'login_url' %}" title=""><i class="la la-external-link-square"></i> Login</a></li>
+				    </ul>
+                {% endif %}
+
+			</div><!-- Btn Extras -->
+            <a href="{% url 'Job:list' %}" title="">Jobs</a>
+            <a href="{% url 'how_it_works' %}" title="">How it works</a>
+            <a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
+		</div>
+	</div>
+
+	<header class="stick-top">
+		<div class="menu-sec">
+			<div class="container">
+				<div class="logo">
+					<a href="{% url 'home' %}" title=""><img class="hidesticky" src="{% static "images/logo.png" %}" alt="" /><img class="showsticky" src="{% static "images/logo.png" %}" alt="" /></a>
+				</div><!-- Logo -->
+				<div class="btn-extars">
+					<ul class="account-btns">
+                        {% if user.is_active %}
+                            {%  if user.type == "Employer" %}
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+                                {% else %}
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                {% endif %}
+		                {% else %}
+                            <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
+                        {% endif %}
+                    </ul>
+				</div><!-- Btn Extras -->
+				<nav>
+					<ul>
+						<li class="menu-item-has">
+							<a href="{% url 'Job:list' %}" title="">Jobs</a>
+						</li>
+						<li class="menu-item-has">
+							<a href="{% url 'how_it_works' %}" title="">How it works</a>
+						</li>
+						<li class="menu-item-has">
+							<a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
+						</li>
+					</ul>
+				</nav><!-- Menus -->
+			</div>
+		</div>
+	</header>
+
+	<section class="overlape">
+		<div class="block no-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="apply-title">
+                                <h3>Posting a new job</h3>
+					 			<div class="steps-sec post-new-job">
+					 				<div class="step active">
+					 					<p><i class="la la-info"></i></p>
+					 					<span>Basic Profile</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la la-cc-mastercard"></i></p>
+					 					<span>Detail</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la  la-check-circle"></i></p>
+					 					<span>Review</span>
+					 				</div>
+					 			</div>
+
+                                <div class="steps-sec post-job-detail-">
+					 				<div class="step">
+					 					<p><i class="la la-info"></i></p>
+					 					<span>Basic Profile</span>
+					 				</div>
+					 				<div class="step active">
+					 					<p><i class="la la-cc-mastercard"></i></p>
+					 					<span>Detail</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la  la-check-circle"></i></p>
+					 					<span>Review</span>
+					 				</div>
+					 			</div>
+
+                                <div class="steps-sec post-job-review-">
+					 				<div class="step">
+					 					<p><i class="la la-info"></i></p>
+					 					<span>Basic Profile</span>
+					 				</div>
+					 				<div class="step">
+					 					<p><i class="la la-cc-mastercard"></i></p>
+					 					<span>Detail</span>
+					 				</div>
+					 				<div class="step active">
+					 					<p><i class="la  la-check-circle"></i></p>
+					 					<span>Review</span>
+					 				</div>
+					 			</div>
+					 		</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section>
+		<div class="block no-padding">
+			<div class="container">
+				 <div class="row no-gape">
+                     <aside class="col-lg-3 column border-right border-top">
+				 		<div class="widget">
+				 			<div class="tree_widget-sec">
+				 				<ul>
+				 					<li>
+				 						<a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-file-text"></i>Agency Info</a>
+				 						<ul>
+				 							<li><a href="#" title="">Profile photo</a></li>
+				 							<li><a href="#" title="">Basic Info</a></li>
+				 							<li><a href="#sn" title="">Introduction</a></li>
+				 						</ul>
+				 					</li>
+				 					<li>
+				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
+				 					</li>
+				 				<!--	<li class="inner-child">
+				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
+				 					</li>-->
+                                    <li class="inner-child active"><a href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+				 				</ul>
+				 			</div>
+				 		</div>
+				 	</aside>
+				 	<div class="col-lg-9 column">
+				 		<div class="padding-left">
+                            <form method="post" enctype="multipart/form-data" action=""> {% csrf_token %}
+                                <div id="post-new-job" class="post-new-job">
+					 		        <div class="post-form-edit">
+                                        <h3>Basic Info</h3>
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Job Title</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="school_name" required="" id="id_school_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Summary</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="summary" required="" id="id_summary">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Starting Date</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="start_date" required="" id="id_start_date">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Location</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="location" required="" id="id_location">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Age Level</span>
+                                                    <div class="pf-field">
+                                                        <input type="checkbox" name="age_level" value="Kindergarten" id="id_age_level_0"><label for="id_age_level_0">Kindergarten</label>
+                                                        <input type="checkbox" name="age_level" value="Elementary" id="id_age_level_1"><label for="id_age_level_1">Elementary</label>
+                                                        <input type="checkbox" name="age_level" value="Middle" id="id_age_level_2"><label for="id_age_level_2">Middle</label>
+                                                    </div>
+                                                </div>
+                                                 <div class="col-lg-6">
+                                                    <span class="pf-title">Flight Support</span>
+                                                    <div class="pf-field">
+                                                        <select name="flight_support" id="id_flight_support" data-placeholder="Please Select Specialism" class="chosen">
+                                                            <option value="None">None</option>
+                                                            <option value="One-way">One-way</option>
+                                                            <option value="Round-trip">Round-trip</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Contract Period</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="contract_period" required="" id="id_contract_period">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Working Day and Hour</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="day_hour" required="" id="id_day_hour">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Minimum Salary</span>
+                                                    <div class="pf-field">
+                                                        <input type="number" name="min_salary" step="any" required="" id="id_min_salary">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Maximum Salary</span>
+                                                    <div class="pf-field">
+                                                        <input type="number" name="max_salary" step="any" required="" id="id_max_salary">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">House</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="house" id="id_house">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Severance Payment</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="severance_payment" id="id_severance_payment">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Health Insurance</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="health_insurance" id="id_health_insurance">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">National Pension</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="national_pension" id="id_national_pension">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <button type="button" onclick="location.href='#post-job-detail'" class="apply-detail-but" id="apply-detail"><o>Details  </o><i id="right_arrow" class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+					 		    </div>
+
+                                <div id="post-job-detail" class="post-job-detail">
+                                        <h3>Detail Info</h3>
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Description</span>
+                                                    <div class="pf-field">
+                                                        <textarea name="description" cols="40" rows="10" id="id_description"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Qualification</span>
+                                                    <div class="pf-field">
+                                                        <textarea name="qualification" cols="40" rows="10" id="id_qualification"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <h3>House Picture 1</h3>
+                                                <div class="upload-img-bar">
+                                                    <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <div id="uploadinfo1" class="upload-info">
+                                                        <label class="id_house_pic1" for="id_house_pic1">Browse</label>
+                                                        <input type="file" name="house_pic1" id="id_house_pic1">
+                                                        <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                                    </div>
+                                                </div>
+
+                                                <h3>House Picture 2</h3>
+                                                <div class="upload-img-bar">
+                                                    <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <div class="upload-info">
+                                                        <label class="id_house_pic2" for="id_house_pic2">Browse</label>
+                                                        <input type="file" name="house_pic2" id="id_house_pic2">
+                                                        <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                                    </div>
+                                                </div>
+
+                                                 <h3>House Picture 3</h3>
+                                                <div class="upload-img-bar">
+                                                    <span class="round"><img id="image_section3" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <div class="upload-info">
+                                                        <label class="id_house_pic3" for="id_house_pic3">Browse</label>
+                                                        <input type="file" name="house_pic3" id="id_house_pic3">
+                                                        <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                                    </div>
+                                                </div>
+
+                                                <h3>House Picture 4</h3>
+                                                <div class="upload-img-bar">
+                                                    <span class="round"><img id="image_section4" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <div class="upload-info">
+                                                        <label class="id_house_pic4" for="id_house_pic4">Browse</label>
+                                                        <input type="file" name="house_pic4" id="id_house_pic4">
+                                                        <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                                    </div>
+                                                </div>
+
+                                                <h3>House Picture 5</h3>
+                                                <div class="upload-img-bar">
+                                                    <span class="round"><img id="image_section5" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <div id="uploadinfo1" class="upload-info">
+                                                        <label class="id_house_pic5" for="id_house_pic5">Browse</label>
+                                                        <input type="file" name="house_pic5" id="id_house_pic5">
+                                                        <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-lg-12">
+                                                    <button type="button" id="apply-basic-back" onclick="location.href='#post-new-job'"><i id="left_arrow" class="fa fa-caret-left left_arrow" aria-hidden="true"></i><o>Profile  </o></button>
+                                                    <button type="button" id="apply-review-front" onclick="location.href='#post-job-review'"><o>Review  </o><i id="right_arrow" class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <div id="post-job-review" class="post-job-review">
+                                        <h3>Review</h3>
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Job Title</span>
+                                                    <div class="pf-field">
+                                                        <p id="title_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Summary</span>
+                                                    <div class="pf-field">
+                                                        <p id="summary_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Starting Date</span>
+                                                    <div class="pf-field">
+                                                        <p id="date_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Location</span>
+                                                    <div class="pf-field">
+                                                        <p id="location_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Age Level</span>
+                                                    <div class="pf-field">
+                                                        <p id="age_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Flight Support</span>
+                                                    <div class="pf-field">
+                                                        <p id="flight_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Contract Period</span>
+                                                    <div class="pf-field">
+                                                        <p id="contract_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Working Day and Hour</span>
+                                                    <div class="pf-field">
+                                                        <p id="working_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Minimum Salary</span>
+                                                    <div class="pf-field">
+                                                        <p id="min_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Maximum Salary</span>
+                                                    <div class="pf-field">
+                                                        <p id="max_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">House</span>
+                                                    <div class="pf-field">
+                                                        <p id="house_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Severance Payment</span>
+                                                    <div class="pf-field">
+                                                        <p id="severance_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Health Insurance</span>
+                                                    <div class="pf-field">
+                                                        <p id="health_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">National Pension</span>
+                                                    <div class="pf-field">
+                                                        <p id="pension_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Description</span>
+                                                    <div class="pf-field">
+                                                        <p id="description_review"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Qualification</span>
+                                                    <div class="pf-field">
+                                                        <p id="qualification_review"></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <h3>House Picture 1</h3>
+                                                    <div class="upload-img-bar">
+                                                        <span class="round"><img id="image_section_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        <div id="uploadinfo1" class="upload-info"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <h3>House Picture 2</h3>
+                                                    <div class="upload-img-bar">
+                                                        <span class="round"><img id="image_section2_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        <div class="upload-info"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <h3>House Picture 3</h3>
+                                                     <div class="upload-img-bar">
+                                                        <span class="round"><img id="image_section3_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        <div class="upload-info"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <h3>House Picture 4</h3>
+                                                    <div class="upload-img-bar">
+                                                        <span class="round"><img id="image_section4_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        <div class="upload-info">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <h3>House Picture 5</h3>
+                                                    <div class="upload-img-bar">
+                                                        <span class="round"><img id="image_section5_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        <div id="uploadinfo1" class="upload-info">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="user_job">
+                                                    <div class="pf-field">
+                                                        <input type="text" name="user" value="{{ user_name }}" id="id_user">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <button type="button" id="apply-detail-back" onclick="location.href='#post-job-detail'"><i id="left_arrow" class="fa fa-caret-left left_arrow" aria-hidden="true"></i><o>Details  </o></button>
+                                                    <button type="submit" id="apply-submit"><o>Submit</o></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </form>
+					 	</div>
+					</div>
+				 </div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="block block-foot">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 column">
+						<div class="widget">
+							<div class="about_widget">
+								<div class="logo">
+                                    <span>Teaching Holiday</span>
+								</div>
+								<span>Life in Korea</span>
+								<span>Job Board</span>
+                                <span>SIM Service</span>
+                                <span>Blog</span>
+
+							</div><!-- About Widget -->
+						</div>
+					</div>
+
+					<div class="col-md-6 column">
+						<div class="widget">
+							<div class="download_widget">
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Email</p>
+                                    <p class="footer-info-desc">ceo@loka101.com</p>
+                                </div>
+                                <div class="footer-info">
+                                    <p class="footer-info-title">Kakao</p>
+                                    <p class="footer-info-desc">loka101</p>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-line">
+            <div class="social">
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+            </div>
+			<span>© 2018 Loka101 All rights reserved.</span>
+			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+		</div>
+	</footer>
+
+</div>
+
+
+
+<script src="{% static "js/jquery.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/modernizr.js" %}" type="text/javascript"></script>
+<script src="{% static "js/script.js" %}" type="text/javascript"></script>
+<script src="{% static "js/wow.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/slick.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/parallax.js" %}" type="text/javascript"></script>
+<script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
+<script src="{% static "js/jquery.scrollbar.min.js" %}"  type="text/javascript"></script>
+
+<script src="{% static "js/rslider.js" %}"  type="text/javascript"></script>
+
+<script type="text/javascript">
+    function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section').attr('src', e.target.result);
+            $('#image_section_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_house_pic1").change(function(){
+    readURL(this);
+});
+
+    function readURL2(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section2').attr('src', e.target.result);
+            $('#image_section2_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_house_pic2").change(function(){
+    readURL2(this);
+});
+
+    function readURL3(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section3').attr('src', e.target.result);
+            $('#image_section3_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_house_pic3").change(function(){
+    readURL3(this);
+});
+
+    function readURL4(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section4').attr('src', e.target.result);
+            $('#image_section4_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_house_pic4").change(function(){
+    readURL4(this);
+});
+
+    function readURL5(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section5').attr('src', e.target.result);
+            $('#image_section5_review').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#id_house_pic5").change(function(){
+    readURL5(this);
+});
+
+
+$('#apply-basic-back').click(function () {
+    if($(".post-new-job").css("display") == "none"){
+        $('.post-new-job').css("display", "flex");
+        $('.post-job-detail').css("display", "none");
+        $('.post-job-detail-').css("display", "none");
+    } else {
+        $('.post-new-job').css("display", "none");
+    }
+});
+
+$('#apply-review-front').click(function () {
+    if($(".post-job-review").css("display") == "none"){
+        $('.post-job-review').css("display", "block");
+        $('.post-job-review-').css("display", "block");
+        $('.post-job-detail').css("display", "none");
+        $('.post-job-detail-').css("display", "none");
+
+        $('#description_review').text($("#id_description").val());
+        $('#qualification_review').text($("#id_qualification").val());
+
+    } else {
+        $('.post-job-review').css("display", "none");
+    }
+});
+
+$('#apply-detail-back').click(function () {
+    if($(".post-job-detail").css("display") == "none"){
+        $('.post-job-detail').css("display", "block");
+        $('.post-job-review').css("display", "none");
+        $('.post-job-review-').css("display", "none");
+    } else {
+        $('.post-job-review').css("display", "block");
+    }
+});
+
+
+
+    var doc = document;
+    var detail = doc.getElementById('apply-detail');
+
+    var func = function () {
+
+        if($(".post-job-detail").css("display") == "none"){
+        $('.post-job-detail').css("display", "block");
+        $('.post-job-detail-').css("display", "block");
+        $('.post-new-job').css("display", "none");
+
+        var a = "";
+        var age0_checkbox = doc.getElementById('id_age_level_0');
+        var age1_checkbox = doc.getElementById('id_age_level_1');
+        var age2_checkbox = doc.getElementById('id_age_level_2');
+
+         if(age0_checkbox.checked == true){
+             a = $("#id_age_level_0").val();
+         }
+         if(age1_checkbox.checked == true){
+             if(a == "")
+             {
+                 a = a + $("#id_age_level_1").val();
+             }
+             else{
+                 a = a + ", " + $("#id_age_level_1").val();
+             }
+         }
+         if(age2_checkbox.checked == true){
+            if(a == "")
+             {
+                 a = a + $("#id_age_level_2").val();
+             }
+             else{
+                 a = a + ", " + $("#id_age_level_2").val();
+             }
+         }
+
+        $('#title_review').text($("#id_school_name").val());
+        $('#summary_review').text($("#id_summary").val());
+        $('#date_review').text($("#id_start_date").val());
+        $('#age_review').text(a);
+        $('#location_review').text($("#id_location").val());
+        $('#contract_review').text($("#id_contract_period").val());
+        $('#working_review').text($("#id_day_hour").val());
+        $('#min_review').text($("#id_min_salary").val());
+        $('#max_review').text($("#id_max_salary").val());
+        $('#flight_review').text($("#id_flight_support").val());
+        $('#house_review').text($("#id_house").val());
+        $('#severance_review').text($("#id_severance_payment").val());
+        $('#health_review').text($("#id_health_insurance").val());
+        $('#pension_review').text($("#id_national_pension").val());
+
+        doc.getElementById('post-job-detail').focus();
+
+    } else {
+        $('.apply-detail').css("display", "none");
+    }
+
+    }
+
+    detail.addEventListener('click',func);
+
+</script>
+
+
+
+
 </body>
 </html>
+

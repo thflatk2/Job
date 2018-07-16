@@ -79,12 +79,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% if user.type == 'Employer' %}
                         <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% else %}
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'user_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% endif %}
@@ -113,10 +113,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<ul class="account-btns">
                         {% if user.is_active %}
                             {%  if user.type == "Employer" %}
-                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                                 {% else %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
                                 {% endif %}
 		                {% else %}
@@ -148,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="inner-header my-page">
-							<h3>Welcome {{ user.name }}</h3>
+							<h3>Welcome Recruiter</h3>
 						</div>
 					</div>
 				</div>
@@ -160,25 +160,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="block no-padding">
 			<div class="container">
 				 <div class="row no-gape">
-				 	<aside class="col-lg-3 column border-right">
+				 	 <aside class="col-lg-3 column border-right border-top">
 				 		<div class="widget">
 				 			<div class="tree_widget-sec">
 				 				<ul>
 				 					<li>
-				 						<a href="{% url 'user_update' user.slug %}" title=""><i class="la la-file-text"></i>Applicant Info</a>
+				 						<a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-file-text"></i>Agency Info</a>
 				 						<ul>
-				 							<li><a href="#mp" title="">Profile photo</a></li>
+				 							<li><a href="#" title="">Profile photo</a></li>
 				 							<li><a href="#" title="">Basic Info</a></li>
-				 							<li><a href="#sn" title="">Resume</a></li>
-                                            <li><a href="#ci" title="">Cover letter</a></li>
+				 							<li><a href="#sn" title="">Introduction</a></li>
 				 						</ul>
 				 					</li>
-				 					<li class="inner-child active"><a href="{% url 'Job:user_history' user.slug %}" title=""><i class="la la-briefcase"></i>Application History</a></li>
-				 			<!--		<li class="inner-child">
+				 					<li class="inner-child active ">
+				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
+				 					</li>
+				 				<!--	<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
 				 					</li>-->
-
-				 					<li><a href="{% url 'logout_url' %}" title=""><i class="la la-unlink"></i>Logout</a></li>
+                                    <li><a href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
 				 				</ul>
 				 			</div>
 				 		</div>
@@ -186,13 +186,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>Application History</h3>
+					 			<h3>Jobs Overview</h3>
 						 		<table>
 						 			<thead>
 						 				<tr>
-						 					<td>Applied Job</td>
+						 					<td>Job</td>
 						 					<td>Location</td>
-						 					<td>Date Applied</td>
+						 					<td>Date</td>
 						 					<td></td>
 						 				</tr>
 						 			</thead>
@@ -201,12 +201,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						 				<tr>
 						 					<td>
 						 						<div class="table-list-title">
-						 							<i>{{ jobss.job.school_name }}</i>
+						 							<i>{{ jobss.school_name }}</i>
 						 						</div>
 						 					</td>
 						 					<td>
 						 						<div class="table-list-title">
-						 							<h3>{{ jobss.job.location }}</h3>
+						 							<h3>{{ jobss.location }}</h3>
 						 						</div>
 						 					</td>
 						 					<td>
@@ -214,7 +214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						 					</td>
 						 					<td>
 						 						<ul class="action_job">
-						 							<li><a href="{% url 'Job:detail' jobss.job.pk %}" title="">View details</a></li>
+						 							<li><a href="{% url 'Job:detail' jobss.pk %}" title="">View details</a></li>
 						 						</ul>
 						 					</td>
 						 				</tr>

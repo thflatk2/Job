@@ -1,5 +1,6 @@
 from django import forms
 from .models import Job_info
+from Account.models import User
 
 FLIGHT_CHOICES = (
     ('None', 'None'),
@@ -16,9 +17,7 @@ AGE_CHOICES = (
 
 class Job_InfoForm(forms.Form):
     school_name = forms.CharField()
-    start_date = forms.DateField(
-        widget=forms.SelectDateWidget()
-    )
+    start_date = forms.CharField()
 
     age_level = forms.MultipleChoiceField(
         widget=forms.CheckboxSelectMultiple,
@@ -73,6 +72,8 @@ class Job_InfoForm(forms.Form):
         widget=forms.Textarea(),
         required=False
     )
+
+    user = forms.CharField()
 
     # ModelForm.save 인터페이스를 흉내내어 구현
     def save(self, commit=True):

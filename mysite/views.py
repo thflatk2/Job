@@ -23,6 +23,13 @@ class EmployerUpdateView(UpdateView):
     model = User
     fields = ['user_pic1', 'agency_name', 'cur_residence', 'name', 'phone', 'introduction']
     template_name = "employer.html"
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super(EmployerUpdateView, self).get_context_data(**kwargs)
+        context['user_name'] = User.objects.get(name=self.request.user.name)
+
+        return context
 
 
 class UserUpdateView(UpdateView):
@@ -30,6 +37,12 @@ class UserUpdateView(UpdateView):
     fields = ['user_pic1', 'user_pic2', 'first_name', 'last_name', 'name', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree', 'start_date', 'prefer_class', 'resume', 'letter']
     template_name = "mypage.html"
     success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super(UserUpdateView, self).get_context_data(**kwargs)
+        context['user_name'] = User.objects.get(name=self.request.user.name)
+
+        return context
 
 
 class LoginDoneView(TemplateView):

@@ -76,12 +76,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% if user.type == 'Employer' %}
                         <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% else %}
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'user_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% endif %}
@@ -110,10 +110,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<ul class="account-btns">
                         {% if user.is_active %}
                             {%  if user.type == "Employer" %}
-                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                                 {% else %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
                                 {% endif %}
 		                {% else %}
@@ -324,10 +324,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
-                                <div class="footer-info">
-                                    <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">+82-10-3133-1020</p>
-                                </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
                                     <p class="footer-info-desc">ceo@loka101.com</p>

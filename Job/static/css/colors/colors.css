@@ -7,7 +7,7 @@ Background Color
 .pricetable > a,
 .pricetable.active,
 .bottom-line.style2{
-    background-color: #E16F91 ;
+    background-color: #55acff ;
 }
 
 /*------------------------------------------------------------------
@@ -33,7 +33,7 @@ COLOR SCHEME 2
 	background: transparent; color: #fb236a;
 }
 .post-job-btn{
-    background-color: #fb236a ; border: 2px solid #fb236a;
+    background-color: #55acff ; border: 2px solid #55acff;
 }
 
 
@@ -41,7 +41,7 @@ COLOR SCHEME 2
 .post-job-btn,
 .account-popup .close-popup,
 .blog-metas a::before{
-    background-color: #fb236a ;
+    background-color: #55acff ;
 }
 
 /*------------------------------------------------------------------
@@ -61,7 +61,7 @@ Text Color
 .job-title-sec span,
 .blog-metas a,
 .blog-details > a{
-    color: #fb236a ;
+    color: #55acff ;
 }
 
 /*------------------------------------------------------------------
@@ -70,6 +70,6 @@ Border Color
 .border-color,
 .select-user > span.active,
 .browse-all-cat a{
-    border-color: #fb236a ;
+    border-color: #55acff ;
 }
 

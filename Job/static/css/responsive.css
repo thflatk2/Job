@@ -47,7 +47,7 @@ header {
 }
 .responsive-header {
     display: block;
-        background-color: rgba(247,180,180,80);
+        background-color: #55acff;
 }
 .blogpost.style2 .blog-postdetail {
     padding-left: 30px;
@@ -1031,6 +1031,15 @@ select {
     padding: 10px 45px 10px 15px;
 }
 
+.footer-info{
+    float: left;
+    width: 100%;
+}
+
+.footer-info-desc{
+    text-align: center;
+}
+
 #register_submit{
     font-size: 14px;
     margin-top: 8px;
@@ -1066,7 +1075,8 @@ select {
 
 .download_widget{
     float: unset;
-    width: unset;
+    width: 175px;
+    margin: 0 auto;
     margin-top: 10px;
 }
 
@@ -1393,7 +1403,42 @@ select {
 
 .job-icon-location{
     float: left;
+}
 
+.block{
+    padding-top: 30px;
+}
+
+.heading > h2{
+    font-size: 44px;
+}
+
+#service_summary{
+    font-size: 44px;
+    line-height: 12vw;
+}
+
+.heading span{
+    font-size: 20px;
+}
+
+.job-title-sec {
+    width: 260px;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+}
+
+.job-title-sec .c-logo{
+    float: left;
+}
+
+.job-title-sec h3{
+    width: 180px;
+}
+
+.manual_des{
+    display: none;
 }
 
 .emply-pstn {
@@ -1476,7 +1521,14 @@ select {
     padding-bottom: 0;
 }
 .profile-form-edit > form button{
-        position: relative;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: unset;
+}
+
+.profile-form-edit > button{
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin-left: unset;
@@ -1523,6 +1575,15 @@ select {
 
 .pf-field > input{
     padding: 6px 15px;
+}
+
+#fifth-com{
+    max-width: 115%;
+}
+
+#forth-com{
+        max-width: 115%;
+    margin-left: -25%;
 }
 
 select{
@@ -1586,11 +1647,12 @@ select{
     font-size: 20px;
     text-align: center;
     margin-bottom: unset;
+    top: -40px;
 }
 
 .or-browser > a {
     position: relative;
-    top: 50px;
+    top: 65px;
     left: 10px;
 }
 
@@ -1664,20 +1726,3 @@ select{
 
 }
 
-@media (max-width:520px){
-    .or-browser {
-    width: 60%;
-}
-}
-
-@media (max-width:410px){
-    .or-browser {
-    width: 75%;
-}
-}
-
-@media (max-width:340px){
-    .or-browser {
-    width: 100%;
-}
-}

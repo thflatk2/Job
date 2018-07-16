@@ -51,6 +51,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK2X9NL"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
 <div class="page-loading">
 	<img src="images/loader.gif" alt="" />
 	<span>Skip Loader</span>
@@ -76,12 +77,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% if user.type == 'Employer' %}
                         <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% else %}
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'user_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% endif %}
@@ -109,10 +110,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<ul class="account-btns">
                         {% if user.is_active %}
                             {%  if user.type == "Employer" %}
-                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                                 {% else %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
                                 {% endif %}
 		                {% else %}
@@ -196,35 +197,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 				<div class="row apply-basic">
                                         <h3>Photo 1</h3>
                                         <div class="upload-img-bar">
-                                            {% if user_name.user_pic1 %}
-                                            <span class="round"><img id="image_section" src="{{ user_name.user_pic1.url }}" alt="" /></span>
-                                            {% else %}
                                             <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
-                                            {% endif %}
-                                            <div class="upload-info">
+                                            <div id="uploadinfo1" class="upload-info">
                                                 <label class="id_profile_image1" for="id_profile_image1">Browse</label>
-                                                {% if user_name.user_pic1 %}
-                                                <input type="file" name="profile_image1" value="{{ user_name.user_pic1 }}" id="id_profile_image1" title="">
-                                                {% else %}
                                                 <input type="file" name="profile_image1" required="" id="id_profile_image1">
-                                                {% endif %}
                                                 <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                             </div>
                                         </div>
                                         <h3>Photo 2</h3>
                                         <div class="upload-img-bar">
-                                            {% if user_name.user_pic2 %}
-                                            <span class="round"><img id="image_section2" src="{{ user_name.user_pic2.url }}" alt="" /></span>
-                                            {% else %}
                                             <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
-                                            {% endif %}
                                             <div class="upload-info">
                                                <label class="id_profile_image2" for="id_profile_image2">Browse</label>
-                                                {% if user_name.user_pic2 %}
-                                                <input type="file" name="profile_image2" value="{{ user_name.user_pic2 }}" id="id_profile_image2" title="">
-                                                {% else %}
                                                 <input type="file" name="profile_image2" required="" id="id_profile_image2">
-                                                {% endif %}
                                                 <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                             </div>
                                         </div>
@@ -612,10 +597,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
-                                    <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">+82-10-3133-1020</p>
-                                </div>
-                                <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
                                     <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
@@ -731,7 +712,20 @@ function findName1() {
 
 
 $("#id_letter").change(function () {
-    findName1();
+
+    if ($('#id_letter').val() != "") {
+        var fileSize = document.getElementById("id_letter").files[0].size;
+        var maxSize = 7 * 1024 * 1024;//2MB
+
+        if (fileSize > maxSize) {
+            alert("Your letter file should be under 7MB.");
+            doc.getElementById('id_letter').focus();
+            return;
+        }
+        else{
+            findName1();
+        }
+    }
 })
 
 function findName2() {
@@ -743,7 +737,19 @@ function findName2() {
 
 
 $("#id_resume").change(function () {
-    findName2();
+     if ($('#id_resume').val() != "") {
+         var fileSize = document.getElementById("id_resume").files[0].size;
+         var maxSize = 7 * 1024 * 1024;//2MB
+
+         if (fileSize > maxSize) {
+             alert("Your resume file should be under 7MB.");
+             doc.getElementById('id_resume').focus();
+             return;
+         }
+         else {
+             findName2();
+         }
+     }
 })
 
 
@@ -772,11 +778,34 @@ $("#id_resume").change(function () {
             return;
             //다시 원상태로 돌아가는것.
         }
+
+          if(doc.getElementById('id_profile_image1').value!="") {
+              var fileSize = document.getElementById("id_profile_image1").files[0].size;
+              var maxSize = 3 * 1024 * 1024;//2MB
+
+              if (fileSize > maxSize) {
+                  alert("Your first image file should be under 3MB.");
+                  doc.getElementById('id_profile_image1').focus();
+                  return;
+              }
+          }
+
         if(!userimage2){
             alert('Put your second profile image');
             doc.getElementById('id_profile_image2').focus();
             return;
         }
+
+        if(doc.getElementById('id_profile_image2').value!="") {
+              var fileSize = document.getElementById("id_profile_image2").files[0].size;
+              var maxSize = 3 * 1024 * 1024;//2MB
+
+              if (fileSize > maxSize) {
+                  alert("Your second image file should be under 3MB.");
+                  doc.getElementById('id_profile_image2').focus();
+                  return;
+              }
+          }
         if(!userfirst){
             alert('Put your first name');
             doc.getElementById('id_first_name').focus();

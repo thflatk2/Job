@@ -164,8 +164,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 		<div class="widget">
 				 			<div class="tree_widget-sec">
 				 				<ul>
-				 					<li class="inner-child">
-				 						<a href="#" title=""><i class="la la-file-text"></i>Applicant Info</a>
+				 					<li class="inner-child active">
+				 						<a href="{% url 'user_update' user.slug %}" title=""><i class="la la-file-text"></i>Applicant Info</a>
 				 						<ul>
 				 							<li><a href="#mp" title="">Profile photo</a></li>
 				 							<li><a href="#" title="">Basic Info</a></li>
@@ -174,9 +174,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 						</ul>
 				 					</li>
 				 					<li><a href="{% url 'Job:user_history' user.slug %}" title=""><i class="la la-briefcase"></i>Application History</a></li>
-				 					<li class="inner-child">
+				 					<!--<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
-				 					</li>
+				 					</li>-->
 
 				 					<li><a href="{% url 'logout_url' %}" title=""><i class="la la-unlink"></i>Logout</a></li>
 				 				</ul>
@@ -214,31 +214,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">First Name</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="first_name" maxlength="30" id="id_first_name">
+                                                {% if user_name.first_name %}
+                                                <input type="text" name="first_name" maxlength="20" value="{{ user_name.first_name }}" required="" id="id_first_name">
+                                                {% else %}
+                                                <input type="text" name="first_name" maxlength="20" required="" id="id_first_name">
+                                                {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">Last Name</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="last_name" maxlength="25" id="id_last_name">
-                                            </div>
-					 					</div>
-                                        <div class="col-lg-6">
-					 						<span class="pf-title">Name</span>
-					 						<div class="pf-field">
-                                                <input type="text" name="name"  required="" maxlength="30" id="id_name">
+                                                {% if user_name.last_name %}
+                                                <input type="text" name="last_name" maxlength="10" value="{{ user_name.last_name }}" required="" id="id_last_name">
+                                                {% else %}
+                                                <input type="text" name="last_name" maxlength="10" required="" id="id_last_name">
+                                                {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">Skype ID (for interviews)</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="skyid" maxlength="35" id="id_skyid">
+                                                {% if user_name.skyid %}
+                                                <input type="text" name="skyid" maxlength="50" value="{{ user_name.skyid }}" required="" id="id_skyid">
+                                                    {% else %}
+                                                    <input type="text" name="skyid"  maxlength="50" required="" id="id_skyid">
+                                                {% endif %}
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Country of Citizenship</span>
 					 						<div class="pf-field">
-					 							<select id="id_country" name="country" data-placeholder="Please Select Specialism" class="chosen">
+					 							{% if user_name.country %}
+                                                <select name="country" required="" id="id_country" data-placeholder="Please Select Specialism" class="chosen">
+                                                    <option value="{{ user_name.country }}" selected="selected">{{ user_name.country }}</option>
+                                                    <option value="USA">USA</option>
+													<option value="Canada">Canada</option>
+													<option value="UK">UK</option>
+													<option value="Ireland">Ireland</option>
+                                                    <option value="South Africa">South Africa</option>
+                                                    <option value="New Zealand">New Zealand</option>
+                                                    <option value="Australia">Australia</option>
+                                                </select>
+                                                {%  else %}
+					 							<select name="country" required="" id="id_country" data-placeholder="Please Select Specialism" class="chosen">
                                                     <option value="USA">USA</option>
 													<option value="Canada">Canada</option>
 													<option value="UK">UK</option>
@@ -247,57 +265,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     <option value="New Zealand">New Zealand</option>
                                                     <option value="Australia">Australia</option>
 												</select>
+                                                {% endif %}
 					 						</div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">Gender</span>
 					 						<div class="pf-field">
+					 							{% if user_name.gender %}
+                                                <select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
+													<option value="{{ user_name.gender }}" selected="selected">{{ user_name.gender}}</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
+												</select>
+                                                {% else %}
 					 							<select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
 													<option>Default</option>
 													<option value="Male">Male</option>
 													<option value="Female">Female</option>
 												</select>
+                                                {% endif %}
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Current city/country of residence</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="cur_residence" maxlength="50" id="id_cur_residence">
+                                                {% if user_name.cur_residence %}
+                                                <input type="text" name="cur_residence" maxlength="100" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
+                                                {% else %}
+                                                <input type="text" name="cur_residence" maxlength="100" required="" id="id_cur_residence">
+                                                {% endif %}
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Date of birth</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="birth" maxlength="50" id="id_birth">
+                                                {% if user_name.birth %}
+                                                <input type="text" name="birth" maxlength="50" value="{{ user_name.birth }}" required="" id="id_birth">
+                                                {% else %}
+                                                <input type="text" name="birth" maxlength="50" required="" id="id_birth">
+                                                {% endif %}
                                             </div>
 					 					</div>
-					 					<div class="col-lg-12">
+                                        <div class="col-lg-6">
+					 						<span class="pf-title">Earliest available date</span>
 					 						<div class="pf-field">
-                                                <p>"You must have a bachelor's degree from an accredited university in one of these 7 countries.</p>
-                                                <p>(USA/Canada/UK/Ireland/South Africa/New Zealand/Australia)</p>
-					 						</div>
+                                                <input type="text" name="start_date" maxlength="50" required="" id="id_start_date">
+                                            </div>
 					 					</div>
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">University / Major</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="degree" maxlength="100"  id="id_degree">
-                                            </div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Earliest available date</span>
-					 						<div class="pf-field">
-                                                <input type="text" name="start_date" id="id_start_date">
+                                                {% if user_name.degree %}
+                                                <input type="text" name="degree" maxlength="100" value="{{ user_name.degree }}" required="" id="id_degree">
+                                                {% else %}
+                                                <input type="text" name="degree" maxlength="100" required="" id="id_degree">
+                                                {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">Preferred age group</span>
 					 						<div class="pf-field">
+                                                {% if user_name.prefer_class %}
 					 							<select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
-													<option>Default</option>
+                                                    <option value="{{ user_name.prefer_class }}" selected="selected">{{ user_name.prefer_class }}</option>
 													<option value="Kindergarten">Kindergarten</option>
 													<option value="Elementary">Elementary</option>
 													<option value="Middle">Middle</option>
 												</select>
+                                                {% else %}
+                                                <select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
+													<option value="Kindergarten">Kindergarten</option>
+													<option value="Elementary">Elementary</option>
+													<option value="Middle">Middle</option>
+												</select>
+                                                {% endif %}
 					 						</div>
 					 					</div>
 					 				</div>
@@ -311,8 +352,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="upload-img-bar">
                                             <div class="update-info">
                                                 <label class="id_resume" for="id_resume">Browse</label>
-                                                <input type="file" name="resume" id="id_resume">
-                                                <p id="resume"></p>
+                                                {% if user_name.resume %}
+                                                <input type="file" name="resume" value="{{ user_name.resume }}" id="id_resume">
+                                                {% else %}
+                                                <input type="file" name="resume" required="" id="id_resume">
+                                                {% endif %}
+                                                <p id="resume" class="resume-mypage"></p>
                                             </div>
                                         </div>
 					 				</div>
@@ -326,12 +371,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="upload-img-bar">
                                             <div class="update-info">
                                                <label class="id_letter" for="id_letter">Browse</label>
-                                                <input type="file" name="letter" id="id_letter">
-                                                <p id="letter"></p>
+                                                {% if user_name.letter %}
+                                                <input type="file" name="letter" value="{{ user_name.letter }}" id="id_letter">
+                                                {% else %}
+                                                <input type="file" name="letter" required="" id="id_letter">
+                                                {% endif %}
+                                                <p id="letter" class="resume-mypage"></p>
                                             </div>
                                         </div>
 					 					<div class="col-lg-12">
-					 						<button type="submit">Update</button>
+					 						<button id="update" type="submit">Update</button>
 					 					</div>
 					 				</div>
 					 			</div>
@@ -367,10 +416,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="widget">
 							<div class="download_widget">
                                 <div class="footer-info">
-                                    <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">+82-10-3133-1020</p>
-                                </div>
-                                <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
                                     <p class="footer-info-desc">ceo@loka101.com</p>
                                 </div>
@@ -386,8 +431,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
@@ -419,7 +464,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 
 $("#id_user_pic2").change(function(){
-    readURL2(this);
+    if ($('#id_user_pic2').val() != "") {
+        var fileSize = document.getElementById("id_user_pic2").files[0].size;
+        var maxSize = 3 * 1024 * 1024;//2MB
+
+        if (fileSize > maxSize) {
+            alert("Your second image file should be under 3MB.");
+            doc.getElementById('id_user_pic2').focus();
+            return;
+        }
+        else{
+            readURL2(this);
+        }
+    }
 });
 
         function readURL(input) {
@@ -437,8 +494,148 @@ $("#id_user_pic2").change(function(){
 }
 
 $("#id_user_pic1").change(function(){
-    readURL(this);
+    if ($('#id_user_pic1').val() != "") {
+        var fileSize = document.getElementById("id_user_pic1").files[0].size;
+        var maxSize = 3 * 1024 * 1024;//2MB
+
+        if (fileSize > maxSize) {
+            alert("Your second image file should be under 3MB.");
+            doc.getElementById('id_user_pic1').focus();
+            return;
+        }
+        else{
+            readURL(this);
+        }
+    }
 });
+
+function findName1() {
+    var fileValue = $("#id_letter").val().split("\\");
+    var fileName = fileValue[fileValue.length-1];
+    $('#letter').text(fileName);
+}
+
+
+$("#id_letter").change(function () {
+
+    if ($('#id_letter').val() != "") {
+        var fileSize = document.getElementById("id_letter").files[0].size;
+        var maxSize = 7 * 1024 * 1024;//2MB
+
+        if (fileSize > maxSize) {
+            alert("Your letter file should be under 7MB.");
+            doc.getElementById('id_letter').focus();
+            return;
+        }
+        else{
+            findName1();
+        }
+    }
+})
+
+function findName2() {
+    var fileValue = $("#id_resume").val().split("\\");
+    var fileName = fileValue[fileValue.length-1];
+    $('#resume').text(fileName);
+}
+
+
+$("#id_resume").change(function () {
+     if ($('#id_resume').val() != "") {
+         var fileSize = document.getElementById("id_resume").files[0].size;
+         var maxSize = 7 * 1024 * 1024;//2MB
+
+         if (fileSize > maxSize) {
+             alert("Your resume file should be under 7MB.");
+             doc.getElementById('id_resume').focus();
+             return;
+         }
+         else {
+             findName2();
+         }
+     }
+})
+
+
+
+        var doc = document;
+    var detail = doc.getElementById('update');
+
+    var func = function () {
+        var userimage1 = doc.getElementById('id_user_pic1').value;
+        var userimage2 = doc.getElementById('id_user_pic2').value;
+        var userfirst = doc.getElementById('id_first_name').value;
+        var userlast = doc.getElementById('id_last_name').value;
+        var usersky = doc.getElementById('id_skyid').value;
+        var usercountry = doc.getElementById('id_country').value;
+        var usergender = doc.getElementById('id_gender').value;
+        var userresidence = doc.getElementById('id_cur_residence').value;
+        var userbirth = doc.getElementById('id_birth').value;
+        var userstart = doc.getElementById('id_start_date').value;
+        var userprefer = doc.getElementById('id_prefer_class').value;
+
+        //1. 입력이 다 됐나 확인
+
+        if(!userimage1){
+            alert('Put your first profile image');
+            doc.getElementById('id_profile_image1').focus();
+            return;
+            //다시 원상태로 돌아가는것.
+        }
+        if(!userimage2){
+            alert('Put your second profile image');
+            doc.getElementById('id_profile_image2').focus();
+            return;
+        }
+        if(!userfirst){
+            alert('Put your first name');
+            doc.getElementById('id_first_name').focus();
+            return;
+        }
+        if(!userlast){
+            alert('Put your last name');
+            doc.getElementById('id_last_name').focus();
+            return;
+        }
+        if(!usersky){
+            alert('Put your sky ID');
+            doc.getElementById('id_skyid').focus();
+            return;
+        }
+        if(!usercountry){
+            alert('Choose your country');
+            doc.getElementById('id_country').focus();
+            return;
+        }
+        if(!usergender){
+            alert('Choose your gender');
+            doc.getElementById('id_gender').focus();
+            return;
+        }
+        if(!userresidence){
+            alert('Put your residence');
+            doc.getElementById('id_cur_residence').focus();
+            return;
+        }
+        if(!userbirth){
+            alert('Put your birthday');
+            doc.getElementById('id_birth').focus();
+            return;
+        }
+        if(!userstart){
+            alert('Put your earliest available date');
+            doc.getElementById('id_start_date').focus();
+            return;
+        }
+        if(!userprefer){
+            alert('Choose your prefer class');
+            doc.getElementById('id_prefer_class').focus();
+            return;
+        }
+
+    }
+
+    detail.addEventListener('click',func);
 
 </script>
 

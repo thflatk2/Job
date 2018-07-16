@@ -53,9 +53,10 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
-	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
+    <!--
     <link rel="stylesheet" type="text/css" href="{%  static "css/lightslider.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>-->
     <link rel="stylesheet" type="text/css" href="{%  static "css/home.css" %}"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
@@ -92,12 +93,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% if user.type == 'Employer' %}
                         <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% else %}
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'user_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% endif %}
@@ -126,10 +127,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<ul class="account-btns">
                         {% if user.is_active %}
                             {%  if user.type == "Employer" %}
-                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                                 {% else %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
                                 {% endif %}
 		                {% else %}
@@ -161,7 +162,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<div class="col-lg-12">
 						<div class="main-featured-sec">
 							<ul class="main-slider-sec text-arrows">
-								<li class="slideHome"><img src="{% static "images/Landing.jpg" %}" alt="" /></li>
+								<li class="slideHome"><img src="{% static "images/land.jpg" %}" alt="" /></li>
 							</ul>
 							<div class="job-search-sec">
 								<div class="job-search">
@@ -174,6 +175,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									</div>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="scroll-here">
+		<div class="block">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="heading">
+							<h2>Recent Jobs</h2>
+						</div><!-- Heading -->
+						<div class="job-grid-sec">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid">
+										<div class="job-title-sec">
+											<h3><a href="#" title="">Web Designer / Developer</a></h3>
+											<span>Massimo Artemisis</span>
+										</div>
+										<span class="job-lctn">Sacramento, California</span>
+										<a  href="#" title="">APPLY NOW</a>
+									</div><!-- JOB Grid -->
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid">
+										<div class="job-title-sec">
+											<h3><a href="#" title="">Marketing Director</a></h3>
+											<span>Massimo Artemisis</span>
+										</div>
+										<span class="job-lctn">Sacramento, California</span>
+										<a  href="#" title="">APPLY NOW</a>
+									</div><!-- JOB Grid -->
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid">
+										<div class="job-title-sec">
+											<h3><a href="#" title="">Application Developer For Android</a></h3>
+											<span>Altes Bank</span>
+										</div>
+										<span class="job-lctn">Sacramento, California</span>
+										<a  href="#" title="">APPLY NOW</a>
+									</div><!-- JOB Grid -->
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid">
+										<div class="job-title-sec">
+											<h3><a href="#" title="">Web Designer / Developer</a></h3>
+											<span>Massimo Artemisis</span>
+										</div>
+										<span class="job-lctn">Sacramento, California</span>
+										<a  href="#" title="">APPLY NOW</a>
+									</div><!-- JOB Grid -->
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid">
+										<div class="job-title-sec">
+											<h3><a href="#" title="">Web Designer / Developer</a></h3>
+											<span>MediaLab</span>
+										</div>
+										<span class="job-lctn">Sacramento, California</span>
+										<a  href="#" title="">APPLY NOW</a>
+									</div><!-- JOB Grid -->
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid">
+										<div class="job-title-sec">
+											<h3><a href="#" title="">Web Designer / Developer</a></h3>
+											<span>StarHealth</span>
+										</div>
+										<span class="job-lctn">Sacramento, California</span>
+										<a  href="#" title="">APPLY NOW</a>
+									</div><!-- JOB Grid -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="browse-all-cat">
+							<a href="#" title="" class="style2">Load more listings</a>
 						</div>
 					</div>
 				</div>
@@ -225,7 +309,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							    </div><!-- Job -->
                             </div>
                             <div class="manual_des">
-                                <p>Quick Summary-Description on now it works, and why LOKA is better than all the competitors. (Quick process, intuitive job board, transparent service etc.) How it can meet the needs of everyone, whether someone's planning to stay for just a year, or much longer, want to live in the city, or in the skirts of the suburbs and yadee yadhadhd, Some more descriptions that hive a general insight on LOKA service in general</p>
+                                <p>Simple and fast process of landing a job in Korea.</p>
+                                <p>No more repeating applications and sending documents.</p>
+                                <p>Your dream of living and teaching abroad will come true here.</p>
+                                <p>Trustworthy by our members, teaching holiday will provide the best service.</p>
                             </div>
                         </div>
 
@@ -261,14 +348,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="reviews">
 									<img src="{% static 'images/2_Lucia Fancy.png' %}" alt="" />
 									<h3>Lucia Fancy</h3>
-									<p>I had been looking for a job for months with no avail, but thankfully joining your agency was a breakthrough for me. So basically, I just want to say thank you for making our dreams come true, and when I say this I'm speaking on behalf of all South Africans you've helped.</p>
+									<p>I had been looking for a job for months, but thankfully joining your agency was a breakthrough for me. I just want to say thank you for making our dreams come true, and when I say this I'm speaking on behalf of all South Africans you've helped.</p>
 								</div><!-- Reviews -->
 							</div>
 							<div class="col-lg-6">
 								<div class="reviews">
 									<img src="{% static 'images/3_Abu-Bakr Essop.png' %}" alt="" />
 									<h3>Abu-Bakr Essop</h3>
-									<p>The truth is that the road to Korea is paved with a variety of shady characters. To circumvent such obstacles, I would strongly recommend Teaching Holiday as a means to an end for your Korean experience. They will provide you with the utmost care by finding the best solutions for your needs to your personal satisfaction and success. I can personally guarantee that you will not be disappointed, and I cannot wait for you to begin your journey with ESL Korea.</p>
+									<p>I would strongly recommend Teaching Holiday as a means to an end for your Korean experience. They will provide you with the utmost care by finding the best solutions for your need. I cannot wait for you to begin your journey with Teaching Holiday.</p>
 								</div><!-- Reviews -->
 							</div>
 							<div class="col-lg-6">
@@ -282,43 +369,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</div>
 				</div>
 			</div>	
-		</div>
-	</section>
-
-	<section id="scroll-here">
-		<div class="block">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading">
-							<h2>Proudly sponsored by</h2>
-						</div><!-- Heading -->
-					</div>
-                        <div class="comp-sec">
-							<div class="company-img">
-								<a href="#" title=""><img src="{% static 'images/gooverseas.jpg' %}" alt=""></a>
-							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="{% static 'images/hanyang.jpg' %}" alt=""></a>
-							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="{% static 'images/MOFA.jpg' %}" alt=""></a>
-							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="{% static 'images/NIIED.jpg' %}" alt=""></a>
-							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="{% static 'images/octagon.jpg' %}" alt=""></a>
-							</div><!-- Client  -->
-						</div>
-					<div class="col-lg-12">
-						<div class="browse-all-cat">
-							<a href="{% url 'Job:list' %}" title="">View all Jobs</a>
-						</div>
-					</div>
-
-				</div>
-			</div>
 		</div>
 	</section>
 
@@ -344,10 +394,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<div class="col-md-6 column">
 						<div class="widget">
 							<div class="download_widget">
-                                <div class="footer-info">
-                                    <p class="footer-info-title">Phone</p>
-                                    <p class="footer-info-desc">+82-10-3133-1020</p>
-                                </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
                                     <p class="footer-info-desc">ceo@loka101.com</p>
@@ -382,29 +428,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="{% static "js/slick.min.js" %}" type="text/javascript"></script>
 <script src="{% static "js/parallax.js" %}" type="text/javascript"></script>
 <script src="{% static "js/select-chosen.js" %}"  type="text/javascript"></script>
-<script src="{% static "js/lightslider.js" %}"  type="text/javascript"></script>
-
-<script>
-    	 $(document).ready(function() {
-			$("#content-slider").lightSlider({
-                loop:true,
-              	auto:true,
-                keyPress:true
-            });
-            $('#image-gallery').lightSlider({
-                gallery:true,
-                item:1,
-                thumbItem:9,
-                slideMargin: 0,
-                speed:500,
-                auto:true,
-                loop:true,
-                onSliderLoad: function() {
-                    $('#image-gallery').removeClass('cS-hidden');
-                }
-            });
-		});
-    </script>
+<!--<script src="{% static "js/lightslider.js" %}"  type="text/javascript"></script>
+-->
 </body>
 </html>
 

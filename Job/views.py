@@ -187,14 +187,20 @@ class JobUploadView(FormView):
 
 
 def post_new(request):
+    user_name = User.objects.get(name=request.user.name)
+    user = User.objects.all()
+
     if request.method == 'POST':
         form = Job_InfoForm(request.POST, request.FILES) # NOTE: 인자 순서주의 POST, FILES
         if form.is_valid(): # form의 모든 validators 호출 유효성 검증 수행
             post = form.save() # PostForm 클래스에 정의된 save() 메소드 호출
             return redirect('Job:detail', post.id) # Model 클래스에 정의된 get_absolute_url() 메소드 호출
+        else:
+            form = Job_InfoForm()
+            return render(request, 'job_upload.html', {'form': form, 'user_name':user_name})
     else:
         form = Job_InfoForm()
-        return render(request, 'job_upload.html', {'form': form, })
+        return render(request, 'job_upload.html', {'form': form, 'user_name':user_name})
 
 
 class JobApplyView(LoginRequiredMixin, CreateView):
@@ -241,3 +247,15 @@ class UserHistoryView(TemplateView):
         context['Job_all'] = Job_info.objects.all()
 
         return context
+
+
+class JobOverView(TemplateView):
+    template_name = 'job_overview.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(JobOverView, self).get_context_data(**kwargs)
+        context['Jobs'] = Job_info.objects.filter(user=self.request.user.email)
+        context['Job_all'] = Job_info.objects.all()
+
+        return context
+

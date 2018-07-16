@@ -175,13 +175,14 @@ header {
 .block {
     float: left;
     padding: 60px 0;
+    padding-bottom: 80px;
     position: relative;
     width: 100%;
     z-index: 1;
 }
 
 .manual-block{
-    background-color: #FFFAFA;
+    background-color: #f5faff;
 }
 
 .block-foot{
@@ -326,7 +327,7 @@ button{
     width: 14px;
     height: 14px;
     background: none;
-    border: 2px solid #F7B3B4;
+    border: 2px solid #55acff;
     
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -343,7 +344,7 @@ button{
 .slick-dots li button {
     width: 6px;
     height: 6px;
-    background: #F7B3B4;
+    background: #55acff;
     
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -359,7 +360,7 @@ button{
 }
 .slick-dots li.slick-active button {
     opacity: 1;
-    background: #F7B3B4;
+    background: #55acff;
 }
 .slick-prev, .slick-next {
     background: none;
@@ -409,7 +410,8 @@ button{
         touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
-.slick-list {position: relative; display: block; overflow: hidden; margin: 0; padding: 0; }
+.slick-list {position: relative; display: block; overflow: hidden; margin: 0; padding: 0;
+    height: 100%;}
 .slick-list:focus {outline: none; }
 .slick-list.dragging {cursor: pointer; cursor: hand; }
 .slick-slider .slick-track,
@@ -419,13 +421,14 @@ button{
         -ms-transform: translate3d(0, 0, 0);
          -o-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
+    height: 100%;
 }
 .slick-track {position: relative; top: 0; left: 0; display: block; }
 .slick-track:before, .slick-track:after {display: table; content: ''; }
 .slick-track:after {clear: both; }
 .slick-loading .slick-track {visibility: hidden; }
 .slick-slide {display: none; float: left; height: 100%; min-height: 1px; }
-.slideHome{height: 700px !important;}
+.slideHome{height: 100% !important;}
 [dir='rtl'] .slick-slide {float: right; }
 .slick-slide img {display: block; }
 .slick-slide.slick-loading img {display: none; }
@@ -575,6 +578,7 @@ label::after {
     z-index: 0;
     margin: 0;
     background: #0b1b46;
+    height: 85%;
 }
 .main-slider-sec img {
     float: left;
@@ -620,7 +624,7 @@ label::after {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: rgba(253,140,140,1);
+    background-color: #55acff;
     box-shadow: 0px 4px 3px #aaaaaa;
     width: 100%;
     z-index: 12;
@@ -1106,7 +1110,7 @@ label::after {
 .job-search-sec {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 44%;
     width: 1000px;
     content: "";
     
@@ -1122,6 +1126,7 @@ label::after {
     float: left;
     width: 100%;
     z-index: 1;
+    height: 100%;
 }
 .job-search {
     float: left;
@@ -1135,7 +1140,7 @@ label::after {
     font-family: Lato;
     font-size: 4.1vw;
     font-weight: 700;
-    color: #ffffff;
+    color: #464646;
     letter-spacing: 0px;
     text-align: center;
     line-height: 39px;
@@ -1147,12 +1152,16 @@ label::after {
     font-family: Lato;
     font-size: 26px;
     font-weight: 400;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     margin-top: 10px;
     margin-left: -1%;
     margin-bottom: 50px;
-    text-shadow: 0px 2px 3px rgba(54,51,51,0.5);
+}
+
+#scroll-here{
+    margin-top: -14%;
+    background-color: #fdfdfd;
 }
 
 .job-field {
@@ -1278,13 +1287,13 @@ label::after {
 .or-browser {
     float: left;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 130px;
     text-align: center;
 }
 
 .or-browser > a {
     font-family: Lato;
-    font-size: 17px;
+    font-size: 20px;
     color: #ffffff;
     margin-right: 30px;
     text-align: center;
@@ -1293,10 +1302,10 @@ label::after {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    border-radius: 20px;
-    background-color: #CA8197;
-    font-weight: 300;
-    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: #55acff;
+    font-weight: 400;
+    padding: 20px 50px;
         box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -1393,6 +1402,8 @@ label::after {
 .manual{
     float: left;
     width: 100%;
+    padding-bottom: 45px;
+    padding-top: 20px;
 }
 
 .cat-sec {
@@ -1473,19 +1484,19 @@ label::after {
     text-align: center;
 }
 .browse-all-cat a {
-    float: none;
-    display: inline-block;
-    border: 2px solid;
-    
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    border-radius: 8px;
-
-    padding: 13px 30px;
     font-family: Lato;
-    font-size: 15px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 30px;
+    background-color: #55acff;
+    font-weight: 400;
+    padding: 20px 50px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Simple text Block */
@@ -1546,13 +1557,14 @@ label::after {
     font-size: 20px;
     font-weight: 300;
     font-family: Lato;
+    margin-bottom: 2px;
 }
 .job-listing {
     float: left;
     width: 100%;
     display: table;
     padding-right: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .job-title-sec {
     display: table-cell;
@@ -1677,7 +1689,7 @@ label::after {
 .reviews {
     float: left;
     width: 100%;
-    background: #ffcece;
+    border: solid #55acff;
     
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -1707,10 +1719,9 @@ label::after {
     font-size: 18px;
     color: #202020;
     margin: 0;
-        margin-top: 0px;
-        margin-bottom: 0px;
     margin-top: 40px;
     margin-bottom: 20px;
+    font-weight: 700;
 }
 .reviews h3 span {
     font-family: Lato;
@@ -1722,10 +1733,9 @@ label::after {
     float: left;
     width: 100%;
     margin: 0;
-        margin-bottom: 0px;
     font-family: Lato;
-    font-size: 14px;
-    color: #888888;
+    font-size: 17px;
+    color: black;
     letter-spacing: 0px;
     line-height: 24px;
     margin-bottom: 15px;
@@ -1771,7 +1781,7 @@ label::after {
 .company-img a img {
     float: none;
     display: inline-block;
-    max-width: 100%;
+    max-width: 85%;
     width: 180px;
 }
 
@@ -1937,7 +1947,7 @@ label::after {
 footer {
     float: left;
     width: 100%;
-    background: #F7B3B4;
+    background: #d4eaff;
 }
 .widget {
     float: right;
@@ -2222,7 +2232,7 @@ footer {
     float: left;
     width: 100%;
     text-align: center;
-    background: #F7B3B4;
+    background: #d4eaff;
     padding-bottom: 24px;
 }
 .bottom-line span {
@@ -2370,7 +2380,7 @@ header.style2 nav {
 .job-grid-sec {
     float: left;
     width: 100%;
-    margin-top: -30px;
+    margin-bottom: 65px;
 }
 .job-grid {
     float: left;
@@ -2397,7 +2407,7 @@ header.style2 nav {
     width: 100%;
     text-align: center;
     position: relative;
-    padding-bottom: 20px;
+    padding: 20px 0;
     border-bottom: 1px solid #e8ecec;
 }
 .job-grid .job-title-sec .c-logo {
@@ -2435,8 +2445,8 @@ header.style2 nav {
     float: right;
     font-family: Lato;
     font-size: 13px;
-    color: #fb236a;
-    border: 1px solid #fb236a;
+    color: #55acff;
+    border: 1px solid #55acff;
     
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -2450,25 +2460,19 @@ header.style2 nav {
     display: inline-block;
 }
 .browse-all-cat .style2 {
-    background: #ffffff;
-    border: navajowhite;
-    
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
+    font-family: Lato;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
     border-radius: 30px;
-
-    padding: 15px 44px;
-    
-    -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
-    -moz-box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
-    -ms-box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
-    -o-box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
-
-    font-size: 15px;
-    color: #111111;
+    background-color: #55acff;
+    font-weight: 400;
+    padding: 20px 50px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* How to Sec */
@@ -4614,13 +4618,7 @@ section.overlape {
     border: 2px solid #e8ecec;
 }
 .job-grid:hover {
-    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-    -ms-box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-    -o-box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-
-    border-color: #ffffff;
+    border: solid 2px #55acff;
 }
 
 /* pagination */
@@ -4656,8 +4654,8 @@ section.overlape {
 }
 .pagination li.active a, .pagination li a:hover {
     color: #ffffff;
-    background-color: #fe2369;
-    border-color: #fe2369;
+    background-color: #55acff;
+    border-color: #55acff;
 }
 .pagination li .delimeter {
     display: block;
@@ -4695,7 +4693,13 @@ section.overlape {
 }
 .pagination a i {
     font-size: 15px;
-    color: #fb236a;
+    color: #55acff;
+}
+
+.resume-mypage{
+        float: left;
+    margin-left: 15px;
+    margin-top: 3px;
 }
 .inner-header > h3 {
     float: left;
@@ -4707,6 +4711,7 @@ section.overlape {
     font-size: 45px;
     text-align: center;
     margin: 0;
+    font-weight: 700;
 }
 .search_widget_job {
     float: left;
@@ -4716,7 +4721,7 @@ section.overlape {
     float: left;
     width: 100%;
     position: relative;
-    border: 2px solid #F7B3B4;
+    border: 2px solid #55acff;
     
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -4738,7 +4743,7 @@ section.overlape {
     position: absolute;
     right: 15px;
     top: 12px;
-    color: #fb236a;
+    color: #55acff;
     font-size: 24px;
 }
 .border-right {
@@ -4746,6 +4751,17 @@ section.overlape {
     border-right: 1px solid #edeff7;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.border-top{
+    border-top: 1px solid #edeff7;
+}
+
+.post-new-job{
+    float: left;
+    width: 100%;
+    border-top: 1px solid #edeff7;
+    padding-bottom: 60px;
 }
 .search_widget_job .field_w_search:last-child {
     margin: 0;
@@ -5169,7 +5185,7 @@ aside .subscribe_widget form button {
     color: #ffffff;
 }
 .widget.border {
-    border: 2px solid #F7B3B4;
+    border: 2px solid #55acff;
     padding: 18px 20px;
     
     -webkit-border-radius: 8px;
@@ -5310,6 +5326,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     padding-top: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #e8ecec;
 }
 .job-details h3 {
@@ -5326,7 +5343,7 @@ aside .widget.border:first-child {
         float: left;
     width: 100%;
     font-family: Lato;
-    font-size: 14px;
+    font-size: 18px;
     color: #585858;
     margin-bottom: 15px;
     margin-top: 10px;
@@ -5336,40 +5353,19 @@ aside .widget.border:first-child {
         float: left;
     width: 100%;
     font-family: Lato;
-    font-size: 14px;
+    font-size: 18px;
     color: #585858;
     margin-bottom: 15px;
     margin-top: 10px;
 }
 
-.job-detail-left p {
-        float: left;
-    width: 100%;
-    font-size: 14px;
-    color: #202020;
-    line-height: 24px;
-    margin: 0;
-    margin-bottom: 19px;
-    font-weight: 600;
-    text-indent: 10px;
-}
-
-.job-detail-right p{
-        float: left;
-    width: 100%;
-    font-size: 14px;
-    color: #202020;
-    line-height: 24px;
-    margin: 0;
-    margin-bottom: 19px;
-    font-weight: 600;
-    text-indent: 10px;
-}
 .job-details p,
-.job-details li {
+.job-details li,
+.job-detail-left p,
+.job-detail-right p{
     float: left;
     width: 100%;
-    font-size: 14px;
+    font-size: 18px;
     color: #202020;
     line-height: 24px;
     margin: 0;
@@ -5764,7 +5760,7 @@ aside .widget.border:first-child {
     float: left;
     line-height: 15px;
     margin-right: 8px;
-    color: #fb236a;
+    color: #55acff;
 }
 .tags-jobs > li span {
     color: #8b91dd;
@@ -5936,7 +5932,6 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     display: table;
-    padding-bottom: 15px;
     border: none;
 }
 .job-single-head3 .job-thumb {
@@ -5948,6 +5943,7 @@ aside .widget.border:first-child {
         width: 100%;
     float: left;
         border-bottom: 1px solid #e8ecec;
+    padding: 20px 0px;
 }
 
 .job-title-div{
@@ -6023,8 +6019,8 @@ aside .widget.border:first-child {
     border-bottom: 1px solid #e8ecec;
 }
 .job-head-wide .apply-thisjob {
-    background: #fb2369;
-    border: 2px solid #fb2369;
+    background: #55acff;
+    border: 2px solid #55acff;
     
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -6221,7 +6217,7 @@ aside .widget.border:first-child {
 
 .list-icon{
     margin-right: 10px;
-    color: #fb236a;
+    color: #55acff;
 }
 
 .house_picture{
@@ -6242,8 +6238,7 @@ aside .widget.border:first-child {
     padding-left: unset;
 }
 .job-single-info3 > .des_detail_div{
-    font-size: 18px;
-    margin-top: 15px;
+    font-size: 22px;
     margin-bottom: 15px;
 }
 
@@ -6251,7 +6246,10 @@ aside .widget.border:first-child {
     margin-top: 10px;
     margin-bottom: unset;
     float: left;
+    font-size: 20px;
 }
+
+
 .job-detail-left{
     width: 50%;
     float: left;
@@ -6262,7 +6260,9 @@ aside .widget.border:first-child {
     float: left;
 }
 
-
+.job-single-info3 > p {
+    font-size: 20px;
+}
 
 .emply-list-info > h6 {
     float: left;
@@ -6315,10 +6315,10 @@ aside .widget.border:first-child {
     position: absolute;
     right: 0;
     top: 0;
-    color: #fb236a;
+    color: #55acff;
     font-size: 18px;
     padding: 8px 30px;
-    border-color: #fb236a;
+    border-color: #55acff;
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
@@ -6326,7 +6326,8 @@ aside .widget.border:first-child {
 }
 
 .list_detail:hover{
-    background-color: #ffcece;
+    background-color: #55acff;
+    color: white;
 }
 .margin_widget .widget, .margin_widget .widget.border {
     margin-bottom: 30px !important;
@@ -6389,7 +6390,7 @@ aside .widget.border:first-child {
     -o-box-shadow: none;
     box-shadow: none;
 
-    border-color: #ffcece;
+    border-color: #55acff;
 }
 .emply-list-sec.style2 .emply-list-thumb > a img {
     -webkit-border-radius: 8px;
@@ -6814,10 +6815,10 @@ aside .widget.border:first-child {
     margin-top: 7px;
 }
 .tree_widget-sec > ul > li.inner-child.active > a {
-    color: #8b91dd;
+    color: #55acff;
 }
 .tree_widget-sec > ul > li.inner-child.active > a i {
-    color: #8b91dd;
+    color: #55acff;
 }
 .padding-left {
     float: left;
@@ -6987,8 +6988,8 @@ aside .widget.border:first-child {
         float: left;
     font-family: Lato;
     font-size: 15px;
-    color: #ffcece;
-    border: 2px solid #ffcece;
+    color: #55acff;
+    border: 2px solid #55acff;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
@@ -7001,12 +7002,12 @@ aside .widget.border:first-child {
     line-height: unset;
 }
 
-.update-info > label {
-            float: left;
+.update-info > label{
+        float: left;
     font-family: Lato;
     font-size: 15px;
-    color: #ffcece;
-    border: 2px solid #ffcece;
+    color: #55acff;
+    border: 2px solid #55acff;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
@@ -7102,15 +7103,15 @@ aside .widget.border:first-child {
     text-align: center;
     margin-left: 30%;
     background: #ffffff;
-    border: 2px solid #fb236a;
-    color: #fb236a;
+    border: 2px solid #55acff;
+    color: #55acff;
     font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 40px;
-    padding-right: 30px;
+    padding-left: 36px;
+    padding-right: 36px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -7124,8 +7125,8 @@ aside .widget.border:first-child {
     text-align: center;
     margin-left: 15%;
     background: #ffffff;
-    border: 2px solid #fb236a;
-    color: #fb236a;
+    border: 2px solid #55acff;
+    color: #55acff;
     font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
@@ -7146,8 +7147,8 @@ aside .widget.border:first-child {
     text-align: center;
     margin-left: 30%;
     background: #ffffff;
-    border: 2px solid #fb236a;
-    color: #fb236a;
+    border: 2px solid #55acff;
+    color: #55acff;
     font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
@@ -7168,8 +7169,8 @@ aside .widget.border:first-child {
     text-align: center;
     margin-left: 15%;
     background: #ffffff;
-    border: 2px solid #fb236a;
-    color: #fb236a;
+    border: 2px solid #55acff;
+    color: #55acff;
     font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
@@ -7213,16 +7214,133 @@ aside .widget.border:first-child {
 .profile-form-edit > h3{
         float: left;
     width: 100%;
-    margin-top: 40px;
     border-bottom: 1px solid #edeff7;
     font-size: 20px;
     color: #202020;
     font-weight: bold;
     margin: 0;
-    margin-top: 0px;
     padding-bottom: 20px;
     padding-left: 30px;
     margin-top: 40px;
+}
+
+.post-job-detail-{
+    display: none;
+}
+
+.post-job-review-{
+    display: none;
+}
+
+.post-job-review > div{
+        float: left;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.post-job-review{
+    display: none;
+    float: left;
+    width: 100%;
+    border-top: 1px solid #edeff7;
+    padding-bottom: 60px;
+}
+
+.row > div > h3{
+        font-family: Lato;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+.post-form-edit > h3{
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #edeff7;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+.post-form-edit > div {
+    float: left;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.post-job-detail{
+    display: none;
+    float: left;
+    width: 100%;
+    border-top: 1px solid #edeff7;
+    padding-bottom: 60px;
+}
+
+.post-job-detail > h3{
+        float: left;
+    width: 100%;
+    border-bottom: 1px solid #edeff7;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+.post-job-review > h3{
+            float: left;
+    width: 100%;
+    border-bottom: 1px solid #edeff7;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+.post-job-detail > div{
+    float: left;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.post-job-review > div > div > div > span {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.post-job-review > div > div > div > div > p{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.id_house_pic1::before{
+    content: unset;
+}
+
+.id_house_pic2::before{
+    content: unset;
+}
+
+.id_house_pic3::before{
+    content: unset;
+}
+
+.id_house_pic4::before{
+    content: unset;
+}
+
+.id_house_pic5::before{
+    content: unset;
 }
 
 .introduction-div{
@@ -7341,14 +7459,18 @@ o{
 #apply-basic-back > o{
     margin-left: 0px;
 }
+
+#apply-detail-back > o{
+    margin-left: 0px;
+}
 .profile-form-edit > form button {
 
     float: unset;
     text-align: center;
     margin-left: 43%;
     background: #ffffff;
-    border: 2px solid #fb236a;
-    color: #fb236a;
+    border: 2px solid #55acff;
+    color: #55acff;
     font-family: Lato;
     font-size: 15px;
     padding: 11px 40px;
@@ -7359,6 +7481,41 @@ o{
     padding-right: 30px;
 
     
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+
+    margin-top: 80px;
+}
+
+.post-job-detail > div > div > div > #apply-basic-back{
+    margin-left: 20%;
+}
+
+.post-job-review > div > div > div > #apply-detail-back{
+    margin-left: 20%;
+}
+
+.apply-detail-but {
+
+    float: unset;
+    text-align: center;
+    margin-left: 42%;
+    background: #ffffff;
+    border: 2px solid #55acff;
+    color: #55acff;
+    font-family: Lato;
+    font-size: 15px;
+    padding: 11px 40px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+
+
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -7553,7 +7710,7 @@ o{
 .manage-jobs-sec > table thead tr td {
     font-size: 15px;
     font-weight: bold;
-    color: #fb236a;
+    color: #55acff;
     padding-bottom: 14px;
 }
 .manage-jobs-sec > table thead {
@@ -11114,7 +11271,7 @@ terms {
 .how-work-box > span {
     width: 66px;
     height: 66px;
-    background: #fb236a;
+    background: #55acff;
     position: absolute;
     left: 0;
     top: 50%;
@@ -11287,7 +11444,7 @@ terms {
 }
 
 .account-popup > form button:hover{
-    background: #fb236a;
+    background: #244fff;
 }
 
 .login-social a.tw-login:hover{
@@ -11316,8 +11473,13 @@ terms {
     background: #fb236a;
     color: #ffffff;
 }
+
+.browse-all-cat > a {
+    border-color: #55acff;
+}
+
 .browse-all-cat a:hover {
-    background: #fb236a;
+    background: #55acff;
     color: #ffffff;
 }
 .simple-text-block a:hover {
@@ -11340,9 +11502,9 @@ header.style2 .account-btns {
     padding: 10px 0;
 }
 .job-grid > a:hover {
-    background: #fb236a;
+    background: #55acff;
     color: #ffffff;
-    border-color: #fb236a;
+    border-color: #55acff;
 }
 .top-compnay > a:hover {
     background: #fb236a;
@@ -11446,8 +11608,8 @@ header.style5 .post-job-btn:hover {
 }
 .job-head-wide .apply-thisjob:hover {
     background: transparent;
-    border-color: #fb2369;
-    color: #fb2369;
+    border-color: #55acff;
+    color: #55acff;
 }
 
 .apply-thisjob:hover {
@@ -11504,8 +11666,8 @@ header.style5 .post-job-btn:hover {
 
 .emply-btns > a.seemap:hover {
     background: transparent;
-    border-color: #fb236a;
-    color: #fb236a;
+    border-color: #55acff;
+    color: #55acff;
 }
 
 .upload-info > a:hover {
@@ -11712,13 +11874,16 @@ footer.ft .scrollup {
 .forsticky.sticky .menu-sec nav > ul > li > a {
     color: #ffffff;
     line-height: 10px;
+    display: block;
 }
 
 .forsticky.sticky .menu-sec nav {
-margin-top: 15px;
+    margin-top: 10px;
+    padding-bottom: 7px;
 }
 .forsticky.sticky .account-btns > li a {
     color: #ffffff;
+    display: block;
 }
 
 .main-header {
@@ -11726,7 +11891,7 @@ margin-top: 15px;
 }
 
 .forsticky.sticky .account-btns{
-margin-top: 13px
+margin-top: 8px
 }
 .forsticky.sticky .menu-sec {
     margin-top: 10px;
@@ -11746,7 +11911,7 @@ margin-top: 13px
     -ms-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     -o-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-    background-color: rgba(253,140,140,1);
+    background-color: #55acff;
 }
 .showsticky {
     display: none;

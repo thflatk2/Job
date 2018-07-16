@@ -9,8 +9,9 @@ from django.conf import settings
 # Create your models here.
 
 class Job_info(models.Model):
+    user = models.CharField(max_length=100, null=True)
     school_name = models.CharField(max_length=30)
-    start_date = models.DateField(default=timezone.now())
+    start_date = models.CharField(max_length=50, null=True,blank=True)
     summary = models.TextField(null=True, blank=True)
 
     AGE_CHOICES  = (
@@ -34,20 +35,20 @@ class Job_info(models.Model):
     flight_support = models.CharField(max_length=15, choices=FLIGHT_CHOICES, default='A' )
     house = models.CharField(max_length=50, blank=True, null=True)
     house_pic1 = models.FileField()
-    house_pic2 = models.FileField()
-    house_pic3 = models.FileField()
-    house_pic4 = models.FileField()
-    house_pic5 = models.FileField()
+    house_pic2 = models.FileField(blank=True, null=True)
+    house_pic3 = models.FileField(blank=True, null=True)
+    house_pic4 = models.FileField(blank=True, null=True)
+    house_pic5 = models.FileField(blank=True, null=True)
     severance_payment = models.CharField(max_length=50, blank=True, null=True)
     health_insurance = models.CharField(max_length=50, blank=True, null=True)
     national_pension = models.CharField(max_length=50, blank=True, null=True)
     description = models.TextField(null=True, blank=True)
     qualification = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
-    like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,
-                                           blank=True,
-                                           related_name='like_user_set',
-                                           through='Like')  # post.like_set 으로 접근 가능
+    #like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,
+     #                                      blank=True,
+      #                                     related_name='like_user_set',
+       #                                    through='Like')  # post.like_set 으로 접근 가능
 
     def __unicode__(self):
         return self.school_name
@@ -59,9 +60,9 @@ class Job_info(models.Model):
     def get_absolute_url(self):  # redirect시 활용
         return reverse('Job:detail', args=[self.id])
 
-    @property
-    def like_count(self):
-        return self.like_user_set.count()
+   # @property
+    #def like_count(self):
+     #   return self.like_user_set.count()
 
 
 class Job_Apply(models.Model):

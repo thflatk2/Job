@@ -103,7 +103,6 @@ $(document).on('ready',function(){
     });
 
     $('.tree_widget-sec > ul > li.inner-child:first > ul').slideDown();
-    $('.tree_widget-sec > ul > li.inner-child:first').addClass('active');
     $('.tree_widget-sec > ul > li.inner-child > a').on('click', function(){
         $('.tree_widget-sec > ul > li.inner-child').removeClass('active');
         $('.tree_widget-sec > ul > li > ul').slideUp();
