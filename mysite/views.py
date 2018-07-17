@@ -35,26 +35,9 @@ class EmployerUpdateView(UpdateView):
 
 class UserUpdateView(UpdateView):
     model = User
-    fields = ['user_pic1', 'user_pic2', 'first_name', 'last_name', 'name', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree', 'start_date', 'resume', 'letter']
+    fields = ['user_pic1', 'user_pic2', 'first_name', 'last_name', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree', 'start_date', 'resume', 'letter']
     template_name = "mypage.html"
     success_url = reverse_lazy('home')
-
-    def form_valid(self, form):
-        present_user = User.objects.get(name = self.request.user.name)
-        if form.instance.user_pic1=="":
-            form.instance.user_pic1 = present_user.user_pic1
-        if form.instance.user_pic2=="":
-            form.instance.user_pic2 = present_user.user_pic2
-        if form.instance.resume=="":
-            form.instance.resume = present_user.resume
-        if form.instance.letter=="":
-            form.instance.letter = present_user.letter
-        print(form.instance.user_pic1)
-        print(present_user.user_pic1)
-
-        self.object = form.save()
-        redirect_url = super(UserUpdateView, self).form_valid(form)
-        return redirect_url
 
     def get_context_data(self, **kwargs):
         context = super(UserUpdateView, self).get_context_data(**kwargs)

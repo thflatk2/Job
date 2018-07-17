@@ -192,8 +192,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <div class="upload-img-bar">
                                         <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
                                         <div class="upload-info">
+                                            {% if user_name.user_pic1 %}
+                                            <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
+                                            <label for="user_pic1-clear_id">Clear</label>
                                             <label class="id_user_pic1" for="id_user_pic1">Browse</label>
                                             <input type="file" name="user_pic1" id="id_user_pic1" title="">
+                                            <a href="{{ user_name.user_pic1.url }}">{{ user_name.user_pic1 }}</a>
+                                            {% else %}
+                                            <label class="id_user_pic1" for="id_user_pic1">Browse</label>
+                                            <input type="file" name="user_pic1" id="id_user_pic1" title="">
+                                            {% endif %}
                                             <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                         </div>
                                     </div>
@@ -201,8 +209,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <div class="upload-img-bar">
                                         <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
                                         <div class="upload-info">
+                                            {% if user_name.user_pic2 %}
+                                            <input type="checkbox" name="user_pic2-clear" id="user_pic2-clear_id">
+                                            <label for="user_pic2-clear_id">Clear</label>
                                             <label class="id_user_pic2" for="id_user_pic2">Browse</label>
                                             <input type="file" name="user_pic2" id="id_user_pic2" title="">
+                                            <a href="{{ user_name.user_pic2.url }}">{{ user_name.user_pic2 }}</a>
+                                            {% else %}
+                                            <label class="id_user_pic2" for="id_user_pic2">Browse</label>
+                                            <input type="file" name="user_pic2" id="id_user_pic2" title="">
+                                            {% endif %}
                                             <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                         </div>
                                     </div>
@@ -332,13 +348,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<p>Resume</p>
                                         <div class="upload-img-bar">
                                             <div class="update-info">
-                                                <label class="id_resume" for="id_resume">Browse</label>
                                                 {% if user_name.resume %}
-                                                <input type="file" name="resume" value="{{ user_name.resume }}" id="id_resume">
-                                                {% else %}
+                                                <input type="checkbox" name="resume-clear" id="resume-clear_id">
+                                                <label for="resume-clear_id">Clear</label>
+                                                <label class="id_resume" for="id_resume">Browse</label>
                                                 <input type="file" name="resume" id="id_resume">
-                                                {% endif %}
+                                                <a href="{{ user_name.resume.url }}">{{ user_name.resume }}</a>
+                                                {% else %}
+                                                <label class="id_resume" for="id_resume">Browse</label>
+                                                <input type="file" name="resume" id="id_resume">
                                                 <p id="resume" class="resume-mypage"></p>
+                                                {% endif %}
                                             </div>
                                         </div>
 					 				</div>
@@ -351,13 +371,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<p>Cover Letter</p>
                                         <div class="upload-img-bar">
                                             <div class="update-info">
-                                               <label class="id_letter" for="id_letter">Browse</label>
                                                 {% if user_name.letter %}
-                                                <input type="file" name="letter" value="{{ user_name.letter }}" id="id_letter">
-                                                {% else %}
+                                                <input type="checkbox" name="letter-clear" id="letter-clear_id">
+                                                <label for="letter-clear_id">Clear</label>
+                                                <label class="id_letter" for="id_letter">Browse</label>
                                                 <input type="file" name="letter" id="id_letter">
-                                                {% endif %}
+                                                <a href="{{ user_name.letter.url }}">{{ user_name.letter }}</a>
+                                                {% else %}
+                                                <label class="id_letter" for="id_letter">Browse</label>
+                                                <input type="file" name="letter" id="id_letter">
                                                 <p id="letter" class="resume-mypage"></p>
+                                                {% endif %}
                                             </div>
                                         </div>
 					 					<div class="col-lg-12">
