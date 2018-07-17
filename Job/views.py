@@ -165,6 +165,7 @@ class JobDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(JobDetailView, self).get_context_data(**kwargs)
         context['Jobs'] = Job_info.objects.get(pk=self.kwargs['pk'])
+        context['already'] = Job_Apply.objects.filter(job__pk=self.kwargs['pk']) & Job_Apply.objects.filter(user=self.request.user)
 
         return context
 

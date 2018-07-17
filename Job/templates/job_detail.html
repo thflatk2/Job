@@ -177,7 +177,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							 			</div><!-- Job Head -->
 				 					</div>
 				 					<div class="col-lg-4">
-				 						<a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                        {% if already %}
+                                            <p id="apply-already">You already apply this job</p>
+                                            {% else %}
+                                            <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                        {% endif %}
 				 					</div>
 				 				</div>
 				 			</div>
@@ -233,46 +237,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <h3 class="des_detail_div">Additonal Benefit</h3>
                                                 <div class="job-detail-left">
                                                     <h3>Housing</h3>
-                                                    <p>{{ Jobs.house }}</p>
-
+                                                    {% if Jobs.house %}
+                                                    <p>Yes</p>
+                                                    {% else %}
+                                                    <p>No</p>
+                                                    {% endif %}
                                                     <h3>Health Insurance</h3>
-                                                    <p>{{ Jobs.health_insurance }}</p>
-
+                                                    {% if Jobs.health_insurance %}
+                                                    <p>Yes</p>
+                                                    {% else %}
+                                                    <p>No</p>
+                                                    {% endif %}
                                                     <h3>Severance Payment</h3>
-                                                    <p>{{ Jobs.severance_payment }}</p>
+                                                    {% if Jobs.severance_payment %}
+                                                    <p>Yes</p>
+                                                    {% else %}
+                                                    <p>No</p>
+                                                    {% endif %}
                                                 </div>
                                                 <div class="job-detail-right">
 
                                                     <h3>Flight Support</h3>
-                                                    {% if Jobs.flight_support|length == 9 %}
-                                                        <p>{{ Jobs.flight_support | slice:"2:6"}}</p>
-                                                    {% elif Jobs.flight_support|length == 11 %}
-                                                        <p>{{ Jobs.flight_support | slice:"2:9"}}</p>
-                                                    {% elif Jobs.flight_support|length == 14 %}
-                                                        <p>{{ Jobs.flight_support | slice:"2:12"}}</p>
+                                                    {% if Jobs.flight_support|length == 4 %}
+                                                        <p>{{ Jobs.flight_support | slice:"0:4"}}</p>
+                                                    {% elif Jobs.flight_support|length == 7 %}
+                                                        <p>{{ Jobs.flight_support | slice:"0:7"}}</p>
+                                                    {% elif Jobs.flight_support|length == 10 %}
+                                                        <p>{{ Jobs.flight_support | slice:"0:10"}}</p>
                                                     {% else %}
                                                         <p>{{ Jobs.flight_support | length }}</p>
                                                     {% endif %}
 
                                                     <h3>National Pension </h3>
-                                                    <p>{{ Jobs.national_pension }}</p>
+                                                    {% if Jobs.national_pension %}
+                                                    <p>Yes</p>
+                                                    {% else %}
+                                                    <p>No</p>
+                                                    {% endif %}
 
                                                 </div>
                                             </div>
                                         </div>
-                                    {% if Jobs.description %}
-                                        <div class="col-lg-12 column des_detail">
-                                            <div class="job-single-info3">
-                                                <h3 class="des_detail_div">Description</h3>
-                                                <p>{{ Jobs.description }}</p>
-                                            </div>
-                                        </div>
-                                    {% endif %}
                                     {% if Jobs.qualification %}
                                         <div class="col-lg-12 column des_detail">
                                             <div class="job-single-info3">
                                                 <h3 class="des_detail_div">Qualification</h3>
                                                 <p>{{ Jobs.qualification }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if Jobs.description %}
+                                        <div class="col-lg-12 column des_detail">
+                                            <div class="job-single-info3">
+                                                <h3 class="des_detail_div">Description</h3>
+                                                <p>{{ Jobs.description }}</p>
                                             </div>
                                         </div>
                                     {% endif %}
@@ -289,6 +307,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 {% endif %}
                                                 {% if Jobs.house_pic3 %}
                                                 <img src="{{ Jobs.house_pic3.url }}" alt="" />
+                                                {% endif %}
+                                                {% if Jobs.house_pic4 %}
+                                                <img src="{{ Jobs.house_pic4.url }}" alt="" />
+                                                {% endif %}
+                                               {% if Jobs.house_pic5 %}
+                                                <img src="{{ Jobs.house_pic5.url }}" alt="" />
                                                 {% endif %}
                                             </div>
 								 		</div>
@@ -312,10 +336,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="logo">
                                     <span>Teaching Holiday</span>
 								</div>
-								<span>Life in Korea</span>
-								<span>Job Board</span>
-                                <span>SIM Service</span>
-                                <span>Blog</span>
+                                <span><a href="{% url 'Job:list' %}">Job Board</a></span>
+                                <span><a href="https://www.lokamobile.com/">SIM Service</a></span>
+                                <span><a href="http://www.loka101.com/home/">Blog</a></span>
 
 							</div><!-- About Widget -->
 						</div>
@@ -326,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">ceo@loka101.com</p>
+                                    <p class="footer-info-desc">help@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
@@ -340,8 +363,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

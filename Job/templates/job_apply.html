@@ -343,25 +343,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <input type="text" name="start_date" maxlength="50" required="" id="id_start_date">
                                             </div>
 					 					</div>
-					 					<div class="col-lg-6">
+
+					 					<div class="col-lg-6" style="display: none;">
 					 						<span class="ap-title">Preferred age group</span>
 					 						<div class="pf-field">
-                                                {% if user_name.prefer_class %}
-					 							<select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
-                                                    <option value="{{ user_name.prefer_class }}" selected="selected">{{ user_name.prefer_class }}</option>
-													<option value="Kindergarten">Kindergarten</option>
-													<option value="Elementary">Elementary</option>
-													<option value="Middle">Middle</option>
-												</select>
-                                                {% else %}
-                                                <select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
-													<option value="Kindergarten">Kindergarten</option>
-													<option value="Elementary">Elementary</option>
-													<option value="Middle">Middle</option>
-												</select>
-                                                {% endif %}
+                                                <input type="text" name="prefer_class" maxlength="50" required="" id="id_prefer_class">
 					 						</div>
 					 					</div>
+                                    <div class="col-lg-6">
+					 						<span class="ap-title">Preferred age group</span>
+                                                    <div class="pf-field">
+                                                        <input type="checkbox" name="age_level" value="Kindergarten" id="id_age_level_0"><label for="id_age_level_0">Kindergarten</label>
+                                                        <input type="checkbox" name="age_level" value="Elementary" id="id_age_level_1"><label for="id_age_level_1">Elementary</label>
+                                                        <input type="checkbox" name="age_level" value="Middle" id="id_age_level_2"><label for="id_age_level_2">Middle</label>
+                                                    </div>
+                                                </div>
 
                                         <div class="col-lg-12">
 					 						<button type="button" onclick="location.href='#scrollup'" id="apply-detail"><o>Details  </o><i id="right_arrow" class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
@@ -550,6 +546,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="col-lg-3">
                                         </div>
 
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-6">
+					 						<span class="ap-title">Personalized introduction for this position (Recommended)</span>
+					 						<div class="pf-field">
+                                                <p id="introduction_review"></p>
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-3">
+                                        </div>
                                         <div id="user_job">
                                             <label for="id_user">User:</label> <select name="user" required="" id="id_user">
                                               <option value="{{ user_name.id }}" selected="selected"></option>
@@ -584,10 +590,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="logo">
                                     <span>Teaching Holiday</span>
 								</div>
-								<span>Life in Korea</span>
-								<span>Job Board</span>
-                                <span>SIM Service</span>
-                                <span>Blog</span>
+                                <span><a href="{% url 'Job:list' %}">Job Board</a></span>
+                                <span><a href="https://www.lokamobile.com/">SIM Service</a></span>
+                                <span><a href="http://www.loka101.com/home/">Blog</a></span>
 
 							</div><!-- About Widget -->
 						</div>
@@ -598,7 +603,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">ceo@loka101.com</p>
+                                    <p class="footer-info-desc">help@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
@@ -686,6 +691,31 @@ $('#apply-basic-back').click(function () {
 
 $('#apply-review-front').click(function () {
     if($(".apply-review").css("display") == "none"){
+
+        var resume = doc.getElementById('id_resume').value;
+        var letter = doc.getElementById('id_letter').value;
+        var introduction = doc.getElementById('id_introduction').value;
+
+        if(!resume){
+            alert('Put your resume');
+            doc.getElementById('id_resume').focus();
+            return;
+        }
+
+        if(!letter){
+            alert('Put your cover letter');
+            doc.getElementById('id_letter').focus();
+            return;
+        }
+
+        if(!introduction){
+            alert('Put your introduction');
+            doc.getElementById('id_introduction').focus();
+            return;
+        }
+
+        $('#introduction_review').text($("#id_introduction").val());
+
         $('.apply-review').css("display", "flex");
         $('.apply-detail').css("display", "none");
     } else {
@@ -695,10 +725,10 @@ $('#apply-review-front').click(function () {
 
 $('#apply-detail-back').click(function () {
     if($(".apply-detail").css("display") == "none"){
-        $('.apply-detail').css("display", "flex");
+        $('.apply-detail').css("display", "block");
         $('.apply-review').css("display", "none");
     } else {
-        $('.apply-review').css("display", "flex");
+        $('.apply-review').css("display", "block");
     }
 });
 
@@ -769,6 +799,9 @@ $("#id_resume").change(function () {
         var userbirth = doc.getElementById('id_birth').value;
         var userstart = doc.getElementById('id_start_date').value;
         var userprefer = doc.getElementById('id_prefer_class').value;
+        var userprefer0 = doc.getElementById('id_age_level_0').checked;
+        var userprefer1 = doc.getElementById('id_age_level_1').checked;
+        var userprefer2 = doc.getElementById('id_age_level_2').checked;
 
         //1. 입력이 다 됐나 확인
 
@@ -846,9 +879,33 @@ $("#id_resume").change(function () {
             doc.getElementById('id_start_date').focus();
             return;
         }
-        if(!userprefer){
+
+        if(userprefer0 || userprefer1 || userprefer2){
+            if(userprefer0){
+                doc.getElementById('id_prefer_class').value="Kindergarten";
+            }
+            else if(userprefer1){
+                doc.getElementById('id_prefer_class').value="Elementary";
+            }
+            else if(userprefer2){
+                doc.getElementById('id_prefer_class').value="Middle";
+            }
+            else if(userprefer1 && userprefer0){
+                doc.getElementById('id_prefer_class').value="Kindergarten, Elementary";
+            }
+            else if(userprefer0 && userprefer2){
+                doc.getElementById('id_prefer_class').value="Kindergarten, Middle";
+            }
+            else if(userprefer1 && userprefer2){
+                doc.getElementById('id_prefer_class').value="Elementary, Middle";
+            }
+            else if(userprefer1 && userprefer2 && userprefer0){
+                doc.getElementById('id_prefer_class').value="Kindergarten, Elementary, Middle";
+            }
+        }
+        else{
             alert('Choose your prefer class');
-            doc.getElementById('id_prefer_class').focus();
+            doc.getElementById('id_age_level_2').focus();
             return;
         }
 

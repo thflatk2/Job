@@ -113,7 +113,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
                                 <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
@@ -147,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="inner-header my-page">
-							<h3>Welcome Recreuiter!</h3>
+							<h3>Welcome Recruiter!</h3>
 						</div>
 					</div>
 				</div>
@@ -204,8 +204,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Agency Name</span>
 					 						<div class="pf-field">
-                                                {% if user_name.first_name %}
-                                                <input type="text" name="first_name" maxlength="20" value="{{ user_name.first_name }}" required="" id="id_first_name">
+                                                {% if user_name.agency_name %}
+                                                <input type="text" name="first_name" maxlength="20" value="{{ user_name.agency_name }}" required="" id="id_first_name">
                                                 {% else %}
                                                 <input type="text" name="first_name" maxlength="20" required="" id="id_first_name">
                                                 {% endif %}
@@ -214,8 +214,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">City / Location Name</span>
 					 						<div class="pf-field">
-                                                {% if user_name.last_name %}
-                                                <input type="text" name="last_name" maxlength="10" value="{{ user_name.last_name }}" required="" id="id_last_name">
+                                                {% if user_name.cur_residence %}
+                                                <input type="text" name="last_name" maxlength="10" value="{{ user_name.cur_residence }}" required="" id="id_last_name">
                                                 {% else %}
                                                 <input type="text" name="last_name" maxlength="10" required="" id="id_last_name">
                                                 {% endif %}
@@ -230,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="col-lg-6">
 					 						<span class="pf-title">phone</span>
 					 						<div class="pf-field">
-                                                {% if user_name.last_name %}
+                                                {% if user_name.phone %}
                                                 <input type="text" name="phone" value="{{ user_name.phone }}" maxlength="18"  id="id_phone">
                                                 {% else %}
                                                 <input type="text" name="phone" maxlength="18"  id="id_phone">
@@ -275,10 +275,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="logo">
                                     <span>Teaching Holiday</span>
 								</div>
-								<span>Life in Korea</span>
-								<span>Job Board</span>
-                                <span>SIM Service</span>
-                                <span>Blog</span>
+                                <span><a href="{% url 'Job:list' %}">Job Board</a></span>
+                                <span><a href="https://www.lokamobile.com/">SIM Service</a></span>
+                                <span><a href="http://www.loka101.com/home/">Blog</a></span>
 
 							</div><!-- About Widget -->
 						</div>
@@ -289,7 +288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">ceo@loka101.com</p>
+                                    <p class="footer-info-desc">help@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
@@ -303,8 +302,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

@@ -77,7 +77,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	                            <form name="login" action="." method="post">{% csrf_token %}
                                     {% if form.errors %}
                                         <script>
-                                            alert("Wrong ID or Password!\n If you have an account, please check your email verification.");
+                                            alert("Please enter correct ID or Password!\n If you have an account, please check your email verification.");
                                         </script>
                                     {% endif %}
 									<div class="cfield">
@@ -91,10 +91,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									<p class="remember-label">
 										<input type="checkbox" name="cb" id="cb1"><label for="cb1">Remember me</label>
 									</p>
-									<a href="#" title="">Forgot Password?</a>
+									<a href="{% url 'password_reset' %}" title="">Forgot Password?</a>
 									<button type="submit">Login</button>
                                     <a id="make_account" href="{% url 'register' %}">Don't you have an account? Join today!</a>
 								</form>
+                            <!--
 								<div class="extra-login">
 									<span>Or</span>
 									<div class="login-social">
@@ -102,6 +103,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
 									</div>
 								</div>
+								-->
 							</div>
 						</div><!-- LOGIN POPUP -->
 					</div>

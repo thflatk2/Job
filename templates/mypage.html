@@ -79,12 +79,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% if user.type == 'Employer' %}
                         <a href="{% url 'Job:upload' %}" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'employer_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% else %}
                         <ul class="account-btns">
-					        <li class="signup-popup"><a href="{% url 'user_update' user.pk %}" title=""><i class="la la-key"></i> My Page</a></li>
+					        <li class="signup-popup"><a href="{% url 'user_update' user.slug %}" title=""><i class="la la-key"></i> My Page</a></li>
 					        <li class="signin-popup"><a href="{% url 'logout_url' %}" title=""><i class="la la-external-link-square"></i> Logout</a></li>
 				        </ul>
                     {% endif %}
@@ -113,10 +113,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<ul class="account-btns">
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
-                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
                             {% else %}
-                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.pk %}">My Page</a></li>
+                                <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
@@ -322,25 +322,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 {% endif %}
                                             </div>
 					 					</div>
-                                        <div class="col-lg-6">
-					 						<span class="pf-title">Preferred age group</span>
-					 						<div class="pf-field">
-                                                {% if user_name.prefer_class %}
-					 							<select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
-                                                    <option value="{{ user_name.prefer_class }}" selected="selected">{{ user_name.prefer_class }}</option>
-													<option value="Kindergarten">Kindergarten</option>
-													<option value="Elementary">Elementary</option>
-													<option value="Middle">Middle</option>
-												</select>
-                                                {% else %}
-                                                <select name="prefer_class" id="id_prefer_class" data-placeholder="Please Select Specialism" class="chosen">
-													<option value="Kindergarten">Kindergarten</option>
-													<option value="Elementary">Elementary</option>
-													<option value="Middle">Middle</option>
-												</select>
-                                                {% endif %}
-					 						</div>
-					 					</div>
 					 				</div>
                                 </div>
 					 		</div>
@@ -355,7 +336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 {% if user_name.resume %}
                                                 <input type="file" name="resume" value="{{ user_name.resume }}" id="id_resume">
                                                 {% else %}
-                                                <input type="file" name="resume" required="" id="id_resume">
+                                                <input type="file" name="resume" id="id_resume">
                                                 {% endif %}
                                                 <p id="resume" class="resume-mypage"></p>
                                             </div>
@@ -374,7 +355,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 {% if user_name.letter %}
                                                 <input type="file" name="letter" value="{{ user_name.letter }}" id="id_letter">
                                                 {% else %}
-                                                <input type="file" name="letter" required="" id="id_letter">
+                                                <input type="file" name="letter" id="id_letter">
                                                 {% endif %}
                                                 <p id="letter" class="resume-mypage"></p>
                                             </div>
@@ -403,10 +384,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="logo">
                                     <span>Teaching Holiday</span>
 								</div>
-								<span>Life in Korea</span>
-								<span>Job Board</span>
-                                <span>SIM Service</span>
-                                <span>Blog</span>
+                                <span><a href="{% url 'Job:list' %}">Job Board</a></span>
+                                <span><a href="https://www.lokamobile.com/">SIM Service</a></span>
+                                <span><a href="http://www.loka101.com/home/">Blog</a></span>
 
 							</div><!-- About Widget -->
 						</div>
@@ -417,7 +397,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">ceo@loka101.com</p>
+                                    <p class="footer-info-desc">help@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
@@ -431,8 +411,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
@@ -562,8 +542,8 @@ $("#id_resume").change(function () {
     var detail = doc.getElementById('update');
 
     var func = function () {
-        var userimage1 = doc.getElementById('id_user_pic1').value;
-        var userimage2 = doc.getElementById('id_user_pic2').value;
+        var userimage1 = doc.getElementById('image_section').src;
+        var userimage2 = doc.getElementById('image_section2').src;
         var userfirst = doc.getElementById('id_first_name').value;
         var userlast = doc.getElementById('id_last_name').value;
         var usersky = doc.getElementById('id_skyid').value;
@@ -572,7 +552,6 @@ $("#id_resume").change(function () {
         var userresidence = doc.getElementById('id_cur_residence').value;
         var userbirth = doc.getElementById('id_birth').value;
         var userstart = doc.getElementById('id_start_date').value;
-        var userprefer = doc.getElementById('id_prefer_class').value;
 
         //1. 입력이 다 됐나 확인
 
@@ -627,11 +606,7 @@ $("#id_resume").change(function () {
             doc.getElementById('id_start_date').focus();
             return;
         }
-        if(!userprefer){
-            alert('Choose your prefer class');
-            doc.getElementById('id_prefer_class').focus();
-            return;
-        }
+
 
     }
 

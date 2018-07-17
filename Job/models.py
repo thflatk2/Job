@@ -11,7 +11,7 @@ from django.conf import settings
 class Job_info(models.Model):
     user = models.CharField(max_length=100, null=True)
     school_name = models.CharField(max_length=30)
-    start_date = models.CharField(max_length=50, null=True,blank=True)
+    start_date = models.DateField(null=True,blank=True)
     summary = models.TextField(null=True, blank=True)
 
     AGE_CHOICES  = (
@@ -33,15 +33,15 @@ class Job_info(models.Model):
         ('Round-trip','Round-trip'),
     )
     flight_support = models.CharField(max_length=15, choices=FLIGHT_CHOICES, default='A' )
-    house = models.CharField(max_length=50, blank=True, null=True)
+    house = models.BooleanField(default=False)
     house_pic1 = models.FileField()
     house_pic2 = models.FileField(blank=True, null=True)
     house_pic3 = models.FileField(blank=True, null=True)
     house_pic4 = models.FileField(blank=True, null=True)
     house_pic5 = models.FileField(blank=True, null=True)
-    severance_payment = models.CharField(max_length=50, blank=True, null=True)
-    health_insurance = models.CharField(max_length=50, blank=True, null=True)
-    national_pension = models.CharField(max_length=50, blank=True, null=True)
+    severance_payment = models.BooleanField(default=False)
+    health_insurance = models.BooleanField(default=False)
+    national_pension = models.BooleanField(default=False)
     description = models.TextField(null=True, blank=True)
     qualification = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
@@ -68,8 +68,8 @@ class Job_info(models.Model):
 class Job_Apply(models.Model):
     user = models.ForeignKey(User)
     job = models.ForeignKey(Job_info)
-    profile_image1 = models.ImageField()
-    profile_image2 = models.ImageField()
+    profile_image1 = models.ImageField(blank=True, null=True)
+    profile_image2 = models.ImageField(blank=True, null=True)
     last_name = models.CharField(max_length=25)
     first_name = models.CharField(max_length=30)
     email = models.CharField(max_length = 35)
@@ -97,15 +97,10 @@ class Job_Apply(models.Model):
     degree = models.CharField(max_length = 100)
     start_date = models.CharField(max_length=40)
 
-    CLAS_CHOICES = (
-        ('Kindergarten', 'Kindergarten'),
-        ('Elementary', 'Elementary'),
-        ('Middle', 'Middle'),
-    )
-    prefer_class = models.CharField(max_length = 15, choices=CLAS_CHOICES, default='A')
+    prefer_class = models.CharField(max_length = 50)
 
-    resume = models.FileField()
-    letter = models.FileField()
+    resume = models.FileField(blank=True, null=True)
+    letter = models.FileField(blank=True, null=True)
 
     introduction = models.TextField()
 

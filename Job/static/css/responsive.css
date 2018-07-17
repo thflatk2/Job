@@ -1565,6 +1565,12 @@ select {
     font-size: 14px;
     padding: 10px 4px;
     margin-bottom: 15px;
+    top: unset;
+    position: unset;
+}
+
+#degree-review, #introduction_review{
+    padding-left: 10%;
 }
 
 .apply-field > p{

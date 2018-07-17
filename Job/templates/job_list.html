@@ -188,15 +188,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 				 	<div class="col-lg-9 column">
 				 		<div class="emply-list-sec style2">
-
                             {% for job in Jobs %}
                                 <div class="emply-list" onmouseover="detailon({{ job.pk }})" onmouseout="detailout({{ job.pk }})" onclick="location.href='{% url 'Job:detail' job.pk %}'">
                                     <div class="emply-list-thumb">
                                         <a href="#" title=""><img src="{{ job.house_pic1.url }}" alt="" /></a>
                                     </div>
                                     <div class="emply-list-info">
-                                        <div class="emply-pstn"><a class="list_detail detail{{ job.pk }}" href="{% url 'Job:detail' job.pk %}">Details</a></div>
+                                      <!--  <div class="emply-pstn"><a class="list_detail detail{{ job.pk }}" href="{% url 'Job:detail' job.pk %}">Details</a></div>-->
                                         <h3><a href="#" title="">{{ job.school_name }}</a></h3>
+                                        <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
                                         <span>
                                             <div class="job-date"><i class="far fa-calendar-alt list-icon first-icon"></i><o id="job-date">{{ job.start_date }} </o></div>
                                             <div class="job-contract"><i class="fas fa-briefcase list-icon not-first-icon"></i><o id="job-contract">{{ job.contract_period }} Month +</o></div>
@@ -204,7 +204,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             <div class="job-icon-location"><i class="fas fa-location-arrow list-icon not-first-icon"></i><o id="job-location">{{ job.location}}</o></div>
                                         </span>
 
-                                        <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
                                     </div>
                                 </div><!-- Employe List -->
                             {% endfor %}
@@ -240,10 +239,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<div class="logo">
                                     <span>Teaching Holiday</span>
 								</div>
-								<span>Life in Korea</span>
-								<span>Job Board</span>
-                                <span>SIM Service</span>
-                                <span>Blog</span>
+                                <span><a href="{% url 'Job:list' %}">Job Board</a></span>
+                                <span><a href="https://www.lokamobile.com/">SIM Service</a></span>
+                                <span><a href="http://www.loka101.com/home/">Blog</a></span>
 
 							</div><!-- About Widget -->
 						</div>
@@ -254,7 +252,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="download_widget">
                                 <div class="footer-info">
                                     <p class="footer-info-title">Email</p>
-                                    <p class="footer-info-desc">ceo@loka101.com</p>
+                                    <p class="footer-info-desc">help@loka101.com</p>
                                 </div>
                                 <div class="footer-info">
                                     <p class="footer-info-title">Kakao</p>
@@ -268,8 +266,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^upload/$', views.post_new, name='upload'),
     url(r'^like/$', views.job_like, name='job_like'),
     url(r'^(?P<pk>\d+)/add/$', views.JobApplyView.as_view(), name='apply'),
-    url(r'^mypage/(?P<slug>[(.!*\w.*\s.!*)]+)/history/$', views.UserHistoryView.as_view(), name='user_history'),
-    url(r'^mypage/(?P<slug>[(.!*\w.*\s.!*)]+)/overview/$', views.JobOverView.as_view(), name='user_overview'),
+    url(r'^mypage/(?P<slug>[-\w]+)/history/$', views.UserHistoryView.as_view(), name='user_history'),
+    url(r'^mypage/(?P<slug>[-\w]+)/overview/$', views.JobOverView.as_view(), name='user_overview'),
 ]

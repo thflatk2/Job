@@ -6030,6 +6030,9 @@ aside .widget.border:first-child {
 
     color: #ffffff;
     width: 90%; padding: 10px 10px; font-size: 20px;
+
+        top: 40px;
+    position: absolute;
 }
 .job-head-wide .apply-alternative a, .job-head-wide .apply-alternative span {
     
@@ -6169,13 +6172,13 @@ aside .widget.border:first-child {
 .emply-list-thumb {
     display: table-cell;
     vertical-align: top;
-    width: 80px;
-    height: 80px;
+    width: 105px;
+    height: 105px;
 }
 .emply-list-thumb > a {
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 105px;
+    height: 105px;
 }
 .emply-list-thumb > a img {
     float: left;
@@ -6281,8 +6284,8 @@ aside .widget.border:first-child {
     color: #161616;
     line-height: 24px;
     margin: 0;
-        margin-top: 0px;
-    margin-top: 12px;
+        margin-top: -4px;
+    margin-bottom: 8px;
         text-overflow: ellipsis;
     overflow: hidden;
     white-space: normal;
@@ -7120,6 +7123,16 @@ aside .widget.border:first-child {
     margin-top: 80px;
 }
 
+#apply-basic-back:hover{
+    background: #55acff;
+    color: #fff;
+}
+
+#apply-review-front:hover{
+        background: #55acff;
+    color: #fff;
+}
+
 #apply-review-front{
         float: unset;
     text-align: center;
@@ -7164,6 +7177,11 @@ aside .widget.border:first-child {
     margin-top: 80px;
 }
 
+#apply-detail-back:hover{
+    background: #55acff;
+    color: #fff;
+}
+
 #apply-submit{
     float: unset;
     text-align: center;
@@ -7184,6 +7202,37 @@ aside .widget.border:first-child {
     -o-border-radius: 8px;
     border-radius: 8px;
     margin-top: 80px;
+}
+
+#apply-submit:hover{
+           background: #55acff;
+    color: #fff;
+}
+
+#introduction_review{
+    padding-left: 5%;
+}
+
+#apply-already{
+        background: #55acff;
+    border: 2px solid #55acff;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+    color: #ffffff;
+    width: 90%;
+    padding: 10px 10px;
+    font-size: 20px;
+    top: 40px;
+    position: absolute;
+    text-align: center;
+    font-weight: 700;
+}
+
+#degree-review{
+    padding-left: 5%;
 }
 
 #right_arrow{
@@ -11683,7 +11732,7 @@ header.style5 .post-job-btn:hover {
 }
 .profile-form-edit > form button:hover,
 .contact-edit > form button:hover{
-    background: #fb236a;
+    background: #55acff;
     color: #ffffff;
 }
 .contact-edit .srch-lctn:hover {
