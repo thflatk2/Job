@@ -67,3 +67,7 @@ class WorkView(TemplateView):
 
 class LifeView(TemplateView):
     template_name = 'life_in_korea.html'
+
+
+class QualView(TemplateView):
+    template_name = 'qualification.html'

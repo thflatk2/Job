@@ -100,11 +100,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="{% url 'Job:list' %}" title="">Jobs</a>
             <a href="{% url 'how_it_works' %}" title="">How it works</a>
             <a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
+            <a href="{% url 'qulification' %}" title="">Qualification</a>
 		</div>
 	</div>
 
 	<header class="stick-top">
-		<div class="menu-sec">
+        <div class="menu-sec">
 			<div class="container">
 				<div class="logo">
 					<a href="{% url 'home' %}" title=""><img class="hidesticky" src="{% static "images/logo.png" %}" alt="" /><img class="showsticky" src="{% static "images/logo.png" %}" alt="" /></a>
@@ -112,13 +113,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="btn-extars">
 					<ul class="account-btns">
                         {% if user.is_active %}
-                            {%  if user.type == "Employer" %}
+                            {% if user.type == "Employer" %}
                                 <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
-                                {% else %}
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
+                            {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
-                                {% endif %}
+                            {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
                         {% endif %}
@@ -134,6 +135,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						</li>
 						<li class="menu-item-has">
 							<a href="{% url 'life_in_korea' %}" title="">Life in Korea</a>
+						</li>
+                        <li class="menu-item-has">
+							<a href="{% url 'qulification' %}" title="">Qualification</a>
 						</li>
 					</ul>
 				</nav><!-- Menus -->
