@@ -142,13 +142,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</header>
 
 	<section class="overlape">
-		<div class="block no-padding">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-			<div class="container fluid">
+		<div class="block applicant">
+			<div class="container fluid ">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="inner-header my-page">
-							<h3>Welcome Recruiter</h3>
+						<div class="inner-header">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="text-socail">
+										    {% if applicant.graduate %}
+                                            {% else %}
+										    <p>Graduate - No</p>
+                                            <p>    Estimate Graduate Date - {{ applicant.estimate_graduate }}</p>
+                                            {% endif %}
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="action-inner style2">
+											<div class="download-cv">
+								 				<a href="{{ applicant.resume }}" title="" download>Download Resume<i class="la la-download"></i></a>
+								 			</div>
+											<a href="#" title=""><i class="la la-map-marker"></i>{{ applicant.cur_residence }} / {{ applicant.country }}</a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -156,78 +175,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 	</section>
 
-	<section>
-		<div class="block no-padding">
+	<section class="overlape">
+		<div class="block remove-top">
 			<div class="container">
-				 <div class="row no-gape">
-				 	 <aside class="col-lg-3 column border-right border-top">
-				 		<div class="widget">
-				 			<div class="tree_widget-sec">
-				 				<ul>
-				 					<li>
-				 						<a href="{% url 'employer_update' user.slug %}" title=""><i class="la la-file-text"></i>Agency Info</a>
-				 						<ul>
-				 							<li><a href="#" title="">Profile photo</a></li>
-				 							<li><a href="#" title="">Basic Info</a></li>
-				 							<li><a href="#sn" title="">Introduction</a></li>
-				 						</ul>
-				 					</li>
-				 					<li class="inner-child active ">
-				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
-				 					</li>
-                                    <li>
-				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card"></i>Applicants list</a>
-				 					</li>
-				 				<!--	<li class="inner-child">
-				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
-				 					</li>-->
-                                    <li><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square"></i>Post a new Job</a></li>
-				 				</ul>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="cand-single-user">
+							<div class="share-bar circle"></div>
+				 			<div class="can-detail-s">
+				 				<div class="cst"><img src={{ applicant.profile_image1.url }} alt="" /></div>
+				 				<h3>{{ applicant.first_name }} {{ applicant.last_name}}</h3>
+				 				<p>{{ applicant.email }}</p>
+				 				<p>{{ applicant.birth }}</p>
+				 				<p><i class="la la-map-marker"></i>{{ applicant.cur_residence }} / {{ applicant.country }}</p>
+				 			</div>
+				 			<div class="download-cv"></div>
+				 		</div>
+				 		<div class="cand-details-sec">
+				 			<div class="row no-gape">
+				 				<div class="col-lg-9 column">
+				 					<div class="cand-details">
+				 						<div class="job-overview style2">
+								 			<ul>
+								 				<li><i class="fas fa-school"></i><h3>University</h3><span>{{ applicant.university }}</span></li>
+                                                <li><i class="fas fa-graduation-cap"></i><h3>Major</h3><span>{{ applicant.major }}</span></li>
+								 				<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{ applicant.gender }}</span></li>
+								 				<li><i class="fas fa-chalkboard-teacher"></i><h3>Prefer Class</h3><span>{{ applicant.prefer_class }}</span></li>
+								 				<li><i class="far fa-calendar-alt"></i><h3>Start Date</h3><span>{{ applicant.start_date }}</span></li>
+								 				<li><i class="fas fa-globe-asia"></i><h3>Country</h3><span>{{ applicant.country }}</span></li>
+								 			</ul>
+								 		</div><!-- Job Overview -->
+
+
+                                        <div class="mini-portfolio">
+				 							<h2>Applicant Photo</h2>
+				 							<div class="mp-row">
+				 								<div class="mp-col">
+				 									<div class="mportolio"><img src="{{ applicant.profile_image1.url }}" alt="" /><a href="{{ applicant.profile_image1.url }}" title=""><i class="la la-search"></i></a></div>
+				 								</div>
+				 								<div class="mp-col">
+				 									<div class="mportolio"><img src="{{ applicant.profile_image2.url }}" alt="" /><a href="{{ applicant.profile_image2.url }}" title=""><i class="la la-search"></i></a></div>
+				 								</div>
+				 							</div>
+				 						</div>
+
+				 						<div class="edu-history-sec">
+				 							<h2>Education</h2>
+				 							<div class="edu-history">
+				 								<i class="la la-graduation-cap"></i>
+				 								<div class="edu-hisinfo">
+				 									<h3>University</h3>
+				 									<i>2008 - 2012</i>
+				 									<span>Middle East Technical University <i>Computer Science</i></span>
+				 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+				 								</div>
+				 							</div>
+				 							<div class="edu-history">
+				 								<i class="la la-graduation-cap"></i>
+				 								<div class="edu-hisinfo">
+				 									<h3>High School</h3>
+				 									<i>2008 - 2012</i>
+				 									<span>Tomms College <i>Bachlors in Fine Arts</i></span>
+				 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+				 								</div>
+				 							</div>
+				 						</div>
+
+				 					</div>
+				 				</div>
+				 				<div class="col-lg-3 column">
+						 			<div class="job-overview style3">
+							 			<ul>
+
+							 			</ul>
+                                        <a href="{{ applicant.profile_image1 }}" title="" class="contct-user" download>Profile Image 1</a>
+							 			<a href="{{ applicant.profile_image2 }}" title="" class="contct-user" download>Profile Image 2</a>
+							 			<a href="{{ applicant.resume.url }}" title="" class="save-resume" download>Save Resume</a>
+							 		</div><!-- Job Overview -->
+						 		</div>
 				 			</div>
 				 		</div>
-				 	</aside>
-				 	<div class="col-lg-9 column">
-				 		<div class="padding-left">
-					 		<div class="manage-jobs-sec">
-					 			<h3>Jobs Overview</h3>
-						 		<table>
-						 			<thead>
-						 				<tr>
-						 					<td>Job</td>
-						 					<td>Location</td>
-						 					<td>Date</td>
-						 					<td></td>
-						 				</tr>
-						 			</thead>
-						 			<tbody>
-                                    {% for jobss in Jobs %}
-						 				<tr>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<i>{{ jobss.school_name }}</i>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<h3>{{ jobss.location }}</h3>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<span>{{ jobss.created_date }}</span><br />
-						 					</td>
-						 					<td>
-						 						<ul class="action_job">
-						 							<li><a href="{% url 'Job:detail' jobss.pk %}" title="">View details</a></li>
-						 						</ul>
-						 					</td>
-						 				</tr>
-                                    {% endfor %}
-						 			</tbody>
-						 		</table>
-					 		</div>
-					 	</div>
 					</div>
-				 </div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -269,8 +298,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="#" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="#" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

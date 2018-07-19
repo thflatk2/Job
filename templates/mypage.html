@@ -170,7 +170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 							<li><a href="#mp" title="">Profile photo</a></li>
 				 							<li><a href="#" title="">Basic Info</a></li>
 				 							<li><a href="#sn" title="">Resume</a></li>
-                                            <li><a href="#ci" title="">Cover letter</a></li>
+                                            <li><a href="#ci" title="">University</a></li>
 				 						</ul>
 				 					</li>
 				 					<li><a href="{% url 'Job:user_history' user.slug %}" title=""><i class="la la-briefcase"></i>Application History</a></li>
@@ -190,14 +190,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 			<h3>Profile Photo</h3>
                                     <p>Photo 1</p>
                                     <div class="upload-img-bar">
+                                        {% if user_name.user_pic1 %}
+                                        <span class="round"><img id="image_section" src="{{ user_name.user_pic1.url }}" alt="" /></span>
+                                        {% else %}
                                         <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
+                                        {% endif %}
                                         <div class="upload-info">
                                             {% if user_name.user_pic1 %}
                                             <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
-                                            <label for="user_pic1-clear_id">Clear</label>
+                                            <label id="user_pic1-clear_label" for="user_pic1-clear_id">Clear</label>
                                             <label class="id_user_pic1" for="id_user_pic1">Browse</label>
                                             <input type="file" name="user_pic1" id="id_user_pic1" title="">
-                                            <a href="{{ user_name.user_pic1.url }}">{{ user_name.user_pic1 }}</a>
+                                            <a target="_blank" href="{{ user_name.user_pic1.url }}">{{ user_name.user_pic1 }}</a>
                                             {% else %}
                                             <label class="id_user_pic1" for="id_user_pic1">Browse</label>
                                             <input type="file" name="user_pic1" id="id_user_pic1" title="">
@@ -207,14 +211,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </div>
                                     <p style="margin-top: 150px;">Photo 2</p>
                                     <div class="upload-img-bar">
+                                        {% if user_name.user_pic2 %}
+                                        <span class="round"><img id="image_section2" src="{{ user_name.user_pic2.url }}" alt="" /></span>
+                                        {% else %}
                                         <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
+                                        {% endif %}
                                         <div class="upload-info">
                                             {% if user_name.user_pic2 %}
                                             <input type="checkbox" name="user_pic2-clear" id="user_pic2-clear_id">
-                                            <label for="user_pic2-clear_id">Clear</label>
+                                            <label id="user_pic2-clear_label" for="user_pic2-clear_id">Clear</label>
                                             <label class="id_user_pic2" for="id_user_pic2">Browse</label>
                                             <input type="file" name="user_pic2" id="id_user_pic2" title="">
-                                            <a href="{{ user_name.user_pic2.url }}">{{ user_name.user_pic2 }}</a>
+                                            <a target="_blank" href="{{ user_name.user_pic2.url }}">{{ user_name.user_pic2 }}</a>
                                             {% else %}
                                             <label class="id_user_pic2" for="id_user_pic2">Browse</label>
                                             <input type="file" name="user_pic2" id="id_user_pic2" title="">
@@ -247,16 +255,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 {% endif %}
                                             </div>
 					 					</div>
-                                        <div class="col-lg-6">
-					 						<span class="pf-title">Skype ID (for interviews)</span>
-					 						<div class="pf-field">
-                                                {% if user_name.skyid %}
-                                                <input type="text" name="skyid" maxlength="50" value="{{ user_name.skyid }}" required="" id="id_skyid">
-                                                    {% else %}
-                                                    <input type="text" name="skyid"  maxlength="50" required="" id="id_skyid">
-                                                {% endif %}
-                                            </div>
-					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Country of Citizenship</span>
 					 						<div class="pf-field">
@@ -285,6 +283,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						</div>
 					 					</div>
                                         <div class="col-lg-6">
+					 						<span class="pf-title">Current city/country of residence</span>
+					 						<div class="pf-field">
+                                                {% if user_name.cur_residence %}
+                                                <input type="text" name="cur_residence" maxlength="100" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
+                                                {% else %}
+                                                <input type="text" name="cur_residence" maxlength="100" required="" id="id_cur_residence">
+                                                {% endif %}
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-6">
 					 						<span class="pf-title">Gender</span>
 					 						<div class="pf-field">
 					 							{% if user_name.gender %}
@@ -303,16 +311,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Current city/country of residence</span>
-					 						<div class="pf-field">
-                                                {% if user_name.cur_residence %}
-                                                <input type="text" name="cur_residence" maxlength="100" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
-                                                {% else %}
-                                                <input type="text" name="cur_residence" maxlength="100" required="" id="id_cur_residence">
-                                                {% endif %}
-                                            </div>
-					 					</div>
-					 					<div class="col-lg-6">
 					 						<span class="pf-title">Date of birth</span>
 					 						<div class="pf-field">
                                                 {% if user_name.birth %}
@@ -328,16 +326,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <input type="text" name="start_date" maxlength="50" required="" id="id_start_date">
                                             </div>
 					 					</div>
-					 					<div class="col-lg-12">
-					 						<span class="pf-title">University / Major</span>
-					 						<div class="pf-field">
-                                                {% if user_name.degree %}
-                                                <input type="text" name="degree" maxlength="100" value="{{ user_name.degree }}" required="" id="id_degree">
-                                                {% else %}
-                                                <input type="text" name="degree" maxlength="100" required="" id="id_degree">
-                                                {% endif %}
-                                            </div>
-					 					</div>
 					 				</div>
                                 </div>
 					 		</div>
@@ -350,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             <div class="update-info">
                                                 {% if user_name.resume %}
                                                 <input type="checkbox" name="resume-clear" id="resume-clear_id">
-                                                <label for="resume-clear_id">Clear</label>
+                                                <label id="resume-clear_label" for="resume-clear_id">Clear</label>
                                                 <label class="id_resume" for="id_resume">Browse</label>
                                                 <input type="file" name="resume" id="id_resume">
                                                 <a href="{{ user_name.resume.url }}">{{ user_name.resume }}</a>
@@ -365,25 +353,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 			</div>
 					 		</div>
 					 		<div class="contact-edit" id="ci">
-					 			<h3>Cover letter</h3>
+					 			<h3>University</h3>
 					 			<div>
 					 				<div class="row">
-					 					<p>Cover Letter</p>
-                                        <div class="upload-img-bar">
-                                            <div class="update-info">
-                                                {% if user_name.letter %}
-                                                <input type="checkbox" name="letter-clear" id="letter-clear_id">
-                                                <label for="letter-clear_id">Clear</label>
-                                                <label class="id_letter" for="id_letter">Browse</label>
-                                                <input type="file" name="letter" id="id_letter">
-                                                <a href="{{ user_name.letter.url }}">{{ user_name.letter }}</a>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">University</span>
+					 						<div class="pf-field">
+                                                {% if user_name.university %}
+                                                <input type="text" name="university" maxlength="100" value="{{ user_name.university }}" required="" id="id_university">
                                                 {% else %}
-                                                <label class="id_letter" for="id_letter">Browse</label>
-                                                <input type="file" name="letter" id="id_letter">
-                                                <p id="letter" class="resume-mypage"></p>
+                                                <input type="text" name="university" maxlength="100" required="" id="id_university">
                                                 {% endif %}
                                             </div>
-                                        </div>
+					 					</div>
+                                        <div class="col-lg-6">
+					 						<span class="pf-title">Major</span>
+					 						<div class="pf-field">
+                                                {% if user_name.major %}
+                                                <input type="text" name="major" maxlength="100" value="{{ user_name.major }}" required="" id="id_major">
+                                                {% else %}
+                                                <input type="text" name="major" maxlength="100" required="" id="id_major">
+                                                {% endif %}
+                                            </div>
+					 					</div>
+                                        <div class="col-lg-6">
+					 						<span class="pf-title">Graduate</span>
+					 						<div class="pf-field" style="margin-bottom: 47px">
+                                                {% if user_name.graduate %}
+                                                <input type="checkbox" name="graduate" required="" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                {% else %}
+                                                <input type="checkbox" name="graduate"  required="" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                {% endif %}
+                                            </div>
+					 					</div>
+                                        <div id="estimate_graduate_div" class="col-lg-6">
+					 						<span class="pf-title">Estimate Graduate</span>
+					 						<div class="pf-field">
+                                                {% if user_name.estimate_graduate %}
+                                                <input type="date" name="estimate_graduate" value="{{ user_name.estimate_graduate }}" required="" id="id_estimate_graduate">
+                                                {% else %}
+                                                <input type="date" name="estimate_graduate" required="" id="id_estimate_graduate">
+                                                {% endif %}
+                                            </div>
+					 					</div>
 					 					<div class="col-lg-12">
 					 						<button id="update" type="submit">Update</button>
 					 					</div>
@@ -513,30 +525,6 @@ $("#id_user_pic1").change(function(){
     }
 });
 
-function findName1() {
-    var fileValue = $("#id_letter").val().split("\\");
-    var fileName = fileValue[fileValue.length-1];
-    $('#letter').text(fileName);
-}
-
-
-$("#id_letter").change(function () {
-
-    if ($('#id_letter').val() != "") {
-        var fileSize = document.getElementById("id_letter").files[0].size;
-        var maxSize = 7 * 1024 * 1024;//2MB
-
-        if (fileSize > maxSize) {
-            alert("Your letter file should be under 7MB.");
-            doc.getElementById('id_letter').focus();
-            return;
-        }
-        else{
-            findName1();
-        }
-    }
-})
-
 function findName2() {
     var fileValue = $("#id_resume").val().split("\\");
     var fileName = fileValue[fileValue.length-1];
@@ -570,22 +558,23 @@ $("#id_resume").change(function () {
         var userimage2 = doc.getElementById('image_section2').src;
         var userfirst = doc.getElementById('id_first_name').value;
         var userlast = doc.getElementById('id_last_name').value;
-        var usersky = doc.getElementById('id_skyid').value;
         var usercountry = doc.getElementById('id_country').value;
         var usergender = doc.getElementById('id_gender').value;
         var userresidence = doc.getElementById('id_cur_residence').value;
         var userbirth = doc.getElementById('id_birth').value;
         var userstart = doc.getElementById('id_start_date').value;
+        var university = doc.getElementById('id_university').value;
+        var major = doc.getElementById('id_major').value;
 
         //1. 입력이 다 됐나 확인
 
-        if(!userimage1){
+        if(userimage1=="http://placehold.it/140x140"){
             alert('Put your first profile image');
             doc.getElementById('id_profile_image1').focus();
             return;
             //다시 원상태로 돌아가는것.
         }
-        if(!userimage2){
+        if(userimage2=="http://placehold.it/140x140"){
             alert('Put your second profile image');
             doc.getElementById('id_profile_image2').focus();
             return;
@@ -598,11 +587,6 @@ $("#id_resume").change(function () {
         if(!userlast){
             alert('Put your last name');
             doc.getElementById('id_last_name').focus();
-            return;
-        }
-        if(!usersky){
-            alert('Put your sky ID');
-            doc.getElementById('id_skyid').focus();
             return;
         }
         if(!usercountry){
@@ -629,6 +613,27 @@ $("#id_resume").change(function () {
             alert('Put your earliest available date');
             doc.getElementById('id_start_date').focus();
             return;
+        }
+
+        if(!university){
+            alert('Put your university');
+            doc.getElementById('id_university').focus();
+            return;
+        }
+        if(!major){
+            alert('Put your major');
+            doc.getElementById('id_major').focus();
+            return;
+        }
+
+        if($("#id_graduate").is(":checked")){
+        }
+        else{
+            if(!doc.getElementById('id_estimate_graduate').value){
+                alert('Put your estimate graduate');
+                doc.getElementById('id_estimate_graduate').focus();
+                return;
+            }
         }
 
 

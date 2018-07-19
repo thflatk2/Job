@@ -158,7 +158,6 @@ class JobListView(TemplateView):
             return render(request, 'job_list.html', {'Jobs': Jobs})
 
 
-
 class JobDetailView(TemplateView):
     template_name = 'job_detail.html'
 
@@ -189,7 +188,6 @@ class JobUploadView(FormView):
 
 def post_new(request):
     user_name = User.objects.get(name=request.user.name)
-    user = User.objects.all()
 
     if request.method == 'POST':
         form = Job_InfoForm(request.POST, request.FILES) # NOTE: 인자 순서주의 POST, FILES
@@ -206,8 +204,8 @@ def post_new(request):
 
 class JobApplyView(LoginRequiredMixin, CreateView):
     model = Job_Apply
-    fields = ['profile_image1', 'profile_image2', 'last_name','first_name', 'email', 'skyid', 'country', 'gender', 'cur_residence', 'birth', 'degree',
-              'start_date', 'prefer_class', 'resume', 'job', 'user', 'letter' ,'introduction']
+    fields = ['profile_image1', 'profile_image2', 'last_name','first_name', 'email', 'country', 'gender', 'cur_residence', 'birth', 'graduate', 'estimate_graduate', 'university', 'major',
+              'start_date', 'prefer_class', 'resume', 'job', 'user']
     template_name = 'job_apply.html'
     success_url = reverse_lazy('Job:list')
 
@@ -260,3 +258,22 @@ class JobOverView(TemplateView):
 
         return context
 
+
+class ApplicantListView(TemplateView):
+    template_name = 'job_applicant_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ApplicantListView, self).get_context_data(**kwargs)
+        context['applicant'] = Job_Apply.objects.filter(job__user=self.request.user.email)
+
+        return context
+
+
+class ApplicantDetailView(TemplateView):
+    template_name = 'job_applicant_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ApplicantDetailView, self).get_context_data(**kwargs)
+        context['applicant'] = Job_Apply.objects.get(pk=self.kwargs['pk'])
+
+        return context

@@ -43,7 +43,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 </head>
 <body>
@@ -212,10 +212,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 					<li>
 				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
 				 					</li>
+                                    <li>
+				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card"></i>Applicants list</a>
+				 					</li>
 				 				<!--	<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
 				 					</li>-->
-                                    <li class="inner-child active"><a href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+                                    <li class="inner-child active"><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square"></i> Post a new Job</a></li>
 				 				</ul>
 				 			</div>
 				 		</div>
@@ -228,22 +231,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <h3>Basic Info</h3>
                                         <div>
                                             <div class="row">
-                                                <div class="col-lg-6">
-                                                    <span class="pf-title">Job Title</span>
+                                                <div class="col-lg-12">
+                                                    <span class="pf-title">Job title</span>
                                                     <div class="pf-field">
-                                                        <input type="text" name="school_name" required="" id="id_school_name">
+                                                       <input type="text" name="job_title" placeholder="Kindergarten ESL Teacher Wanted in Gangnam, Seoul!" required="" id="id_job_title">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <span class="pf-title">Summary</span>
                                                     <div class="pf-field">
-                                                        <input type="text" name="summary" required="" id="id_summary">
+                                                        <input type="text" name="summary" placeholder="Joe's English Institute / Reputable private school located in Gangnam, Seoul with a family-like work environment, currently hiring 3 teachers for the March 1st intake." required="" id="id_summary">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">School name</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="school_name" required="" id="id_school_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Starting Date</span>
                                                     <div class="pf-field">
                                                         <input type="date" name="start_date" required="" id="id_start_date">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">Class size</span>
+                                                    <div class="pf-field">
+                                                        <input type="number" name="class_size" min="0" required="" id="id_class_size">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -273,31 +288,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Contract Period</span>
                                                     <div class="pf-field">
-                                                        <input type="text" name="contract_period" required="" id="id_contract_period">
+                                                        <input type="text" name="contract_period" required="" id="id_contract_period"><p id="id_contract_period_scale">Month +</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Working Day and Hour</span>
                                                     <div class="pf-field">
-                                                        <input type="text" name="day_hour" required="" id="id_day_hour">
+                                                        <input type="text" name="day_hour" placeholder="Ex.   Mon-Fri   09:00 ~ 17:00" required="" id="id_day_hour">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Minimum Salary</span>
                                                     <div class="pf-field">
-                                                        <input type="number" name="min_salary" step="any" required="" id="id_min_salary">
+                                                        <input type="number" name="min_salary" step="any" min="0" required="" id="id_min_salary"><p id="id_min_salary_scale">M</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Maximum Salary</span>
                                                     <div class="pf-field">
-                                                        <input type="number" name="max_salary" step="any" required="" id="id_max_salary">
+                                                        <input type="number" name="max_salary" step="any" min="0" required="" id="id_max_salary"><p id="id_max_salary_scale">M KRW</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">House</span>
                                                     <div class="pf-field">
                                                         <input type="checkbox" name="house" id="id_house"><label for="id_house"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <span class="pf-title">House Allowance</span>
+                                                    <div class="pf-field">
+                                                      <input type="checkbox" name="allowance" id="id_allowance"><label for="id_allowance"></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -333,13 +354,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <div class="col-lg-12">
                                                     <span class="pf-title">Description</span>
                                                     <div class="pf-field">
-                                                        <textarea name="description" cols="40" rows="10" id="id_description"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <span class="pf-title">Qualification</span>
-                                                    <div class="pf-field">
-                                                        <textarea name="qualification" cols="40" rows="10" id="id_qualification"></textarea>
+                                                        <textarea name="description" cols="40" rows="10" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
+
+Teachers are fully trained before they officially start teaching and are equipped with all lesson plans and materials provided by the school, so teaching experience is not mandatory. The age groups of the students range from kindergarten to elementary school students (ages 3~12). We are very eager to work with you so please apply if you are interested in pursuing our opening!" id="id_description"></textarea>
                                                     </div>
                                                 </div>
 

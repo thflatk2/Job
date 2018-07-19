@@ -283,7 +283,7 @@ i{font-style:italic}
 :-ms-input-placeholder{opacity:1}
 input[type="text"],
 input[type="password"],
-input[type="email"], textarea {
+input[type="email"], textarea, input[type="date"]{
     background: #e4e4e4 none repeat scroll 0 0;
     border: medium none;
     float: left;
@@ -6267,6 +6267,23 @@ aside .widget.border:first-child {
     font-size: 20px;
 }
 
+#id_contract_period{
+    width: 75%;
+}
+
+#id_min_salary{
+    width: 75%;
+}
+
+#id_max_salary{
+    width: 75%;
+}
+
+#id_contract_period_scale, #id_min_salary_scale, #id_max_salary_scale{
+    margin-top: 8px;
+    text-indent: 17px;
+}
+
 .emply-list-info > h6 {
     float: left;
     width: 100%;
@@ -6912,9 +6929,14 @@ aside .widget.border:first-child {
     color: #4a4a4a;
 }
 
-.pf-field > .degree-review{
+.pf-field > #prefer_age_review, #prefer-review{
     padding-left: 5%;
 }
+
+#resume_review{
+ margin-left: 0;
+}
+
 .upload-img-bar > span {
     display: table-cell;
     vertical-align: top;
@@ -6955,25 +6977,60 @@ aside .widget.border:first-child {
     line-height: 21px;
     cursor: pointer;
 }
+
+.b-logo{
+    float: left;
+    width: 130px;
+    text-align: center;
+}
+
+.b-logo img{
+    float: none;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.applicant-title-sec h3{
+    display: table;
+    font-size: 16px;
+    color: #202020;
+    margin: 0;
+    margin-bottom: 0px;
+    margin-bottom: 7px;
+    margin-top: 3px;
+}
+
+.applicant-title-sec span{
+    color: #1e83f0;
+    display: table;
+    float: none;
+}
+
+.applicant-title-sec p{
+    display: table;
+    float: none;
+    margin: 0;
+}
+
 .upload-info {
     display: table-cell;
     vertical-align: bottom;
     padding-left: 30px;
 }
-.upload-info > a {
+.upload-info > a, .update-info > a {
     float: left;
     font-family: Lato;
     font-size: 15px;
-    color: #8b91dd;
-    border: 2px solid #8b91dd;
-    
+    color: black;
+
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     border-radius: 20px;
 
-    padding: 10px 40px;
+    padding: 12px 40px;
 }
 
 .upload-info > p{
@@ -7209,6 +7266,38 @@ aside .widget.border:first-child {
     color: #fff;
 }
 
+#user_pic1-clear_id{
+    display: none;
+}
+
+#user_pic1-clear_label{
+    display: none;
+}
+
+#user_pic2-clear_id{
+    display: none;
+}
+
+#user_pic2-clear_label{
+    display: none;
+}
+
+#resume-clear_id{
+    display: none;
+}
+
+#resume-clear_label{
+    display: none;
+}
+
+#letter-clear_id{
+    display: none;
+}
+
+#letter-clear_label{
+    display: none;
+}
+
 #introduction_review{
     padding-left: 5%;
 }
@@ -7229,10 +7318,6 @@ aside .widget.border:first-child {
     position: absolute;
     text-align: center;
     font-weight: 700;
-}
-
-#degree-review{
-    padding-left: 5%;
 }
 
 #right_arrow{
@@ -7410,9 +7495,11 @@ aside .widget.border:first-child {
     padding: 0 50px;
 }
 
-.button-div{
-    margin-top: 320px;
+#graduate{
+    top: 9px;
+    left: 10px;
 }
+
 .profile-form-edit {
     float: left;
     width: 100%;
@@ -8806,10 +8893,17 @@ header.gradient{
     width: 100%;
     display: table;
 }
+
+.applicant{
+        padding-top: 130px;
+    padding-bottom: 0;
+    background: lightblue;
+}
 .cand-single-user > div {
     display: table-cell;
     width: 33.334%;
     float: none;
+    padding-bottom: 30px;
 }
 .cand-single-user .share-bar.circle {
     vertical-align: middle;
@@ -8851,7 +8945,7 @@ header.gradient{
 .cst img {
     float: left;
     width: 100%;
-    
+    height: 100%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -9266,9 +9360,10 @@ header.gradient{
 .text-socail {
     float: left;
     width: 100%;
+    margin-top: -35px;
 }
-.text-socail > a {
-    float: left;
+.text-socail > p {
+    margin-bottom: 0;
     color: #ffffff;
     font-size: 18px;
     margin-right: 17px;
@@ -9336,7 +9431,7 @@ header.gradient{
     margin: 0;
     border-top: 1px solid #e8ecec;
     border-bottom: 1px solid #e8ecec;
-    padding: 20px 0;
+    padding: 36px 0;
     margin-bottom: 20px;
 }
 .job-overview.style2 ul {
@@ -11703,9 +11798,6 @@ header.style5 .post-job-btn:hover {
 .job-single-head.style2 > .apply-job-linkedin:hover {
     color: #fb236a;
 }
-.job-overview ul > li:hover i {
-    color: #fb236a;
-}
 
 .emply-btns > a:hover {
     background: #8b91dd;
@@ -11719,10 +11811,6 @@ header.style5 .post-job-btn:hover {
     color: #55acff;
 }
 
-.upload-info > a:hover {
-    background: #ffcece;
-    color: #ffffff;
-}
 .pf-field .chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active a {
     border: 2px solid #e8ecec;
 }

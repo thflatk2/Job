@@ -10,7 +10,9 @@ from django.conf import settings
 
 class Job_info(models.Model):
     user = models.CharField(max_length=100, null=True)
+    job_title = models.CharField(max_length=100,blank=True, null=True)
     school_name = models.CharField(max_length=30)
+    class_size = models.PositiveIntegerField()
     start_date = models.DateField(null=True,blank=True)
     summary = models.TextField(null=True, blank=True)
 
@@ -34,6 +36,7 @@ class Job_info(models.Model):
     )
     flight_support = models.CharField(max_length=15, choices=FLIGHT_CHOICES, default='A' )
     house = models.BooleanField(default=False)
+    allowance = models.BooleanField(default=False)
     house_pic1 = models.FileField()
     house_pic2 = models.FileField(blank=True, null=True)
     house_pic3 = models.FileField(blank=True, null=True)
@@ -43,7 +46,6 @@ class Job_info(models.Model):
     health_insurance = models.BooleanField(default=False)
     national_pension = models.BooleanField(default=False)
     description = models.TextField(null=True, blank=True)
-    qualification = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     #like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,
      #                                      blank=True,
@@ -73,7 +75,6 @@ class Job_Apply(models.Model):
     last_name = models.CharField(max_length=25)
     first_name = models.CharField(max_length=30)
     email = models.CharField(max_length = 35)
-    skyid = models.CharField(max_length= 35)
 
     TOOL_CHOICES = (
         ('USA', 'USA'),
@@ -94,15 +95,16 @@ class Job_Apply(models.Model):
     gender = models.CharField(max_length=10, choices=GEN_CHOICES)
     cur_residence = models.CharField(max_length=30)
     birth = models.CharField(max_length = 30)
-    degree = models.CharField(max_length = 100)
+
+    graduate = models.BooleanField(default=False)
+    estimate_graduate = models.DateField(blank=True, null=True)
+    university = models.CharField(max_length=100)
+    major = models.CharField(max_length = 100)
     start_date = models.CharField(max_length=40)
 
     prefer_class = models.CharField(max_length = 50)
 
     resume = models.FileField(blank=True, null=True)
-    letter = models.FileField(blank=True, null=True)
-
-    introduction = models.TextField()
 
     created_date = models.DateTimeField(default=timezone.now)
 

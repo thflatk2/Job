@@ -163,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 					<div class="col-lg-8">
 				 						<div class="job-single-head3">
 							 				<div class="job-single-info3 job-title-div">
-							 					<h3>{{ Jobs.school_name }}</h3>
+							 					<h3>{{ Jobs.job_title }}</h3>
 							 					<ul class="tags-jobs">
 								 					<li><i class="far fa-calendar-alt list-icon"></i>{{ Jobs.start_date }}</li>
 								 					<li><i class="fas fa-briefcase list-icon"></i>{{ Jobs.contract_period }} Month +</li>
@@ -192,6 +192,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                             <div class="job-detail">
                                                 <div class="job-detail-left">
+                                                    <h3>School Name</h3>
+                                                    <p>{{ Jobs.school_name }}</p>
+
                                                     <h3>Starting Date</h3>
                                                     <p>{{ Jobs.start_date }}</p>
 
@@ -203,6 +206,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                                 </div>
                                                 <div class="job-detail-right">
+                                                    <h3>Class Size</h3>
+                                                    <p>{{ Jobs.class_size }}</p>
 
                                                     <h3>Location</h3>
                                                     <p>{{ Jobs.location }}</p>
@@ -256,6 +261,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     {% endif %}
                                                 </div>
                                                 <div class="job-detail-right">
+                                                    <h3>Housing Allowance</h3>
+                                                    {% if Jobs.allowance %}
+                                                    <p>Yes</p>
+                                                    {% else %}
+                                                    <p>No</p>
+                                                    {% endif %}
 
                                                     <h3>Flight Support</h3>
                                                     {% if Jobs.flight_support|length == 4 %}
@@ -278,14 +289,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 </div>
                                             </div>
                                         </div>
-                                    {% if Jobs.qualification %}
-                                        <div class="col-lg-12 column des_detail">
-                                            <div class="job-single-info3">
-                                                <h3 class="des_detail_div">Qualification</h3>
-                                                <p>{{ Jobs.qualification }}</p>
-                                            </div>
-                                        </div>
-                                    {% endif %}
                                     {% if Jobs.description %}
                                         <div class="col-lg-12 column des_detail">
                                             <div class="job-single-info3">

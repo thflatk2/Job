@@ -16,9 +16,10 @@ AGE_CHOICES = (
 
 
 class Job_InfoForm(forms.Form):
+    job_title = forms.CharField()
     school_name = forms.CharField()
+    class_size = forms.IntegerField(min_value=0)
     start_date = forms.DateField()
-
     age_level = forms.MultipleChoiceField(
         widget=forms.CheckboxSelectMultiple,
         choices=AGE_CHOICES,
@@ -26,14 +27,15 @@ class Job_InfoForm(forms.Form):
     location = forms.CharField()
     contract_period = forms.CharField()
     day_hour = forms.CharField()
-    min_salary = forms.FloatField()
-    max_salary = forms.FloatField()
+    min_salary = forms.FloatField(min_value=0.0)
+    max_salary = forms.FloatField(min_value=0.0)
 
     flight_support = forms.ChoiceField(
         widget=forms.Select,
         choices=FLIGHT_CHOICES,
     )
     house = forms.BooleanField(required=False)
+    allowance = forms.BooleanField(required=False)
     house_pic1 = forms.FileField(
         widget=forms.ClearableFileInput(),
         required=False
@@ -64,11 +66,6 @@ class Job_InfoForm(forms.Form):
     )
 
     description = forms.CharField(
-        widget=forms.Textarea(),
-        required=False
-    )
-
-    qualification = forms.CharField(
         widget=forms.Textarea(),
         required=False
     )

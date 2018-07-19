@@ -1560,6 +1560,10 @@ select {
     text-align: center;
 }
 
+#graduate_field{
+    margin-left: 10px;
+}
+
 .job-head-wide .apply-thisjob{
     width: 100%;
     font-size: 14px;
@@ -1569,7 +1573,7 @@ select {
     position: unset;
 }
 
-#degree-review, #introduction_review{
+#prefer-review, #introduction_review{
     padding-left: 10%;
 }
 

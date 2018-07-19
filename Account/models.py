@@ -90,7 +90,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     last_name = models.CharField(max_length=25, null=True, blank=True)
     first_name = models.CharField(max_length=30, null=True, blank=True)
-    skyid = models.CharField(max_length=35, null=True, blank=True)
 
     TOOL_CHOICES = (
         ('USA', 'USA'),
@@ -111,7 +110,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     gender = models.CharField(max_length=10, choices=GEN_CHOICES, null=True, blank=True)
     cur_residence = models.CharField(max_length=50, null=True, blank=True)
     birth = models.CharField(max_length=30, null=True, blank=True)
-    degree = models.CharField(max_length=100, null=True, blank=True)
+    graduate = models.NullBooleanField(default=False,null=True,blank=True)
+    estimate_graduate = models.DateField(null=True,blank=True)
+    university = models.CharField(max_length=100, null=True, blank=True)
+    major = models.CharField(max_length=100, null=True, blank=True)
     start_date = models.CharField(max_length=50, null=True, blank=True)
 
     CLAS_CHOICES = (
@@ -122,7 +124,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     prefer_class = models.CharField(max_length=15, choices=CLAS_CHOICES, default='A')
 
     resume = models.FileField(null=True, blank=True)
-    letter = models.FileField(null=True, blank=True)
 
     agency_name = models.CharField(max_length=30, null=True, blank=True)
     introduction = models.TextField(null=True, blank=True)

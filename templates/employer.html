@@ -174,10 +174,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 					<li>
 				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
 				 					</li>
+                                    <li>
+				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card"></i>Applicants list</a>
+				 					</li>
 				 				<!--	<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
 				 					</li>-->
-                                    <li><a href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
+                                    <li><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square"></i>Post a new Job</a></li>
 				 				</ul>
 				 			</div>
 				 		</div>
@@ -189,10 +192,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 			<h3>Profile Photo</h3>
                                     <p>Thumbnail</p>
                                     <div class="upload-img-bar">
+                                        {% if user_name.user_pic1 %}
+                                        <span class="round"><img id="image_section" src="{{ user_name.user_pic1.url }}" alt="" /></span>
+                                        {% else %}
                                         <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
+                                        {% endif %}
                                         <div class="upload-info">
+                                            {% if user_name.user_pic1 %}
+                                            <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
+                                            <label id="user_pic1-clear_label" for="user_pic1-clear_id">Clear</label>
                                             <label class="id_user_pic1" for="id_user_pic1">Browse</label>
-                                            <input type="file" name="user_pic1" required id="id_user_pic1" title="">
+                                            <input type="file" name="user_pic1" id="id_user_pic1" title="">
+                                            <a target="_blank" href="{{ user_name.user_pic1.url }}">{{ user_name.user_pic1 }}</a>
+                                            {% else %}
+                                            <label class="id_user_pic1" for="id_user_pic1">Browse</label>
+                                            <input type="file" name="user_pic1" id="id_user_pic1" title="">
+                                            {% endif %}
                                             <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                         </div>
                                     </div>
@@ -337,7 +352,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 $("#id_user_pic1").change(function(){
 
-    if ($('#id_user_pic1').val() != "") {
             var fileSize = document.getElementById("id_user_pic1").files[0].size;
             var maxSize = 3 * 1024 * 1024;//2MB
 
@@ -349,7 +363,7 @@ $("#id_user_pic1").change(function(){
             else{
                 readURL(this);
             }
-        }
+
 });
 
 
@@ -357,12 +371,12 @@ $("#id_user_pic1").change(function(){
     var detail = doc.getElementById('update');
 
     var func = function () {
-        var userimage1 = doc.getElementById('id_user_pic1').value;
+        var userimage1 = doc.getElementById('image_section').src;
         var userfirst = doc.getElementById('id_first_name').value;
         var userlast = doc.getElementById('id_last_name').value;
         //1. 입력이 다 됐나 확인
 
-        if(!userimage1){
+        if(userimage1=="http://placehold.it/140x140"){
             alert('Put your first profile image');
             doc.getElementById('id_profile_image1').focus();
             return;

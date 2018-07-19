@@ -172,10 +172,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 							<li><a href="#sn" title="">Introduction</a></li>
 				 						</ul>
 				 					</li>
-				 					<li class="inner-child active ">
+				 					<li>
 				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
 				 					</li>
-                                    <li>
+                                    <li class="inner-child active ">
 				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card"></i>Applicants list</a>
 				 					</li>
 				 				<!--	<li class="inner-child">
@@ -189,41 +189,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>Jobs Overview</h3>
-						 		<table>
-						 			<thead>
-						 				<tr>
-						 					<td>Job</td>
-						 					<td>Location</td>
-						 					<td>Date</td>
-						 					<td></td>
-						 				</tr>
-						 			</thead>
-						 			<tbody>
-                                    {% for jobss in Jobs %}
-						 				<tr>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<i>{{ jobss.school_name }}</i>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<h3>{{ jobss.location }}</h3>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<span>{{ jobss.created_date }}</span><br />
-						 					</td>
-						 					<td>
-						 						<ul class="action_job">
-						 							<li><a href="{% url 'Job:detail' jobss.pk %}" title="">View details</a></li>
-						 						</ul>
-						 					</td>
-						 				</tr>
-                                    {% endfor %}
-						 			</tbody>
-						 		</table>
+					 			<div class="border-title"><h3>Applicant lists</h3></div>
+                                {% for appli in applicant %}
+						 		<div class="job-listing wtabs" onclick="location.href='{% url 'Job:applicant_detail' user.slug appli.pk %}'">
+									<div class="applicant-title-sec">
+										<div class="b-logo"> <img src={{ appli.profile_image1.url }} alt="" /> </div>
+										<h3><a href="#" title="">{{ appli.first_name }}  {{ appli.last_name }}</a></h3>
+										<span>{{ appli.country }}</span>
+                                        <p>{{ appli.degree }}</p>
+										<div class="job-lctn">{{ appli.created_date }}</div>
+									</div>
+								</div><!-- Job -->
+                                {% endfor %}
 					 		</div>
 					 	</div>
 					</div>
