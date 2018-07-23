@@ -117,7 +117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
@@ -179,12 +179,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
 				 					</li>
                                     <li>
-				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card"></i>Applicants list</a>
+				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card" id="address-card"></i>Applicants list</a>
 				 					</li>
 				 				<!--	<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
 				 					</li>-->
-                                    <li><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square"></i>Post a new Job</a></li>
+                                    <li><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square" id="plus-square"></i>Post a new Job</a></li>
 				 				</ul>
 				 			</div>
 				 		</div>
@@ -224,9 +224,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="pf-title">Agency Name</span>
 					 						<div class="pf-field">
                                                 {% if user_name.agency_name %}
-                                                <input type="text" name="first_name" maxlength="20" value="{{ user_name.agency_name }}" required="" id="id_first_name">
+                                                <input type="text" name="agency_name" maxlength="20" value="{{ user_name.agency_name }}" required="" id="id_agency_name">
                                                 {% else %}
-                                                <input type="text" name="first_name" maxlength="20" required="" id="id_first_name">
+                                                <input type="text" name="agency_name" maxlength="20" required="" id="id_agency_name">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -234,9 +234,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="pf-title">City / Location Name</span>
 					 						<div class="pf-field">
                                                 {% if user_name.cur_residence %}
-                                                <input type="text" name="last_name" maxlength="10" value="{{ user_name.cur_residence }}" required="" id="id_last_name">
+                                                <input type="text" name="cur_residence" maxlength="10" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
                                                 {% else %}
-                                                <input type="text" name="last_name" maxlength="10" required="" id="id_last_name">
+                                                <input type="text" name="cur_residence" maxlength="10" required="" id="id_cur_residence">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -321,8 +321,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/strangekorea/" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/teaching_holiday/" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

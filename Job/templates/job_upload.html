@@ -108,10 +108,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
                                 <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
@@ -218,12 +218,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
 				 					</li>
                                     <li>
-				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card"></i>Applicants list</a>
+				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card" id="address-card"></i>Applicants list</a>
 				 					</li>
 				 				<!--	<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
 				 					</li>-->
-                                    <li class="inner-child active"><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square"></i> Post a new Job</a></li>
+                                    <li class="inner-child active"><a href="{% url 'Job:upload' %}"><i class="far fa-plus-square" id="plus-square"></i> Post a new Job</a></li>
 				 				</ul>
 				 			</div>
 				 		</div>
@@ -239,13 +239,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <div class="col-lg-12">
                                                     <span class="pf-title">Job title</span>
                                                     <div class="pf-field">
-                                                       <input type="text" name="job_title" placeholder="Kindergarten ESL Teacher Wanted in Gangnam, Seoul!" required="" id="id_job_title">
+                                                       <input type="text" name="job_title" placeholder="Ex.   Kindergarten ESL Teacher Wanted in Gangnam, Seoul!" required="" id="id_job_title">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <span class="pf-title">Summary</span>
                                                     <div class="pf-field">
-                                                        <input type="text" name="summary" placeholder="Joe's English Institute / Reputable private school located in Gangnam, Seoul with a family-like work environment, currently hiring 3 teachers for the March 1st intake." required="" id="id_summary">
+                                                        <input type="text" name="summary" placeholder="Ex.    Joe's English Institute / Reputable private school located in Gangnam, Seoul with a family-like work environment, currently hiring 3 teachers for the March 1st intake." required="" id="id_summary">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -305,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Minimum Salary</span>
                                                     <div class="pf-field">
-                                                        <input type="number" name="min_salary" step="any" min="0" required="" id="id_min_salary"><p id="id_min_salary_scale">M</p>
+                                                        <input type="number" name="min_salary" step="any" min="0" required="" id="id_min_salary"><p id="id_min_salary_scale">M KRW</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -321,7 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <span class="pf-title">House Allowance</span>
+                                                    <span class="pf-title">Housing Allowance</span>
                                                     <div class="pf-field">
                                                       <input type="checkbox" name="allowance" id="id_allowance"><label for="id_allowance"></label>
                                                     </div>
@@ -518,12 +518,6 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <p id="description_review"></p>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <span class="pf-title">Qualification</span>
-                                                    <div class="pf-field">
-                                                        <p id="qualification_review"></p>
-                                                    </div>
-                                                </div>
 
                                                 <div class="col-lg-6">
                                                     <h3>House Picture 1</h3>
@@ -588,7 +582,6 @@ Teachers are fully trained before they officially start teaching and are equippe
 			</div>
 		</div>
 	</section>
-
 	<footer>
 		<div class="block block-foot">
 			<div class="container">
@@ -626,8 +619,8 @@ Teachers are fully trained before they officially start teaching and are equippe
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/strangekorea/" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/teaching_holiday/" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
@@ -753,13 +746,23 @@ $('#apply-basic-back').click(function () {
 
 $('#apply-review-front').click(function () {
     if($(".post-job-review").css("display") == "none"){
+
+        var image_section = doc.getElementById('image_section').src;
+
+        if(image_section=="http://placehold.it/140x140"){
+            alert('Put your first image');
+            doc.getElementById('image_section').focus();
+            return;
+            //다시 원상태로 돌아가는것.
+        }
+
+
         $('.post-job-review').css("display", "block");
         $('.post-job-review-').css("display", "block");
         $('.post-job-detail').css("display", "none");
         $('.post-job-detail-').css("display", "none");
 
         $('#description_review').text($("#id_description").val());
-        $('#qualification_review').text($("#id_qualification").val());
 
     } else {
         $('.post-job-review').css("display", "none");
@@ -784,11 +787,75 @@ $('#apply-detail-back').click(function () {
     var func = function () {
 
         if($(".post-job-detail").css("display") == "none"){
-        $('.post-job-detail').css("display", "block");
-        $('.post-job-detail-').css("display", "block");
-        $('.post-new-job').css("display", "none");
 
-        var a = "";
+            var title = doc.getElementById('id_job_title').value;
+            var summary = doc.getElementById('id_summary').value;
+            var schoolname = doc.getElementById('id_school_name').value;
+            var date = doc.getElementById('id_start_date').value;
+            var size = doc.getElementById('id_class_size').value;
+            var location = doc.getElementById('id_location').value;
+            var flight = doc.getElementById('id_flight_support').value;
+            var contract = doc.getElementById('id_contract_period').value;
+            var day_hour = doc.getElementById('id_day_hour').value;
+            var min_s = doc.getElementById('id_min_salary').value;
+            var max_s = doc.getElementById('id_max_salary').value;
+
+            if(!title){
+                alert('Put your job title');
+                doc.getElementById('id_job_title').focus();
+                return;
+            }
+            if(!summary){
+                alert('Put your summary');
+                doc.getElementById('id_summary').focus();
+                return;
+            }
+            if(!schoolname){
+                alert('Put your school name');
+                doc.getElementById('id_school_name').focus();
+                return;
+            }
+            if(!date){
+                alert('Put your start date');
+                doc.getElementById('id_start_date').focus();
+                return;
+            }
+            if(!size){
+                alert('Put your class size');
+                doc.getElementById('id_class_size').focus();
+                return;
+            }
+            if(!location){
+                alert('Put your location of school');
+                doc.getElementById('id_location').focus();
+                return;
+            }
+            if(!flight){
+                alert('Put your flight support');
+                doc.getElementById('id_flight_support').focus();
+                return;
+            }
+            if(!contract){
+                alert('Put your contract period');
+                doc.getElementById('id_contract_period').focus();
+                return;
+            }
+            if(!day_hour){
+                alert('Put your working day and hour');
+                doc.getElementById('id_day_hour').focus();
+                return;
+            }
+            if(!min_s){
+                alert('Put your minimum salary');
+                doc.getElementById('id_min_salary').focus();
+                return;
+            }
+            if(!max_s){
+                alert('Put your max salary');
+                doc.getElementById('id_max_salary').focus();
+                return;
+            }
+                    var a = "";
         var age0_checkbox = doc.getElementById('id_age_level_0');
         var age1_checkbox = doc.getElementById('id_age_level_1');
         var age2_checkbox = doc.getElementById('id_age_level_2');
@@ -814,21 +881,53 @@ $('#apply-detail-back').click(function () {
                  a = a + ", " + $("#id_age_level_2").val();
              }
          }
+         if(a==""){
+             alert('Put your prefered age group');
+             doc.getElementById('id_age_level_0').focus();
+             return;
+         }
 
-        $('#title_review').text($("#id_school_name").val());
+        $('.post-job-detail').css("display", "block");
+        $('.post-job-detail-').css("display", "block");
+        $('.post-new-job').css("display", "none");
+
+
+
+        $('#title_review').text($("#id_job_title").val());
         $('#summary_review').text($("#id_summary").val());
         $('#date_review').text($("#id_start_date").val());
         $('#age_review').text(a);
         $('#location_review').text($("#id_location").val());
-        $('#contract_review').text($("#id_contract_period").val());
+        $('#contract_review').text($("#id_contract_period").val() + "Month +");
         $('#working_review').text($("#id_day_hour").val());
-        $('#min_review').text($("#id_min_salary").val());
-        $('#max_review').text($("#id_max_salary").val());
+        $('#min_review').text($("#id_min_salary").val() + "M");
+        $('#max_review').text($("#id_max_salary").val() + "M");
         $('#flight_review').text($("#id_flight_support").val());
-        $('#house_review').text($("#id_house").val());
-        $('#severance_review').text($("#id_severance_payment").val());
-        $('#health_review').text($("#id_health_insurance").val());
-        $('#pension_review').text($("#id_national_pension").val());
+
+        if($("#id_house").is(":checked")){
+            $('#house_review').text("Yes");
+        }
+        else{
+            $('#house_review').text("No");
+        }
+        if($("#id_severance_payment").is(":checked")){
+            $('#severance_review').text("Yes");
+        }
+        else{
+            $('#severance_review').text("No");
+        }
+        if($("#id_health_insurance").is(":checked")){
+            $('#health_review').text("Yes");
+        }
+        else{
+            $('#health_review').text("No");
+        }
+        if($("#id_national_pension").is(":checked")){
+            $('#pension_review').text("Yes");
+        }
+        else{
+            $('#pension_review').text("No");
+        }
 
         doc.getElementById('post-job-detail').focus();
 

@@ -112,10 +112,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
                                 <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
@@ -181,11 +181,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							 			</div><!-- Job Head -->
 				 					</div>
 				 					<div class="col-lg-4">
+                                     {% if user.is_active %}
                                         {% if already %}
                                             <p id="apply-already">You already apply this job</p>
                                             {% else %}
                                             <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
                                         {% endif %}
+                                    {% endif %}
 				 					</div>
 				 				</div>
 				 			</div>
@@ -195,101 +197,135 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							 			<div class="job-details">
 
                                             <div class="job-detail">
-                                                <div class="job-detail-left">
-                                                    <h3>School Name</h3>
-                                                    <p>{{ Jobs.school_name }}</p>
-
-                                                    <h3>Starting Date</h3>
-                                                    <p>{{ Jobs.start_date }}</p>
-
-                                                    <h3>Working days and hours</h3>
-                                                    <p>{{ Jobs.day_hour }}</p>
-
-                                                    <h3>Contract Period</h3>
-                                                    <p>{{ Jobs.contract_period }} Month +</p>
-
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 col-xl-6"> <h3>School Name</h3></div>
+                                                    <div class="col-lg-6 col-xl-6"> <h3>Class Size</h3></div>
                                                 </div>
-                                                <div class="job-detail-right">
-                                                    <h3>Class Size</h3>
-                                                    <p>{{ Jobs.class_size }}</p>
 
-                                                    <h3>Location</h3>
-                                                    <p>{{ Jobs.location }}</p>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"> <p>{{ Jobs.school_name }}</p></div>
+                                                    <div class="col-lg-6"> <p>{{ Jobs.class_size }}</p></div>
+                                                </div>
 
-                                                    <h3>Salary</h3>
-                                                    <p>{{ Jobs.min_salary }}M ~ {{ Jobs.max_salary }}M KRW</p>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"> <h3>Starting Date</h3></div>
+                                                    <div class="col-lg-6"> <h3>Location</h3></div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"> <p>{{ Jobs.start_date }}</p></div>
+                                                    <div class="col-lg-6"> <p>{{ Jobs.location }}</p></div>
+                                                </div>
 
-                                                    <h3>Age Level</h3>
-                                                    {% if Jobs.age_level|length == 30 %}
-                                                        <p>{{ Jobs.age_level | slice:"2:28" | cut:"'"}}</p>
-                                                    {% elif Jobs.age_level|length == 16 %}
-                                                        <p>{{ Jobs.age_level | slice:"2:14" | cut:"'"}}</p>
-                                                    {% elif Jobs.age_level|length == 40 %}
-                                                        <p>{{ Jobs.age_level | slice:"2:38" | cut:"'"}}</p>
-                                                    {% elif Jobs.age_level|length == 24 %}
-                                                        <p>{{ Jobs.age_level | slice:"2:22" | cut:"'"}}</p>
-                                                    {% elif Jobs.age_level|length == 25 %}
-                                                        <p>{{ Jobs.age_level | slice:"2:33" | cut:"'"}}</p>
-                                                    {% elif Jobs.age_level|length == 14 %}
-							                            <p>{{ Jobs.age_level | slice:"2:12" | cut:"'"}}</p>
-              					                    {% elif Jobs.age_level|length == 10 %}
-                                                        <p>{{ Jobs.age_level | slice:"2:8" | cut:"'"}}</p>
-						                            {% else %}
-							                            <p>{{ Jobs.age_level | length }}</p>
-                                                    {% endif %}
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"> <h3>Working days and hours</h3></div>
+                                                    <div class="col-lg-6"> <h3>Salary</h3></div>
+                                                </div>
 
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"> <p>{{ Jobs.day_hour }}</p></div>
+                                                    <div class="col-lg-6"> <p>{{ Jobs.min_salary }}M ~ {{ Jobs.max_salary }}M KRW</p></div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"> <h3>Contract Period</h3></div>
+                                                    <div class="col-lg-6"> <h3>Age Level</h3></div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"><p>{{ Jobs.contract_period }} Month +</p></div>
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.age_level|length == 30 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:28" | cut:"'"}}</p>
+                                                        {% elif Jobs.age_level|length == 16 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:14" | cut:"'"}}</p>
+                                                        {% elif Jobs.age_level|length == 40 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:38" | cut:"'"}}</p>
+                                                        {% elif Jobs.age_level|length == 24 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:22" | cut:"'"}}</p>
+                                                        {% elif Jobs.age_level|length == 25 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:33" | cut:"'"}}</p>
+                                                        {% elif Jobs.age_level|length == 14 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:12" | cut:"'"}}</p>
+                                                        {% elif Jobs.age_level|length == 10 %}
+                                                            <p>{{ Jobs.age_level | slice:"2:8" | cut:"'"}}</p>
+                                                        {% else %}
+                                                            <p>{{ Jobs.age_level | length }}</p>
+                                                        {% endif %}
+                                                    </div>
                                                 </div>
                                             </div>
 							 			</div>
                                         <div class="col-lg-12 column des_detail">
                                             <div class="job-single-info3">
                                                 <h3 class="des_detail_div">Additonal Benefit</h3>
-                                                <div class="job-detail-left">
-                                                    <h3>Housing</h3>
-                                                    {% if Jobs.house %}
-                                                    <p>Yes</p>
-                                                    {% else %}
-                                                    <p>No</p>
-                                                    {% endif %}
-                                                    <h3>Health Insurance</h3>
-                                                    {% if Jobs.health_insurance %}
-                                                    <p>Yes</p>
-                                                    {% else %}
-                                                    <p>No</p>
-                                                    {% endif %}
-                                                    <h3>Severance Payment</h3>
-                                                    {% if Jobs.severance_payment %}
-                                                    <p>Yes</p>
-                                                    {% else %}
-                                                    <p>No</p>
-                                                    {% endif %}
+
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"><h3>Housing</h3></div>
+                                                    <div class="col-lg-6"><h3>Housing Allowance</h3></div>
                                                 </div>
-                                                <div class="job-detail-right">
-                                                    <h3>Housing Allowance</h3>
-                                                    {% if Jobs.allowance %}
-                                                    <p>Yes</p>
-                                                    {% else %}
-                                                    <p>No</p>
-                                                    {% endif %}
 
-                                                    <h3>Flight Support</h3>
-                                                    {% if Jobs.flight_support|length == 4 %}
-                                                        <p>{{ Jobs.flight_support | slice:"0:4"}}</p>
-                                                    {% elif Jobs.flight_support|length == 7 %}
-                                                        <p>{{ Jobs.flight_support | slice:"0:7"}}</p>
-                                                    {% elif Jobs.flight_support|length == 10 %}
-                                                        <p>{{ Jobs.flight_support | slice:"0:10"}}</p>
-                                                    {% else %}
-                                                        <p>{{ Jobs.flight_support | length }}</p>
-                                                    {% endif %}
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.house %}
+                                                        <p>Yes</p>
+                                                        {% else %}
+                                                        <p>No</p>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.allowance %}
+                                                        <p>Yes</p>
+                                                        {% else %}
+                                                        <p>No</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
 
-                                                    <h3>National Pension </h3>
-                                                    {% if Jobs.national_pension %}
-                                                    <p>Yes</p>
-                                                    {% else %}
-                                                    <p>No</p>
-                                                    {% endif %}
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"><h3>Health Insurance</h3></div>
+                                                    <div class="col-lg-6"><h3>Flight Support</h3></div>
+                                                </div>
 
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.health_insurance %}
+                                                        <p>Yes</p>
+                                                        {% else %}
+                                                        <p>No</p>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.flight_support|length == 4 %}
+                                                            <p>{{ Jobs.flight_support | slice:"0:4"}}</p>
+                                                        {% elif Jobs.flight_support|length == 7 %}
+                                                            <p>{{ Jobs.flight_support | slice:"0:7"}}</p>
+                                                        {% elif Jobs.flight_support|length == 10 %}
+                                                            <p>{{ Jobs.flight_support | slice:"0:10"}}</p>
+                                                        {% else %}
+                                                            <p>{{ Jobs.flight_support | length }}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6"><h3>Severance Payment</h3></div>
+                                                    <div class="col-lg-6"><h3>National Pension </h3></div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.severance_payment %}
+                                                        <p>Yes</p>
+                                                        {% else %}
+                                                        <p>No</p>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {% if Jobs.national_pension %}
+                                                        <p>Yes</p>
+                                                        {% else %}
+                                                        <p>No</p>
+                                                        {% endif %}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -370,8 +406,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/strangekorea/" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/teaching_holiday/" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

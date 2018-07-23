@@ -118,7 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
@@ -159,9 +159,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 	</section>
-
 	<section>
-		<div class="block no-padding">
+        <div class="block no-padding">
 			<div class="container">
 				 <div class="row no-gape">
 				 	<aside class="col-lg-3 column border-right">
@@ -307,9 +306,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												</select>
                                                 {% else %}
 					 							<select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
-													<option>Default</option>
-													<option value="Male">Male</option>
 													<option value="Female">Female</option>
+													<option value="Male">Male</option>
 												</select>
                                                 {% endif %}
 					 						</div>
@@ -322,12 +320,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 {% else %}
                                                 <input type="text" name="birth" maxlength="50" required="" id="id_birth">
                                                 {% endif %}
-                                            </div>
-					 					</div>
-                                        <div class="col-lg-6">
-					 						<span class="pf-title">Earliest available date</span>
-					 						<div class="pf-field">
-                                                <input type="text" name="start_date" maxlength="50" required="" id="id_start_date">
                                             </div>
 					 					</div>
 					 				</div>
@@ -345,7 +337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <label id="resume-clear_label" for="resume-clear_id">Clear</label>
                                                 <label class="id_resume" for="id_resume">Browse</label>
                                                 <input type="file" name="resume" id="id_resume">
-                                                <a href="{{ user_name.resume.url }}">{{ user_name.resume }}</a>
+                                                <a id="resume" class="resume-mypage">{{ user_name.resume }}</a>
                                                 {% else %}
                                                 <label class="id_resume" for="id_resume">Browse</label>
                                                 <input type="file" name="resume" id="id_resume">
@@ -384,9 +376,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="pf-title">Graduate</span>
 					 						<div class="pf-field" style="margin-bottom: 47px">
                                                 {% if user_name.graduate %}
-                                                <input type="checkbox" name="graduate" required="" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
                                                 {% else %}
-                                                <input type="checkbox" name="graduate"  required="" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -394,9 +386,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="pf-title">Estimate Graduate</span>
 					 						<div class="pf-field">
                                                 {% if user_name.estimate_graduate %}
-                                                <input type="date" name="estimate_graduate" value="{{ user_name.estimate_graduate }}" required="" id="id_estimate_graduate">
+                                                <input type="date" name="estimate_graduate" value="{{ user_name.estimate_graduate | date:"Y-m-d" }}" id="id_estimate_graduate">
                                                 {% else %}
-                                                <input type="date" name="estimate_graduate" required="" id="id_estimate_graduate">
+                                                <input type="date" name="estimate_graduate" id="id_estimate_graduate">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -451,8 +443,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/strangekorea/" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/teaching_holiday/" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
@@ -552,8 +544,6 @@ $("#id_resume").change(function () {
      }
 })
 
-
-
         var doc = document;
     var detail = doc.getElementById('update');
 
@@ -566,7 +556,6 @@ $("#id_resume").change(function () {
         var usergender = doc.getElementById('id_gender').value;
         var userresidence = doc.getElementById('id_cur_residence').value;
         var userbirth = doc.getElementById('id_birth').value;
-        var userstart = doc.getElementById('id_start_date').value;
         var university = doc.getElementById('id_university').value;
         var major = doc.getElementById('id_major').value;
 
@@ -613,12 +602,6 @@ $("#id_resume").change(function () {
             doc.getElementById('id_birth').focus();
             return;
         }
-        if(!userstart){
-            alert('Put your earliest available date');
-            doc.getElementById('id_start_date').focus();
-            return;
-        }
-
         if(!university){
             alert('Put your university');
             doc.getElementById('id_university').focus();
@@ -644,6 +627,17 @@ $("#id_resume").change(function () {
     }
 
     detail.addEventListener('click',func);
+
+
+    $(document).ready(function(){
+    $("#id_graduate").change(function(event){
+        if($("#id_graduate").is(":checked")){
+            $("#estimate_graduate_div").css('display','none');
+        }else{
+            $("#estimate_graduate_div").css('display','block');
+        }
+    });
+    });
 
 </script>
 

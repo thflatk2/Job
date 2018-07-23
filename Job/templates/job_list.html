@@ -120,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
@@ -199,13 +199,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </div>
                                     <div class="emply-list-info">
                                       <!--  <div class="emply-pstn"><a class="list_detail detail{{ job.pk }}" href="{% url 'Job:detail' job.pk %}">Details</a></div>-->
-                                        <h3><a href="#" title="">{{ job.school_name }}</a></h3>
-                                        <p>The Heavy Equipment / Grader Operator  is responsible for operating one or several types construction equipment, such as front end loader, roller, bulldozer, or excavator to move,…</p>
+                                        <h3><a href="#" title="">{{ job.job_title }}</a></h3>
+                                        <p>{{ job.summary }}</p>
                                         <span>
                                             <div class="job-date"><i class="far fa-calendar-alt list-icon first-icon"></i><o id="job-date">{{ job.start_date }} </o></div>
                                             <div class="job-contract"><i class="fas fa-briefcase list-icon not-first-icon"></i><o id="job-contract">{{ job.contract_period }} Month +</o></div>
                                             <div class="job-salary"><i class="fas fa-money-bill-alt list-icon third-first-icon"></i><o id="job-salary">{{ job.min_salary }}M ~ {{ job.max_salary }}M KRW</o></div>
-                                            <div class="job-icon-location"><i class="fas fa-location-arrow list-icon not-first-icon"></i><o id="job-location">{{ job.location}}</o></div>
+                                            <div class="job-icon-location"><i class="fas fa-location-arrow list-icon not-first-icon last-icon"></i><o id="job-location">{{ job.location}}</o></div>
                                         </span>
 
                                     </div>
@@ -270,8 +270,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/strangekorea/" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/teaching_holiday/" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>

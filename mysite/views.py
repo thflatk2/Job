@@ -35,7 +35,7 @@ class EmployerUpdateView(UpdateView):
 
 class UserUpdateView(UpdateView):
     model = User
-    fields = ['user_pic1', 'user_pic2', 'first_name', 'last_name', 'country', 'gender', 'cur_residence', 'birth', 'graduate', 'estimate_graduate', 'university', 'major', 'start_date', 'resume']
+    fields = ['user_pic1', 'user_pic2', 'first_name', 'last_name', 'country', 'gender', 'cur_residence', 'birth', 'graduate', 'estimate_graduate', 'university', 'major', 'resume']
     template_name = "mypage.html"
     success_url = reverse_lazy('home')
 

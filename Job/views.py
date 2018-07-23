@@ -158,7 +158,7 @@ class JobListView(TemplateView):
             return render(request, 'job_list.html', {'Jobs': Jobs})
 
 
-class JobDetailView(TemplateView):
+class JobDetailView(LoginRequiredMixin, TemplateView):
     template_name = 'job_detail.html'
 
     def get_context_data(self, **kwargs):

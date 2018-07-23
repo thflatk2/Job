@@ -116,7 +116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">Log out</a></li>
+                                <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
                             {% endif %}
 		                {% else %}
                             <li class="signup-popup"><a title="" href="{% url 'login_url' %}">Sign In</a></li>
@@ -144,6 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</header>
 
 	<section>
+    {{ form.as_p }}
 		<div class="block no-padding">
 			<div class="container">
 				 <div class="row no-gape">
@@ -414,19 +415,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="ap-title">Graduate</span>
 					 						<div class="pf-field" id="graduate_field" style="margin-bottom: 47px">
                                                 {% if user_name.graduate %}
-                                                <input type="checkbox" name="graduate" required="" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
                                                 {% else %}
-                                                <input type="checkbox" name="graduate"  required="" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div id="estimate_graduate_div" class="col-lg-6">
-					 						<span class="ap-title">Estimate Graduate</span>
+					 						<span class="ap-title">Estimate Graduate Date</span>
 					 						<div class="pf-field">
                                                 {% if user_name.estimate_graduate %}
-                                                <input type="date" name="estimate_graduate" value="{{ user_name.estimate_graduate }}" required="" id="id_estimate_graduate">
+                                                <input type="text" name="estimate_graduate" value="{{ user_name.estimate_graduate }}" id="id_estimate_graduate">
                                                 {% else %}
-                                                <input type="date" name="estimate_graduate" required="" id="id_estimate_graduate">
+                                                <input type="date" name="estimate_graduate" id="id_estimate_graduate">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -595,7 +596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						</div>
 					 					</div>
                                         <div class="col-lg-3">
-					 						<span class="ap-title-review">Estimate Graduate</span>
+					 						<span class="ap-title-review">Estimate Graduate Date</span>
 					 						<div class="pf-field">
                                                 <p id="estimate_graduate_review"></p>
                                             </div>
@@ -683,8 +684,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="bottom-line">
             <div class="social">
-                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/strangekorea/" title=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/teaching_holiday/" title=""><i class="fab fa-instagram"></i></a>
             </div>
 			<span>© 2018 Loka101 All rights reserved.</span>
 			<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
@@ -715,7 +716,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         }
         else{
-            doc.getElementById("user_pic1-clear_a").style.display = "none";
+            if(doc.getElementById("user_pic1-clear_a")){
+                doc.getElementById("user_pic1-clear_a").style.display = "none";
+            }
         }
 
         reader.onload = function (e) {
@@ -747,8 +750,10 @@ $("#id_profile_image1").change(function(){
 
         if(doc.getElementById('image_section2').src=="http://placehold.it/140x140"){
         }
-        else{
-            doc.getElementById("user_pic2-clear_a").style.display = "none";
+        else {
+            if (doc.getElementById("user_pic2-clear_a")){
+                doc.getElementById("user_pic2-clear_a").style.display = "none";
+            }
         }
         reader.onload = function (e) {
             $('#image_section2').attr('src', e.target.result);
@@ -793,7 +798,7 @@ $('#apply-review-front').click(function () {
         var university = doc.getElementById('id_university').value;
         var major = doc.getElementById('id_major').value;
 
-        if(!resume){
+        if(!resume && !doc.getElementById("resume-clear_id")){
             alert('Put your resume');
             doc.getElementById('id_resume').focus();
             return;

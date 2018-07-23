@@ -1318,10 +1318,19 @@ select {
     float: left;
     width: 100%;
     text-align: center;
-        border: 2px solid #ffcece;
+        border: 2px solid #55acff;
     margin-bottom: 15px;
     margin-top: 10px;
     padding: 20px 20px;
+}
+
+#apply-already{
+        width: 100%;
+    padding: 10px 4px;
+    margin-bottom: 15px;
+    top: unset;
+    position: unset;
+    font-size: 16px;
 }
 
 .overlape{
@@ -1330,8 +1339,7 @@ select {
 .emply-list-thumb {
     float: left;
     display: inline-block;
-    top: 25px;
-    left: 10px;
+    top: 83px;
     position: relative;
 }
 .emply-list-info {
@@ -1345,16 +1353,20 @@ select {
 
 .emply-list-info > h3{
     position: relative;
-    top: -90px;
+    top: -110px;
     text-align: left;
     left: 15px;
+    -webkit-line-clamp: 1;
 }
 
+.last-icon{
+    float: left;
+}
 .emply-list-info > span{
     width: 60%;
     position: relative;
-    top: -95px;
-    left: 110px;
+    top: -105px;
+    left: 120px;
 }
 
 .first-icon{
@@ -1379,6 +1391,7 @@ select {
 }
 
 .not-first-icon{
+    float: left;
     margin-top: 7px;
 }
 
@@ -1388,7 +1401,7 @@ select {
 }
 
 #job-contract{
-    margin-right: 55px;
+    top: 5px;
 }
 
 #job-salary{
@@ -1397,7 +1410,7 @@ select {
 }
 
 #job-location{
-    margin-right: 97px;
+    top: 5px;
     float: unset;
 }
 
@@ -1450,9 +1463,10 @@ select {
 }
 
 .emply-list-info > p{
-    top: -95px;
+    top: -110px;
     position: relative;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
+    height: 48px;
 }
 .emply-list.box .emply-pstn {
     position: static;
