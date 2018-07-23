@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Account',
     'Job',
+    'el_pagination',
 ]
 
 #AUTHENTICATION_BACKENDS = ('Account.backends.OpencartBackend',)

@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from Account.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -242,7 +242,7 @@ class UserHistoryView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserHistoryView, self).get_context_data(**kwargs)
-        context['Jobs'] = Job_Apply.objects.filter(user=self.request.user)
+        context['Jobs'] = Job_Apply.objects.filter(user=self.request.user).order_by('-created_date')
         context['Job_all'] = Job_info.objects.all()
 
         return context
@@ -255,6 +255,7 @@ class JobOverView(TemplateView):
         context = super(JobOverView, self).get_context_data(**kwargs)
         context['Jobs'] = Job_info.objects.filter(user=self.request.user.email)
         context['Job_all'] = Job_info.objects.all()
+        context['user_name'] = User.objects.get(name=self.request.user.name)
 
         return context
 
@@ -277,3 +278,46 @@ class ApplicantDetailView(TemplateView):
         context['applicant'] = Job_Apply.objects.get(pk=self.kwargs['pk'])
 
         return context
+
+
+class ApplicantUpdateView(UpdateView):
+    model = Job_Apply
+    fields = ['profile_image1', 'profile_image2', 'last_name','first_name', 'email', 'country', 'gender', 'cur_residence', 'birth', 'graduate', 'estimate_graduate', 'university', 'major','start_date', 'prefer_class', 'resume']
+    template_name = 'job_update_apply.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super(ApplicantUpdateView, self).get_context_data(**kwargs)
+        context['applicant'] = Job_Apply.objects.get(pk=self.kwargs['pk'])
+        context['user_name'] = User.objects.get(name=self.request.user.name)
+
+        return context
+
+
+class JobUpdateView(UpdateView):
+    model = Job_info
+    fields = ['job_title', 'summary', 'school_name', 'class_size', 'start_date', 'age_level','location', 'contract_period', 'day_hour', 'min_salary', 'max_salary', 'flight_support', 'house', 'allowance','severance_payment', 'health_insurance', 'national_pension', 'description', 'house_pic1', 'house_pic2', 'house_pic3','house_pic4','house_pic5']
+    template_name = 'job_upload_update.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super(JobUpdateView, self).get_context_data(**kwargs)
+        context['Job'] = Job_info.objects.get(pk=self.kwargs['pk'])
+
+        return context
+
+
+class JobDeleteView(DeleteView):
+    model = Job_info
+    template_name = 'job_delete.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(JobDeleteView, self).get_context_data(**kwargs)
+        context['user_name'] = User.objects.get(name=self.request.user.name)
+
+        return context
+
+    def get_success_url(self):
+        if 'slug' in self.kwargs:
+            slug = self.kwargs['slug']
+        return reverse_lazy('Job:user_overview', kwargs={'slug': slug})

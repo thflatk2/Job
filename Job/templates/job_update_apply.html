@@ -52,10 +52,6 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<div class="page-loading">
-	<img src="images/loader.gif" alt="" />
-	<span>Skip Loader</span>
-</div>
 
 <div class="theme-layout" id="scrollup">
 
@@ -150,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="apply-title">
-                                <h3>Applying for <strong>{{ Jobs.school_name }}</strong></h3>
+                                <h3>Update Apply</h3>
 					 			<div class="steps-sec apply-basic">
 					 				<div class="step active">
 					 					<p><i class="la la-info"></i></p>
@@ -197,47 +193,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 			</div>
 					 		</div>
 
+
 					 		<div class="profile-form-edit">
 					 			<form method="post" enctype="multipart/form-data"> {% csrf_token %}
 					 				<div class="row apply-basic">
                                         <h3>Photo 1</h3>
                                         <div class="upload-img-bar">
-                                            {% if user_name.user_pic1 %}
-                                            <span class="round"><img id="image_section" src="{{ user_name.user_pic1.url }}" alt="" /></span>
+                                            {% if applicant.profile_image1 %}
+                                            <span class="round"><img id="image_section" src="{{ applicant.profile_image1.url }}" alt="" /></span>
                                             {% else %}
-                                            <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
+                                            <span class="round"><img id="image_section" src="{{ user_name.user_pic1.url }}" alt="" /></span>
                                             {% endif %}
                                             <div id="uploadinfo1" class="upload-info">
-                                                {% if user_name.user_pic1 %}
+                                                {% if applicant.profile_image1 %}
+                                                <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
+                                                <label id="user_pic1-clear_label" for="user_pic1-clear_id">Clear</label>
+                                                <label class="id_user_pic1" for="id_profile_image1">Browse</label>
+                                                <input type="file" name="profile_image1" id="id_profile_image1" title="">
+                                                <a id="user_pic1-clear_a" target="_blank" href="{{ applicant.profile_image1.url }}">{{ applicant.profile_image1 }}</a>
+                                                {% else %}
                                                 <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
                                                 <label id="user_pic1-clear_label" for="user_pic1-clear_id">Clear</label>
                                                 <label class="id_user_pic1" for="id_profile_image1">Browse</label>
                                                 <input type="file" name="profile_image1" id="id_profile_image1" title="">
                                                 <a id="user_pic1-clear_a" target="_blank" href="{{ user_name.user_pic1.url }}">{{ user_name.user_pic1 }}</a>
-                                                {% else %}
-                                                <label class="id_user_pic1" for="id_profile_image1">Browse</label>
-                                                <input type="file" name="profile_image1" id="id_profile_image1" title="">
                                                 {% endif %}
                                                 <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                             </div>
                                         </div>
                                         <h3>Photo 2</h3>
                                         <div class="upload-img-bar">
-                                            {% if user_name.user_pic2 %}
-                                            <span class="round"><img id="image_section2" src="{{ user_name.user_pic2.url }}" alt="" /></span>
+                                            {% if applicant.profile_image2 %}
+                                            <span class="round"><img id="image_section2" src="{{ applicant.profile_image2.url }}" alt="" /></span>
                                             {% else %}
-                                            <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
+                                            <span class="round"><img id="image_section2" src="{{ user_name.user_pic2.url }}" alt="" /></span>
                                             {% endif %}
                                             <div class="upload-info">
-                                               {% if user_name.user_pic2 %}
+                                            {% if applicant.profile_image2 %}
+                                                <input type="checkbox" name="user_pic2-clear" id="user_pic2-clear_id">
+                                                <label id="user_pic2-clear_label" for="user_pic2-clear_id">Clear</label>
+                                                <label class="id_user_pic2" for="id_profile_image2">Browse</label>
+                                                <input type="file" name="profile_image2" id="id_profile_image2" title="">
+                                                <a id="user_pic2-clear_a" target="_blank" href="{{ applicant.profile_image2.url }}">{{ applicant.profile_image2 }}</a>
+                                                {% else %}
                                                 <input type="checkbox" name="user_pic2-clear" id="user_pic2-clear_id">
                                                 <label id="user_pic2-clear_label" for="user_pic2-clear_id">Clear</label>
                                                 <label class="id_user_pic2" for="id_profile_image2">Browse</label>
                                                 <input type="file" name="profile_image2" id="id_profile_image2" title="">
                                                 <a id="user_pic2-clear_a" target="_blank" href="{{ user_name.user_pic2.url }}">{{ user_name.user_pic2 }}</a>
-                                                {% else %}
-                                                <label class="id_user_pic2" for="id_profile_image2">Browse</label>
-                                                <input type="file" name="profile_image2" id="id_profile_image2" title="">
                                                 {% endif %}
                                                 <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                             </div>
@@ -246,49 +249,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">First Name</span>
 					 						<div class="pf-field">
-                                                {% if user_name.first_name %}
-                                                <input type="text" name="first_name" maxlength="20" value="{{ user_name.first_name }}" required="" id="id_first_name">
+                                                {% if applicant.first_name %}
+                                                <input type="text" name="first_name" maxlength="20" value="{{ applicant.first_name }}" required="" id="id_first_name">
                                                 {% else %}
-                                                <input type="text" name="first_name" maxlength="20" required="" id="id_first_name">
+                                                <input type="text" name="first_name" maxlength="20" value="{{ user_name.first_name }}" required="" id="id_first_name">
                                                 {% endif %}
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">Last Name</span>
 					 						<div class="pf-field">
-                                                {% if user_name.last_name %}
-                                                <input type="text" name="last_name" maxlength="10" value="{{ user_name.last_name }}" required="" id="id_last_name">
+                                                {% if applicant.last_name %}
+                                                <input type="text" name="last_name" maxlength="10" value="{{ applicant.last_name }}" required="" id="id_last_name">
                                                 {% else %}
-                                                <input type="text" name="last_name" maxlength="10" required="" id="id_last_name">
+                                                <input type="text" name="last_name" maxlength="10" value="{{ user_name.last_name }}" required="" id="id_last_name">
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="ap-title">Email</span>
 					 						<div class="pf-field">
-                                                {% if user_name.email %}
-                                                <input type="text" name="email" maxlength="50" value="{{ user_name.email }}" required="" id="id_email">
+                                                {% if applicant.email %}
+                                                <input type="text" name="email" maxlength="50" value="{{ applicant.email }}" required="" id="id_email">
                                                 {% else %}
-                                                <input type="text" name="email" maxlength="50" required="" id="id_email">
+                                                <input type="text" name="email" maxlength="50" value="{{ user_name.email }}" required="" id="id_email">
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="ap-title">Date of birth</span>
 					 						<div class="pf-field">
-                                                {% if user_name.birth %}
-                                                <input type="text" name="birth" maxlength="50" value="{{ user_name.birth }}" required="" id="id_birth">
+                                                {% if applicant.birth %}
+                                                <input type="text" name="birth" maxlength="50" value="{{ applicant.birth }}" required="" id="id_birth">
                                                 {% else %}
-                                                <input type="text" name="birth" maxlength="50" required="" id="id_birth">
+                                                <input type="text" name="birth" maxlength="50" value="{{ user_name.birth }}" required="" id="id_birth">
                                                 {% endif %}
                                             </div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">Country of Citizenship</span>
 					 						<div class="pf-field">
-                                                {% if user_name.country %}
+                                                {% if applicant.country %}
                                                 <select name="country" required="" id="id_country" data-placeholder="Please Select Specialism" class="chosen">
-                                                    <option value="{{ user_name.country }}" selected="selected">{{ user_name.country }}</option>
+                                                    <option value="{{ applicant.country }}" selected="selected">{{ applicant.country }}</option>
                                                     <option value="USA">USA</option>
 													<option value="Canada">Canada</option>
 													<option value="UK">UK</option>
@@ -299,6 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 </select>
                                                 {%  else %}
 					 							<select name="country" required="" id="id_country" data-placeholder="Please Select Specialism" class="chosen">
+                                                    <option value="{{ user_name.country }}" selected="selected">{{ user_name.country }}</option>
                                                     <option value="USA">USA</option>
 													<option value="Canada">Canada</option>
 													<option value="UK">UK</option>
@@ -306,33 +310,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     <option value="South Africa">South Africa</option>
                                                     <option value="New Zealand">New Zealand</option>
                                                     <option value="Australia">Australia</option>
-												</select>
+                                                </select>
                                                 {% endif %}
 					 						</div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="ap-title">Current city/country of residence</span>
 					 						<div class="pf-field">
-                                                {% if user_name.cur_residence %}
-                                                <input type="text" name="cur_residence" maxlength="100" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
+                                                {% if applicant.cur_residence %}
+                                                <input type="text" name="cur_residence" maxlength="100" value="{{ applicant.cur_residence }}" required="" id="id_cur_residence">
                                                 {% else %}
-                                                <input type="text" name="cur_residence" maxlength="100" required="" id="id_cur_residence">
+                                                <input type="text" name="cur_residence" maxlength="100" value="{{ user_name.cur_residence }}" required="" id="id_cur_residence">
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="ap-title">Gender</span>
 					 						<div class="pf-field">
-                                                {% if user_name.gender %}
+                                                {% if applicant.gender %}
                                                 <select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
-													<option value="{{ user_name.gender }}" selected="selected">{{ user_name.gender}}</option>
+													<option value="{{ applicant.gender }}" selected="selected">{{ applicant.gender}}</option>
 													<option value="Male">Male</option>
 													<option value="Female">Female</option>
 												</select>
                                                 {% else %}
 					 							<select name="gender" id="id_gender" data-placeholder="Please Select Specialism" class="chosen">
-                                                    <option value="Female">Female</option>
-                                                    <option value="Male">Male</option>
+													<option value="{{ user_name.gender }}" selected="selected">{{ user_name.gender}}</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
 												</select>
                                                 {% endif %}
 					 						</div>
@@ -340,7 +345,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">Earliest available date</span>
 					 						<div class="pf-field">
-                                                <input type="text" name="start_date" maxlength="50" required="" id="id_start_date">
+                                                {% if applicant.start_date %}
+                                                <input type="text" name="start_date" maxlength="50" required="" value="{{ applicant.start_date }}" id="id_start_date">
+                                                {% endif %}
                                             </div>
 					 					</div>
 
@@ -369,16 +376,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <h2>Resume</h2>
                                         <div class="upload-img-bar">
                                             <div id="detail2" class="upload-info">
-                                                {% if user_name.resume %}
+                                                {% if applicant.resume %}
+                                                <input type="checkbox" name="resume-clear" id="resume-clear_id">
+                                                <label id="resume-clear_label" for="resume-clear_id">Clear</label>
+                                                <label class="id_resume" for="id_resume">Browse</label>
+                                                <input type="file" name="resume" id="id_resume">
+                                                <p id="resume" class="resume-mypage">{{ applicant.resume }}</p>
+                                                {% else %}
                                                 <input type="checkbox" name="resume-clear" id="resume-clear_id">
                                                 <label id="resume-clear_label" for="resume-clear_id">Clear</label>
                                                 <label class="id_resume" for="id_resume">Browse</label>
                                                 <input type="file" name="resume" id="id_resume">
                                                 <p id="resume" class="resume-mypage">{{ user_name.resume }}</p>
-                                                {% else %}
-                                                <label class="id_resume" for="id_resume">Browse</label>
-                                                <input type="file" name="resume" id="id_resume">
-                                                <p id="resume" class="resume-mypage"></p>
                                                 {% endif %}
                                                 <p id="resume"></p>
                                             </div>
@@ -393,40 +402,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					<div class="col-lg-6">
 					 						<span class="ap-title">University</span>
 					 						<div class="pf-field">
-                                                {% if user_name.university %}
-                                                <input type="text" name="university" maxlength="100" value="{{ user_name.university }}" required="" id="id_university">
+                                                {% if applicant.university %}
+                                                <input type="text" name="university" maxlength="100" value="{{ applicant.university }}" required="" id="id_university">
                                                 {% else %}
-                                                <input type="text" name="university" maxlength="100" required="" id="id_university">
+                                                <input type="text" name="university" maxlength="100" value="{{ user_name.university }}" required="" id="id_university">
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="ap-title">Major</span>
 					 						<div class="pf-field">
-                                                {% if user_name.major %}
-                                                <input type="text" name="major" maxlength="100" value="{{ user_name.major }}" required="" id="id_major">
+                                                {% if applicant.major %}
+                                                <input type="text" name="major" maxlength="100" value="{{ applicant.major }}" required="" id="id_major">
                                                 {% else %}
-                                                <input type="text" name="major" maxlength="100" required="" id="id_major">
+                                                <input type="text" name="major" maxlength="100" value="{{ user_name.major }}" required="" id="id_major">
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div class="col-lg-6">
 					 						<span class="ap-title">Graduate</span>
 					 						<div class="pf-field" id="graduate_field" style="margin-bottom: 47px">
-                                                {% if user_name.graduate %}
+                                                {% if applicant.graduate %}
+                                                <input type="checkbox" name="graduate" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                {% elif user_name.graduate %}
                                                 <input type="checkbox" name="graduate" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
                                                 {% else %}
-                                                <input type="checkbox" name="graduate" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate" >Did you graduate?<label id="graduate" for="id_graduate"></label>
                                                 {% endif %}
                                             </div>
 					 					</div>
                                         <div id="estimate_graduate_div" class="col-lg-6">
 					 						<span class="ap-title">Estimate Graduate Date</span>
 					 						<div class="pf-field">
-                                                {% if user_name.estimate_graduate %}
+                                                {% if applicant.estimate_graduate %}
                                                 <input type="text" name="estimate_graduate" value="{{ user_name.estimate_graduate | date:"Y-m-d"}}" id="id_estimate_graduate">
                                                 {% else %}
-                                                <input type="date" name="estimate_graduate" id="id_estimate_graduate">
+                                                <input type="text" name="estimate_graduate" value="{{ user_name.estimate_graduate | date:"Y-m-d"}}" id="id_estimate_graduate">
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -467,10 +478,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                              <div class="photo1">
                                                 <h3>Photo 1</h3>
                                                 <div class="upload-img-bar review-img">
-                                                    {% if user_name.user_pic1 %}
-                                                    <span class="round"><img id="image_section_review" src="{{ user_name.user_pic1.url }}" alt="" /></span>
+                                                    {% if applicant.profile_image1 %}
+                                                    <span class="round"><img id="image_section_review" src="{{ applicant.profile_image1.url }}" alt="" /></span>
                                                     {% else %}
-                                                    <span class="round"><img id="image_section_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <span class="round"><img id="image_section_review" src="{{ user_name.user_pic1.url }}" alt="" /></span>
                                                     {% endif %}
                                                     <div class="upload-info">
                                                     </div>
@@ -479,10 +490,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             <div class="photo2">
                                                 <h3>Photo 2</h3>
                                                 <div class="upload-img-bar review-img">
-                                                    {% if user_name.user_pic2 %}
-                                                    <span class="round"><img id="image_section2_review" src="{{ user_name.user_pic2.url }}" alt="" /></span>
+                                                    {% if applicant.profile_image2 %}
+                                                    <span class="round"><img id="image_section2_review" src="{{ applicant.profile_image2.url }}" alt="" /></span>
                                                     {% else %}
-                                                    <span class="round"><img id="image_section2_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                    <span class="round"><img id="image_section2_review" src="{{ user_name.user_pic2.url }}" alt="" /></span>
                                                     {% endif %}
                                                     <div class="upload-info">
                                                     </div>
@@ -609,8 +620,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="resume ap-title resume-title">Resume</span>
                                             <div class="upload-img-bar">
                                                 <div class="upload-info">
-                                                    {% if user_name.resume %}
-                                                    <p id="resume_review">{{ user_name.resume }}</p>
+                                                    {% if applicant.resume %}
+                                                    <p id="resume_review">{{ applicant.resume }}</p>
                                                     {% else %}
                                                     <p id="resume_review"></p>
                                                     {% endif %}
@@ -618,18 +629,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
-                                        </div>
-
-
-
-                                        <div id="user_job">
-                                            <label for="id_user">User:</label> <select name="user" required="" id="id_user">
-                                              <option value="{{ user_name.id }}" selected="selected"></option>
-                                            </select>
-
-                                            <label for="id_job">Job:</label> <select name="job" required="" id="id_job">
-                                              <option value="{{ Jobs.id }}" selected="selected"></option>
-                                            </select>
                                         </div>
 
                                         <div class="col-lg-12">

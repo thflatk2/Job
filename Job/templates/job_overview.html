@@ -206,22 +206,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						 			<tbody>
                                     {% for jobss in Jobs %}
 						 				<tr>
-						 					<td>
+						 					<td onclick="location.href='{% url 'Job:detail' jobss.pk %}'" style="cursor: pointer">
 						 						<div class="table-list-title">
-						 							<i>{{ jobss.school_name }}</i>
+						 							<i><a href="{% url 'Job:detail' jobss.pk %}">{{ jobss.school_name }}</a></i>
 						 						</div>
 						 					</td>
-						 					<td>
+						 					<td onclick="location.href='{% url 'Job:detail' jobss.pk %}'" style="cursor: pointer">
 						 						<div class="table-list-title">
 						 							<h3>{{ jobss.location }}</h3>
 						 						</div>
 						 					</td>
-						 					<td>
+						 					<td onclick="location.href='{% url 'Job:detail' jobss.pk %}'" style="cursor: pointer">
 						 						<span>{{ jobss.created_date }}</span><br />
 						 					</td>
-						 					<td>
+						 					<td onclick="location.href='{% url 'Job:job_update' user_name.slug jobss.pk %}'" style="cursor: pointer">
 						 						<ul class="action_job">
-						 							<li><a href="{% url 'Job:detail' jobss.pk %}" title="">View details</a></li>
+						 							<li><a href="{% url 'Job:job_update' user_name.slug jobss.pk %}" title="">Job Update</a></li>
 						 						</ul>
 						 					</td>
 						 				</tr>
