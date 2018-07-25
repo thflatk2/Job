@@ -16,12 +16,7 @@ class Job_info(models.Model):
     start_date = models.DateField(null=True,blank=True)
     summary = models.TextField(null=True, blank=True)
 
-    AGE_CHOICES  = (
-        ('Kindergarten', 'Kindergarten'),
-        ('Elementary', 'Elementary'),
-        ('Middle','Middle'),
-    )
-    age_level = models.CharField(max_length=15, choices=AGE_CHOICES, default='A')
+    age_level = models.CharField(max_length=50)
 
     location = models.CharField(max_length=30)
     contract_period = models.CharField(max_length=20)
@@ -46,6 +41,7 @@ class Job_info(models.Model):
     health_insurance = models.BooleanField(default=False)
     national_pension = models.BooleanField(default=False)
     description = models.TextField(null=True, blank=True)
+    hits = models.IntegerField(null=True, blank=True, default=0)
     created_date = models.DateTimeField(default=timezone.now)
     #like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,
      #                                      blank=True,
@@ -57,6 +53,7 @@ class Job_info(models.Model):
 
     def publish(self):
         self.created_date = timezone.now()
+        self.hits = 0
         self.save()
 
     def get_absolute_url(self):  # redirect시 활용

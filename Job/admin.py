@@ -7,7 +7,7 @@ from .models import Job_info, Job_Apply
 
 
 class Job_infoAdmin(admin.ModelAdmin):
-    list_display = ('school_name','start_date','location', 'house','created_date')
+    list_display = ('school_name','start_date','location', 'house','created_date','hits')
 
 
 class Job_ApplyAdmin(admin.ModelAdmin):

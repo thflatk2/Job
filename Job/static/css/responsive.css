@@ -1084,8 +1084,15 @@ select {
     padding-left: unset;
 }
 
+#employer_introduction > div{
+        margin: 0;
+    width: 100%;
+}
+
 #employer_introduction{
-    padding-left: unset;
+        padding-left: 0;
+    width: 100%;
+    display: unset;
 }
 
 .widget > h3{
@@ -1093,7 +1100,7 @@ select {
 }
 
 .margin_widget .widget, .margin_widget .widget.border{
-    margin-top: 80px;
+    margin-top: 0px;
 }
 
 .inner-header{
@@ -1117,6 +1124,11 @@ select {
 
 .profile-form-edit > div {
     padding: unset;
+    margin-top: 15px;
+}
+
+#empolyee-introduction{
+    display: none;
 }
 
 .pf-title{
@@ -1244,6 +1256,7 @@ select {
 .upload-img-bar {
     display: inline-block;
     text-align: center;
+    padding-left: 0;
 }
 .upload-img-bar > span {
     float: none;
@@ -1254,10 +1267,15 @@ select {
     text-align: center;
     padding: 0;
     margin-top: 20px;
+        width: 91%;
 }
 .upload-info > a {
-    float: none;
+    float: left;
+    width: 100%;
     display: inline-block;
+    padding: 0;
+    margin-top: 20px;
+    word-break: break-all;
 }
 .tags > .addedTag {
     margin-bottom: 10px;
@@ -1355,8 +1373,19 @@ select {
     position: relative;
     top: -110px;
     text-align: left;
-    left: 15px;
+    left: 10px;
     -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.post-form-edit > div{
+    padding-left: 0;
+    margin-top: 15px;
 }
 
 .last-icon{
@@ -1527,8 +1556,10 @@ select {
 }
 
 .upload-info > p {
-        margin-left: -20px;
+        margin-left: 0px;
     width: 200px;
+        margin-bottom: 0;
+    margin-top: 10px;
 }
 .life{
         padding-top: 0px;
@@ -1556,12 +1587,18 @@ select {
     width: 65%;
     margin-left: unset;
     margin-top: 15px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #apply-review-front, #apply-detail-back, #apply-submit{
     width: 65%;
     margin-left: unset;
     margin-top: 15px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .photo1, .photo2{
@@ -1740,13 +1777,33 @@ select{
 }
 .account-btns > li a {
     font-size: 12px;
+    color: #fff;
+    display: block;
 }
 .account-popup {
     padding-left: 20px;
     padding-right: 20px;
 }
 
+.apply-detail-but{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: unset;
+}
 
+.post-job-detail > div{
+    padding-left: 0;
+}
+
+.post-job-review > div > div > div > #apply-detail-back, .post-job-detail > div > div > div > #apply-basic-back{
+    margin-left: 0;
+}
+
+#plus-square{
+    margin-left: 0;
+    margin-right: 5px;
+}
 
 }
 

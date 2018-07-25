@@ -5215,9 +5215,7 @@ aside .widget.border {
     float: left;
     width: 100%;
 }
-aside .widget.border:first-child {
-    margin-top: 30px;
-}
+
 .job-listings-sec.no-border .job-listing {
     border: 2px solid #ffffff;
 }
@@ -6288,7 +6286,7 @@ aside .widget.border:first-child {
     width: 75%;
 }
 
-#id_contract_period_scale, #id_min_salary_scale, #id_max_salary_scale{
+#id_contract_period_scale, #id_min_salary_scale, #id_max_salary_scale, #id_class_size_scale{
     margin-top: 8px;
     text-indent: 17px;
 }
@@ -6319,6 +6317,10 @@ aside .widget.border:first-child {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+}
+
+#id_class_size{
+    width: 55%;
 }
 .emply-list-info > h6 i {
     float: left;
@@ -9174,6 +9176,13 @@ header.gradient{
     font-size: 20px;
     color: #1db1e0;
     line-height: 60px;
+}
+
+.delete-background{
+    border-color: #55acff;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
 }
 .edu-hisinfo {
     display: table-cell;

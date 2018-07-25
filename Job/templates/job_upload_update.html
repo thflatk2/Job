@@ -11,7 +11,7 @@
     <!-- End Google Tag Manager -->
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>TeachingHoliday</title>
+	<title>Job Update {{ Job.job_title }} | TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -300,6 +300,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                         <input type="checkbox" name="age_level" value="Middle" id="id_age_level_2"><label for="id_age_level_2">Middle</label>
                                                     </div>
                                                 </div>
+
+                                                <input type="text" name="age_level" id="id_age_level" style="display: none;">
+
                                                  <div class="col-lg-6">
                                                     <span class="pf-title">Flight Support</span>
                                                     <div class="pf-field">
@@ -425,9 +428,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     <span class="pf-title">Description</span>
                                                     <div class="pf-field">
                                                         {% if Job.description %}
-                                                            <textarea name="description" cols="40" rows="10" value="{{ Job.description }}" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
+                                                            <textarea name="description" cols="40" rows="10" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
 
-Teachers are fully trained before they officially start teaching and are equipped with all lesson plans and materials provided by the school, so teaching experience is not mandatory. The age groups of the students range from kindergarten to elementary school students (ages 3~12). We are very eager to work with you so please apply if you are interested in pursuing our opening!" id="id_description"></textarea>
+Teachers are fully trained before they officially start teaching and are equipped with all lesson plans and materials provided by the school, so teaching experience is not mandatory. The age groups of the students range from kindergarten to elementary school students (ages 3~12). We are very eager to work with you so please apply if you are interested in pursuing our opening!" id="id_description">{{ Job.description }}</textarea>
 
                                                         {% else %}
                                                             <textarea name="description" cols="40" rows="10" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
@@ -440,7 +443,9 @@ Teachers are fully trained before they officially start teaching and are equippe
 
                                                 <h3>House Picture 1</h3>
                                                 <div class="upload-img-bar">
-                                                    <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
+                                                    {% if Job.house_pic1 %}
+                                                    <span class="round"><img id="image_section" src="{{ Job.house_pic1.url }}" alt="" /></span>
+                                                    {% endif %}
                                                     <div id="uploadinfo1" class="upload-info">
                                                         {% if Job.house_pic1 %}
                                                         <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
@@ -449,15 +454,17 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <input type="file" name="house_pic1" id="id_house_pic1" title="">
                                                         <a id="user_pic1-clear_a" target="_blank" href="{{ Job.house_pic1.url }}">{{ Job.house_pic1 }}</a>
                                                         {% endif %}
-                                                        <label class="id_house_pic1" for="id_house_pic1">Browse</label>
-                                                        <input type="file" name="house_pic1" id="id_house_pic1">
                                                         <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                                     </div>
                                                 </div>
 
                                                 <h3>House Picture 2</h3>
                                                 <div class="upload-img-bar">
+                                                    {% if Job.house_pic2 %}
+                                                    <span class="round"><img id="image_section2" src="{{ Job.house_pic2.url }}" alt="" /></span>
+                                                    {% else %}
                                                     <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
+                                                    {% endif %}
                                                     <div class="upload-info">
                                                         {% if Job.house_pic2 %}
                                                         <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
@@ -465,16 +472,21 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <label class="id_house_pic2" for="id_house_pic2">Browse</label>
                                                         <input type="file" name="id_house_pic2" id="id_house_pic2" title="">
                                                         <a id="user_pic1-clear_a" target="_blank" href="{{ Job.house_pic2.url }}">{{ Job.house_pic2 }}</a>
-                                                        {% endif %}
+                                                        {% else %}
                                                         <label class="id_house_pic2" for="id_house_pic2">Browse</label>
                                                         <input type="file" name="house_pic2" id="id_house_pic2">
+                                                        {% endif %}
                                                         <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                                     </div>
                                                 </div>
 
                                                  <h3>House Picture 3</h3>
                                                 <div class="upload-img-bar">
+                                                    {% if Job.house_pic3 %}
+                                                    <span class="round"><img id="image_section3" src="{{ Job.house_pic3.url }}" alt="" /></span>
+                                                    {% else %}
                                                     <span class="round"><img id="image_section3" src="http://placehold.it/140x140" alt="" /></span>
+                                                    {% endif %}
                                                     <div class="upload-info">
                                                         {% if Job.house_pic3 %}
                                                         <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
@@ -482,16 +494,21 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <label class="id_house_pic3" for="id_house_pic3">Browse</label>
                                                         <input type="file" name="id_house_pic3" id="id_house_pic3" title="">
                                                         <a id="user_pic1-clear_a" target="_blank" href="{{ Job.house_pic3.url }}">{{ Job.house_pic3 }}</a>
-                                                        {% endif %}
+                                                        {% else %}
                                                         <label class="id_house_pic3" for="id_house_pic3">Browse</label>
                                                         <input type="file" name="house_pic3" id="id_house_pic3">
+                                                        {% endif %}
                                                         <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                                     </div>
                                                 </div>
 
                                                 <h3>House Picture 4</h3>
                                                 <div class="upload-img-bar">
+                                                    {% if Job.house_pic4 %}
+                                                    <span class="round"><img id="image_section4" src="{{ Job.house_pic4.url }}" alt="" /></span>
+                                                    {% else %}
                                                     <span class="round"><img id="image_section4" src="http://placehold.it/140x140" alt="" /></span>
+                                                    {% endif %}
                                                     <div class="upload-info">
                                                         {% if Job.house_pic4 %}
                                                         <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
@@ -499,16 +516,21 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <label class="id_house_pic4" for="id_house_pic4">Browse</label>
                                                         <input type="file" name="id_house_pic4" id="id_house_pic4" title="">
                                                         <a id="user_pic1-clear_a" target="_blank" href="{{ Job.house_pic4.url }}">{{ Job.house_pic4 }}</a>
-                                                        {% endif %}
+                                                        {% else %}
                                                         <label class="id_house_pic4" for="id_house_pic4">Browse</label>
                                                         <input type="file" name="house_pic4" id="id_house_pic4">
+                                                        {% endif %}
                                                         <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                                     </div>
                                                 </div>
 
                                                 <h3>House Picture 5</h3>
                                                 <div class="upload-img-bar">
+                                                    {% if Job.house_pic5 %}
+                                                    <span class="round"><img id="image_section5" src="{{ Job.house_pic5.url }}" alt="" /></span>
+                                                    {% else %}
                                                     <span class="round"><img id="image_section5" src="http://placehold.it/140x140" alt="" /></span>
+                                                    {% endif %}
                                                     <div id="uploadinfo1" class="upload-info">
                                                         {% if Job.house_pic5 %}
                                                         <input type="checkbox" name="user_pic1-clear" id="user_pic1-clear_id">
@@ -516,9 +538,10 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <label class="id_house_pic5" for="id_house_pic5">Browse</label>
                                                         <input type="file" name="id_house_pic5" id="id_house_pic5" title="">
                                                         <a id="user_pic1-clear_a" target="_blank" href="{{ Job.house_pic5.url }}">{{ Job.house_pic5 }}</a>
-                                                        {% endif %}
+                                                        {% else %}
                                                         <label class="id_house_pic5" for="id_house_pic5">Browse</label>
                                                         <input type="file" name="house_pic5" id="id_house_pic5">
+                                                        {% endif %}
                                                         <span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
                                                     </div>
                                                 </div>
@@ -630,7 +653,9 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 <div class="col-lg-6">
                                                     <h3>House Picture 1</h3>
                                                     <div class="upload-img-bar">
-                                                        <span class="round"><img id="image_section_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        {% if Job.house_pic1 %}
+                                                        <span class="round"><img id="image_section_review" src="{{ Job.house_pic1.url }}" alt="" /></span>
+                                                        {% endif %}
                                                         <div id="uploadinfo1" class="upload-info"></div>
                                                     </div>
                                                 </div>
@@ -638,7 +663,11 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 <div class="col-lg-6">
                                                     <h3>House Picture 2</h3>
                                                     <div class="upload-img-bar">
-                                                        <span class="round"><img id="image_section2_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        {% if Job.house_pic2 %}
+                                                            <span class="round"><img id="image_section2_review" src="{{ Job.house_pic2.url }}" alt="" /></span>
+                                                        {% else %}
+                                                            <span class="round"><img id="image_section2_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        {% endif %}
                                                         <div class="upload-info"></div>
                                                     </div>
                                                 </div>
@@ -646,7 +675,11 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 <div class="col-lg-6">
                                                     <h3>House Picture 3</h3>
                                                      <div class="upload-img-bar">
+                                                        {% if Job.house_pic3 %}
+                                                            <span class="round"><img id="image_section3_review" src="{{ Job.house_pic3.url }}" alt="" /></span>
+                                                         {% else %}
                                                         <span class="round"><img id="image_section3_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                         {% endif %}
                                                         <div class="upload-info"></div>
                                                     </div>
                                                 </div>
@@ -654,7 +687,11 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 <div class="col-lg-6">
                                                     <h3>House Picture 4</h3>
                                                     <div class="upload-img-bar">
+                                                        {% if Job.house_pic4 %}
+                                                            <span class="round"><img id="image_section4_review" src="{{ Job.house_pic4.url }}" alt="" /></span>
+                                                        {% else %}
                                                         <span class="round"><img id="image_section4_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        {% endif %}
                                                         <div class="upload-info">
                                                         </div>
                                                     </div>
@@ -663,15 +700,13 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 <div class="col-lg-6">
                                                     <h3>House Picture 5</h3>
                                                     <div class="upload-img-bar">
+                                                        {% if Job.house_pic5 %}
+                                                            <span class="round"><img id="image_section5_review" src="{{ Job.house_pic5.url }}" alt="" /></span>
+                                                        {% else %}
                                                         <span class="round"><img id="image_section5_review" src="http://placehold.it/140x140" alt="" /></span>
+                                                        {% endif %}
                                                         <div id="uploadinfo1" class="upload-info">
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                <div id="user_job">
-                                                    <div class="pf-field">
-                                                        <input type="text" name="user" value="{{ user_name }}" id="id_user">
                                                     </div>
                                                 </div>
 
@@ -990,9 +1025,12 @@ $('#apply-detail-back').click(function () {
              }
          }
          if(a==""){
-             alert('Put your prefered age group');
+             alert('Put your age group');
              doc.getElementById('id_age_level_0').focus();
              return;
+         }
+         else{
+            doc.getElementById('id_age_level').value = a;
          }
 
         $('.post-job-detail').css("display", "block");

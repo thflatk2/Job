@@ -11,7 +11,7 @@
     <!-- End Google Tag Manager -->
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>TeachingHoliday</title>
+	<title>Apply History | TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -216,9 +216,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						 					<td>
 						 						<span>{{ jobss.created_date }}</span><br />
 						 					</td>
-						 					<td>
+						 					<td class="apply-update" onclick="location.href='{% url 'Job:applicant_update' jobss.pk %}'" style="cursor: pointer">
 						 						<ul class="action_job">
-						 							<li><a href="{% url 'Job:applicant_update' jobss.pk %}" title="">Update Apply</a></li>
+						 							<li><a class="apply-update" href="{% url 'Job:applicant_update' jobss.pk %}" title="">Update Apply</a></li>
 						 						</ul>
 						 					</td>
 						 				</tr>

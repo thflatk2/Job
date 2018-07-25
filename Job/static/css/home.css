@@ -16,3 +16,10 @@
     display: none;
 }
 
+
+@media (max-width:520px) {
+.account-btns > li a{
+    color: #fff;
+    display: block;
+}
+}

@@ -11,7 +11,7 @@
     <!-- End Google Tag Manager -->
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>TeachingHoliday</title>
+	<title>Apply {{ Jobs.job_title }} | TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -360,7 +360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 </div>
 
                                         <div class="col-lg-12">
-					 						<button type="button" onclick="location.href='#scrollup'" id="apply-detail"><o>Details  </o><i id="right_arrow" class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+					 						<button type="button" onclick="location.href='#scrollup'" class="apply-first" id="apply-detail"><o class="apply-first">Details  </o><i id="right_arrow" class="fa fa-caret-right right_arrow apply-first" aria-hidden="true"></i></button>
 					 					</div>
 					 				</div>
 
@@ -380,7 +380,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <input type="file" name="resume" id="id_resume">
                                                 <p id="resume" class="resume-mypage"></p>
                                                 {% endif %}
-                                                <p id="resume"></p>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -424,7 +423,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="ap-title">Estimate Graduate Date</span>
 					 						<div class="pf-field">
                                                 {% if user_name.estimate_graduate %}
-                                                <input type="text" name="estimate_graduate" value="{{ user_name.estimate_graduate | date:"Y-m-d"}}" id="id_estimate_graduate">
+                                                <input type="date" name="estimate_graduate" value="{{ user_name.estimate_graduate | date:"Y-m-d"}}" id="id_estimate_graduate">
                                                 {% else %}
                                                 <input type="date" name="estimate_graduate" id="id_estimate_graduate">
                                                 {% endif %}
@@ -457,8 +456,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 					</div>
 					 					-->
                                         <div class="col-lg-12 button-div">
-                                            <button type="button" id="apply-basic-back" onclick="location.href='#scrollup'"><i id="left_arrow" class="fa fa-caret-left left_arrow" aria-hidden="true"></i><o>Profile  </o></button>
-					 						<button type="button" id="apply-review-front" onclick="location.href='#scrollup'"><o>Review  </o><i id="right_arrow" class="fa fa-caret-right right_arrow" aria-hidden="true"></i></button>
+                                            <button type="button" id="apply-basic-back" onclick="location.href='#scrollup'" class="apply-profile-back"><i id="left_arrow" class="fa fa-caret-left left_arrow apply-profile-back" aria-hidden="true"></i><o class="apply-profile-back">Profile  </o></button>
+					 						<button type="button" id="apply-review-front" onclick="location.href='#scrollup'" class="apply-second"><o class="apply-second">Review  </o><i id="right_arrow" class="fa fa-caret-right right_arrow apply-second" aria-hidden="true"></i></button>
 					 					</div>
 					 				</div>
 
@@ -633,8 +632,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
 
                                         <div class="col-lg-12">
-                                            <button type="button" id="apply-detail-back" onclick="location.href='#scrollup'"><i id="left_arrow" class="fa fa-caret-left left_arrow" aria-hidden="true"></i><o>Details  </o></button>
-					 						<button type="submit" id="apply-submit"><o>Submit</o></button>
+                                            <button type="button" id="apply-detail-back" onclick="location.href='#scrollup'" class="apply-detail-back"><i id="left_arrow" class="fa fa-caret-left left_arrow apply-detail-back" aria-hidden="true"></i><o class="apply-detail-back">Details  </o></button>
+					 						<button type="submit" id="apply-submit" class="apply-last" onclick="alert('Thank you for application');"><o class="apply-last">Submit</o></button>
 					 					</div>
 					 				</div>
 					 			</form>
@@ -706,6 +705,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="{% static "js/rslider.js" %}"  type="text/javascript"></script>
 
 <script type="text/javascript">
+
+    function submit(){
+        alert('Thank you for application');
+    }
+
     function readURL(input) {
 
     if (input.files && input.files[0]) {
@@ -819,6 +823,12 @@ $('#apply-review-front').click(function () {
         else{
             if(!doc.getElementById('id_estimate_graduate').value){
                 alert('Put your estimate graduate');
+                doc.getElementById('id_estimate_graduate').focus();
+                return;
+            }
+            else if(doc.getElementById('id_estimate_graduate').value.length > 10)
+            {
+                alert('Put correct estimate graduate');
                 doc.getElementById('id_estimate_graduate').focus();
                 return;
             }

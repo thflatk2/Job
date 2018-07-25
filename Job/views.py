@@ -23,14 +23,14 @@ class JobListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(JobListView, self).get_context_data(**kwargs)
-        context['Jobs'] = Job_info.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+        context['Jobs'] = Job_info.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
 
         return context
 
     def get(self, request, *args, **kwargs):
         sort = request.GET.get('sort', '')
         page = request.GET.get('page')
-        Job = Job_info.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+        Job = Job_info.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
         paginator = Paginator(Job, 10)  # Show 25 contacts per page
 
         if sort == 'date_early':
@@ -167,6 +167,16 @@ class JobDetailView(LoginRequiredMixin, TemplateView):
         context['already'] = Job_Apply.objects.filter(job__pk=self.kwargs['pk']) & Job_Apply.objects.filter(user=self.request.user)
 
         return context
+
+    def get(self, request, *args, **kwargs):
+        boardData = Job_info.objects.get(id=self.kwargs['pk'])
+        print(boardData.hits)
+        Job_info.objects.filter(id=self.kwargs['pk']).update(hits=boardData.hits + 1)
+        Jobs = Job_info.objects.get(pk=self.kwargs['pk'])
+        already = Job_Apply.objects.filter(job__pk=self.kwargs['pk']) & Job_Apply.objects.filter(user=self.request.user)
+
+        return render(request, 'job_detail.html', {'Jobs': Jobs, 'already': already})
+
 
 '''
 class JobUploadView(FormView):

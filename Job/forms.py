@@ -8,22 +8,12 @@ FLIGHT_CHOICES = (
     ('Round-trip', 'Round-trip'),
 )
 
-AGE_CHOICES = (
-    ('Kindergarten', 'Kindergarten'),
-    ('Elementary', 'Elementary'),
-    ('Middle', 'Middle'),
-)
-
-
 class Job_InfoForm(forms.Form):
     job_title = forms.CharField()
     school_name = forms.CharField()
     class_size = forms.IntegerField(min_value=0)
     start_date = forms.DateField()
-    age_level = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple,
-        choices=AGE_CHOICES,
-    )
+    age_level = forms.CharField()
     location = forms.CharField()
     contract_period = forms.CharField()
     day_hour = forms.CharField()

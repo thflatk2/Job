@@ -11,7 +11,7 @@
     <!-- End Google Tag Manager -->
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>TeachingHoliday</title>
+	<title>Job Upload | TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -197,7 +197,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 	</section>
 
-
 	<section>
 		<div class="block no-padding">
 			<div class="container">
@@ -263,7 +262,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Class size</span>
                                                     <div class="pf-field">
-                                                        <input type="number" name="class_size" min="0" required="" id="id_class_size">
+                                                        <input type="number" name="class_size" min="0" required="" id="id_class_size"><p id="id_class_size_scale">students per class</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -280,6 +279,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                         <input type="checkbox" name="age_level" value="Middle" id="id_age_level_2"><label for="id_age_level_2">Middle</label>
                                                     </div>
                                                 </div>
+
+                                                <input type="text" name="age_level" id="id_age_level" style="display: none;">
+
                                                  <div class="col-lg-6">
                                                     <span class="pf-title">Flight Support</span>
                                                     <div class="pf-field">
@@ -882,9 +884,12 @@ $('#apply-detail-back').click(function () {
              }
          }
          if(a==""){
-             alert('Put your prefered age group');
+             alert('Put your age group');
              doc.getElementById('id_age_level_0').focus();
              return;
+         }
+         else {
+             doc.getElementById("id_age_level").value = a;
          }
 
         $('.post-job-detail').css("display", "block");

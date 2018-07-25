@@ -11,7 +11,7 @@
     <!-- End Google Tag Manager -->
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>TeachingHoliday</title>
+	<title>Job Overview | TeachingHoliday</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -115,7 +115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
                                 <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
@@ -200,7 +200,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						 					<td>Job</td>
 						 					<td>Location</td>
 						 					<td>Date</td>
+                                            <td>Views</td>
 						 					<td></td>
+                                            <td></td>
 						 				</tr>
 						 			</thead>
 						 			<tbody>
@@ -216,14 +218,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						 							<h3>{{ jobss.location }}</h3>
 						 						</div>
 						 					</td>
-						 					<td onclick="location.href='{% url 'Job:detail' jobss.pk %}'" style="cursor: pointer">
+						 					<td onclick="location.href='{% url 'Job:detail' jobss.pk %}'" style="cursor: pointer; width:20%;">
 						 						<span>{{ jobss.created_date }}</span><br />
 						 					</td>
-						 					<td onclick="location.href='{% url 'Job:job_update' user_name.slug jobss.pk %}'" style="cursor: pointer">
+                                            <td onclick="location.href='{% url 'Job:detail' jobss.pk %}'" style="cursor: pointer;    padding-left: 9px;">
+                                                <span>{{ jobss.hits }}</span>
+                                            </td>
+						 					<td class="job-update" onclick="location.href='{% url 'Job:job_update' user_name.slug jobss.pk %}'" style="cursor: pointer">
 						 						<ul class="action_job">
-						 							<li><a href="{% url 'Job:job_update' user_name.slug jobss.pk %}" title="">Job Update</a></li>
+						 							<li><a class="job-update" href="{% url 'Job:job_update' user_name.slug jobss.pk %}" title="">Job Update</a></li>
 						 						</ul>
 						 					</td>
+                                            <td onclick="location.href='{% url 'Job:job_delete' user_name.slug jobss.pk %}'" style="cursor: pointer">
+                                                <i class="far fa-trash-alt"></i>
+                                            </td>
 						 				</tr>
                                     {% endfor %}
 						 			</tbody>
