@@ -169,6 +169,10 @@ header {
     overflow-x: scroll;
     overflow-y: hidden;
 }
+
+#apply-already{
+    position: unset;
+}
 .padding-left {
     padding: 0;
 }

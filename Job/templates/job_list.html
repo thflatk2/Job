@@ -117,7 +117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         {% if user.is_active %}
                             {% if user.type == "Employer" %}
                                 <li class="signup-popup"><a title="" href="{% url 'employer_update' user.slug %}">My Page</a></li>
-                                <li class="signup-popup"><a class="Acc2" href="{% url 'logout_url' %}">+ Post a new Job</a></li>
+                                <li class="signup-popup"><a class="Acc2" href="{% url 'Job:upload' %}">+ Post a new Job</a></li>
                             {% else %}
                                 <li class="signup-popup"><a title="" href="{% url 'user_update' user.slug %}">My Page</a></li>
                                 <li class="signup-popup"><a href="{% url 'logout_url' %}">Log out</a></li>
@@ -196,7 +196,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             {% for job in Jobs %}
                                 <div class="emply-list" onmouseover="detailon({{ job.pk }})" onmouseout="detailout({{ job.pk }})" onclick="location.href='{% url 'Job:detail' job.pk %}'">
                                     <div class="emply-list-thumb">
-                                        <a href="#" title=""><img src="{{ job.house_pic1.url }}" alt="" /></a>
+                                        {% if job.pic1_thumbnail %}
+                                        <a href="#" title=""><img src="{{ job.pic1_thumbnail.url }}" alt="" /></a>
+                                        {% else %}
+                                            <a href="#" title=""><img src="http://placehold.it/100x100" alt="" /></a>
+                                        {% endif %}
                                     </div>
                                     <div class="emply-list-info">
                                       <!--  <div class="emply-pstn"><a class="list_detail detail{{ job.pk }}" href="{% url 'Job:detail' job.pk %}">Details</a></div>-->

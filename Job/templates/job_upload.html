@@ -358,16 +358,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <h3>Detail Info</h3>
                                         <div>
                                             <div class="row">
-                                                <div class="col-lg-12">
-                                                    <span class="pf-title">Description</span>
-                                                    <div class="pf-field">
-                                                        <textarea name="description" cols="40" rows="10" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
 
-Teachers are fully trained before they officially start teaching and are equipped with all lesson plans and materials provided by the school, so teaching experience is not mandatory. The age groups of the students range from kindergarten to elementary school students (ages 3~12). We are very eager to work with you so please apply if you are interested in pursuing our opening!" id="id_description"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <h3>House Picture 1</h3>
+                                                <h3>Job or House Picture 1</h3>
                                                 <div class="upload-img-bar">
                                                     <span class="round"><img id="image_section" src="http://placehold.it/140x140" alt="" /></span>
                                                     <div id="uploadinfo1" class="upload-info">
@@ -377,7 +369,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                <h3>House Picture 2</h3>
+                                                <h3>Job or House Picture 2</h3>
                                                 <div class="upload-img-bar">
                                                     <span class="round"><img id="image_section2" src="http://placehold.it/140x140" alt="" /></span>
                                                     <div class="upload-info">
@@ -387,7 +379,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                 <h3>House Picture 3</h3>
+                                                 <h3>Job or House Picture 3</h3>
                                                 <div class="upload-img-bar">
                                                     <span class="round"><img id="image_section3" src="http://placehold.it/140x140" alt="" /></span>
                                                     <div class="upload-info">
@@ -397,7 +389,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                <h3>House Picture 4</h3>
+                                                <h3>Job or House Picture 4</h3>
                                                 <div class="upload-img-bar">
                                                     <span class="round"><img id="image_section4" src="http://placehold.it/140x140" alt="" /></span>
                                                     <div class="upload-info">
@@ -407,7 +399,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                <h3>House Picture 5</h3>
+                                                <h3>Job or House Picture 5</h3>
                                                 <div class="upload-img-bar">
                                                     <span class="round"><img id="image_section5" src="http://placehold.it/140x140" alt="" /></span>
                                                     <div id="uploadinfo1" class="upload-info">
@@ -514,15 +506,10 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                         <p id="pension_review"></p>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <span class="pf-title">Description</span>
-                                                    <div class="pf-field">
-                                                        <p id="description_review"></p>
-                                                    </div>
-                                                </div>
+
 
                                                 <div class="col-lg-6">
-                                                    <h3>House Picture 1</h3>
+                                                    <h3>Job or House Picture 1</h3>
                                                     <div class="upload-img-bar">
                                                         <span class="round"><img id="image_section_review" src="http://placehold.it/140x140" alt="" /></span>
                                                         <div id="uploadinfo1" class="upload-info"></div>
@@ -530,7 +517,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 </div>
 
                                                 <div class="col-lg-6">
-                                                    <h3>House Picture 2</h3>
+                                                    <h3>Job or House Picture 2</h3>
                                                     <div class="upload-img-bar">
                                                         <span class="round"><img id="image_section2_review" src="http://placehold.it/140x140" alt="" /></span>
                                                         <div class="upload-info"></div>
@@ -538,7 +525,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 </div>
 
                                                 <div class="col-lg-6">
-                                                    <h3>House Picture 3</h3>
+                                                    <h3>Job or House Picture 3</h3>
                                                      <div class="upload-img-bar">
                                                         <span class="round"><img id="image_section3_review" src="http://placehold.it/140x140" alt="" /></span>
                                                         <div class="upload-info"></div>
@@ -546,7 +533,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 </div>
 
                                                 <div class="col-lg-6">
-                                                    <h3>House Picture 4</h3>
+                                                    <h3>Job or House Picture 4</h3>
                                                     <div class="upload-img-bar">
                                                         <span class="round"><img id="image_section4_review" src="http://placehold.it/140x140" alt="" /></span>
                                                         <div class="upload-info">
@@ -555,7 +542,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                 </div>
 
                                                 <div class="col-lg-6">
-                                                    <h3>House Picture 5</h3>
+                                                    <h3>Job or House Picture 5</h3>
                                                     <div class="upload-img-bar">
                                                         <span class="round"><img id="image_section5_review" src="http://placehold.it/140x140" alt="" /></span>
                                                         <div id="uploadinfo1" class="upload-info">
@@ -749,22 +736,10 @@ $('#apply-basic-back').click(function () {
 $('#apply-review-front').click(function () {
     if($(".post-job-review").css("display") == "none"){
 
-        var image_section = doc.getElementById('image_section').src;
-
-        if(image_section=="http://placehold.it/140x140"){
-            alert('Put your first image');
-            doc.getElementById('image_section').focus();
-            return;
-            //다시 원상태로 돌아가는것.
-        }
-
-
         $('.post-job-review').css("display", "block");
         $('.post-job-review-').css("display", "block");
         $('.post-job-detail').css("display", "none");
         $('.post-job-detail-').css("display", "none");
-
-        $('#description_review').text($("#id_description").val());
 
     } else {
         $('.post-job-review').css("display", "none");

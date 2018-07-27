@@ -3,7 +3,8 @@ from Account.models import User
 from django.utils import timezone
 from django.urls import reverse
 from django.conf import settings
-
+from imagekit.models import ImageSpecField
+from imagekit.processors import Thumbnail
 
 
 # Create your models here.
@@ -33,14 +34,43 @@ class Job_info(models.Model):
     house = models.BooleanField(default=False)
     allowance = models.BooleanField(default=False)
     house_pic1 = models.FileField()
+    pic1_thumbnail = ImageSpecField(
+        source='house_pic1',  # 원본 ImageField 명
+        processors=[Thumbnail(100, 100)],  # 처리할 작업 목룍
+        format='JPEG',  # 최종 저장 포맷
+        options={'quality': 60})  # 저장 옵션
+    pic1_thumbnail2 = ImageSpecField(
+        source='house_pic1',  # 원본 ImageField 명
+        processors=[Thumbnail(250, 250)],  # 처리할 작업 목룍
+        format='JPEG',  # 최종 저장 포맷
+        options={'quality': 60})  # 저장 옵션
     house_pic2 = models.FileField(blank=True, null=True)
+    pic2_thumbnail = ImageSpecField(
+        source='house_pic2',  # 원본 ImageField 명
+        processors=[Thumbnail(250, 250)],  # 처리할 작업 목룍
+        format='JPEG',  # 최종 저장 포맷
+        options={'quality': 60})  # 저장 옵션
     house_pic3 = models.FileField(blank=True, null=True)
+    pic3_thumbnail = ImageSpecField(
+        source='house_pic3',  # 원본 ImageField 명
+        processors=[Thumbnail(250, 250)],  # 처리할 작업 목룍
+        format='JPEG',  # 최종 저장 포맷
+        options={'quality': 60})  # 저장 옵션
     house_pic4 = models.FileField(blank=True, null=True)
+    pic4_thumbnail = ImageSpecField(
+        source='house_pic4',  # 원본 ImageField 명
+        processors=[Thumbnail(250, 250)],  # 처리할 작업 목룍
+        format='JPEG',  # 최종 저장 포맷
+        options={'quality': 60})  # 저장 옵션
     house_pic5 = models.FileField(blank=True, null=True)
+    pic5_thumbnail = ImageSpecField(
+        source='house_pic5',  # 원본 ImageField 명
+        processors=[Thumbnail(250, 250)],  # 처리할 작업 목룍
+        format='JPEG',  # 최종 저장 포맷
+        options={'quality': 60})  # 저장 옵션
     severance_payment = models.BooleanField(default=False)
     health_insurance = models.BooleanField(default=False)
     national_pension = models.BooleanField(default=False)
-    description = models.TextField(null=True, blank=True)
     hits = models.IntegerField(null=True, blank=True, default=0)
     created_date = models.DateTimeField(default=timezone.now)
     #like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,

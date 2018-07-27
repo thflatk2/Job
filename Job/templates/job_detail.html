@@ -328,20 +328,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								 		<div class="quick-form-job">
 								 			<h3>Photos</h3>
                                             <div class="house_picture">
-                                                {% if Jobs.house_pic1 %}
-                                                <img src="{{ Jobs.house_pic1.url }}" alt="" />
+                                                {% if Jobs.pic1_thumbnail2 %}
+                                                    <div class="house_pic"><img src="{{ Jobs.pic1_thumbnail2.url }}" alt="" /><a href="{{ Jobs.house_pic1.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
                                                 {% endif %}
-                                                {% if Jobs.house_pic2 %}
-                                                <img src="{{ Jobs.house_pic2.url }}" alt="" />
+                                                {% if Jobs.pic2_thumbnail %}
+                                                    <div class="house_pic"><img src="{{ Jobs.pic2_thumbnail.url }}" alt="" /><a href="{{ Jobs.house_pic2.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
                                                 {% endif %}
-                                                {% if Jobs.house_pic3 %}
-                                                <img src="{{ Jobs.house_pic3.url }}" alt="" />
+                                                {% if Jobs.pic3_thumbnail %}
+                                                    <div class="house_pic"><img src="{{ Jobs.pic3_thumbnail.url }}" alt="" /><a href="{{ Jobs.house_pic3.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
                                                 {% endif %}
-                                                {% if Jobs.house_pic4 %}
-                                                <img src="{{ Jobs.house_pic4.url }}" alt="" />
+                                                {% if Jobs.pic4_thumbnail %}
+                                                    <div class="house_pic"><img src="{{ Jobs.pic4_thumbnail.url }}" alt="" /><a href="{{ Jobs.house_pic4.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
                                                 {% endif %}
-                                               {% if Jobs.house_pic5 %}
-                                                <img src="{{ Jobs.house_pic5.url }}" alt="" />
+                                               {% if Jobs.pic5_thumbnail %}
+                                                    <div class="house_pic"><img src="{{ Jobs.pic5_thumbnail.url }}" alt="" /><a href="{{ Jobs.house_pic5.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
                                                 {% endif %}
                                             </div>
 								 		</div>

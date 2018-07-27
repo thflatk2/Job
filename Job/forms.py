@@ -55,11 +55,6 @@ class Job_InfoForm(forms.Form):
         required=True
     )
 
-    description = forms.CharField(
-        widget=forms.Textarea(),
-        required=False
-    )
-
     user = forms.CharField()
 
     # ModelForm.save 인터페이스를 흉내내어 구현
