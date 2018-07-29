@@ -253,10 +253,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                         <input type="text" name="school_name" required="" id="id_school_name">
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-6" style="display: none;">
+                                                    <span class="pf-title">School name</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="start_date" required="" id="id_start_date">
+                                                    </div>
+                                                </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Starting Date</span>
                                                     <div class="pf-field">
-                                                        <input type="date" name="start_date" required="" id="id_start_date">
+                                                        <input type="checkbox" value="ASAP" id="asap"><label for="asap">ASAP</label>
+                                                        <input type="checkbox" value="Flexible" id="flexible"><label for="flexible">Flexible</label>
+                                                        <input type="month" name="start_month" id="start_month" style="width: unset;float: unset; margin-bottom: 20px;">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -768,7 +776,7 @@ $('#apply-detail-back').click(function () {
             var title = doc.getElementById('id_job_title').value;
             var summary = doc.getElementById('id_summary').value;
             var schoolname = doc.getElementById('id_school_name').value;
-            var date = doc.getElementById('id_start_date').value;
+            var date = doc.getElementById('start_month').value;
             var size = doc.getElementById('id_class_size').value;
             var location = doc.getElementById('id_location').value;
             var flight = doc.getElementById('id_flight_support').value;
@@ -792,9 +800,22 @@ $('#apply-detail-back').click(function () {
                 doc.getElementById('id_school_name').focus();
                 return;
             }
+            var asap_checkbox = doc.getElementById('asap');
+            var flex_checkbox = doc.getElementById('flexible');
             if(!date){
                 alert('Put your start date');
-                doc.getElementById('id_start_date').focus();
+                doc.getElementById('start_month').focus();
+                return;
+            }
+            if(asap_checkbox.checked == true){
+             doc.getElementById('id_start_date').value = $("#asap").val() + " / " + $("#start_month").val();
+            }
+            else if(flex_checkbox.checked ==true){
+                doc.getElementById('id_start_date').value = $("#flexible").val() + " / " + $("#start_month").val();
+            }
+            else {
+                alert('Check your start date type');
+                doc.getElementById('start_month').focus();
                 return;
             }
             if(!size){

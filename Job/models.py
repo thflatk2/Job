@@ -14,7 +14,7 @@ class Job_info(models.Model):
     job_title = models.CharField(max_length=100,blank=True, null=True)
     school_name = models.CharField(max_length=30)
     class_size = models.PositiveIntegerField()
-    start_date = models.DateField(null=True,blank=True)
+    start_date = models.CharField(max_length=100,null=True,blank=True)
     summary = models.TextField(null=True, blank=True)
 
     age_level = models.CharField(max_length=50)

@@ -12,7 +12,7 @@ class Job_InfoForm(forms.Form):
     job_title = forms.CharField()
     school_name = forms.CharField()
     class_size = forms.IntegerField(min_value=0)
-    start_date = forms.DateField()
+    start_date = forms.CharField()
     age_level = forms.CharField()
     location = forms.CharField()
     contract_period = forms.CharField()
