@@ -181,14 +181,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							 			</div><!-- Job Head -->
 				 					</div>
 				 					<div class="col-lg-4">
-                                     {% if user.is_active %}
                                         {% if already %}
-                                            <p id="apply-already">You already apply this job</p>
+                                            {% for ready in already %}
+                                                {% if ready.user == user %}
+                                                    <p id="apply-already">You already apply this job</p>
+                                                {% else %}
+                                                    {% if ready.user.first_name and ready.user.last_name %}
+                                                        <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                    {% else %}
+                                                        <a class="apply-thisjob" onclick="alert('Please fill up your introduction!');" href="{% url 'user_update' user.slug %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            {% if user.first_name and ready.user.last_name %}
+                                                <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
                                             {% else %}
-                                            <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                <a class="apply-thisjob" onclick="alert('Please fill up your introduction!');" href="{% url 'user_update' user.slug %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                            {% endif %}
                                         {% endif %}
-                                    {% endif %}
-				 					</div>
+                                    </div>
 				 				</div>
 				 			</div>
 				 			<div class="job-wide-devider">
