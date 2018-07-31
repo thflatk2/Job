@@ -376,9 +376,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="pf-title">Graduate</span>
 					 						<div class="pf-field" style="margin-bottom: 47px">
                                                 {% if user_name.graduate %}
-                                                <input type="checkbox" name="graduate" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate" checked>Yes<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" id="id_graduate_no">No<label id="graduate_no" for="id_graduate_no"></label>
                                                 {% else %}
-                                                <input type="checkbox" name="graduate" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate">Yes<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" id="id_graduate_no" checked>No<label id="graduate_no" for="id_graduate_no"></label>
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -611,6 +613,10 @@ $("#id_resume").change(function () {
             alert('Put your major');
             doc.getElementById('id_major').focus();
             return;
+        }
+
+        if($("#id_graduate").is(":checked") && $("#id_graduate_no").is(":checked")){
+            alert('Please just check one answer for graduate.');
         }
 
         if($("#id_graduate").is(":checked")){
