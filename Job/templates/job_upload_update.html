@@ -266,10 +266,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                         {% endif %}
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-6" style="display: none;">
+                                                    <span class="pf-title">School name</span>
+                                                    <div class="pf-field">
+                                                        <input type="text" name="start_date" required="" id="id_start_date">
+                                                    </div>
+                                                </div>
                                                 <div class="col-lg-6">
                                                     <span class="pf-title">Starting Date</span>
                                                     <div class="pf-field">
-                                                        <input type="date" name="start_date" required="" id="id_start_date">
+                                                        <input type="checkbox" value="ASAP" id="asap"><label for="asap">ASAP</label>
+                                                        <input type="checkbox" value="Flexible" id="flexible"><label for="flexible">Flexible</label>
+                                                        <input type="month" name="start_month" id="start_month" style="width: unset;float: unset; margin-bottom: 20px;">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -424,24 +432,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <h3>Detail Info</h3>
                                         <div>
                                             <div class="row">
-                                                <div class="col-lg-12">
-                                                    <span class="pf-title">Description</span>
-                                                    <div class="pf-field">
-                                                        {% if Job.description %}
-                                                            <textarea name="description" cols="40" rows="10" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
-
-Teachers are fully trained before they officially start teaching and are equipped with all lesson plans and materials provided by the school, so teaching experience is not mandatory. The age groups of the students range from kindergarten to elementary school students (ages 3~12). We are very eager to work with you so please apply if you are interested in pursuing our opening!" id="id_description">{{ Job.description }}</textarea>
-
-                                                        {% else %}
-                                                            <textarea name="description" cols="40" rows="10" placeholder="Joe's English Institute is a reputable private school located in Seoul that offers teachers a comfortable, family-like work environment with an outstanding support system for new team members and students alike.  They are currently looking for passionate individuals who are enthusiastic about teaching and are also open-minded about learning new things themselves.
-
-Teachers are fully trained before they officially start teaching and are equipped with all lesson plans and materials provided by the school, so teaching experience is not mandatory. The age groups of the students range from kindergarten to elementary school students (ages 3~12). We are very eager to work with you so please apply if you are interested in pursuing our opening!" id="id_description"></textarea>
-
-                                                        {% endif %}
-                                                         </div>
-                                                </div>
-
-                                                <h3>House Picture 1</h3>
+                                                <h3>Job or House Picture 1</h3>
                                                 <div class="upload-img-bar">
                                                     {% if Job.house_pic1 %}
                                                     <span class="round"><img id="image_section" src="{{ Job.house_pic1.url }}" alt="" /></span>
@@ -458,7 +449,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                <h3>House Picture 2</h3>
+                                                <h3>Job or House Picture 2</h3>
                                                 <div class="upload-img-bar">
                                                     {% if Job.house_pic2 %}
                                                     <span class="round"><img id="image_section2" src="{{ Job.house_pic2.url }}" alt="" /></span>
@@ -480,7 +471,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                 <h3>House Picture 3</h3>
+                                                 <h3>Job or House Picture 3</h3>
                                                 <div class="upload-img-bar">
                                                     {% if Job.house_pic3 %}
                                                     <span class="round"><img id="image_section3" src="{{ Job.house_pic3.url }}" alt="" /></span>
@@ -502,7 +493,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                <h3>House Picture 4</h3>
+                                                <h3>Job or House Picture 4</h3>
                                                 <div class="upload-img-bar">
                                                     {% if Job.house_pic4 %}
                                                     <span class="round"><img id="image_section4" src="{{ Job.house_pic4.url }}" alt="" /></span>
@@ -524,7 +515,7 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     </div>
                                                 </div>
 
-                                                <h3>House Picture 5</h3>
+                                                <h3>Job or House Picture 5</h3>
                                                 <div class="upload-img-bar">
                                                     {% if Job.house_pic5 %}
                                                     <span class="round"><img id="image_section5" src="{{ Job.house_pic5.url }}" alt="" /></span>
@@ -641,12 +632,6 @@ Teachers are fully trained before they officially start teaching and are equippe
                                                     <span class="pf-title">National Pension</span>
                                                     <div class="pf-field">
                                                         <p id="pension_review"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <span class="pf-title">Description</span>
-                                                    <div class="pf-field">
-                                                        <p id="description_review"></p>
                                                     </div>
                                                 </div>
 
@@ -905,7 +890,6 @@ $('#apply-review-front').click(function () {
         $('.post-job-detail').css("display", "none");
         $('.post-job-detail-').css("display", "none");
 
-        $('#description_review').text($("#id_description").val());
 
     } else {
         $('.post-job-review').css("display", "none");
@@ -934,7 +918,7 @@ $('#apply-detail-back').click(function () {
             var title = doc.getElementById('id_job_title').value;
             var summary = doc.getElementById('id_summary').value;
             var schoolname = doc.getElementById('id_school_name').value;
-            var date = doc.getElementById('id_start_date').value;
+            var date = doc.getElementById('start_month').value;
             var size = doc.getElementById('id_class_size').value;
             var location = doc.getElementById('id_location').value;
             var flight = doc.getElementById('id_flight_support').value;
@@ -958,9 +942,15 @@ $('#apply-detail-back').click(function () {
                 doc.getElementById('id_school_name').focus();
                 return;
             }
-            if(!date){
-                alert('Put your start date');
-                doc.getElementById('id_start_date').focus();
+            if(asap_checkbox.checked == true){
+             doc.getElementById('id_start_date').value = $("#asap").val() + " / " + $("#start_month").val();
+            }
+            else if(flex_checkbox.checked ==true){
+                doc.getElementById('id_start_date').value = $("#flexible").val() + " / " + $("#start_month").val();
+            }
+            else {
+                alert('Check your start date type');
+                doc.getElementById('start_month').focus();
                 return;
             }
             if(!size){

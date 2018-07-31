@@ -158,7 +158,7 @@ class JobListView(TemplateView):
             return render(request, 'job_list.html', {'Jobs': Jobs})
 
 
-class JobDetailView(LoginRequiredMixin, TemplateView):
+class JobDetailView(TemplateView):
     template_name = 'job_detail.html'
 
     def get_context_data(self, **kwargs):
@@ -173,7 +173,7 @@ class JobDetailView(LoginRequiredMixin, TemplateView):
         print(boardData.hits)
         Job_info.objects.filter(id=self.kwargs['pk']).update(hits=boardData.hits + 1)
         Jobs = Job_info.objects.get(pk=self.kwargs['pk'])
-        already = Job_Apply.objects.filter(job__pk=self.kwargs['pk']) & Job_Apply.objects.filter(user=self.request.user)
+        already = Job_Apply.objects.filter(job__pk=self.kwargs['pk'])
 
         return render(request, 'job_detail.html', {'Jobs': Jobs, 'already': already})
 
