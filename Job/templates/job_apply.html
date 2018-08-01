@@ -413,9 +413,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					 						<span class="ap-title">Graduate</span>
 					 						<div class="pf-field" id="graduate_field" style="margin-bottom: 47px">
                                                 {% if user_name.graduate %}
-                                                <input type="checkbox" name="graduate" id="id_graduate" checked>Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate" onclick="oneCheckbox(this)" checked>Yes<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate_no" onclick="oneCheckbox(this)">No<label id="graduate_no" for="id_graduate_no"></label>
                                                 {% else %}
-                                                <input type="checkbox" name="graduate" id="id_graduate">Did you graduate?<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate" onclick="oneCheckbox(this)">Yes<label id="graduate" for="id_graduate"></label>
+                                                <input type="checkbox" name="graduate" id="id_graduate_no" onclick="oneCheckbox(this)" checked>No<label id="graduate_no" for="id_graduate_no"></label>
                                                 {% endif %}
                                             </div>
 					 					</div>
@@ -705,10 +707,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="{% static "js/rslider.js" %}"  type="text/javascript"></script>
 
 <script type="text/javascript">
+    function oneCheckbox(a){
+        var obj = document.getElementsByName("graduate");
+        for(var i=0; i<obj.length; i++){
+            if(obj[i] != a){
+                obj[i].checked = false;
+                }
+            }
+        }
+</script>
 
-    function submit(){
-        alert('Thank you for application');
-    }
+
+<script type="text/javascript">
 
     function readURL(input) {
 

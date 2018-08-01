@@ -1007,8 +1007,9 @@ select {
     margin-bottom: 0;
 }
 
-
-
+#scroll-here{
+    margin-top: 0;
+}
 
 }
 
@@ -1473,6 +1474,9 @@ select {
     margin: 0 auto;
     text-align: center;
     display: inline-block;
+        position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .job-title-sec .c-logo{

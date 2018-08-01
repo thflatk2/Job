@@ -178,6 +178,7 @@ class JobDetailView(TemplateView):
         return render(request, 'job_detail.html', {'Jobs': Jobs, 'already': already})
 
 
+
 '''
 class JobUploadView(FormView):
     form_class = Job_InfoForm
@@ -306,7 +307,7 @@ class ApplicantUpdateView(UpdateView):
 
 class JobUpdateView(UpdateView):
     model = Job_info
-    fields = ['job_title', 'summary', 'school_name', 'class_size', 'start_date', 'age_level','location', 'contract_period', 'day_hour', 'min_salary', 'max_salary', 'flight_support', 'house', 'allowance','severance_payment', 'health_insurance', 'national_pension', 'description', 'house_pic1', 'house_pic2', 'house_pic3','house_pic4','house_pic5']
+    fields = ['job_title', 'summary', 'school_name', 'class_size', 'start_date', 'age_level','location', 'contract_period', 'day_hour', 'min_salary', 'max_salary', 'flight_support', 'house', 'allowance','severance_payment', 'health_insurance', 'national_pension', 'house_pic1', 'house_pic2', 'house_pic3','house_pic4','house_pic5']
     template_name = 'job_upload_update.html'
     success_url = reverse_lazy('home')
 

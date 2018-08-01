@@ -180,8 +180,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 						<a href="{% url 'Job:user_overview' user.slug %}" title=""><i class="la la-briefcase"></i>Jobs overview</a>
 				 					</li>
                                     <li>
-				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card" id="address-card"></i>Applicants list</a>
+				 						<a href="{% url 'Job:applicant_list' user.slug %}" title=""><i class="far fa-address-card" id="address-card"></i>Applicants list
 				 					</li>
+                                    <li><a href="{% url 'logout_url' %}" title=""><i class="la la-unlink"></i>Logout</a></li>
+
 				 				<!--	<li class="inner-child">
 				 						<a href="#" title=""><i class="far fa-user"></i>Account Info</a>
 				 					</li>-->

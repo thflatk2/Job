@@ -16,10 +16,41 @@
     display: none;
 }
 
+@media (max-width:760px) {
+.or-browser{
+    margin-top: 0;
+}
+.job-search-sec .job-search > h3{
+    margin-top: 20vh;
+}
 
+}
+
+@media (max-width:560px) {
+.or-browser{
+    width: 109%;
+}
+
+}
 @media (max-width:520px) {
 .account-btns > li a{
     color: #fff;
     display: block;
 }
+
+    .job-search-sec .job-search > h3{
+    margin-top: 5vh;
+}
+
+    .or-browser{
+        width: 74%;
+    }
+
+}
+
+@media (max-width:410px) {
+  .or-browser{
+        width: 97%;
+    }
+
 }

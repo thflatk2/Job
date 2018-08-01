@@ -1291,7 +1291,7 @@ label::after {
 .or-browser {
     float: left;
     width: 100%;
-    margin-top: 130px;
+    margin-top: 95px;
     text-align: center;
 }
 
@@ -1558,10 +1558,10 @@ label::after {
 }
 
 .manual_des > p{
-    font-size: 20px;
-    font-weight: 300;
+    font-size: 21px;
+    font-weight: 400;
     font-family: Lato;
-    margin-bottom: 2px;
+    margin-bottom: 15px;
 }
 .job-listing {
     float: left;
@@ -7570,6 +7570,12 @@ aside .widget.border {
 }
 
 #graduate{
+    top: 9px;
+    left: 10px;
+    margin-right: 10px;
+}
+
+#graduate_no{
     top: 9px;
     left: 10px;
 }
