@@ -72,6 +72,7 @@ class Job_info(models.Model):
     health_insurance = models.BooleanField(default=False)
     national_pension = models.BooleanField(default=False)
     hits = models.IntegerField(null=True, blank=True, default=0)
+    apply_count = models.IntegerField(null=True, blank=True, default=0)
     created_date = models.DateTimeField(default=timezone.now)
     #like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL,
      #                                      blank=True,

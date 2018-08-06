@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^how_it_works/$',WorkView.as_view(), name='how_it_works'),
     url(r'^life_in_korea/$', LifeView.as_view(), name='life_in_korea'),
     url(r'^qulification/$', QualView.as_view(), name='qulification'),
+    url(r'^i_can_see/', include('Admin.urls', namespace='see')),
     url(r'^employer/(?P<slug>[-\w]+)/$', EmployerUpdateView.as_view(), name='employer_update'),
     url(r'^mypage/(?P<slug>[-\w]+)/$', UserUpdateView.as_view(), name='user_update'),
     url(r'^accounts/login/$', auth_views.login,name = 'login_url'),

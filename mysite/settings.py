@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Account',
     'Job',
     'imagekit',
+    'Admin',
 ]
 
 #AUTHENTICATION_BACKENDS = ('Account.backends.OpencartBackend',)

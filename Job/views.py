@@ -203,6 +203,8 @@ def post_new(request):
     if request.method == 'POST':
         form = Job_InfoForm(request.POST, request.FILES) # NOTE: 인자 순서주의 POST, FILES
         if form.is_valid(): # form의 모든 validators 호출 유효성 검증 수행
+            boardData = User.objects.get(slug=request.user.slug)
+            User.objects.filter(slug=request.user.slug).update(job_count=boardData.job_count + 1)
             post = form.save() # PostForm 클래스에 정의된 save() 메소드 호출
             return redirect('Job:detail', post.id) # Model 클래스에 정의된 get_absolute_url() 메소드 호출
         else:
@@ -219,6 +221,10 @@ class JobApplyView(LoginRequiredMixin, CreateView):
               'start_date', 'prefer_class', 'resume', 'job', 'user']
     template_name = 'job_apply.html'
     success_url = reverse_lazy('Job:list')
+
+    def form_valid(self, form):
+        boardData = Job_info.objects.get(id=self.kwargs['pk'])
+        Job_info.objects.filter(id=self.kwargs['pk']).update(apply_count=boardData.apply_count + 1)
 
     def get_context_data(self, **kwargs):
         context = super(JobApplyView, self).get_context_data(**kwargs)

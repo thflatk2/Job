@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Admin | TeachingHoliday</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Cypress">
+
+{% load staticfiles %}
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "favicon/apple-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "favicon/apple-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "favicon/apple-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "favicon/apple-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "favicon/apple-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "favicon/apple-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "favicon/apple-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "favicon/apple-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static "favicon/android-icon-192x192.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "favicon/favicon-96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/manifest.json" %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    	<link rel="stylesheet" type="text/css" href="{% static "css/organicfoodicons.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/demo.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/component.css" %}"  />
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-grid.css" %}"  />
+	<script src="{% static "js/modernizr-custom.js" %}"></script>
+</head>
+
+<body>
+	<!-- Main container -->
+	<div class="conta">
+		<!-- Blueprint header -->
+		<header class="bp-header cf">
+			<div class="dummy-logo">
+		    	<div class="res-logo"><a href="{% url 'home' %}" title=""><img style="width: 210px;" src="{% static "images/logo.png" %}" alt="" /></a></div>
+				<h2 class="dummy-heading">TeachingHoliday</h2>
+			</div>
+			<div class="bp-header__main">
+				<span class="bp-header__present">TeachingHoliday <span class="bp-tooltip bp-icon bp-icon--about" data-content="Discover Your Perfect Job"></span></span>
+				<h1 class="bp-header__title">Admin Page</h1>
+                <nav class="bp-nav">
+					<a class="bp-nav__item bp-icon bp-icon--prev" href="{% url 'see:home' %}" data-info="Job"><span>Job</span></a>
+					<!--a class="bp-nav__item bp-icon bp-icon--next" href="" data-info="next Blueprint"><span>Next Blueprint</span></a-->
+					<a class="bp-nav__item bp-icon bp-icon--drop" href="{% url 'home' %}" data-info="Home"><span>Home</span></a>
+					<a class="bp-nav__item bp-icon bp-icon--archive" href="{% url 'Job:list' %}" data-info="Job List"><span>Job List</span></a>
+				</nav>
+			</div>
+		</header>
+		<button class="action action--open" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
+		<nav id="ml-menu" class="menu">
+			<button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+			<div class="menu__wrap">
+				<ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
+					<li><a class="menu__link" href="{% url 'see:applicant_admin' %}">Applicants</a></li>
+					<li><a class="menu__link" href="{% url 'see:recruiter_admin' %}">Recruiters</a></li>
+					<li><a class="menu__link" href="{% url 'see:job_admin' %}">Job</a></li>
+					<li><a class="menu__link" href="{% url 'see:apply_admin' %}">Job Apply</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="content">
+            <div class="col-md-12 info">
+                <div class="col-md-6" style="float: left;">
+                    <p>누가 - {{ Job.user }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>학원 이름 - {{ Job.school_name }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>제목 - {{ Job.job_title }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>요약 - {{ Job.summary }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>반 크기 - {{ Job.class_size }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>시작 날짜 - {{ Job.start_date }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>학생분류 - {{ Job.age_level }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>위치 - {{ Job.location }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>계약기간 - {{ Job.contract_period }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>근무시간 - {{ Job.day_hour }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>최저임금 - {{ Job.min_salary }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>최대임금 - {{ Job.max_salary }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>비행기표 - {{ Job.flight_support }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>주거제공 - {{ Job.house }}</p>
+                </div>
+                 <div class="col-md-6" style="float: left;">
+                    <p>임대료 - {{ Job.allowance }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>퇴직급여 - {{ Job.severance_payment }}</p>
+                </div>
+                 <div class="col-md-6" style="float: left;">
+                    <p>건강보험 - {{ Job.health_insurance }}</p>
+                </div>
+                 <div class="col-md-6" style="float: left;">
+                    <p>국민연금 - {{ Job.national_pension }}</p>
+                </div>
+                <div class="col-md-6" style="float: left;">
+                    <p>조회수 - {{ Job.hits }}</p>
+                </div>
+                 <div class="col-md-6" style="float: left;">
+                    <p>지원수 - {{ Job.apply_count }}</p>
+                </div>
+            </div>
+		</div>
+	</div>
+	<!-- /view -->
+	<script src="{% static "js/classie.js" %}"></script>
+	<script src="{% static "js/main.js" %}"></script>
+	<script>
+	(function() {
+		var menuEl = document.getElementById('ml-menu'),
+			mlmenu = new MLMenu(menuEl, {
+				// breadcrumbsCtrl : true, // show breadcrumbs
+				// initialBreadcrumb : 'all', // initial breadcrumb text
+				backCtrl : false, // show back button
+				// itemsDelayInterval : 60, // delay between each menu item sliding animation
+				onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+			});
+
+		// mobile menu toggle
+		var openMenuCtrl = document.querySelector('.action--open'),
+			closeMenuCtrl = document.querySelector('.action--close');
+
+		openMenuCtrl.addEventListener('click', openMenu);
+		closeMenuCtrl.addEventListener('click', closeMenu);
+
+		function openMenu() {
+			classie.add(menuEl, 'menu--open');
+			closeMenuCtrl.focus();
+		}
+
+		function closeMenu() {
+			classie.remove(menuEl, 'menu--open');
+			openMenuCtrl.focus();
+		}
+
+		// simulate grid content loading
+		var gridWrapper = document.querySelector('.content');
+
+		function loadDummyData(ev, itemName) {
+			ev.preventDefault();
+
+			closeMenu();
+			gridWrapper.innerHTML = '';
+			classie.add(gridWrapper, 'content--loading');
+			setTimeout(function() {
+				classie.remove(gridWrapper, 'content--loading');
+				gridWrapper.innerHTML = '<ul class="products">' + dummyData[itemName] + '<ul>';
+			}, 700);
+		}
+	})();
+	</script>
+
+</body>
+
+</html>
