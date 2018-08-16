@@ -51,7 +51,7 @@
 				<span class="bp-header__present">TeachingHoliday <span class="bp-tooltip bp-icon bp-icon--about" data-content="Discover Your Perfect Job"></span></span>
 				<h1 class="bp-header__title">Admin Page</h1>
                 <nav class="bp-nav">
-					<a class="bp-nav__item bp-icon bp-icon--prev" href="{% url 'see:home' %}" data-info="Apply Admin"><span>Apply Admin</span></a>
+					<a class="bp-nav__item bp-icon bp-icon--prev" href="{% url 'see:applicant_admin' %}" data-info="Applicants"><span>Applicants</span></a>
 					<!--a class="bp-nav__item bp-icon bp-icon--next" href="" data-info="next Blueprint"><span>Next Blueprint</span></a-->
 					<a class="bp-nav__item bp-icon bp-icon--drop" href="{% url 'home' %}" data-info="Home"><span>Home</span></a>
 					<a class="bp-nav__item bp-icon bp-icon--archive" href="{% url 'Job:list' %}" data-info="Job List"><span>Job List</span></a>
@@ -74,66 +74,43 @@
 		<div class="content">
             <div class="col-md-12 info" style="float: left;margin-bottom: 100px">
                 <div class="col-md-6" style="float: left;">
-                    <p>이름 - {{ Apply.user.first_name }}    {{ Apply.user.last_name }}</p>
+                    <p>이름 - {{ Recruiter.name }}</p>
                 </div>
                 <div class="col-md-6" style="float: left;">
-                    <p>이메일 - {{ Apply.email }}</p>
+                    <p>이메일 - {{ Recruiter.email }}</p>
                 </div>
                 <div class="col-md-6" style="float: left;">
-                    <p>국적 - {{ Apply.country }}</p>
-                </div>
-                <div class="col-md-6" style="float: left;">
-                    <p>성별 - {{ Apply.gender }}</p>
-                </div>
-                <div class="col-md-6" style="float: left;">
-                    <p>생일 - {{ Apply.birth }}</p>
-                </div>
-                <div class="col-md-6" style="float: left;">
-                    <p>거주지 - {{ Apply.cur_residence }}</p>
-                </div>
-                <div class="col-md-6" style="float: left;">
-                    {% if Apply.graduate %}
-                    <p>졸업 - {{ Apply.graduate }}</p>
+                    {% if Recruiter.agency_name %}
+                    <p>회사이름 - {{ Recruiter.agency_name }}</p>
                     {% endif %}
                 </div>
                 <div class="col-md-6" style="float: left;">
-                    {% if Apply.estimate_graduate %}
-                    <p>졸업 예정 - {{ Apply.estimate_graduate }}</p>
+                    {% if Recruiter.cur_residence %}
+                    <p>거주지 - {{ Recruiter.cur_residence }}</p>
                     {% endif %}
                 </div>
                 <div class="col-md-6" style="float: left;">
-                    <p>대학교 - {{ Apply.university }}</p>
+                    {% if Recruiter.introduction %}
+                    <p>소개 - {{ Recruiter.introduction }}</p>
+                    {% endif %}
                 </div>
                 <div class="col-md-6" style="float: left;">
-                    <p>전공 - {{ Apply.major }}</p>
-                </div>
-                <div class="col-md-6" style="float: left;">
-                    <p><a href="{% url 'Job:detail' Apply.job.pk %}">{{ Apply.job.school_name }}</a></p>
+                    {% if Recruiter.phone %}
+                    <p>핸드폰 - {{ Recruiter.phone }}</p>
+                    {% endif %}
                 </div>
                 <div class="col-md-12" style="float: left;">
                     <div class="mp-col">
-                        {% if Apply.profile_image1 %}
-                            <div class="mportolio"><img width="200px" src="{{ Apply.profile_image1.url }}" alt="" /><a href="{{ Apply.profile_image1.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
-                            {% else %}
-                            <div class="mportolio"><img width="200px" src="{{ Apply.user.user_pic1.url }}" alt="" /><a href="{{ Apply.user.user_pic1.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
-                        {% endif %}
-                    </div>
-                    <div class="mp-col">
-                        {% if Apply.profile_image2 %}
-                            <div class="mportolio"><img width="200px" src="{{ Apply.profile_image2.url }}" alt="" /><a href="{{ Apply.profile_image2.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
-                            {% else %}
-                            <div class="mportolio"><img width="200px" src="{{ Apply.user.user_pic2.url }}" alt="" /><a href="{{ Apply.user.user_pic2.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
+                        {% if Recruiter.user_pic1 %}
+                            <div class="mportolio"><img width="200px" src="{{ Applicant.user_pic1.url }}" alt="" /><a href="{{ Applicant.user_pic1.url }}" target="_blank" title=""><i class="la la-search"></i></a></div>
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-md-6" style="float: left;">
-                    {% if Apply.resume %}
-                        <a id="download-resume" href="{{ Apply.resume.url }}" title="" class="save-resume" download>Save Resume</a>
-                        {% else %}
-                        <a id="download-resume" href="{{ Apply.user.resume.url }}" title="" class="save-resume" download>Save Resume</a>
-                    {% endif %}
-                </div>
-
+                {% for foo in Job %}
+                    <div class="col-md-12" style="float: left;">
+                        <a id="download-resume" href="{% url 'Job:detail' foo.pk %}" class="save-resume">{{ foo.school_name }}</a>
+                    </div>
+                {% endfor %}
             </div>
 		</div>
 	</div>

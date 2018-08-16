@@ -84,7 +84,7 @@
                     </thead>
                     <tbody>
                     {% for recruiter in Recruiters %}
-                        <tr>
+                        <tr onclick="location.href='{% url 'see:recruiter_detail_admin' recruiter.pk %}'">
                             <td style="cursor: pointer">
                                 <div class="table-list-title">
                                     <i>{{ recruiter.name }}</i>

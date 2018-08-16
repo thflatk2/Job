@@ -15,7 +15,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['Jobs'] = Job_info.objects.all().order_by('created_date')[:6]
+        context['Jobs'] = Job_info.objects.all().order_by('-created_date')[:6]
 
         return context
 

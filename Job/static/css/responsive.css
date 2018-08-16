@@ -141,8 +141,9 @@ header {
     margin-bottom: 10PX;
 }
 
-
-
+.job-grid .job-lctn {
+    width: 155px;
+}
 
 }
 
@@ -168,6 +169,10 @@ header {
 .manage-jobs-sec.addscroll {
     overflow-x: scroll;
     overflow-y: hidden;
+}
+
+.job-grid .job-lctn {
+    width: 255px;
 }
 
 #apply-already{
@@ -437,10 +442,7 @@ select {
     padding-bottom: 10px;
 }
 
-
-
 .p-category > a{border-right: none;}
-
 
 .find-cand form{border-radius: 8px;}
 .find-cand form .job-field{width: 100%; border-bottom: 1px solid #e8ecec; border-radius: 0px;}
@@ -448,7 +450,6 @@ select {
 .find-cand .job-field::before{background-color: #FFF;}
 .find-cand form .job-field input{padding: 17px 20px !important;}
 .find-cand form select{padding: 17px 20px !important;}
-
 
 
 .manage-jobs-sec .extra-job-info{margin-left: 0px; width: 100%;}
@@ -474,25 +475,17 @@ select {
     margin: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 }
 
-
-
-
-
-
 @media (max-width:767px){
+.job-grid .job-lctn {
+    width: 100%;
+}
+
+.job-grid > a{
+    float: unset;
+}
+
 .overlape{
     display: none;
 }
@@ -763,6 +756,10 @@ select {
     display: inline-block;
     padding: 0;
     margin-top: 12px;
+}
+
+.home-job-grid{
+    text-align: center;
 }
 .job-listing .job-is {
     float: none;
@@ -1078,6 +1075,10 @@ select {
     transform: translateX(-50%);
 }
 
+.job-single-info3 > div > div > p{
+    text-indent: unset;
+}
+
 .download_widget{
     float: unset;
     width: 175px;
@@ -1130,6 +1131,10 @@ select {
 .profile-form-edit > div {
     padding: unset;
     margin-top: 15px;
+}
+
+.job-grid .job-lctn {
+    width: 185px;
 }
 
 #empolyee-introduction{
@@ -1395,6 +1400,7 @@ select {
 
 .last-icon{
     float: left;
+    height: 50px;
 }
 .emply-list-info > span{
     width: 60%;
@@ -1450,6 +1456,9 @@ select {
 
 .job-icon-location{
     float: left;
+    text-align: left;
+    margin-top: unset;
+    width: unset;
 }
 
 .block{
@@ -1489,6 +1498,14 @@ select {
 
 .manual_des{
     display: none;
+}
+
+.job-details p{
+    text-indent: unset;
+}
+
+.left-col{
+    margin-right: 4%;
 }
 
 .emply-pstn {

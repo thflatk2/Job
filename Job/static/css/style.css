@@ -2441,9 +2441,16 @@ header.style2 nav {
 }
 .job-grid .job-lctn {
     float: left;
-    width: auto;
+    width: 220px;
     font-size: 13px;
     margin: 18px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 .job-grid > a {
     float: right;
@@ -4887,7 +4894,7 @@ aside .widget:first-child {
         position: relative;
     margin-left: 0;
     margin-right: 15px;
-    top: 0.5px;
+    top: -1px;
     color: #888888;
 }
 
@@ -5647,6 +5654,8 @@ aside .widget.border {
 
 .job-icon-location{
     float: left;
+    margin-top: 10px;
+    width: 100%;
 }
 
 .job-location {
@@ -5745,9 +5754,10 @@ aside .widget.border {
     margin: 1px 0;
     margin-left: 18px;
 }
+
 .tags-jobs {
     float: left;
-    width: 100%;
+    width: 105%;
     margin: 0;
         margin-top: 0px;
     margin-top: 20px;
@@ -5768,6 +5778,7 @@ aside .widget.border {
     line-height: 15px;
     margin-right: 8px;
     color: #55acff;
+    width: unset;
 }
 .tags-jobs > li span {
     color: #8b91dd;
@@ -6228,6 +6239,7 @@ aside .widget.border {
 .list-icon{
     margin-right: 10px;
     color: #55acff;
+    width: 20px;
 }
 
 .house_picture{
@@ -6245,6 +6257,7 @@ aside .widget.border {
 .job-detail{
 }
 .des_detail{
+    padding-right: unset;
     padding-left: unset;
 }
 .job-single-info3 > .des_detail_div{
@@ -7989,8 +8002,9 @@ o{
 .action_job > li > a {
     float: left;
     font-size: 16px;
-    color: #9c9c9c;
+    color: #000000;
     padding: 0 6px;
+    font-weight: bold;
 }
 .action_job > li span {
     position: absolute;

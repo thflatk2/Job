@@ -205,6 +205,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         {% else %}
 
                                         {% endif %}
+                                    {% else %}
+                                        <a class="apply-thisjob" href="{% url 'login_url' %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
                                     {% endif %}
                                     </div>
 				 				</div>
@@ -216,46 +218,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                             <div class="job-detail">
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6 col-xl-6"> <h3>School Name</h3></div>
-                                                    <div class="col-lg-6 col-xl-6"> <h3>Class Size</h3></div>
+                                                    <div class="col-lg-6 left-col"> <h3>School Name</h3></div>
+                                                    <div class="col-lg-6"> <h3>Class Size</h3></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"> <p>{{ Jobs.school_name }}</p></div>
+                                                    <div class="col-lg-6 left-col"> <p>{{ Jobs.school_name }}</p></div>
                                                     <div class="col-lg-6"> <p>{{ Jobs.class_size }}</p></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"> <h3>Starting Date</h3></div>
+                                                    <div class="col-lg-6 left-col"> <h3>Starting Date</h3></div>
                                                     <div class="col-lg-6"> <h3>Location</h3></div>
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"> <p>{{ Jobs.start_date }}</p></div>
+                                                    <div class="col-lg-6 left-col"> <p>{{ Jobs.start_date }}</p></div>
                                                     <div class="col-lg-6"> <p>{{ Jobs.location }}</p></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"> <h3>Working days and hours</h3></div>
+                                                    <div class="col-lg-6 left-col"> <h3>Working days and hours</h3></div>
                                                     <div class="col-lg-6"> <h3>Salary</h3></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"> <p>{{ Jobs.day_hour }}</p></div>
+                                                    <div class="col-lg-6 left-col"> <p>{{ Jobs.day_hour }}</p></div>
                                                     <div class="col-lg-6"> <p>{{ Jobs.min_salary }}M ~ {{ Jobs.max_salary }}M KRW</p></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"> <h3>Contract Period</h3></div>
+                                                    <div class="col-lg-6 left-col"> <h3>Contract Period</h3></div>
                                                     <div class="col-lg-6"> <h3>Age Level</h3></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"><p>{{ Jobs.contract_period }} Month +</p></div>
-                                                    <div class="col-lg-6">
-
-                                                            <p>{{ Jobs.age_level }}</p>
-
-                                                    </div>
+                                                    <div class="col-lg-6 left-col"><p>{{ Jobs.contract_period }} Month +</p></div>
+                                                    <div class="col-lg-6"><p>{{ Jobs.age_level }}</p></div>
                                                 </div>
                                             </div>
 							 			</div>
@@ -264,12 +262,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <h3 class="des_detail_div">Additonal Benefit</h3>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"><h3>Housing</h3></div>
+                                                    <div class="col-lg-6 left-col"><h3>Housing</h3></div>
                                                     <div class="col-lg-6"><h3>Housing Allowance</h3></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 left-col">
                                                         {% if Jobs.house %}
                                                         <p>Yes</p>
                                                         {% else %}
@@ -286,12 +284,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"><h3>Health Insurance</h3></div>
+                                                    <div class="col-lg-6 left-col"><h3>Health Insurance</h3></div>
                                                     <div class="col-lg-6"><h3>Flight Support</h3></div>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 left-col">
                                                         {% if Jobs.health_insurance %}
                                                         <p>Yes</p>
                                                         {% else %}
@@ -312,11 +310,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 </div>
 
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6"><h3>Severance Payment</h3></div>
+                                                    <div class="col-lg-6 left-col"><h3>Severance Payment</h3></div>
                                                     <div class="col-lg-6"><h3>National Pension </h3></div>
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 left-col">
                                                         {% if Jobs.severance_payment %}
                                                         <p>Yes</p>
                                                         {% else %}

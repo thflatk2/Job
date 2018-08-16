@@ -219,7 +219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div class="row">
                                 {% for Job in Jobs %}
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" onclick="location.href='{% url 'Job:detail' Job.pk %}'" style="cursor: pointer;">
-									<div class="job-grid">
+									<div class="job-grid home-job-grid">
 										<div class="job-title-sec">
 											<h3><a href="#" title="">{{ Job.school_name }}</a></h3>
 											<span>{{ Job.min_salary }}M ~ {{ Job.max_salary }}M KRW</span>

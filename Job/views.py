@@ -226,6 +226,8 @@ class JobApplyView(LoginRequiredMixin, CreateView):
         boardData = Job_info.objects.get(id=self.kwargs['pk'])
         Job_info.objects.filter(id=self.kwargs['pk']).update(apply_count=boardData.apply_count + 1)
 
+        return super(JobApplyView,self).form_valid(form)
+
     def get_context_data(self, **kwargs):
         context = super(JobApplyView, self).get_context_data(**kwargs)
         context['Jobs'] = Job_info.objects.get(pk=self.kwargs['pk'])

@@ -80,6 +80,7 @@
                         <td>Birth</td>
                         <td>Country</td>
                         <td>Gender</td>
+                        <td>Apply Date</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -87,7 +88,7 @@
                         <tr onclick="location.href='{% url 'see:apply_detail_admin' Apply.pk %}'">
                             <td style="cursor: pointer">
                                 <div class="table-list-title">
-                                    <i>{{ Apply.user.name }}</i>
+                                    <i>{{ Apply.user.first_name }}    {{ Apply.user.last_name }}</i>
                                 </div>
                             </td>
                             <td style="cursor: pointer">
@@ -105,6 +106,11 @@
                                     <i>{{ Apply.gender }}</i>
                                 </div>
                             </td>
+                            <td style="cursor: pointer">
+                                <div class="table-list-title">
+                                    <i>{{ Apply.created_date }}</i>
+                                </div>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -113,14 +119,14 @@
 
             <div class="pagination">
                 <ul>
-                    {% if Jobs.has_previous %}
-                        <li class="prev"><a href="?page={{ Jobs.previous_page_number }}"><i class="la la-long-arrow-left"></i> Prev</a></li>
-                        <li><a href="?page={{ Jobs.previous_page_number }}">{{ Jobs.previous_page_number }}</a></li>
+                    {% if Applies.has_previous %}
+                        <li class="prev"><a href="?page={{ Applies.previous_page_number }}"><i class="la la-long-arrow-left"></i> Prev</a></li>
+                        <li><a href="?page={{ Applies.previous_page_number }}">{{ Applies.previous_page_number }}</a></li>
                     {% endif %}
-                    <li class="active current"><a href="">{{ Jobs.number }}</a></li>
-                    {% if Jobs.has_next %}
-                        <li><a href="?page={{ Jobs.next_page_number }}">{{ Jobs.next_page_number }}</a></li>
-                        <li class="next"><a href="?page={{ Jobs.next_page_number }}">Next <i class="la la-long-arrow-right"></i></a></li>
+                    <li class="active current"><a href="">{{ Applies.number }}</a></li>
+                    {% if Applies.has_next %}
+                        <li><a href="?page={{ Applies.next_page_number }}">{{ Applies.next_page_number }}</a></li>
+                        <li class="next"><a href="?page={{ Applies.next_page_number }}">Next <i class="la la-long-arrow-right"></i></a></li>
                     {% endif %}
                 </ul>
             </div><!-- Pagination -->
