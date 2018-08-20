@@ -1059,6 +1059,15 @@ select {
     right: 20px;
     z-index: 9;
 }
+
+.activate_notice {
+    width: 100%;
+    height: unset;
+    right: unset;
+    bottom: 0;
+    border-radius: unset;
+}
+
 .inner2 {
     display: inline;
 }
@@ -1744,6 +1753,7 @@ select{
 
 .or-browser > .works-but{
     top: 10px;
+        padding: 20px 73px;
 }
 
 .or-browser{

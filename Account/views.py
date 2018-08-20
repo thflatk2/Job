@@ -30,6 +30,7 @@ class UserActivateView(TemplateView):
 
         if user is not None and PasswordResetTokenGenerator().check_token(user, token):
             user.is_active = True
+            user.activate = True
             user.save()
             self.logger.info('User %s(pk=%s) has been activated.' % (user, user.pk))
 

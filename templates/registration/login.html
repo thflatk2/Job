@@ -76,24 +76,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<span>User Login</span>
 	                            <form name="login" action="." method="post">{% csrf_token %}
                                     {% if form.errors %}
-                                        <script>
-                                            alert("Please enter correct ID or Password!\n If you have an account, please check your email verification.");
-                                        </script>
+                                        <div class="account-popup-area signin-popup-box" style="overflow-y: hidden">
+                                            <div class="account-popup">
+                                                <span class="close-popup"><i class="la la-close"></i></span>
+                                                <h3>Hi there!</h3>
+                                                    <p style="margin-bottom: 0">Please enter correct ID or Password!</p>
+                                            </div>
+                                        </div><!-- LOGIN POPUP -->
+
                                     {% endif %}
 									<div class="cfield">
-                                        <input id="id_username" name="username" type="text" placeholder="Email" />
+                                        <input id="id_username" name="username" type="text" placeholder="ID  (email)" />
 										<i class="la la-user"></i>
 									</div>
 									<div class="cfield">
-										<input id="id_password" name="password" type="password" placeholder="********" />
+										<input id="id_password" name="password" type="password" placeholder="Password  (at least 8 characters)" />
 										<i class="la la-key"></i>
 									</div>
-									<p class="remember-label">
+									<!--<p class="remember-label">
 										<input type="checkbox" name="cb" id="cb1"><label for="cb1">Remember me</label>
 									</p>
-									<!--<a href="{% url 'password_reset' %}" title="">Forgot Password?</a>-->
+									<a href="{% url 'password_reset' %}" title="">Forgot Password?</a>-->
 									<button type="submit">Login</button>
-                                    <a id="make_account" href="{% url 'register' %}">Don't you have an account? Join today!</a>
+                                    <a id="login_signup" href='{% url 'register' %}' >Sign Up</a>
 								</form>
                             <!--
 								<div class="extra-login">

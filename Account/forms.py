@@ -147,9 +147,10 @@ class WebUserCreationForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(WebUserCreationForm, self).save(commit=False)
-
+        print("asdasda")
         if commit:
-            user.is_active = False
+            user.is_active = True
+            user.activate = False
             user.save()
 
             # Send user activation mail

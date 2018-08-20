@@ -928,7 +928,6 @@ label::after {
     float: left;
     width: 100%;
     text-align: center;
-    margin-top: 10px;
 }
 .select-user > span {
     float: none;
@@ -949,6 +948,17 @@ label::after {
         margin-top: 0px;
     margin-top: 5px;
     cursor: pointer;
+}
+
+.select-user > span:hover{
+    border-color: #55acff;
+}
+
+.select-user > p{
+    float: left;
+    margin-bottom: 20px;
+    padding-top: 7px;
+    font-weight: bold;
 }
 .account-popup > form {
     float: left;
@@ -1007,7 +1017,7 @@ label::after {
     font-size: 17px;
     font-weight: bold;
     letter-spacing: 0.3px;
-    margin-top: 20px;
+    margin-top: 10px;
     
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -1103,6 +1113,28 @@ label::after {
 
     cursor: pointer;
 }
+
+.activate_notice{
+        position: fixed;
+    width: 150px;
+    height: 115px;
+    background-color: red;
+    z-index: 100;
+    top: 100px;
+    right: 50px;
+    border-radius: 60px;
+}
+
+.activate_notice > p{
+     color: white;
+    padding: 26px 20px;
+    text-align: center;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 0;
+
+}
+
 .no-scroll {
     overflow: hidden;
 }
@@ -5731,6 +5763,30 @@ aside .widget.border {
     padding-bottom: 50px;
     border-bottom: 1px solid #e8ecec;
 }
+
+#login_signup{
+    background: #55acff;
+    color: white;
+    float: left;
+    width: 100%;
+    height: 60px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    margin-top: 20px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    padding: 19px 30px;
+    text-decoration: unset;
+}
+
+#login_signup:hover{
+    background-color: #244fff;
+}
+
 .job-title2 {
     float: left;
     width: 100%;

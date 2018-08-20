@@ -167,6 +167,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 	</header>
 
+{% if user.is_active %}
+{% if user.activate %}
+{% else %}
+    <div class="activate_notice">
+        <p>Plese check your Inbox for verification.</p>
+    </div>
+{% endif %}
+{% endif %}
 	<section>
 		<div class="block no-padding">
 			<div class="container fluid">
@@ -190,7 +198,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <a class="works-but" href="{% url 'user_update' user.slug %}" title="">Post Resume</a>
                                             {% endif %}
                                         {% else %}
-                                            <a class="works-but" href="{% url 'login_url' %}" title="">Go to Mypage</a>
+                                            <a class="works-but" href="{% url 'register' %}" title="">Sign Up</a>
                                         {% endif %}
                                         {%  if user.type == "Employer" %}
                                             <a href="{% url 'Job:upload' %}" title="">Post a new Job</a>
@@ -218,14 +226,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="job-grid-sec">
 							<div class="row">
                                 {% for Job in Jobs %}
-								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" onclick="location.href='{% url 'Job:detail' Job.pk %}'" style="cursor: pointer;">
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12"  style="cursor: pointer;">
 									<div class="job-grid home-job-grid">
-										<div class="job-title-sec">
+										<div class="job-title-sec" onclick="location.href='{% url 'Job:detail' Job.pk %}'">
 											<h3><a href="#" title="">{{ Job.school_name }}</a></h3>
 											<span>{{ Job.min_salary }}M ~ {{ Job.max_salary }}M KRW</span>
 										</div>
-										<span class="job-lctn">{{ Job.location }}</span>
-										<a  href="{% url 'Job:apply' Job.pk %}" title="">APPLY NOW</a>
+										<span class="job-lctn" onclick="location.href='{% url 'Job:detail' Job.pk %}'">{{ Job.location }}</span>
+                                        {% if user.is_active %}
+                                            {% if user.type == "Applicant" %}
+                                                {% if user.activate %}
+        										    <a  href="{% url 'Job:apply' Job.pk %}" title="">APPLY NOW</a>
+                                                {% else %}
+        										    <a class="signup-popup" title="">APPLY NOW</a>
+                                                {% endif %}
+                                            {% else %}
+                                            {% endif %}
+                                        {% else %}
+                                                <a  href="{% url 'login_url' %}" title="">APPLY NOW</a>
+                                        {% endif %}
 									</div><!-- JOB Grid -->
 								</div>
                             {% endfor %}
@@ -414,6 +433,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div><!-- LOGIN POPUP -->
             {% endif %}
         {% endif %}
+
+            <div class="account-popup-area signup-popup-box">
+	<div class="account-popup">
+		<span class="close-popup"><i class="la la-close"></i></span>
+		<h3>Notice</h3>
+		<div class="select-user">
+            <p style="margin-bottom: 0">After verification, You can apply this job.</p>
+	        <p style="line-height: 0">Please check your Inbox for verification email.</p>
+		</div>
+	</div>
+</div><!-- SIGNUP POPUP -->
     {% endif %}
 
 

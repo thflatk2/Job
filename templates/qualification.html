@@ -134,6 +134,15 @@
 		</div>
 	</header>
 
+{% if user.is_active %}
+{% if user.activate %}
+{% else %}
+    <div class="activate_notice">
+        <p>Plese check your Inbox for verification.</p>
+    </div>
+{% endif %}
+{% endif %}
+
 	<section>
 		<div class="block gray" id="qualification-div">
 			<div class="container">

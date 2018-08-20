@@ -128,6 +128,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     agency_name = models.CharField(max_length=30, null=True, blank=True)
     introduction = models.TextField(null=True, blank=True)
     job_count = models.IntegerField(null=True, blank=True, default=0)
+    activate = models.BooleanField(default=True)
 
     objects = UserManager()
 

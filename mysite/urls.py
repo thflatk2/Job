@@ -27,8 +27,8 @@ urlpatterns = [
 
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^Job/', include('Job.urls', namespace='Job')),
-    url(r'^how_it_works/$',WorkView.as_view(), name='how_it_works'),
-    url(r'^life_in_korea/$', LifeView.as_view(), name='life_in_korea'),
+    url(r'^how-it-works/$',WorkView.as_view(), name='how_it_works'),
+    url(r'^life-in-korea/$', LifeView.as_view(), name='life_in_korea'),
     url(r'^qulification/$', QualView.as_view(), name='qulification'),
     url(r'^i_can_see/', include('Admin.urls', namespace='see')),
     url(r'^employer/(?P<slug>[-\w]+)/$', EmployerUpdateView.as_view(), name='employer_update'),
