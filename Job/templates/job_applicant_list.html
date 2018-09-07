@@ -144,6 +144,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 	</header>
+{% if user.is_active %}
+{% if user.activate %}
+{% else %}
+    <div class="activate_notice">
+        <p>Plese check your Inbox for verification.</p>
+    </div>
+{% endif %}
+{% endif %}
 
 	<section class="overlape">
 		<div class="block no-padding">

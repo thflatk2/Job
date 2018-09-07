@@ -44,6 +44,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -142,6 +143,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 	</header>
 
+{% if user.is_active %}
+{% if user.activate %}
+{% else %}
+    <div class="activate_notice">
+        <p>Plese check your Inbox for verification.</p>
+    </div>
+{% endif %}
+{% endif %}
+
 	<section class="overlape">
 		<div class="block no-padding">
 			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -183,24 +193,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				 					<div class="col-lg-4">
                                     {% if user.is_active %}
                                         {% if user.type == "Applicant" %}
-                                            {% if already %}
-                                                {% for ready in already %}
-                                                    {% if ready.user == user %}
-                                                        <p id="apply-already">You already apply this job</p>
-                                                    {% else %}
-                                                        {% if ready.user.first_name and ready.user.last_name %}
-                                                            <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                            {% if user.activate %}
+                                                {% if already %}
+                                                    {% for ready in already %}
+                                                        {% if ready.user == user %}
+                                                            <p id="apply-already">You already apply this job</p>
                                                         {% else %}
-                                                            <a class="apply-thisjob signin-popup" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                            {% if ready.user.first_name and ready.user.last_name %}
+                                                                <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                            {% else %}
+                                                                <a class="apply-thisjob signin-popup" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                            {% endif %}
                                                         {% endif %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            {% else %}
-                                                {% if user.first_name and user.last_name %}
-                                                    <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <a class="apply-thisjob signin-popup" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                    {% if user.first_name and user.last_name %}
+                                                        <a class="apply-thisjob" href="{% url 'Job:apply' Jobs.pk %}" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                    {% else %}
+                                                        <a class="apply-thisjob signin-popup" title=""><i class="la la-paper-plane"></i>Apply for job</a>
+                                                    {% endif %}
                                                 {% endif %}
+                                            {% else %}
+                                                <a class="apply-thisjob signup-popup" title=""><i class="la la-paper-plane"></i>Apply for job</a>
                                             {% endif %}
                                         {% else %}
 
@@ -433,6 +447,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     </div>
                 </div><!-- LOGIN POPUP -->
+{% endif %}
+
+{% if user.activate %}
+
+    {% else %}
+        <div class="account-popup-area signup-popup-box">
+	<div class="account-popup">
+		<span class="close-popup"><i class="la la-close"></i></span>
+		<h3>Notice</h3>
+		<div class="select-user">
+            <p style="margin-bottom: 0">After verification, You can apply this job.</p>
+	        <p style="line-height: 0">Please check your Inbox for verification email.</p>
+		</div>
+	</div>
+</div><!-- SIGNUP POPUP -->
 {% endif %}
 
 

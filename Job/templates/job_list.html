@@ -50,6 +50,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static "css/colors/colors.css" %}"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -146,6 +147,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 	</header>
+
+{% if user.is_active %}
+{% if user.activate %}
+{% else %}
+    <div class="activate_notice">
+        <p>Plese check your Inbox for verification.</p>
+    </div>
+{% endif %}
+{% endif %}
 
 	<section class="overlape">
 		<div class="block no-padding">
